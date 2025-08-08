@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 The Design and Analysis of Factorial Experiments: Microwave Popcorn | Making Decisions with Data</title>
+  <meta name="description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 The Design and Analysis of Factorial Experiments: Microwave Popcorn | Making Decisions with Data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 The Design and Analysis of Factorial Experiments: Microwave Popcorn | Making Decisions with Data" />
+  
+  <meta name="twitter:description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  
+
+<meta name="author" content="Shonda Kuiper" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="multiple-regression-how-much-is-your-car-worth.html"/>
+<link rel="next" href="blocks.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html"><i class="fa fa-check"></i><b>1</b> Nonparametric Methods: Schistosomiasis</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#investigation-can-a-new-drug-reduce-the-spread-of-schistosomiasis"><i class="fa fa-check"></i><b>1.1</b> Investigation: Can a New Drug Reduce the Spread of Schistosomiasis?</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-describing-the-data"><i class="fa fa-check"></i>Activity: Describing the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#statistical-inference-through-a-randomization-test"><i class="fa fa-check"></i><b>1.2</b> Statistical Inference Through a Randomization Test</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-conducting-a-randomization-test-by-hand"><i class="fa fa-check"></i>Activity: Conducting a Randomization Test by Hand</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#performing-a-randomization-test-using-a-computer-simulation"><i class="fa fa-check"></i><b>1.3</b> Performing a Randomization Test Using a Computer Simulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-using-computer-simulations-to-conduct-a-hypothesis-test"><i class="fa fa-check"></i>Activity: Using Computer Simulations to Conduct a Hypothesis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#two-sided-tests"><i class="fa fa-check"></i><b>1.4</b> Two-Sided Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-a-two-sided-hypothesis-test"><i class="fa fa-check"></i>Activity: A Two-Sided Hypothesis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#what-can-we-conclude-from-the-schistosomiasis-study"><i class="fa fa-check"></i><b>1.5</b> What Can We Conclude from the Schistosomiasis Study?</a></li>
+<li class="chapter" data-level="1.6" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#permutation-tests-versus-randomization-tests"><i class="fa fa-check"></i><b>1.6</b> Permutation Tests versus Randomization Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#age-discrimination-study"><i class="fa fa-check"></i>Age Discrimination Study</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-is-there-evidence-of-age-discrimination"><i class="fa fa-check"></i>Activity: Is There Evidence of Age Discrimination?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#permutation-and-randomization-tests-for-matched-pairs-designs"><i class="fa fa-check"></i><b>1.7</b> Permutation and Randomization Tests for Matched Pairs Designs</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#music-and-relaxation"><i class="fa fa-check"></i>Music and Relaxation</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-testing-the-effect-of-music-on-relaxation"><i class="fa fa-check"></i>Activity: Testing the Effect of Music on Relaxation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#the-bootstrap-distribution"><i class="fa fa-check"></i><b>1.8</b> The Bootstrap Distribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-creating-a-sampling-distribution-and-a-bootstrap-distribution"><i class="fa fa-check"></i>Activity: Creating a Sampling Distribution and a Bootstrap Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#using-bootstrap-methods-to-create-confidence-intervals"><i class="fa fa-check"></i><b>1.9</b> Using Bootstrap Methods to Create Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#bootstrap-t-confidence-intervals"><i class="fa fa-check"></i>Bootstrap t Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#bootstrap-percentile-confidence-intervals"><i class="fa fa-check"></i>Bootstrap Percentile Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#when-to-use-bootstrap-confidence-intervals"><i class="fa fa-check"></i>When to Use Bootstrap Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activityestimating-salaries-of-medical-faculty"><i class="fa fa-check"></i>Activity:Estimating Salaries of Medical Faculty</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#relationship-between-the-randomization-test-and-the-two-sample-t-test"><i class="fa fa-check"></i><b>1.10</b> Relationship Between the Randomization Test and the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="1.11" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#wilcoxon-rank-sum-tests-for-two-independent-samples"><i class="fa fa-check"></i><b>1.11</b> Wilcoxon Rank Sum Tests for Two Independent Samples</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-wilcoxon-rank-sum-tests"><i class="fa fa-check"></i>Activity: <em>Wilcoxon Rank Sum Tests</em></a></li>
+</ul></li>
+<li class="chapter" data-level="1.12" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#kruskal-wallis-test-for-two-or-more-independent-samples"><i class="fa fa-check"></i><b>1.12</b> Kruskal-Wallis Test for Two or More Independent Samples</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-kruskal-wallis-test"><i class="fa fa-check"></i>Activity: Kruskal-Wallis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.13" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#multiple-comparisons"><i class="fa fa-check"></i><b>1.13</b> Multiple Comparisons</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-comparing-car-prices"><i class="fa fa-check"></i>Activity: Comparing Car Prices</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-the-least-significant-differences-method-and-the-bonferroni-method"><i class="fa fa-check"></i>Activity: The Least-Significant Differences Method and the Bonferroni Method</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#choosing-a-critical-value"><i class="fa fa-check"></i>Choosing a Critical Value</a></li>
+</ul></li>
+<li class="chapter" data-level="1.14" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#chapter-summary"><i class="fa fa-check"></i><b>1.14</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html"><i class="fa fa-check"></i><b>2</b> Making Connections: The Two-Sample t-Test, Regression, and ANOVA</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#investigation-do-distracting-colors-influence-the-time-to-complete-a-game"><i class="fa fa-check"></i><b>2.1</b> Investigation: Do Distracting Colors Influence the Time to Complete a Game?</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-understanding-the-study-design"><i class="fa fa-check"></i>Activity: Understanding the Study Design</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-two-sample-t-test-to-compare-population-means"><i class="fa fa-check"></i><b>2.2</b> The Two-Sample t-Test to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-statistical-model"><i class="fa fa-check"></i><b>2.2.1</b> The Statistical Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-statistical-models-for-the-two-sample-t-test"><i class="fa fa-check"></i>Activity: Statistical Models for the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-the-two-sample-t-test"><i class="fa fa-check"></i>Model Assumptions for the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-assumptions-for-the-t-test"><i class="fa fa-check"></i>Activity: Checking Assumptions for the t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-regression-model-to-compare-population-means"><i class="fa fa-check"></i><b>2.3</b> The Regression Model to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-linear-regression-model"><i class="fa fa-check"></i>The Linear Regression Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-a-regression-model-and-hypothesis-test-for-the-slope"><i class="fa fa-check"></i>Activity: Calculating a Regression Model and Hypothesis Test for the Slope</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-regression"><i class="fa fa-check"></i>Model Assumptions for Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-model-assumptions"><i class="fa fa-check"></i>Activity: Checking Model Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#anova-to-compare-population-means"><i class="fa fa-check"></i><b>2.4</b> ANOVA to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-anova-model"><i class="fa fa-check"></i><b>2.4.1</b> The ANOVA Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-the-anova-model"><i class="fa fa-check"></i>Activity: The ANOVA Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-estimating-the-model-values"><i class="fa fa-check"></i>Activity: Estimating the Model Values</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-anova"><i class="fa fa-check"></i>Model Assumptions for ANOVA</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-assumptions"><i class="fa fa-check"></i>Activity: Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#comparing-planned-variability-to-random-variability"><i class="fa fa-check"></i><b>2.5</b> Comparing Planned Variability to Random Variability</a></li>
+<li class="chapter" data-level="2.6" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#random-sampling-and-random-allocation"><i class="fa fa-check"></i><b>2.6</b> Random Sampling and Random Allocation</a></li>
+<li class="chapter" data-level="2.7" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#what-can-we-conclude-from-the-game-study"><i class="fa fa-check"></i><b>2.7</b> What Can We Conclude from the Game Study?</a></li>
+<li class="chapter" data-level="2.8" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#normal-probability-plots-to-assess-normality"><i class="fa fa-check"></i><b>2.8</b> Normal Probability Plots to Assess Normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-creating-probability-plots"><i class="fa fa-check"></i>Activity: Creating Probability Plots</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-understanding-variability-in-random-samples"><i class="fa fa-check"></i>Activity: Understanding Variability in Random Samples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations"><i class="fa fa-check"></i><b>2.9</b> Transformations</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations-for-anova"><i class="fa fa-check"></i>Transformations for ANOVA</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-transforming-emissions-data"><i class="fa fa-check"></i>Activity: Transforming Emissions Data</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#back-transformations"><i class="fa fa-check"></i>Back Transformations</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations-for-regression"><i class="fa fa-check"></i>Transformations for Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-transforming-brain-and-body-weight-data"><i class="fa fa-check"></i>Activity: Transforming Brain and Body Weight Data</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#choosing-the-right-transformation"><i class="fa fa-check"></i>Choosing the Right Transformation</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-comparing-four-x-y-data-sets"><i class="fa fa-check"></i>Activity: Comparing Four <span class="math inline">\((x, y)\)</span> Data Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#calculating-test-statistics"><i class="fa fa-check"></i><b>2.10</b> Calculating Test Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-two-sample-t-test-with-the-equal-variance-assumption"><i class="fa fa-check"></i>The Two-Sample <span class="math inline">\(t\)</span>-Test with the Equal Variance Assumption</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-the-two-sample-t-test"><i class="fa fa-check"></i>Activity: Calculating the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-testing-the-slope-coefficient"><i class="fa fa-check"></i>Activity: Testing the Slope Coefficient</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#analysis-of-variance-anova"><i class="fa fa-check"></i>Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-an-anova-table"><i class="fa fa-check"></i>Activity: Calculating an ANOVA Table</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#confidence-intervals"><i class="fa fa-check"></i><b>2.11</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-a-confidence-interval-for-the-regression-coefficient"><i class="fa fa-check"></i>Activity: Calculating a Confidence Interval for the Regression Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#chapter-summary-1"><i class="fa fa-check"></i><b>2.12</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html"><i class="fa fa-check"></i><b>3</b> Multiple Regression: How Much Is Your Car Worth?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#investigation-how-can-we-build-a-model-to-estimate-used-car-prices"><i class="fa fa-check"></i><b>3.1</b> Investigation: How Can We Build a Model to Estimate Used Car Prices?</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-a-simple-linear-regression-model"><i class="fa fa-check"></i>Activity: A Simple Linear Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#goals-of-multiple-regression"><i class="fa fa-check"></i><b>3.2</b> Goals of Multiple Regression</a></li>
+<li class="chapter" data-level="3.3" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#variable-selection-techniques-to-describe-or-predict-a-response"><i class="fa fa-check"></i><b>3.3</b> Variable Selection Techniques to Describe or Predict a Response</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#stepwise-regression"><i class="fa fa-check"></i>Stepwise Regression</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#selecting-the-best-subset-of-predictors"><i class="fa fa-check"></i>Selecting the “Best Subset” of Predictors</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-comparing-variable-selection-techniques"><i class="fa fa-check"></i>Activity: Comparing Variable Selection Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#checking-model-assumptions"><i class="fa fa-check"></i><b>3.4</b> Checking Model Assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#heteroskedasticity"><i class="fa fa-check"></i>Heteroskedasticity</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#examining-residual-plots-across-timeorder"><i class="fa fa-check"></i>Examining Residual Plots Across Time/Order</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-outliers-and-influential-observations"><i class="fa fa-check"></i>Activity: Outliers and Influential Observations</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#normally-distributed-residuals"><i class="fa fa-check"></i>Normally Distributed Residuals</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#correlation-between-explanatory-variables"><i class="fa fa-check"></i>Correlation Between Explanatory Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interpreting-model-coefficients"><i class="fa fa-check"></i><b>3.5</b> Interpreting Model Coefficients</a></li>
+<li class="chapter" data-level="3.6" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#categorical-explanatory-variables"><i class="fa fa-check"></i><b>3.6</b> Categorical Explanatory Variables</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#creating-indicator-variables"><i class="fa fa-check"></i>Creating Indicator Variables</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-building-regression-models-with-indicator-variables"><i class="fa fa-check"></i>Activity: Building Regression Models with Indicator Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#what-can-we-conclude-from-the-2005-gm-car-study"><i class="fa fa-check"></i><b>3.7</b> What Can We Conclude from the 2005 GM Car Study?</a></li>
+<li class="chapter" data-level="3.8" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#f-tests-for-multiple-regression"><i class="fa fa-check"></i><b>3.8</b> <span class="math inline">\(F\)</span>-Tests for Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#decomposition-of-sum-of-squares"><i class="fa fa-check"></i>Decomposition of Sum of Squares</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-a-closer-look-at-least-squares-regression-equations"><i class="fa fa-check"></i>Activity: A Closer Look at Least Squares Regression Equations</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#the-analysis-of-variance-table"><i class="fa fa-check"></i>The Analysis of Variance Table</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#testing-the-significance-of-a-regression-model"><i class="fa fa-check"></i>Testing the Significance of a Regression Model</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#the-extra-sum-of-squares-f-test"><i class="fa fa-check"></i>The Extra Sum of Squares <span class="math inline">\(F\)</span>-Test</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-testing-multiple-coefficients"><i class="fa fa-check"></i>Activity: Testing Multiple Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#developing-a-model-to-confirm-a-theory"><i class="fa fa-check"></i><b>3.9</b> Developing a Model to Confirm a Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-testing-a-theory-on-cars"><i class="fa fa-check"></i>Activity: Testing a Theory on Cars</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interaction-and-terms-for-curvature"><i class="fa fa-check"></i><b>3.10</b> Interaction and Terms for Curvature</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interaction-terms"><i class="fa fa-check"></i>Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-understanding-interaction-terms"><i class="fa fa-check"></i>Activity: Understanding Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#quadratic-and-cubic-terms"><i class="fa fa-check"></i>Quadratic and Cubic Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-understanding-quadratic-terms"><i class="fa fa-check"></i>Activity: Understanding Quadratic Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-creating-new-terms-to-predict-the-retail-price-of-cars"><i class="fa fa-check"></i>Activity: Creating New Terms to Predict the Retail Price of Cars</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#a-closer-look-at-variable-selection-criteria"><i class="fa fa-check"></i><b>3.11</b> A Closer Look at Variable Selection Criteria</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#adjusted-mathrmr2"><i class="fa fa-check"></i>Adjusted <span class="math inline">\(\mathrm{R}^2\)</span></a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#mallows-c_p"><i class="fa fa-check"></i>Mallows’ <span class="math inline">\(C_p\)</span></a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#akaikes-information-criterion-aic-and-bayes-information-criterion-bic"><i class="fa fa-check"></i>Akaike’s Information Criterion (AIC) and Bayes’ Information Criterion (BIC)</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#model-validation"><i class="fa fa-check"></i>Model Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#chapter-summary-2"><i class="fa fa-check"></i><b>3.12</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#endnotes"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><i class="fa fa-check"></i><b>4</b> The Design and Analysis of Factorial Experiments: Microwave Popcorn</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#investigation-which-microwave-popcorn-is-the-best"><i class="fa fa-check"></i><b>4.1</b> Investigation: Which Microwave Popcorn Is the Best?</a></li>
+<li class="chapter" data-level="4.2" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#elements-of-a-well-designed-experiment"><i class="fa fa-check"></i><b>4.2</b> Elements of a Well-Designed Experiment</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#identifying-a-response-variable"><i class="fa fa-check"></i>Identifying a Response Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#identifying-the-factors-and-levels"><i class="fa fa-check"></i><b>4.3</b> Identifying the Factors and Levels</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#choosing-a-design"><i class="fa fa-check"></i>Choosing a Design</a></li>
+<li class="chapter" data-level="4.3.1" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#determining-sample-sizes-for-completely-randomized-designs"><i class="fa fa-check"></i><b>4.3.1</b> Determining Sample Sizes for Completely Randomized Designs</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-determining-the-number-of-treatment-combinations"><i class="fa fa-check"></i>Activity: Determining the Number of Treatment Combinations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#analyzing-a-two-way-factorial-design"><i class="fa fa-check"></i><b>4.4</b> Analyzing a Two-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-visualizing-the-data"><i class="fa fa-check"></i>Activity: Visualizing the Data</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#notation-for-multiple-explanatory-variables"><i class="fa fa-check"></i>Notation for Multiple Explanatory Variables</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-understanding-notation"><i class="fa fa-check"></i>Activity: Understanding Notation</a></li>
+<li class="chapter" data-level="4.4.1" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#comparing-variances-"><i class="fa fa-check"></i><b>4.4.1</b> Comparing Variances{-} </a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-f-statistics"><i class="fa fa-check"></i>Activity: Calculating F-Statistics</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#interpreting-interaction-terms"><i class="fa fa-check"></i>Interpreting Interaction Terms</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#analyzing-a-three-way-factorial-design"><i class="fa fa-check"></i><b>4.5</b> Analyzing a Three-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-conducting-a-three-way-anova"><i class="fa fa-check"></i>Activity: Conducting a Three-Way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#what-can-we-conclude-from-the-popcorn-study"><i class="fa fa-check"></i><b>4.6</b> What Can We Conclude from the Popcorn Study?</a></li>
+<li class="chapter" data-level="4.7" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#paper-towels-developing-a-statistical-model-for-a-two-way-factorial-design"><i class="fa fa-check"></i><b>4.7</b> Paper Towels: Developing a Statistical Model for a Two-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-algebraic-notation"><i class="fa fa-check"></i>Activity: Algebraic Notation</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#calculating-effects"><i class="fa fa-check"></i>Calculating Effects</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-estimating-main-effects"><i class="fa fa-check"></i>Activity: Estimating Main Effects</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-interaction-effects"><i class="fa fa-check"></i>Activity: Calculating Interaction Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#paper-towels-the-relationship-between-effects-and-anova"><i class="fa fa-check"></i><b>4.8</b> Paper Towels: The Relationship Between Effects and ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#degrees-of-freedom"><i class="fa fa-check"></i>Degrees of Freedom</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-degrees-of-freedom-for-interaction-terms"><i class="fa fa-check"></i>Activity: Calculating Degrees of Freedom for Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-analyzing-the-paper-towel-data"><i class="fa fa-check"></i>Activity: Analyzing the Paper Towel Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#contrasts-and-multiple-comparisons"><i class="fa fa-check"></i><b>4.9</b> Contrasts and Multiple Comparisons</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activitycomparing-one-way-and-two-way-anova"><i class="fa fa-check"></i>Activity:Comparing One-Way and Two-Way ANOVA</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-contrasts"><i class="fa fa-check"></i>Activity: Calculating Contrasts</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#chapter-summary-3"><i class="fa fa-check"></i><b>4.10</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#exercises-3"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#endnotes-1"><i class="fa fa-check"></i><strong>Endnotes</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>5.1</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>5.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>5.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>6</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
+<li class="chapter" data-level="6.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
+<li class="chapter" data-level="6.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Making Decisions with Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-design-and-analysis-of-factorial-experiments-microwave-popcorn" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> The Design and Analysis of Factorial Experiments: Microwave Popcorn<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#the-design-and-analysis-of-factorial-experiments-microwave-popcorn" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Statistics ought to be viewed as a whole: understanding the process of formulating <em>questions</em>, properly designing a study, actively collecting meaningful data, and then deciding how to properly organize and draw conclusions from the data. Advancements in technology have made data collection and computationally intensive statistical techniques much more feasible. At one time, many statisticians had narrowly defined roles and were considered as primarily “number crunchers.” Today, statisticians characteristically work on interdisciplinary teams that emphasize scientific inference and understanding data in context.</p>
+<p>Instead of emphasizing formulas, computation, and mathematical theory, this chapter uses a simple popcorn experiment to demonstrate the numerous challenges that can occur in designing experiments and collecting data.</p>
+<p>In this chapter, you will have the opportunity to:</p>
+<ul>
+<li>Key features of a well‑designed experiment and proper data collection<br />
+</li>
+<li>Proper determination of response variables, experimental factors, and levels<br />
+</li>
+<li>Building on the one‑way ANOVA discussed in Chapter 2 to describe multivariate factorial designs<br />
+</li>
+<li>Evaluating multiple hypotheses based on main effects and interaction terms<br />
+</li>
+<li>Calculating each of the between‑group and within‑group variances needed in ANOVA tables for balanced factorial designs<br />
+</li>
+<li>Calculating effects and developing mathematical models<br />
+</li>
+<li>Using multiple comparison tests with ANOVA tables</li>
+</ul>
+<div style="page-break-after: always;"></div>
+<div id="investigation-which-microwave-popcorn-is-the-best" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Investigation: Which Microwave Popcorn Is the Best?<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#investigation-which-microwave-popcorn-is-the-best" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Popcorn is a staple for many college students. While many students like popcorn because it is inexpensive and easy to prepare, it is also a whole grain food that’s low in fat and calories. According to The Popcorn Institute, Americans consume an average of 54 quarts of popcorn a year per person.</p>
+<p>Two popcorn lovers, who also happened to be taking a statistics course, decided to test whether there is a difference in quality between microwave popcorn brands. Yvonne and Tue wanted to know if a cheaper brand of popcorn was just as good as more expensive popcorn. These students could have chosen to conduct a study that could be analyzed with a two‑sample <em>t</em>‑test if they had simply compared two brands of popcorn. However, if they did a two‑sample <em>t</em>‑test, they would need to hold many factors constant, such as the type of microwave, cooking time, and storage procedures. Since Yvonne and Tue believed that some of these factors could also impact the quality of the popcorn, they decided to include some of these additional factors in their study.</p>
+<p>Modeling real‑world phenomena often requires more than just one factor to explain changes in the response. <strong>Factorial designs</strong> are any statistical designs that are structured to use factors (i.e., explanatory variables) to organize meaningful groups of treatment conditions. A two‑sample <em>t</em>‑test can be considered a special case of a factorial design that has just one factor (popcorn brand in this case) and two levels (Brand A and Brand B). Factorial designs are very powerful statistical tools because they allow a researcher to simultaneously test the effects of multiple factor‑level combinations on a response of interest.</p>
+<p><br />
+</p>
+</div>
+<div id="elements-of-a-well-designed-experiment" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Elements of a Well-Designed Experiment<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#elements-of-a-well-designed-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Unfortunately, many people mistakenly believe that statistics is only a process of performing mathematical calculations on data in order to examine the validity of a hypothesis. Proper experimental design is just as important as, if not more important than, the choice of statistical calculations. In fact, designing experiments and collecting appropriate data are often the most difficult and time-consuming aspects of conducting experiments.</p>
+<p><br />
+</p>
+<p>An <strong>experiment</strong> is defined as a study in which purposeful changes are made to controlled conditions in order to identify changes in a response. An experiment imposes a treatment on subjects or experimental units, while an <strong>observational study</strong> simply collects data under varying conditions without imposing any changes. Well-designed experiments are conducted under controlled conditions to make it easier to isolate the impact of each treatment combination. In observational studies, the conditions in the study are rarely the only characteristic that makes the two (or more) populations different. Thus, unknown factors that may bias the results are unfortunately built into an observational study.</p>
+<p><br />
+</p>
+<blockquote>
+<p><strong>NOTE</strong> Some texts state that only experiments can be used to show cause and effect relationships. However, poorly designed experiments should not be used to show causation. In addition, observational studies (such as those testing a relationship between smoking and lung cancer) can be used to show causation if (1) there is a strong association between the explanatory and response variables, (2) higher doses are associated with stronger responses (e.g., more cigarettes increase the likelihood of getting cancer), (3) there are consistent results across many studies, and (4) there are credible explanations for the cause and effect relationship.</p>
+</blockquote>
+<p><strong>Experimental design</strong> is the process of planning an experiment that collects the right amount and type of data to answer a question of interest. Several decisions need to be made about how an experiment is to be constructed and executed to ensure that the experimental results are valid. Taking the time to properly design an experiment will improve the precision of answers to research questions. In addition, well-designed experiments often are much more efficient and obtain stronger conclusions than other studies.</p>
+<p>The first step in designing an experiment is to clearly define a problem and state the objectives of the experiment. This is often much more difficult than it first appears. Before any data are collected, it is essential that everyone involved understand the objectives of the experiment, what measurements will be taken, what material is needed, and what procedures will be used. Good experimental design typically involves gaining background knowledge outside the field of statistics.</p>
+<p>There are many possible ways to conduct an experiment to determine the effect of brand on the quality of popcorn. While microwave popcorn is something these students were quite familiar with, they needed to determine which brands to compare, the appropriate cooking time (which could vary by microwave), and how to define and measure “good” popcorn.</p>
+<div id="identifying-a-response-variable" class="section level3 unnumbered hasAnchor">
+<h3>Identifying a Response Variable<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#identifying-a-response-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Many possible measurements could be taken on microwave popcorn. Yvonne and Tue could have created a taste rating or a texture rating, measured the volume of the kernels, counted the number of popped kernels, or calculated the percentage of “old maids,” the kernels that did not pop after the bag had been cooked.</p>
+<p>Identifying the response variable corresponds to determining what measurements should be taken. Each experiment should ensure that the response variable provides the information needed and that the response measurement is precise enough to address the question of interest. Yvonne and Tue determined that their definition of “quality” popcorn would be popcorn that had the highest percentage of popped kernels per bag. Notice that if Yvonne and Tue had counted only the popped kernels, and not the unpopped kernels, they might have gotten a distorted response, since some brands may tend to have more kernels per bag.</p>
+<p>Yvonne and Tue initially discussed randomly sampling 20 kernels from each popped bag and calculating the percentage of popped kernels. However, the size and shape differences between popped and un-popped kernels would have made it rather difficult to simply pull out a random sample. Thus, in order to ensure their counts were as accurate as possible, they decided to count every kernel in every bag of their experiment.</p>
+<p>It is also useful to discuss the range and variability of responses expected to be observed. For example, if we conducted a study under conditions that typically gave only two outcomes, either 0% or 100%, the response would be categorical (such as yes/no or popped/not popped), and then an analysis based on categorical response variables should be used. Studies with categorical response variables can be analyzed with techniques such as the chi-square test or logistic regression, which are discussed in Chapters 6 and 7, respectively.</p>
+<p>The percentage of popped kernels was considered a quantitative response variable in this experiment. Background research showed that some popcorn companies expected between 94% and 97% popped kernels, but based on their prior popcorn eating experience, Yvonne and Tue expected the percentage to be a little lower. In Yvonne and Tue’s study, they roughly estimated that responses should be between 60% and 99% popped kernels, with an average close to 90%.</p>
+<p><br />
+Care needs to be taken before a study is conducted to ensure that the response measurement is accurate and applicable to the research question.<br />
+</p>
+</div>
+</div>
+<div id="identifying-the-factors-and-levels" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Identifying the Factors and Levels<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#identifying-the-factors-and-levels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The next step in designing an experiment is to investigate any factors that may be of importance or may potentially bias the results. Yvonne and Tue had two microwaves that they typically used to make popcorn, one in their dorm lounge and one in their room. The lounge microwave had a “popcorn” setting, which cooked for 1 minute 45 seconds, though the package instructions for each brand suggested varying cooking times. Most microwaves also have power settings. Should popcorn always be popped at the highest power setting?</p>
+<p>With a little research, these students found that the quality of popcorn can also be affected by how it is stored. Popcorn stored in a moisture-rich environment, such as a refrigerator, tends to have a higher percentage of popped kernels. However, too much moisture may cause the popcorn to have a gummy texture. Finally, Yvonne and Tue wanted to compare a relatively expensive brand of popcorn (Pop Secret) to a relatively inexpensive brand (Fastco). Each of these brands also has a variety of flavors, such as butter, kettle corn, and caramel.</p>
+<p>Notice that the discussion of factors and potential levels is based not on statistical calculations, but on nonstatistical knowledge. Nonstatistical knowledge is often essential in choosing factors, determining factor levels, and interpreting the results of a study.</p>
+<p>Yvonne and Tue decided on three factors of interest, factors that would be included in the study to determine if different levels impact the results:</p>
+<p>Factor 1: popcorn Brand at two levels, Fastco and Pop Secret<br />
+Factor 2: Microwave at two levels, Lounge and Room<br />
+Factor 3: cooking Time at two levels, 105 seconds and 135 seconds</p>
+<p>It can sometimes be difficult to identify a reasonable range for each factor. Yvonne and Tue had noticed that some brands of popcorn tended to burn at around 150 seconds (2.5 minutes). Even though cooking popcorn longer than 135 seconds might increase the percentage of popped kernels, Yvonne and Tue decided to avoid cooking times likely to cause burning.</p>
+<p>Yvonne and Tue then listed suspected extraneous variables, other factors that need to be controlled during the experiment to eliminate potential biases. Yvonne and Tue decided to hold some extraneous variables constant. In particular, they used only the highest power setting on each microwave, they stored all the popcorn on a shelf in their room, and they used only the butter flavor of each brand. There were other variables they could not control, such as age of the popcorn, which manufacturing plant prepared each bag of popcorn, and how different retail stores had stored the popcorn. To account for the extraneous variables they could not control (or had not even thought of), it would be best to randomly select bags of popcorn from the entire population. Instead, Yvonne and Tue did their best to randomly select several bags of Fastco and Pop Secret butter popcorn from a variety of stores in town. This was not a true random sample, and Yvonne and Tue had to be careful in making any statements about how the results of their study extended to a larger population. In addition, when possible, each bag of popcorn in the study was randomly allocated to a factor-level combination. While bags of popcorn can be randomly assigned to a cooking time and microwave, they cannot be randomly assigned to a popcorn brand.</p>
+<p><br />
+A good design controls for known extraneous variables (often by holding them constant throughout
+the study) and then uses random sampling and random allocation to control for any other unknown or
+uncontrollable extraneous variables.
+</p>
+<div id="choosing-a-design" class="section level3 unnumbered hasAnchor">
+<h3>Choosing a Design<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#choosing-a-design" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In addition to determining what conditions to test and what measurements to take, in order to create a good experimental design, a researcher must properly define units and determine how units are structured. An <strong>experimental unit</strong> is the smallest part of experimental material that is assigned (randomly, if possible) to a factor-level combination within a study. Since Yvonne and Tue counted every kernel of popcorn, some may incorrectly assume that each kernel is a unit. In an experiment, units are randomly assigned to treatments. In this study, each kernel was not randomly assigned to a condition, but each bag of popcorn was randomly assigned to be popped in a particular microwave for a particular length of time. Thus, bags of popcorn are considered the units for Yvonne and Tue’s study.</p>
+<p><br />
+If (1) units are as similar as possible, (2) units are randomly assigned to treatment combinations, and (3) large enough sample sizes are used, then we can conclude that statistically significant differences in the response can be explained by the different treatment combinations.
+</p>
+<p>This chapter will focus on <strong>completely randomized factorial designs</strong>. In completely randomized designs, each unit is assigned to exactly one factor-level combination. Only one measurement is collected for each unit. In the following section, we will use Yvonne and Tue’s data to simultaneously test for the effects of two brands, two cooking times, and two microwaves on the percentage of popped kernels.</p>
+<blockquote>
+<p><strong>NOTE:</strong> While this chapter focuses only on completely randomized factorial designs, it is important to recognize the difference between completely randomized, <strong>block and split-plot</strong> or (<strong>repeated measures</strong>) designs. If each unit is assigned to only one factor-level combination, it is appropriate to use a completely randomized design. If each unit is assigned to several conditions or multiple measurements are taken on each unit, a more complex design structure, such as a block or split-plot (repeated measures) design, may be needed.</p>
+</blockquote>
+<p>Block and split-plot (repeated measures) designs also work with different types of factors. The factors of interest in this chapter all have fixed effects. <strong>Fixed effects</strong> correspond to factors where each level is selected because it is of specific interest to the researcher. <strong>Random effects</strong> correspond to factors where the levels are randomly selected from a larger population. All factors in a completely randomized design are also <strong>crossed</strong>; this means that every level of each factor can be tested in combination with every level of every other factor. Alternatively, <strong>nested factors</strong> are factors for which some levels cannot occur simultaneously with other factor levels. Random effects and nested factors can be analyzed with block and split-plot (repeated measures) designs; they are described in Chapter 5.
+</p>
+<p><br />
+If possible, a straightforward design and analysis are usually better than a complex design and analysis. If the design is too complicated and the data are not collected properly, even the most advanced statistical techniques may not be able to draw appropriate conclusions from an experiment.
+</p>
+</div>
+<div id="determining-sample-sizes-for-completely-randomized-designs" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Determining Sample Sizes for Completely Randomized Designs<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#determining-sample-sizes-for-completely-randomized-designs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When more units are tested, it is more likely that the statistical analysis will identify true differences between conditions. However, every unit tested has a cost, and it is important to carefully determine how many units are practical to test. Is it worth testing additional units to gain a better understanding of the unit-to-unit variability?</p>
+<p>Yvonne and Tue estimated that they could each count the kernels in one bag (popped and unpopped) in 10 to 15 minutes. They also thought that they could get a few close friends to count a few bags in exchange for free popcorn. Care should always be taken when measuring results. If the result is a subjective measurement (such as the taste of popcorn or the quality of artwork), very clear procedures should be written and, if possible, the same people should record each measurement. In this popcorn study, counting the percentage of popped kernels per bag is an objective measurement. As long as Yvonne and Tue have trustworthy friends, there should be no problem in having several people help count popcorn kernels.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> They estimated that they could conduct 32 tests in about four hours.</p>
+<p>The choice of 32 tests, instead of a round number like 30, is also related to a well-designed experiment. Yvonne and Tue found that, based on their choice of factors and levels, there were a total of eight treatment combinations. Table 4.1 lists the eight possible treatment conditions that can be “assigned” to each bag of popcorn. Yvonne and Tue wanted to have a balanced design, a design where the same number of units is assigned to (or randomly selected from) each condition. Balanced designs are often easier to analyze and more likely to identify true differences in the effects of different conditions.<span class="math inline">\(^3\)</span> If Yvonne and Tue wanted to conduct a balanced design, they needed to conduct tests in a multiple of 8 (16, 24, etc.).</p>
+<blockquote>
+<p><strong>MATHMATICAL NOTE:</strong> Table 4.1 lists the variables in standard order. Listing conditions in <strong>standard order</strong> is a simple technique that ensures that each factor combination is listed exactly once. The first variable alternates levels every row. For the second variable, levels alternate every other row. The third variable alternates every fourth row. This same process can work for multiple factors with multiple levels. If there were four factors, each with two levels, the fourth column would alternate every eight rows. For studies with more than two levels, simply ensure that the current variable lists each level exactly once for all prior combinations.</p>
+</blockquote>
+</div>
+<div id="activity-determining-the-number-of-treatment-combinations" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Determining the Number of Treatment Combinations<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-determining-the-number-of-treatment-combinations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="line-block">1. Assume we want to use three cooking times for popping the popcorn instead of two. List the possible treatment combinations that can be assigned. How many are there?<br />
+2. Without listing all possibilities, calculate how many treatment combinations would exist for a design that tested five brands with three microwaves at four cooking times.</div>
+</div>
+</div>
+<div id="analyzing-a-two-way-factorial-design" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Analyzing a Two-Way Factorial Design<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#analyzing-a-two-way-factorial-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Since several factors are included in this experiment, there are also several hypotheses to be tested. Yvonne and Tue actually had six research questions, which will be discussed in Section 4.4. But to keep the calculations simple, in this section we will assume that only two factors were tested (<em>Brand</em> and <em>Time</em>). This leads to three hypotheses corresponding to the <em>Brand</em> and <em>Time</em> factors.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(H_{0,1}: \mu_{\text{Fastco}} = \mu_{\text{PopSecret}}\)</span>; there is no difference in the mean response (<em>PopRate</em>) between the two <em>Brands</em>.<span class="math inline">\(^*\)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a><br />
+<span class="math inline">\(H_{a,1}: \mu_{\text{Fastco}} \ne \mu_{\text{PopSecret}}\)</span>; the two <em>Brand</em> means are different.</p></li>
+<li><p><span class="math inline">\(H_{0,2}: \mu_{105} = \mu_{135}\)</span>; there is no difference in the mean <em>PopRate</em> for the two <em>Times</em>.<br />
+<span class="math inline">\(H_{a,2}: \mu_{105} \ne \mu_{135}\)</span>; the two <em>Time</em> means are different.</p></li>
+<li><p><span class="math inline">\(H_{0,3}\)</span>: <em>Brand</em> has no influence on how <em>Time</em> affects <em>PopRate</em>. This is equivalent to stating <span class="math inline">\(H_{0,3}\)</span>: <em>Time</em> has no influence on how <em>Brand</em> affects <em>PopRate</em> or <span class="math inline">\(H_{0,3}\)</span>: the effect of <em>Time</em> is the same for both <em>Brands</em> or <span class="math inline">\(H_{0,3}\)</span>: there is no interaction between <em>Time</em> and <em>Brand</em>.<br />
+<span class="math inline">\(H_{a,3}\)</span>: <em>Brand</em> influences how <em>Time</em> affects <em>PopRate</em> or <span class="math inline">\(H_{a,3}\)</span>: there is an interaction between <em>Time</em> and <em>Brand</em>.</p></li>
+</ol>
+<p>Factorial designs are efficient because much more information can be calculated, such as <span class="math inline">\(p\)</span>-values for multiple hypothesis tests, without requiring more experimental units than for the typical two-sample <span class="math inline">\(t\)</span>-test. Factorial designs are very beneficial in situations where experimental units are expensive or difficult to obtain. The next sections will discuss how to organize and draw conclusions for each of the above hypotheses in a factorial design with two factors, also called a <strong>two-way factorial design</strong>.</p>
+<div id="activity-visualizing-the-data" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Visualizing the Data<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-visualizing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="3" style="list-style-type: decimal">
+<li>Use Figure 4.1 to compare the for each of the four factor-level combinations. Do the four groups appear to have similar means or similar standard deviations? Are there any outliers (extreme observations that don’t seem to fit the rest of the data)? Describe any patterns you see in the data.<br />
+</li>
+<li>Calculate the average <em>PopRate</em> for each <em>Brand</em> and each <em>Time</em>. Calculate the overall average <em>PopRate</em>.<br />
+</li>
+<li>Use the data set labeled <code>Popcorn</code> to calculate appropriate summary statistics (the median, mean, standard deviation, range, etc.) for each of the four groups. For the Fastco brand, calculate the difference between the average <em>PopRate</em> for the two cooking times. Do the same for the Pop Secret brand.</li>
+</ol>
+</div>
+<div id="notation-for-multiple-explanatory-variables" class="section level3 unnumbered hasAnchor">
+<h3>Notation for Multiple Explanatory Variables<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#notation-for-multiple-explanatory-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Table 4.2 shows the <code>Popcorn</code> data set organized by the <em>Brand</em> and <em>Time</em> factors. Each of the four treatment combinations has eight observations. The data are also provided in the file <code>Popcorn</code>.</p>
+<div class="figure"><span style="display:block;" id="fig:fig1"></span>
+<img src="_main_files/figure-html/fig1-1.png" alt="Individual value plot of the PopRate (100 $  imes$ count of popped kernels/total kernels) for each Brand and cooking Time factor-level combination. Points have jittering (small fluctuations) so that all values are visible." width="576" />
+<p class="caption">
+Figure 4.1: Individual value plot of the PopRate (100 $ imes$ count of popped kernels/total kernels) for each Brand and cooking Time factor-level combination. Points have jittering (small fluctuations) so that all values are visible.
+</p>
+</div>
+<p>Table 4.3 is useful in visualizing the differences and similarities among the meaningful groups within this data set: the overall average, the two <em>Brand</em> groups, the two <em>Time</em> groups, and the four factor-level combinations. Table 4.3 also includes mathematical notation representing each mean. For example, <span class="math inline">\(\bar{y}_{11}\)</span> represents the mean of the 8 responses from the first <em>Brand</em>, Fastco, and the first <em>Time</em> group, 105 seconds. <span class="math inline">\(\bar{y}_{2.}\)</span> represents the mean of the 16 responses from the second <em>Brand</em> group, Pop Secret. <span class="math inline">\(\bar{y}_{..}\)</span> represents the overall mean of all 32 responses.</p>
+<blockquote>
+<p><strong>MATHEMATICAL NOTE:</strong>The dot in the subscript indicates that the average was taken over all values of that subscript. The key is to recognize that groups are identified by their subscripts. <em>Brand</em> is the first subscript, and <em>Time</em> is the second. Each individual observation for each <em>Brand</em> and <em>Time</em> factor-level combination is represented by the third subscript. For example, the 4th observation in Table 4.2 for the Fastco brand (brand 1) and the 135-second time (time 2) group is <span class="math inline">\(y_{124} = 71.50\)</span>. The average of the 8 observations in the Fastco brand (brand 1) and 135-second time group is represented by <span class="math inline">\(\bar{y}_{12} = 82.38\)</span>. In addition, <span class="math inline">\(\bar{y}_{1.}\)</span> is the average response of all 16 of the Fastco brand (brand 1) observations, while <span class="math inline">\(\bar{y}_{.1}\)</span> is the average response of all 16 of the 105-second times (time 1 observations). <span class="math inline">\(\bar{y}_{..}\)</span> is the average <em>PopRate</em>, averaged over all observations for both <em>Brand</em> and cooking <em>Time</em>. That is, <span class="math inline">\(\bar{y}_{..}\)</span> is the overall average <em>PopRate</em>.</p>
+</blockquote>
+</div>
+<div id="activity-understanding-notation" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Understanding Notation<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-understanding-notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<ol start="6" style="list-style-type: decimal">
+<li>Which notation would be used to describe the sample average of the 135-second group?<br />
+</li>
+<li>Explain the difference between <span class="math inline">\(\bar{y}_{21}\)</span> and <span class="math inline">\(\bar{y}_{12}\)</span>.</li>
+</ol>
+</blockquote>
+</div>
+<div id="comparing-variances-" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Comparing Variances{-} <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#comparing-variances-" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Figure 4.1 and Table 4.3 indicate that the difference between the <em>Time</em> means is much larger than the difference between the <em>Brand</em> means. In addition, the difference between <em>Time</em> means is much larger for the Pop Secret brand than for the Fastco brand. In this section, we will conduct an analysis, called analysis of variance, to find <span class="math inline">\(p\)</span>-values for testing each of the three hypotheses stated earlier about the underlying mean responses.</p>
+<p>Analysis of variance (ANOVA) is conducted by comparing the variability between groups to the variability within groups. For example, does the variability between <em>Brand</em> means (between groups) appear to be large compared to the variation of responses within the two <em>Brand</em> levels (within groups)? In ANOVA, these measures of variability are called mean squares. For example, the variability between brands is called mean square brand and is denoted <span class="math inline">\(MS_{\text{Brand}}\)</span>. In actual practice, the following ANOVA calculations are done with computer software instead of by hand. The reason for working through these equations in detail is to better illustrate the logic behind using ANOVA to determine if between group variability is significant (i.e., to determine whether we can reject any of the null hypotheses).</p>
+<p><strong>Between-Group Variability</strong> To create a measure of the variability between <em>Brand</em> means (<span class="math inline">\(MS_{\text{Brand}}\)</span>) calculate the weighted variance of the <em>Brand</em> group means, using the size of each group as the weight. The weighted variance of the <em>Brand</em> group means is calculated with the following equation:</p>
+<p><span class="math display">\[\begin{align}
+MS_{\text{Brand}} = \frac{\sum_{i=1}^{2} n_i \times (\bar{y}_{i.} - \bar{y}_{..})^2}{2-1}
+\notag
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}\label{4.1}
+= \frac{16 \times (81.8 - 81.3)^2 + 16 \times (80.9 - 81.3)^2}{2-1}
+\tag{4.1}
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(n_i\)</span> is the number of observations for brand <span class="math inline">\(i\)</span>. In this study, <span class="math inline">\(n_i = 16\)</span> observations are taken for each brand. Notice that Equation <span class="math inline">\(\ref{4.1}\)</span> looks similar to a typical variance calculation:</p>
+<ul>
+<li>There are two observed group means: 81.8 and 80.9.</li>
+<li>The spread is measured by summing the squared distance between each observed group mean and the overall mean and then dividing by the number of group means minus one.</li>
+</ul>
+<p>As with any variance calculation, we are finding an average squared distance (mean squared distance, denoted <span class="math inline">\(MS_{\text{Brand}}\)</span>). The difference between this calculation and a typical variance calculation is the use of weights:</p>
+<ul>
+<li>Each observed mean is based on a group of size 16; this group sample size (<span class="math inline">\(n_i = 16\)</span>) is multiplied by each squared distance.</li>
+</ul>
+<blockquote>
+<p><strong>MATHMATICAL NOTE:</strong> In our study, we have a balanced design (i.e., equal sample sizes in every group). However, the formulas throughout this section allow for studies with unequal sample sizes (called unbalanced designs).</p>
+</blockquote>
+<p>The calculation of the variability between the <em>Time</em> means (<span class="math inline">\(MS_{\text{Time}}\)</span>) is very similar to Equation <span class="math inline">\(\ref{4.1}\)</span>:</p>
+<p><span class="math display">\[\begin{align}\label{4.2}
+MS_{\text{Time}} = \frac{\sum_{j=1}^{2} n_j \times (\bar{y}_{.j} - \bar{y}_{..})^2}{2-1}
+\tag{4.2}
+\end{align}\]</span></p>
+<p>The first two hypotheses at the beginning of this section correspond to questions about main factors incorporated into the experiment, <em>Brand</em> and <em>Time</em>. The third hypothesis focuses on whether the impact of one variable (<em>Time</em>) depends on a second variable (<em>Brand</em>). This is called an interaction effect.</p>
+<p>Table 4.3 provides some evidence of interaction between <em>Brand</em> and <em>Time</em>. For the Fastco brand popcorn, the longer cooking time increases the percentage of popped kernels by <span class="math inline">\(\bar{y}_{12.} - \bar{y}_{11.} = 82.38 - 81.13 = 1.25\)</span>, while the increase for the Pop Secret brand is many times larger: <span class="math inline">\(\bar{y}_{22.} - \bar{y}_{21.} = 86.42 - 75.44 = 10.98\)</span>.</p>
+<p>To test for an interaction effect (the third hypothesis), we first measure the variability between all four groups (each <em>Brand</em> and <em>Time</em> combination) and then subtract the squared values for the main factors.</p>
+<p><span class="math display">\[\begin{align}\label{4.3}
+MS_{\text{BrandTime}} = \frac{\sum_{i=1}^{2}\sum_{j=1}^{2} n_{ij}(\bar{y}_{ij.} - \bar{y}_{..})^2 - \sum_{i=1}^{2} n_{i.}(\bar{y}_{i.} - \bar{y}_{..})^2 - \sum_{j=1}^{2} n_{.j}(\bar{y}_{.j} - \bar{y}_{..})^2}{4 - 1 - 1 - 1}
+\tag{4.3}
+\end{align}\]</span></p>
+<p>The key aspect of Equation <span class="math inline">\(\ref{4.3}\)</span> is that it calculates the squared distance between the four factor-level group means and the overall mean after accounting for the main factor group means. Thus, this calculation is an estimate of how spread out the four group means are after accounting for any influence of the main factor means.</p>
+<p>The denominator of the mean square for interaction is based on the denominators from <span class="math inline">\(MS_{\text{Brand}}\)</span> in Equation <span class="math inline">\(\ref{4.1}\)</span> and <span class="math inline">\(MS_{\text{Time}}\)</span> in Equation <span class="math inline">\(\ref{4.2}\)</span>. In this example, there are four factor-level group means. Thus, the denominator is calculated as <span class="math inline">\(4 - 1 -\)</span> (denominator from <span class="math inline">\(MS_{\text{Brand}}\)</span>) <span class="math inline">\(-\)</span> (denominator from <span class="math inline">\(MS_{\text{Time}}\)</span>) <span class="math inline">\(= 4 - 1 - 1 - 1\)</span>. Details for deriving mean squares are provided in the extended activities.</p>
+<p>
+</p>
+<p><strong>Within-Group Variability</strong> The best estimate of the variability within each group (MSE) is simply a weighted average of the sample variances within each of the four factor-level groups:</p>
+<p><span class="math display">\[\begin{align}
+\text{MSE} &amp;=
+\frac{\sum_{i=1}^{2}\sum_{j=1}^{2}(n_{ij} - 1)s_{ij}^2}{(n_{11} - 1) + (n_{12} - 1) + (n_{21} - 1) + (n_{22} - 1)} \notag \\
+&amp;= \frac{(8 - 1)s_{11}^2 + (8 - 1)s_{12}^2 + (8 - 1)s_{21}^2 + (8 - 1)s_{22}^2}
+{(8 - 1) + (8 - 1) + (8 - 1) + (8 - 1)}
+\tag{4.4}\label{4.4}
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(s_{ij}^2\)</span> is the sample variance for the group representing brand <span class="math inline">\(i\)</span> and time <span class="math inline">\(j\)</span>. The implicit assumption here is that the variances of the possible responses with each of the four group populations are all the same, so it makes sense to “pool” the sample variances into a single estimate of overall response variability. This <strong>equal variance assumption</strong> is key to the validity of the ANOVA statistical method. If the variability within each group is quite different, the MSE may not be an appropriate estimate. It is often useful to create individual value plots or side-by-side boxplots of the groups to check if the spreads of the sample groups are roughly similar.</p>
+<blockquote>
+<p><strong>MATHMATICAL NOTE:</strong> If groups of data from each factor-level combination have very different sample sizes and at least one group has a small sample size (e.g., less than 5 units per group), then ANOVA may not be appropriate. If the group(s) with the smallest sample size (s) has an unusually high variance, the MSE is likely to underestimate the true variance and ANOVA is likely to incorrectly reject the null hypothesis (conclude that there are differences when there really are no differences between group means). If the group(s) with the smallest sample size(s) has an unusually small variance, the <strong>MSE</strong> is likely to overestimate the true variance. The larger MSE may cause us to incorrectly fail to reject the null hypothesis (fail to detect true differences).</p>
+</blockquote>
+<p>Equation <span class="math inline">\(\ref{4.4}\)</span> is often called the <strong>mean square error</strong> (MSE) of the responses, because “error” represents the unit-to-unit variability in the response that can’t be explained by any of the main factors or interactions. We are now ready to calculate a test statistic corresponding to each of the three hypotheses at the beginning of this section.</p>
+<p><strong>The F-Statistic</strong> The F-statistic is a ratio of the between-group variability (variation between factor-level averages) to the within-group variability (pooled estimate of variability within each factor-level combination): (MS for factor)/MSE. Mathematical theory proves that if the assumptions of the ANOVA model hold, the F-statistic follows an F-distribution with degrees of freedom corresponding to the denominators of the MS for the factor being tested and the MSE. The <span class="math inline">\(p\)</span>-value gives the likelihood of observing an F-statistic at least this large, assuming that the true population factor has equal level means. Thus, when the <span class="math inline">\(p\)</span>-value is small, we conclude that there is a difference between the level means. Additional details are provided in the extended activities at the end of the chapter.</p>
+<p>
+</p>
+</div>
+<div id="activity-calculating-f-statistics" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Calculating F-Statistics<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-f-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<ol start="8" style="list-style-type: decimal">
+<li>Use Equation <span class="math inline">\(\ref{4.1}\)</span> to estimate <span class="math inline">\(MS_{\text{Brand}}\)</span>, the variability between <em>Brand</em> means.<br />
+</li>
+<li>Calculate the variability between <em>Time</em> means, <span class="math inline">\(MS_{\text{Time}}\)</span>. Explain the key differences between Equation <span class="math inline">\(\ref{4.1}\)</span> and Equation <span class="math inline">\(\ref{4.2}\)</span>.<br />
+</li>
+<li>Use Equation <span class="math inline">\(\ref{4.3}\)</span> to estimate <span class="math inline">\(MS_{\text{BrandTime}}\)</span>.<br />
+</li>
+<li>Calculate the <span class="math inline">\(F\)</span>-statistics corresponding to the three hypothesis tests: <span class="math inline">\(\frac{MS_{\text{Brand}}}{\text{MSE}}\)</span>, <span class="math inline">\(\frac{MS_{\text{Time}}}{\text{MSE}}\)</span>, <span class="math inline">\(\frac{MS_{\text{BrandTime}}}{\text{MSE}}\)</span>.<br />
+</li>
+<li>What do you think are the largest and smallest possible values of any <span class="math inline">\(F\)</span>-statistic?<br />
+</li>
+<li>Use the technology instructions provided on the CD to check your answers. Submit the software output. Note that a <span class="math inline">\(p\)</span>-value for each <span class="math inline">\(F\)</span>-statistic is provided. State your conclusions about each of the three hypotheses based on these <span class="math inline">\(p\)</span>-values.<br />
+Don’t be surprised if your hand calculations in Question 11 differ somewhat from the software output here. The data in Table 4.3 were rounded to one decimal place, so calculations in Questions 8 through 11 are not as accurate as statistical software.<br />
+</li>
+<li>Explain why a large <span class="math inline">\(F\)</span>-statistic corresponds to a small <span class="math inline">\(p\)</span>-value by referring to the definition of an <span class="math inline">\(F\)</span>-statistic: a ratio of between-group variability to within-group variability.<br />
+</li>
+<li><strong>Checking Assumptions</strong> As described in Chapter 2, assumptions need to be checked to ensure that the <span class="math inline">\(p\)</span>-value for each ANOVA <span class="math inline">\(F\)</span>-test is reliable:</li>
+</ol>
+<ul>
+<li>The observations within each group (each factor-level combination) are independent and identically distributed.</li>
+<li>Each group has equal variances.</li>
+<li>The residual values follow a normal distribution with a mean of zero.</li>
+</ul>
+<ol style="list-style-type: lower-alpha">
+<li>Examine the individual value plot in Figure 4.1 and comment on the assumptions for these hypothesis tests. Is there evidence of any skewness or outliers that may cause us to doubt the normal assumption for the <em>PopRate</em> within each factor-level combination of <em>Brand</em> and <em>Time</em>?</li>
+<li>Does Figure 4.1 indicate that the spread of each group appears roughly similar, so the equal variance assumption seems reasonable? Another informal check of the equal variance assumption can be done by calculating the ratio of the maximum sample standard deviation to the minimum sample standard deviation. If this ratio is less than two, we can generally assume that there is not strong evidence against the equal variance assumption. Compare the standard deviations of the four treatment level combinations to determine if
+<span class="math display">\[\begin{align}
+\frac{\max(s_{ij})}{\min(s_{ij})} &lt; 2
+\notag
+\end{align}\]</span></li>
+<li>Create a normal probability plot or histogram of the residuals from Question 13. Does it appear that the residuals follow a normal distribution?</li>
+</ol>
+</blockquote>
+<p><br />
+Some statisticians will reject the equal variance assumption when the ratio of standard deviations is greater than 3 instead of 2. Others recommend that formal tests be used to test for equal variances. However, some tests, such as Bartlett’s test, are very sensitive to nonnormality. Box criticized using Bartlett’s test as a preliminary test for equal variances, saying, “To make the preliminary test on variances is rather like putting to sea in a rowing boat to find out whether conditions are sufficiently calm for an ocean liner to leave port.”<span class="math inline">\(^4\)</span> Levene’s test of homogeneity of variance is less sensitive to departures from normality.<span class="math inline">\(^5\)</span>
+</p>
+</div>
+<div id="interpreting-interaction-terms" class="section level3 unnumbered hasAnchor">
+<h3>Interpreting Interaction Terms<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#interpreting-interaction-terms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Question 13, the <span class="math inline">\(p\)</span>-value corresponding to the third hypothesis test listed at the beginning of this section was 0.04. This demonstrates an interaction: the effect of one variable (<em>Time</em>) on the response depends on a second variable (<em>Brand</em>). Figure 4.2 provides a side-by-side boxplot and an interaction plot of the <em>Popcorn</em> data. <strong>An interaction plot</strong> is simply a plot of the four factor-level group means shown in Table 4.3. These plots show that for both brands, the average <em>PopRate</em> increases when the cooking time changes from 105 to 135 seconds. However, the change in means for the Fastco brand is very small compared to the change observed in the Pop Secret brand.</p>
+<div class="figure"><span style="display:block;" id="fig:fig42"></span>
+<img src="_main_files/figure-html/fig42-1.png" alt="Side-by-side boxplots and an interaction plot of the PopRate for each Brand and cooking Time factor-level combination." width="576" />
+<p class="caption">
+Figure 4.2: Side-by-side boxplots and an interaction plot of the PopRate for each Brand and cooking Time factor-level combination.
+</p>
+</div>
+<p>The interaction plot is helpful in visualizing how the effect of one factor can depend on another factor, especially when there are multiple factors in the study. When the lines in an interaction plot are essentially parallel, the effect of the first variable is not influenced by a second variable. Nonparallel lines indicate an interaction between main factors (e.g., the effect of <em>Time</em> depends on <em>Brand</em>). However, the interaction plot does not show the within group variability, so only the <span class="math inline">\(p\)</span>-value from the ANOVA can be used to determine if the interaction is significant. The <span class="math inline">\(p\)</span>-value of 0.04 shows that the observed interaction effect is so large that it is unlikely to have occurred just by chance. We conclude that <span class="math inline">\(H_{a,3}\)</span> is true: <em>Brand</em> influences the effect of <em>Time</em> on <em>PopRate</em>.</p>
+</div>
+</div>
+<div id="analyzing-a-three-way-factorial-design" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Analyzing a Three-Way Factorial Design<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#analyzing-a-three-way-factorial-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One advantage of ANOVA is that the analysis can easily be extended to multiple factors with many levels. In this section, all three factors in the popcorn study (<em>Brand</em>, <em>Time</em>, and <em>Microwave</em>) will be simultaneously examined for their influence on <em>PopRate</em> with a three-way ANOVA (also called a three-factor ANOVA).</p>
+<p>Using only the 32 observations from the <em>Popcorn</em> data, a three-way ANOVA will allow us to simultaneously test the following six hypotheses:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(H_{0,1}: \mu_{\text{Fastco}} = \mu_{\text{PopSecret}}\)</span></p>
+<p><span class="math inline">\(H_{a,1}: \mu_{\text{Fastco}} \ne \mu_{\text{PopSecret}}\)</span></p></li>
+<li><p><span class="math inline">\(H_{0,2}: \mu_{105} = \mu_{135}\)</span></p>
+<p><span class="math inline">\(H_{a,2}: \mu_{105} \ne \mu_{135}\)</span></p></li>
+<li><p><span class="math inline">\(H_{0,3}\)</span>: <em>Brand</em> has no influence on how <em>Time</em> affects <em>PopRate</em></p>
+<p><span class="math inline">\(H_{a,3}\)</span>: there is an interaction between <em>Brand</em> and <em>Time</em></p></li>
+<li><p><span class="math inline">\(H_{0,4}: \mu_{\text{Room}} = \mu_{\text{Lounge}}\)</span></p>
+<p><span class="math inline">\(H_{a,4}: \mu_{\text{Room}} \ne \mu_{\text{Lounge}}\)</span></p></li>
+<li><p><span class="math inline">\(H_{0,5}\)</span>: <em>Microwave</em> has no influence on how <em>Brand</em> affects <em>PopRate</em></p>
+<p><span class="math inline">\(H_{a,5}\)</span>: there is an interaction between <em>Microwave</em> and <em>Brand</em></p></li>
+<li><p><span class="math inline">\(H_{0,6}\)</span>: <em>Microwave</em> has no influence on how <em>Time</em> affects <em>PopRate</em></p>
+<p><span class="math inline">\(H_{a,6}\)</span>: there is an interaction between <em>Microwave</em> and <em>Time</em></p></li>
+</ol>
+<blockquote>
+<p><strong>NOTE:</strong> It is also reasonable to test for a three-way interaction. <span class="math inline">\(H_{a,7}\)</span>, the size of the effect of <em>Time</em> for each level of <em>Brand</em>, also depends on a third variable, <em>Microwave</em>. In practice, the three-way interaction effect may be difficult to interpret and some researchers choose not to include them in their analysis. The impacts of including additional tests are described in Chapter 5.</p>
+</blockquote>
+<div id="activity-conducting-a-three-way-anova" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Conducting a Three-Way ANOVA<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-conducting-a-three-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<ol start="16" style="list-style-type: decimal">
+<li>Create individual value plots of the eight possible factor-level groups listed in Table 4.1.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Do you see any patterns in the <em>PopRate</em> among these groups?</li>
+<li>Does the spread of the responses within each group look roughly similar?</li>
+<li>Are there any outliers or unusual observations for any group(s)?</li>
+</ol>
+<ol start="17" style="list-style-type: decimal">
+<li>Calculate the eight group standard deviations. If the largest standard deviation is no more than two times the smallest standard deviation, it is typically appropriate to assume equal variances for the population of responses within each group. Is it appropriate to assume equal variances in this <em>Popcorn</em> study?</li>
+<li>Use a statistical software package to simultaneously test all six hypotheses given at the beginning of this section.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Submit the appropriate software output.</li>
+<li>Create a normal probability plot (described in Chapter 2) or a histogram of the residuals. Are the residuals consistent with the assumption of a normal distribution?</li>
+<li>Use the <span class="math inline">\(p\)</span>-value corresponding to each hypothesis to state your conclusions.</li>
+<li>Address how random sampling and random allocation influence your conclusions.</li>
+</ol>
+<ol start="19" style="list-style-type: decimal">
+<li>Determine whether <span class="math inline">\(MS_{\text{Brand}}\)</span>, <span class="math inline">\(MS_{\text{Time}}\)</span>, and <span class="math inline">\(MS_{\text{BrandTime}}\)</span> are the same as in Question 13. Explain why the <span class="math inline">\(F\)</span>-statistics corresponding to these three hypotheses have changed.</li>
+</ol>
+</blockquote>
+<p>In completely randomized designs, all <span class="math inline">\(F\)</span>-statistics corresponding to the tests for each main factor and interaction use the same denominator. The mean square for each main factor (<span class="math inline">\(MS_{\text{Brand}}\)</span>, <span class="math inline">\(MS_{\text{Time}}\)</span>, and <span class="math inline">\(MS_{\text{Microwave}}\)</span>) is a measurement of the variability between level means. Since this is a balanced design, when the level means for a factor are farther apart, the corresponding mean square and <span class="math inline">\(F\)</span>-statistics are larger. Thus, the main effects plot shown in Figure 4.3 allows us to quickly see that the <em>Time</em> factor is the most significant (has the smallest <span class="math inline">\(p\)</span>-value) and the <em>Brand</em> factor is the least significant.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig43"></span>
+<img src="docs/Fig4_3MainInteractionPlots.jpg" alt="Main effect plots and interaction plots for a three-factor ANOVA." width="80%" />
+<p class="caption">
+Figure 4.3: Main effect plots and interaction plots for a three-factor ANOVA.
+</p>
+</div>
+<p>Figure 4.3 also provides interaction plots corresponding to the three hypotheses tests about interactions. Using the same logic, Figure 4.3 shows that the hypothesis test corresponding to the <em>Brand</em> and <em>Time</em> interaction will have the smallest <span class="math inline">\(p\)</span>-value. While both the effect of <em>Time</em> and the effect of <em>Brand</em> are somewhat influenced by <em>Microwave</em>, the effect of <em>Time</em> is most influenced by changing <em>Brand</em>.</p>
+</div>
+</div>
+<div id="what-can-we-conclude-from-the-popcorn-study" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> What Can We Conclude from the Popcorn Study?<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#what-can-we-conclude-from-the-popcorn-study" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Yvonne and Tue’s study illustrated how essential it is to carefully plan out a study before any data are collected. If the data are not collected properly, typically there is <em>no</em> statistical analysis that can draw accurate conclusions. When the study is well designed and the data are reliable, analysis is often straightforward with statistical software.</p>
+<p>The units in this study (<em>Bags</em>) were randomly assigned to <em>Time</em> and <em>Microwave</em> factor-level combinations. The ANOVA results allowed us to conclude that <em>Time</em> causes a difference in <em>PopRate</em>. In addition, we found evidence that there is a <em>Brand</em> and <em>Time</em> interaction.</p>
+<p>The bags of popcorn in this study were not a true random sample of all popcorn produced by these two brands. Thus, we need to be careful about making any conclusions that extend to a larger population. Because of the efforts the students made to properly collect random samples from various stores around their college town, the author of this chapter would feel fairly comfortable stating that the conclusions hold for these two brands of butter-flavored microwave popcorn in their town at the time of this study.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Recall that random sampling is needed to extend the results to a larger population. If the students randomly sampled 26 towels from just one roll, the conclusions would hold only for that roll. Ideally they should have randomly purchased 26 rolls of each brand from multiple locations and then randomly selected one towel per roll.</p>
+</blockquote>
+</div>
+<div id="paper-towels-developing-a-statistical-model-for-a-two-way-factorial-design" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Paper Towels: Developing a Statistical Model for a Two-Way Factorial Design<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#paper-towels-developing-a-statistical-model-for-a-two-way-factorial-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As a final project in an introductory statistics class, several students decided to conduct a study to test the strength of paper towels. Several television advertisements had claimed that a certain brand of paper towel was the strongest, and these students wanted to determine if there really was a difference. The students sampled 26 towels from two brands of paper towels, Comfort and Decorator.</p>
+<p>Before any data were collected, these students determined that the following conditions should be held as constant as possible throughout the study:</p>
+<ul>
+<li>Paper towels were selected that had the same size.</li>
+<li>The towels were held at all four corners by two people.</li>
+<li>Weights (10, 25, 50, 100, or 250 grams) were slowly added to the center of each towel by a third person until it broke.</li>
+</ul>
+<p>In this study, there are two factors. One has two levels, Comfort (Brand C) or Decorator (Brand D), and the other has three levels (0, 5, or 15 drops of water applied to the center of the paper towel). This leads to <span class="math inline">\(2 \times 3 = 6\)</span> conditions, called <strong>factor-level combinations</strong> or <strong>factorial combinations</strong>:</p>
+<p>Brand C and 0 drops of water
+Brand C and 5 drops of water
+Brand C and 15 drops of water
+Brand D and 0 drops of water
+Brand D and 5 drops of water
+Brand D and 15 drops of water</p>
+<p>Twenty-six sheets were tested at each of the six factor-level combinations. Thus, there are 156 experimental units used in this study. The response variable is the breaking strength of each paper towel in grams. Breaking strength is defined as the total weight that each towel successfully held. The next additional weight caused the towel to break.</p>
+<p>The three null hypotheses corresponding to this two-factor design are as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(H_{0,1}\)</span>: there is no difference in mean strength between the two brands of towel
+<span class="math inline">\(H_{a,1}\)</span>: the two brand means are different</p></li>
+<li><p><span class="math inline">\(H_{0,2}\)</span>: there is no difference in mean strength when 0, 5, or 15 drops of water are used
+<span class="math inline">\(H_{a,2}\)</span>: the mean strength of at least one water amount group is different from the others</p></li>
+<li><p><span class="math inline">\(H_{0,3}\)</span>: the amount of water has no influence on how brand affects strength
+or <span class="math inline">\(H_{0,3}\)</span>: the effect of the amount of water on strength is the same for both brands
+or <span class="math inline">\(H_{0,3}\)</span>: there is no interaction between brand and water
+<span class="math inline">\(H_{a,3}\)</span>: there is an interaction between brand and water</p></li>
+</ol>
+<p>Table 4.4 represents some of the data for the paper towel study. Each of the six cells has 26 observations. The complete data set is in the file <code>PaperTowels</code>. While not all observations are shown, Table 4.4 helps us understand the data structure. After the data have been collected, the averages for all meaningful groups of the data can be calculated as shown in Table 4.5.</p>
+<div id="activity-algebraic-notation" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Algebraic Notation<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-algebraic-notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data set: <code>PaperTowels</code></p>
+<ol start="20" style="list-style-type: decimal">
+<li>What values in Table 4.4 are represented by <span class="math inline">\(y_{213}\)</span> and <span class="math inline">\(y_{122}\)</span>?</li>
+<li>Give the proper algebraic notation for the observation representing the 3rd paper towel with Brand D
+and 15 drops of water.</li>
+<li>What are the values of <span class="math inline">\(\bar{y}_{.3.}\)</span> and <span class="math inline">\(\bar{y}_{21.}\)</span>?</li>
+<li>Complete Table 4.5 by calculating the three missing averages.</li>
+</ol>
+</div>
+<div id="calculating-effects" class="section level3 unnumbered hasAnchor">
+<h3>Calculating Effects<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#calculating-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As the data structure becomes more complex, a statistical model becomes more useful for describing the population(s) from which the data may have come. Generally, statistical models consist of a mean response and a random error term (details are provided in Chapter 2). The mean response describes the expected (mean) breaking strength. Figure 4.4 is useful in visualizing the meaningful groups within this model that contribute to the mean response of the model: the grand mean, the two brand groups, the three water amount groups, and the six factor-level combination groups.</p>
+<p>The random error term follows an overall pattern that can be modeled with a probability distribution (e.g., the normal distribution). The error term incorporates the reality that observations will vary within each factor-level combination. Even when the same weights are applied to the same brand of paper towel, using the same water amount, the observed breaking strength may not be the same.</p>
+<p>The labels (e.g., the grand mean, group effects, and random errors) and symbols in Figure 4.4 are described below:</p>
+<p><span class="math inline">\(y_{ijk}\)</span>: the <span class="math inline">\(k\)</span>th observed breaking strength (<span class="math inline">\(k = 1, 2, \ldots, 26\)</span>) for brand <span class="math inline">\(i\)</span> and water amount <span class="math inline">\(j\)</span>
+<span class="math inline">\(\mu\)</span>: overall mean breaking strength of the entire population of paper towels across brands and water amounts (also called the grand mean)
+<span class="math inline">\(\alpha_i\)</span>: brand effect (<span class="math inline">\(i = 1, 2\)</span>), where <span class="math inline">\(\alpha_1\)</span> is the effect of Brand C and <span class="math inline">\(\alpha_2\)</span> is the effect of Brand D
+<span class="math inline">\(\beta_j\)</span>: amount of water effect (<span class="math inline">\(j = 1, 2, 3\)</span>), where <span class="math inline">\(\beta_1\)</span> represents the effect of 0 drops of water
+<span class="math inline">\((\alpha\beta)_{ij}\)</span>: interaction effect, where <span class="math inline">\((\alpha\beta)_{23}\)</span> represents the Brand D/15 drops of water interaction effect
+<span class="math inline">\(\varepsilon_{ijk}\)</span>: the random error—the difference between the <span class="math inline">\(k\)</span>th observed value (<span class="math inline">\(k = 1, 2, \ldots, 26\)</span>) and the population mean breaking strength for brand <span class="math inline">\(i\)</span> and water amount <span class="math inline">\(j\)</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig44"></span>
+<img src="docs/Fig4_4TwoWayDiagram.jpg" alt="Two-way factorial diagram." width="80%" />
+<p class="caption">
+Figure 4.4: Two-way factorial diagram.
+</p>
+</div>
+<p>Notice that each of the <span class="math inline">\(2 \times 3 \times 26 = 156\)</span> observed strength measurements represents one of the 156 equations in Figure 4.4. The structure of the data is now used to write down a statistical model for the data:
+<span class="math display">\[\begin{align}\label{4.5}
+y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \epsilon_{ijk} \quad \text{for } i = 1,2,\ j = 1,2,3, \text{ and } k = 1,2,\ldots,26 \tag{4.5}
+\end{align}\]</span></p>
+<p>
+</p>
+<p>Table 4.5 shows that the <em>Strength</em> average changes from 1772.8 to 1123.4 with a change from Brand C to Brand D paper towels. This difference is smaller than the differences due to changes in the water amount. <strong>Main effects</strong> are calculated to measure the impact of changing the levels of each factor in the model. A main effect is the difference between the factor-level average and the grand mean. For example,</p>
+<p><span class="math display">\[\begin{align}
+\hat{\alpha}_1 &amp;= \text{effect of Brand C} = \text{Brand C mean} - \text{grand mean} \notag \\
+&amp;= \bar{y}_{1.} - \bar{y}_{..} = 1772.8 - 1448.1 = 324.7 \notag
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}\label{4.6}
+\hat{\beta}_3 &amp;= \text{effect of 15 drops of water} = \text{15 drops mean} - \text{grand mean} \notag \\
+&amp;= \bar{y}_{.3} - \bar{y}_{..} = 423.6 - 1448.1 = -1024.5 \tag{4.6}
+\end{align}\]</span></p>
+<p>&gt;<strong>NOTE:</strong> <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\alpha_i\)</span>, <span class="math inline">\(\beta_j\)</span>, and <span class="math inline">\((\alpha\beta)_{ij}\)</span> in Equation <span class="math inline">\(\ref{4.4}\)</span> are population parameters. Statistics such as <span class="math inline">\(\hat{\alpha}_i\)</span> and <span class="math inline">\(\hat{\beta}_j\)</span> in Equation <span class="math inline">\(\ref{4.6}\)</span> are used to estimate the population effect sizes.</p>
+</div>
+<div id="activity-estimating-main-effects" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Estimating Main Effects<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-estimating-main-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data set: <code>PaperTowels</code></p>
+<ol start="24" style="list-style-type: decimal">
+<li>Use the <code>PaperTowels</code> data to estimate the effect of Brand D and explain any symmetry that you find with the effect of Brand C calculated above.</li>
+<li>A <strong>main effects plot</strong> is a graph that plots the average response for each level of each factor. To properly compare the effect sizes, the vertical axis should be the same for each factor. Use statistical software to create a main effects plot. Identify and label the following values on the plot: <span class="math inline">\(\bar{y}_{1.}\)</span>, <span class="math inline">\(\bar{y}_{.3}\)</span>, <span class="math inline">\(\bar{y}_{..}\)</span>, <span class="math inline">\(\hat{\alpha}_1\)</span>, and <span class="math inline">\(\hat{\beta}_3\)</span>.</li>
+</ol>
+<blockquote>
+<p><strong>NOTE:</strong> This is still a balanced design, since <span class="math inline">\(n_{ij}\)</span> is the same for each factor-level combination. However, since the sample sizes are not the same in every group level (78 towels for each brand mean and 52 towels for each water level), the factor with the largest difference between means does not necessarily correspond to the smallest <span class="math inline">\(p\)</span>-value.</p>
+</blockquote>
+<p>In addition to determining the main effects for each factor, it is often critical to identify how multiple factors interact in affecting the results. An interaction occurs when one factor affects the response variable differently depending on a second factor. To calculate the effect of the brand and water interaction, take the average for a particular factor combination minus the grand mean and the corresponding main effects.</p>
+<p>Interaction effect of Brand C and 15 drops of water interaction effect
+= average of Brand C, 15 drops group
+- (effect of Brand C + effect of 15 drops + grand mean)
+<span class="math display">\[\begin{align}
+= \bar{y}_{13.} - [\hat{\alpha}_1 + \hat{\beta}_3 + \bar{y}_{..}] \notag \\
+= \bar{y}_{13.} - [(\bar{y}_{1.} - \bar{y}_{..}) + (\bar{y}_{.3} - \bar{y}_{..}) + \bar{y}_{..}] \notag \\
+= 401.0 - [324.7 + (-1024.5) + 1448.1] \notag \\
+= -347.3 \hspace{1cm} \tag{4.7}
+\end{align}\]</span></p>
+<p>The estimate of the Brand C and 15 drops of water interaction effect in Equation <span class="math inline">\(\ref{4.7}\)</span> tells us that the best estimate of any paper towel strength from this group should be reduced by an additional 347.3 after we take into account all other influencing factors (the grand mean and main effects).</p>
+</div>
+<div id="activity-calculating-interaction-effects" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Calculating Interaction Effects<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-interaction-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data set: <code>PaperTowels</code></p>
+<ol start="26" style="list-style-type: decimal">
+<li>Show that <span class="math inline">\(\bar{y}_{ij.} - \bar{y}_{i.} - \bar{y}_{.j} + \bar{y}_{..}\)</span> is equivalent to the <span class="math inline">\(j\)</span>th interaction effect.</li>
+<li>Calculate the other five interaction effects. Hand draw Figure 4.4 and fill out the effect sizes with observed values (i.e., replace <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\alpha_i\)</span>, <span class="math inline">\(\beta_j\)</span>, and <span class="math inline">\((\alpha\beta)_{ij}\)</span> with estimates from the data). Do not fill out the observations or the error terms (<span class="math inline">\(y_{ijk}\)</span> or <span class="math inline">\(\varepsilon_{ijk}\)</span>).</li>
+<li>Create an interaction plot. Does there appear to be evidence of an interaction effect?</li>
+<li>Draw a diagram similar to Figure 4.4 for a two-way factorial design with four levels of the first factor, three levels of the second factor, and two observations per factor-level combination in Equation <span class="math inline">\(\ref{4.4}\)</span>.</li>
+<li>Residuals, or observed random error terms, are defined as the observed responses, <span class="math inline">\(y_{ijk}\)</span>, minus the estimate for the mean response (the sum of the grand mean, the two main effects, and the interaction effect). Calculate the residual values for <span class="math inline">\(y_{213}\)</span> and <span class="math inline">\(y_{122}\)</span>.</li>
+</ol>
+<p>The effect for Brand C might be positive (Brand C has a higher average breaking strength than Brand D), but then the effect for Brand D must be negative and exactly the same size as the effect for Brand C. The two effects sum to zero. This is called a <strong>restriction</strong> on the model terms. The entire set of restrictions for the model in Equation <span class="math inline">\(\ref{4.4}\)</span> is provided below.</p>
+<p><span class="math display">\[\begin{align}
+\sum_{i=1}^{2} \alpha_i = \alpha_1 + \alpha_2 = 0, \qquad \sum_{j=1}^{3} \beta_j = \beta_1 + \beta_2 + \beta_3 = 0 \notag
+\end{align}\]</span>
+<span class="math display">\[\begin{align}
+\sum_{i=1}^{2} (\alpha\beta)_{ij} = (\alpha\beta)_{1j} + (\alpha\beta)_{2j} = 0 \quad \text{for all } j \notag \\
+\sum_{j=1}^{3} (\alpha\beta)_{ij} = (\alpha\beta)_{i1} + (\alpha\beta)_{i2} + (\alpha\beta)_{i3} = 0 \quad \text{for all } i \tag{4.8} \label{4.8}
+\end{align}\]</span></p>
+<p>More specifically, the restrictions state that the interaction effects involving Brand C must sum to zero (i.e., <span class="math inline">\((\alpha\beta)_{11} + (\alpha\beta)_{12} + (\alpha\beta)_{13} = 0\)</span>). In the same way, all interactions corresponding to the 15 drops of water groups must also sum to zero. All six restrictions corresponding to the interactions can be checked in Question 27. The residual values sum to zero within each group of interest. This will always be true whenever calculating effects. This is not surprising, since effects measure the deviation of a particular group mean from the overall mean.</p>
+</div>
+</div>
+<div id="paper-towels-the-relationship-between-effects-and-anova" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Paper Towels: The Relationship Between Effects and ANOVA<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#paper-towels-the-relationship-between-effects-and-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Each of the three hypothesis tests in the paper towel study is tested on a separate line in an ANOVA table. The <span class="math inline">\(F\)</span>-statistics for an ANOVA were already calculated earlier in this chapter by comparing between group and within group variability. This section will show the relationship between calculating effects and the ANOVA table. For each null hypothesis, the statement “the means are equal for all levels of a factor” is equivalent to the statement “factor effects are zero.”</p>
+<p>The <strong>sum of squares</strong> (SS) for a main factor in the multi-factor ANOVA is identical to the one-factor SS described in Chapter 2. The sum of squares (the numerator of the mean square calculation) is the sum of all squared effects corresponding to that factor. For the <em>Brand</em> effect, this is written mathematically as</p>
+<p><span class="math display">\[\begin{align}
+\text{SS}_{\text{Brand}} &amp;= \sum (\text{Brand effect on each of the 156 observations})^2 \notag \\
+&amp;= \sum_{i=1}^{2} 78(\bar{y}_{i..} - \bar{y}_{...})^2
+\notag
+\end{align}\]</span></p>
+<p>This equation can be generalized. Instead of 78 elements in each <em>Brand</em> group, we can indicate <span class="math inline">\(n_i\)</span> elements. Instead of 2 levels for <em>Brand</em>, we can indicate <span class="math inline">\(I\)</span> levels. The first factor, <em>Brand</em>, can be labeled factor <span class="math inline">\(A\)</span>; the second factor, <em>Water</em>, can be labeled factor <span class="math inline">\(B\)</span>; etc. Then</p>
+<p><span class="math display">\[\begin{align}\label{4.9}
+\text{SS}_{\text{Brand}} = \text{SS}_A = \sum_{i=1}^{I} n_i(\bar{y}_{i..} - \bar{y}_{...})^2 \qquad \text{for} \quad I=2 \text{ (number of Brand levels)}
+\tag{4.9}
+\end{align}\]</span></p>
+<p>Similarly, <span class="math inline">\(\text{SS}_{\text{Water}} = \text{SS}_B\)</span> is the sum of squares for the <em>Water</em> effect on each observation.</p>
+<p><span class="math display">\[\begin{align}\label{4.10}
+\text{SS}_{\text{Water}} = \text{SS}_B = \sum (\text{Water effect on each of the 156 observations})^2 \notag \\
+= \sum_{j=1}^{3} 52(\bar{y}_{.j.} - \bar{y}_{...})^2 \notag \\
+= \sum_{j=1}^{J} n_j(\bar{y}_{.j.} - \bar{y}_{...})^2 \qquad \text{for} \quad J=3 \text{ (number of Water levels)}
+\tag{4.10}
+\end{align}\]</span></p>
+<p>The sum of squares for the interaction term, <span class="math inline">\(\text{SS}_{AB}\)</span>, is</p>
+<p><span class="math display">\[\begin{align}\label{4.11}
+\text{SS}_{AB} &amp;= \sum (\text{interaction effect on each of the 156 observations})^2 \notag \\
+&amp;= \sum_{i=1}^{I} \sum_{j=1}^{J} n_{ij} (\text{ith level effect})^2 \notag \\
+&amp;= \sum_{i=1}^{2} \sum_{j=1}^{3} 26 (\bar{y}_{ij.} - \bar{y}_{i..} - \bar{y}_{.j.} + \bar{y}_{...})^2
+\tag{4.11}
+\end{align}\]</span></p>
+<p>The <strong>error sum of squares</strong> (<span class="math inline">\(\text{SS}_{\text{Error}}\)</span>) measures the spread of the observed residuals. Each residual is defined as an observed value minus the estimated value: <span class="math inline">\(\hat{\epsilon}_{ijk} = y_{ijk} - \bar{y}_{ij.}\)</span>.</p>
+<p><span class="math display">\[\begin{align}\label{4.12}
+\text{SS}_{\text{Error}} &amp;= \sum (\text{each residual effect})^2 \notag \\
+&amp;= \sum_{i=1}^{I} \sum_{j=1}^{J} \sum_{k=1}^{n_{ij}} (y_{ijk} - \bar{y}_{ij.})^2 \notag \\
+&amp;= \sum_{i=1}^{I} \sum_{j=1}^{J} \left[(n_{ij} - 1) \times s_{ij}^2 \right] \notag \\
+&amp;= 25 \times s_{11}^2 + 25 \times s_{12}^2 + 25 \times s_{13}^2 + 25 \times s_{21}^2 + 25 \times s_{22}^2 + 25 \times s_{23}^2
+\tag{4.12}
+\end{align}\]</span></p>
+<p>The <strong>total sum of squares</strong> (<span class="math inline">\(\text{SS}_{\text{Total}}\)</span>) measures the overall spread of the responses in the full data set.</p>
+<p><span class="math display">\[\begin{align}\label{4.13}
+\text{SS}_{\text{Total}} &amp;= \sum (\text{distance between each observation and the grand mean})^2 \notag \\
+&amp;= \sum_{i=1}^{I} \sum_{j=1}^{J} \sum_{k=1}^{n_{ij}} (y_{ijk} - \bar{y}_{...})^2 \notag \\
+&amp;= (N-1) \times s^2
+\tag{4.13}
+\end{align}\]</span></p>
+<blockquote>
+<p><strong>MATHMATICAL NOTE:</strong>
+The variance within each factor-level group is calculated as
+<span class="math display">\[
+s_{ij}^2 = \frac{\sum_{k=1}^{n_{ij}} (y_{ijk} - \bar{y}_{ij.})^2}{n_{ij} - 1}
+\]</span>
+and the overall sample variance of the response variable is
+<span class="math display">\[
+s^2 = \frac{\sum_{i=1}^{I} \sum_{j=1}^{J} \sum_{k=1}^{n_{ij}} (y_{ijk} - \bar{y}_{...})^2}{N-1}
+\]</span>
+where <span class="math inline">\(N = 156\)</span> is the total sample size.</p>
+</blockquote>
+<div id="degrees-of-freedom" class="section level3 unnumbered hasAnchor">
+<h3>Degrees of Freedom<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#degrees-of-freedom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Degrees of freedom</strong> (df) are determined by how many “free” pieces of information are available when calculating effects. For example, Equation <span class="math inline">\(\ref{4.8}\)</span> shows that each of the main effects must sum to zero. Thus, knowing the effects of any two levels of <em>water</em> forces a known effect for the last level. In our example, the effect of 0 drops of water increases the expected mean strength by 1264.4. Similarly, the effect of using 5 drops of water is -239.9. The the effects must sum to zero (<span class="math inline">\(\hat{\beta}_1 + \hat{\beta}_2 + \hat{\beta}_3 = 1264.4 - 239.9 - 1024.5 = 0\)</span>).</p>
+<p>
+</p>
+</div>
+<div id="activity-calculating-degrees-of-freedom-for-interaction-terms" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Calculating Degrees of Freedom for Interaction Terms<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-degrees-of-freedom-for-interaction-terms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data set: <code>PaperTowels</code></p>
+<ol start="31" style="list-style-type: decimal">
+<li>Table 4.6 is a table with two rows and three columns, similar to the interaction effect term in the two-way factorial diagram in Figure 4.4. However, for this question we will assume that only two effects are known: <span class="math inline">\((\alpha\beta)_{11} = 2\)</span> and <span class="math inline">\((\alpha\beta)_{12} = -5\)</span>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Equation <span class="math inline">\(\ref{4.8}\)</span> states that all the <span class="math inline">\(AB\)</span> effects within Brand C add up to zero [<span class="math inline">\((\alpha\beta)_{11} + (\alpha\beta)_{12} + (\alpha\beta)_{13} = 0\)</span>]. Use this rule to calculate <span class="math inline">\((\alpha\beta)_{13}\)</span>.</p></li>
+<li><p>Equation <span class="math inline">\(\ref{4.8}\)</span> also states that all the <span class="math inline">\(AB\)</span> effects within 0 water amount add up to zero (the same for 5 and 15 drops of water). Use this rule to calculate <span class="math inline">\((\alpha\beta)_{21}\)</span>, <span class="math inline">\((\alpha\beta)_{22}\)</span>, and <span class="math inline">\((\alpha\beta)_{23}\)</span>.</p></li>
+<li><p>Consider a different interaction table with two rows and three columns. Explain why it is not possible to have effects of <span class="math inline">\((\alpha\beta)_{11} = 4\)</span>, <span class="math inline">\((\alpha\beta)_{13} = -4\)</span>, and <span class="math inline">\((\alpha\beta)_{22} = 6\)</span> and still follow the restrictions in Equation <span class="math inline">\(\ref{4.8}\)</span>.</p></li>
+<li><p>What are the degrees of freedom corresponding to any interaction term (in a balanced completely randomized design) with two levels of factor <span class="math inline">\(A\)</span> and three levels of factor <span class="math inline">\(B\)</span>? In other words, under the restrictions in Equation <span class="math inline">\(\ref{4.8}\)</span>, what is the number of free pieces of information (the number of cells in Table 4.6 that are not fixed)?</p></li>
+</ol>
+<ol start="32" style="list-style-type: decimal">
+<li>Table 4.7 is another table of interaction effects, with five rows and three columns (five levels of factor <span class="math inline">\(A\)</span> and three levels of factor <span class="math inline">\(B\)</span>). Again, we will assume that only some of the effects are known.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Use Equation <span class="math inline">\(\ref{4.8}\)</span> to calculate the effect corresponding to each of the remaining cells.</p></li>
+<li><p>In Table 4.7, eight cells are filled. If only seven cells were filled, would it be possible to calculate the effects corresponding to all remaining cells?</p></li>
+<li><p>What are the degrees of freedom corresponding to any interaction term (in a balanced completely randomized design) with five levels of factor <span class="math inline">\(A\)</span> and three levels of factor <span class="math inline">\(B\)</span>? In other words, what is the minimum number of cells that must be filled in order to allow us to use Equation <span class="math inline">\(\ref{4.8}\)</span> to estimate all other effects?</p></li>
+</ol>
+<ol start="33" style="list-style-type: decimal">
+<li>Use the previous two questions to determine the degrees of freedom for an interaction term for a balanced completely randomized design using three levels of factor <span class="math inline">\(A\)</span> and four levels of factor <span class="math inline">\(B\)</span>.</li>
+</ol>
+<p>For the <span class="math inline">\(AB\)</span> interaction term, there are <span class="math inline">\(I \times J\)</span> effects that are calculated. In the popcorn study, <span class="math inline">\(I \times J = 2 \times 3 = 6\)</span>. Each effect represents one piece of information. In addition:</p>
+<ul>
+<li>All the <span class="math inline">\(AB\)</span> effects within Brand C add up to zero [<span class="math inline">\((\alpha\beta)_{11} + (\alpha\beta)_{12} + (\alpha\beta)_{13} = 0\)</span>]. Within Brand C, if two effects are known, the third will be fixed (the same holds for Brand D). Thus, these restrictions eliminate <span class="math inline">\(I = 2\)</span> free pieces of information (free cells in an interaction effects table).</li>
+<li>Similarly, all the <span class="math inline">\(AB\)</span> effects within 0 water amount add up to zero [<span class="math inline">\((\alpha\beta)_{11} + (\alpha\beta)_{21} = 0\)</span>]. The same restriction holds for all other levels of factor <span class="math inline">\(B\)</span> (for 5 and 15 drops of water). Thus, an additional <span class="math inline">\(J = 3\)</span> pieces of information are no longer free. However, one piece of information is already fixed from the requirement that the sum of all brand effects is zero. Thus, only <span class="math inline">\(J-1 = 3-1=2\)</span> free pieces of information are taken for water amounts.</li>
+</ul>
+<p>The degrees of freedom for the interaction effect are
+<span class="math display">\[\begin{align}\label{4.14}
+\text{df}_{AB} &amp;= \text{number of interaction effects} - [\text{df}_A + \text{df}_B + 1] \notag \\
+&amp;= IJ - [(I-1) + (J-1) + 1] \notag \\
+&amp;= IJ - I - J + 1 \notag \\
+&amp;= (I-1)(J-1)
+\tag{4.14}
+\end{align}\]</span></p>
+<blockquote>
+<p><strong>MATHMATICAL NOTE:</strong> Calculating interaction degrees of freedom as <span class="math inline">\((I-1)(J-1)\)</span> in Equation <span class="math inline">\(\ref{4.14}\)</span> is quite easy. However, the reason Equation <span class="math inline">\(\ref{4.14}\)</span> also shows interaction df <span class="math inline">\(= IJ - [(I-1) + (J-1) + 1]\)</span> is that this follows the calculation of the interaction effect shown in Equation <span class="math inline">\(\ref{4.7}\)</span>: <span class="math inline">\(\bar{y}_{ij.} - [(\bar{y}_{i.} - \bar{y}_{...}) + (\bar{y}_{.j.} - \bar{y}_{...}) + \bar{y}_{...}]\)</span>. The key point is to recognize that knowing how the effects are calculated drives formulas for both sum of squares and degrees of freedom. This is also true for more complex designs beyond the scope of this chapter.</p>
+</blockquote>
+<p>
+</p>
+</div>
+<div id="activity-analyzing-the-paper-towel-data" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Analyzing the Paper Towel Data<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-analyzing-the-paper-towel-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data set: <code>PaperTowels</code></p>
+<ol start="34" style="list-style-type: decimal">
+<li><strong>Checking Assumptions</strong> In the statistical model in Equation <span class="math inline">\(\ref{4.4}\)</span>, the following assumptions need to be validated about the random error terms, <span class="math inline">\(\varepsilon_{ijk}\)</span>, before any formal hypothesis test can be developed:</li>
+</ol>
+<ul>
+<li>The error terms are independent and identically distributed.</li>
+<li>The error terms follow a normal probability distribution, denoted as <span class="math inline">\(\epsilon \sim N(0, \sigma^2)\)</span>.</li>
+</ul>
+<p>Note that the second assumption includes an equal variance assumption about the random errors from the different factor-level groups: <span class="math inline">\(\sigma_{11}^2 = \sigma_{12}^2 = \sigma_{13}^2 = \sigma_{21}^2 = \sigma_{22}^2 = \sigma_{23}^2\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>The independence assumption implies that there is no relationship between one observation and the next. The identically distributed assumption means that each observation sampled within each brand/water combination is from a population with the same mean and variance. If all 26 paper towels were sampled from one roll to assess the Brand C/5 drops factor combination, would you be concerned about violating the independence and/or the identically distributed assumption? Why or why not?</p></li>
+<li><p>Calculate the sample means and standard deviations of all six factor-level combinations. Clearly, some groups have much larger variation than others. In addition, the variation within each group increases as the average breaking strength increases. To address this issue, a transformation of the data can often be used that will “stabilize” the variances so that the equal variance assumption is reasonable on this new scale. (Chapter 2 describes transformations in more detail.)</p></li>
+<li><p>Transform the response variable using natural log (<span class="math inline">\(\log(\text{Strength})\)</span>) and <span class="math inline">\(\sqrt{\text{Strength}}\)</span>. Did both transformations improve the equal variance assumption?</p></li>
+</ol>
+<ol start="35" style="list-style-type: decimal">
+<li><strong>Visualizing the Data</strong> Draw individual value plots or side-by-side boxplots of the square-root transformed responses in the six factor-level groups.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Is there any extreme skewness or outliers that would cause us to question the normality assumption?</li>
+<li>Without doing any statistical calculations, do you expect to reject the three null hypotheses for the paper towel study? Justify your answer by visually comparing the variation (i.e., the spread) in the strength between groups to the variation within groups.</li>
+</ol>
+<ol start="36" style="list-style-type: decimal">
+<li><strong>Analyzing the Data</strong> Use computer software to conduct an analysis on the square-root transformed <span class="math inline">\(PaperTowels\)</span> data to test for differences between brands, water levels, and interactions. Use the ANOVA as well as appropriate graphs to state your conclusions about the paper towel study.</li>
+</ol>
+</div>
+</div>
+<div id="contrasts-and-multiple-comparisons" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> Contrasts and Multiple Comparisons<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#contrasts-and-multiple-comparisons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chapter 2 describes a study where researchers tested whether a color distracter influenced the completion time of an online computer game. In addition to a color distracter, they were also interested in whether subjects could play the game more quickly with their right or left hand. Chapter 2 was restricted to one-factor ANOVAs. Thus, in that chapter the data were sorted into four groups: StandardRight, ColorRight, StandardLeft, and ColorLeft. Instead of testing for evidence against a general hypothesis test (<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{SR} = \mu_{CR} = \mu_{SL} = \mu_{CL}\)</span>), the two-way ANOVA allows us to test three more specific hypotheses of interest.</p>
+<div id="activitycomparing-one-way-and-two-way-anova" class="section level3 unnumbered hasAnchor">
+<h3>Activity:Comparing One-Way and Two-Way ANOVA<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activitycomparing-one-way-and-two-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data set: <code>Games2</code></p>
+<ol start="37" style="list-style-type: decimal">
+<li>The data set <strong>Games2</strong> shows a column <em>Type2</em> with four types of games based on distracter and which hand was used. Conduct an ANOVA using <em>Type2</em> (just one explanatory variable with four levels) to test for differences in completion time. What is the <span class="math inline">\(p\)</span>-value corresponding to the null hypothesis <span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{SR} = \mu_{CR} = \mu_{SL} = \mu_{CL}\)</span> versus the alternative <span class="math inline">\(H_a\)</span>: at least one mean is different from another?</li>
+<li>Conduct a two-way ANOVA using <em>Type</em>, <em>Hand</em>, and the <em>Type</em> <span class="math inline">\(\ast\)</span> <em>Hand</em> interaction to test for differences in completion time. List the three null and alternative hypotheses and provide a <span class="math inline">\(p\)</span>-value for each test.</li>
+<li>Since the same response variable is used for both Question 37 and Question 38, it should not be surprising that the total sum of squares is identical for both questions. Compare the other sums of squares in the ANOVAs from Questions 37 and 38. How is <span class="math inline">\(SS_{\text{Type2}}\)</span> related to <span class="math inline">\(SS_{\text{Type}}\)</span>, <span class="math inline">\(SS_{\text{Hand}}\)</span>, and <span class="math inline">\(SS_{\text{TypeHand}}\)</span>?</li>
+</ol>
+<p>Since Question 37 leads us to reject <span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{SR} = \mu_{CR} = \mu_{SL} = \mu_{CL}\)</span>, it seems reasonable to conduct a multiple comparisons test (conduct multiple tests to identify differences between each group mean and every other group mean).</p>
+<blockquote>
+<p><strong>NOTE:</strong> There are six possible comparisons when there are four group means. Chapter 1 discussed familywise type I error and comparisonwise type I error. The <strong>least-significant differences method</strong> is a technique using comparisonwise type I error: If the <span class="math inline">\(p\)</span>-value is less than <span class="math inline">\(\alpha\)</span>, reject <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_a\)</span>. Assuming that a particular null hypothesis is true, the least-significant differences method has an <span class="math inline">\(\alpha\%\)</span> chance of (incorrectly) rejecting that hypothesis. When multiple tests are conducted on the same data set, the least-significant differences method leads to type I errors: rejecting null hypotheses when they should not be rejected.</p>
+</blockquote>
+<p><strong>Bonferroni’s method</strong> is an example of a technique that maintains familywise type I error: If the <span class="math inline">\(p\)</span>-value is less than <span class="math inline">\(\alpha/K\)</span> (where <span class="math inline">\(K\)</span> is the number of pairs), reject <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_a\)</span>. With the familywise type I error = <span class="math inline">\(\alpha\)</span>, assuming that there really is no difference between any of the <span class="math inline">\(K\)</span> pairs, there is only an <span class="math inline">\(\alpha\%\)</span> chance that any test will reject <span class="math inline">\(H_0\)</span>. This leads to type II errors: failing to reject null hypotheses when they should be rejected. Chapter 1 describes the need for multiple comparison procedures and describes both the least-significant difference and the Bonferroni method in more detail.
+</p>
+<p>Question 38 can be thought of as testing for orthogonal contrasts. An <strong>orthogonal contrast</strong> is a linear combination of treatment means where the coefficients add up to zero. For example, before they collected any data, the researchers in the game study were interested in several specific comparisons:</p>
+<ul>
+<li>Comparing standard to color games: <span class="math inline">\(H_{01}\)</span>: (1)<span class="math inline">\(\mu_{SR}\)</span> + (-1)<span class="math inline">\(\mu_{CR}\)</span> + (1)<span class="math inline">\(\mu_{SL}\)</span> + (-1)<span class="math inline">\(\mu_{CL}\)</span> = 0. This is mathematically equivalent to <span class="math inline">\(H_{01}\)</span>: <span class="math inline">\((\frac{1}{2})\mu_{SR} + (\frac{1}{2})\mu_{SL} = (\frac{1}{2})\mu_{CR} + (\frac{1}{2})\mu_{CL}\)</span> or <span class="math inline">\(H_{01}\)</span>: <span class="math inline">\(\mu_{S} = \mu_{C}\)</span>.</li>
+<li>Comparing right to left hand: <span class="math inline">\(H_{02}\)</span>: (1)<span class="math inline">\(\mu_{SR}\)</span> + (1)<span class="math inline">\(\mu_{CR}\)</span> + (-1)<span class="math inline">\(\mu_{SL}\)</span> + (-1)<span class="math inline">\(\mu_{CL}\)</span> = 0. This is mathematically equivalent to <span class="math inline">\(H_{02}\)</span>: <span class="math inline">\(\mu_{R} = \mu_{L}\)</span>.</li>
+<li>Testing for an interaction: <span class="math inline">\(H_{03}\)</span>: (1)<span class="math inline">\(\mu_{SR}\)</span> + (-1)<span class="math inline">\(\mu_{CR}\)</span> + (-1)<span class="math inline">\(\mu_{SL}\)</span> + (1)<span class="math inline">\(\mu_{CL}\)</span> = 0.</li>
+</ul>
+<p>Each of these linear combinations of population means can be estimated by a contrast:</p>
+<p><span class="math display">\[\begin{align}
+\text{Contrast 1 (C1)} &amp;= (1)\bar{y}_{SR} + (-1)\bar{y}_{CR} + (1)\bar{y}_{SL} + (-1)\bar{y}_{CL} \notag \\
+\text{Contrast 2 (C2)} &amp;= (1)\bar{y}_{SR} + (1)\bar{y}_{CR} + (-1)\bar{y}_{SL} + (-1)\bar{y}_{CL} \notag \\
+\text{Contrast 3 (C3)} &amp;= (1)\bar{y}_{SR} + (-1)\bar{y}_{CR} + (-1)\bar{y}_{SL} + (1)\bar{y}_{CL}
+\notag
+\end{align}\]</span></p>
+<p>The coefficients of each of the linear combinations sum to zero:</p>
+<p><span class="math display">\[\begin{align}
+\text{Coefficients for contrast 1} &amp;= C_{11} + C_{21} + C_{31} + C_{41} = (1) + (-1) + (1) + (-1) = 0 \notag \\
+\text{Coefficients for contrast 2} &amp;= C_{12} + C_{22} + C_{32} + C_{42} = (1) + (1) + (-1) + (-1) = 0 \notag \\
+\text{Coefficients for contrast 3} &amp;= C_{13} + C_{23} + C_{33} + C_{43} = (1) + (-1) + (-1) + (1) = 0
+\notag
+\end{align}\]</span></p>
+<p>
+</p>
+<blockquote>
+<p><strong>MATHMATICAL NOTE:</strong>
+Any set of <span class="math inline">\(G\)</span> group means (four group means in our case; <span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{SR} = \mu_{CR} = \mu_{SL} = \mu_{CL}\)</span>) being compared in a between group sum of squares can be used to create <span class="math inline">\(G-1\)</span> mutually orthogonal contrasts (<span class="math inline">\(H_{01}, H_{02}, H_{03}\)</span>). Any two contrasts are said to be orthogonal if the dot product (sum of the cross products) of their coefficient vectors is zero. Contrasts must be orthogonal to ensure that they are independent. This independence allows us to partition the variation in ANOVA, so that the sum of squares corresponding to all <span class="math inline">\(G-1\)</span> contrasts will sum to the between group sum of squares.</p>
+</blockquote>
+<p>Often contrasts are incorporated into the ANOVA analysis. The <span class="math inline">\(F\)</span>-statistic for a contrast is simply the mean square for a particular between groups measure (for example, <span class="math inline">\(MS_{C1}\)</span> is the mean square for <span class="math inline">\(C_1\)</span>) divided by the pooled within group variances (MSE). We can write the mean square for a contrast as</p>
+<p><span class="math display">\[\begin{align}\label{4.15}
+MS_{C1} = \frac{(C1)^2}{\sum_{g=1}^{G} \frac{C_{g1}^2}{n_g}}
+\tag{4.15}
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(C_{g1}\)</span> is the contrast coefficient and <span class="math inline">\(n_g\)</span> is the sample size for each group. In the game study,</p>
+<p><span class="math display">\[\begin{align}
+C1 &amp;= (1)\bar{y}_{SR} + (-1)\bar{y}_{CR} + (1)\bar{y}_{SL} + (-1)\bar{y}_{CL} \notag \\
+   &amp;= (1)34 + (-1)36 + (1)37.1 + (-1)40.2 \notag \\
+   &amp;= -5.1 \notag
+\end{align}\]</span></p>
+<p>Thus, the mean square for contrast 1 (<span class="math inline">\(MS_{C1}\)</span>) based on Question 37 is identical to the mean square for game type (<span class="math inline">\(MS_{\text{Type}}\)</span>) in Question 38:</p>
+<p><span class="math display">\[\begin{align}
+MS_{C1} &amp;= \frac{1^2}{10} + \frac{(-1)^2}{10} + \frac{1^2}{10} + \frac{(-1)^2}{10} \notag \\
+        &amp;= \frac{(-5.1)^2}{0.4} \notag \\
+        &amp;= 65.025 = MS_{\text{Type}} \notag
+\end{align}\]</span></p>
+</div>
+<div id="activity-calculating-contrasts" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Calculating Contrasts<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-contrasts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data set: <code>Games2</code></p>
+<ol start="40" style="list-style-type: decimal">
+<li>Use Equation <span class="math inline">\(\ref{4.15}\)</span> to calculate <span class="math inline">\(MS_{C2}\)</span> and <span class="math inline">\(MS_{C3}\)</span>. Show your work.</li>
+<li>Compare <span class="math inline">\(MS_{C2}\)</span> and <span class="math inline">\(MS_{C3}\)</span>, the mean squares found in Question 38.</li>
+</ol>
+<p>
+</p>
+<blockquote>
+<p><strong>MATHMATICAL NOTE:</strong> There are a few other common techniques for multiple comparisons. <strong>Scheffé’s method</strong> produces simultaneous confidence intervals for any and all contrasts, including contrasts suggested by the data (this is often called post hoc data exploration). Instead of the traditional formula for confidence intervals, Scheffé suggested using a wider confidence interval (i.e., one less likely to reject the null hypothesis) to account for the multiple testing. This method often fails to reject null hypotheses even when there are differences between groups, but it can be useful when other pairwise comparison tests are not appropriate. Remember from your introductory statistics course: If zero is in the confidence interval, you fail to reject the corresponding hypothesis test; if zero is not in the confidence interval, you should reject the corresponding hypothesis test. <strong>Tukey’s honest significant difference (HSD)</strong> uses a studentized range distribution instead of the F-distribution to create confidence intervals for differences between meaningful pairs. When there are a large number of pairwise comparisons, Tukey’s method is typically preferred over Bonferroni’s method.<span class="math inline">\(^6\)</span></p>
+</blockquote>
+</div>
+</div>
+<div id="chapter-summary-3" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Chapter Summary<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#chapter-summary-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This chapter emphasized the importance of a well-designed experiment. A statistician often needs to communicate with people in other fields in order to properly define the research question, choose appropriate factors and levels, and determine the number of samples needed for the study.</p>
+<p>A <span class="math inline">\(p\)</span>-value never tells the whole story; <span class="math inline">\(p\)</span>-values can be meaningless if assumptions are not met or if there are extraneous variables in the data. Before any conclusions are drawn from a statistical analysis using ANOVA, it is important to use graphs or formal tests to validate the the equal variance and normality assumptions.</p>
+<p>When equal variance or normality assumptions are violated, the <span class="math inline">\(F\)</span>-statistics do not follow an <span class="math inline">\(F\)</span>-distribution and the <span class="math inline">\(p\)</span>-values may not be accurate. Empirical studies have shown that ANOVA tends to be fairly “robust” to departures from the assumptions of equal variances and normality. If the model assumptions are not met, researchers should try transforming the data to better fit the model assumptions. If no transformation appears to help, researchers should clearly explain that the <span class="math inline">\(p\)</span>-values may not be reliable.</p>
+The independence and identically distributed assumptions are also essential. A good experimental design has the following characteristics:
+<p>ANOVA tables are used to test for differences in means among meaningful groups of data. The analysis is called an analysis of variance because each mean square value is an estimate of a meaningful group within the data. The extended activities demonstrated how to calculate an ANOVA table; they emphasized main effects and interaction effects. An interaction between two variables occurs when the effect of one variable depends on the second variable. While this chapter emphasized a two-factor ANOVA, the same process holds for all completely randomized designs with fixed factors.</p>
+<p>This chapter introduced the basics of a very powerful statistical technique. The ability to simultaneously test for the effects of multiple variables on a response allows statisticians to better model real-world situations. A well-designed experiment can test multiple hypotheses with a relatively small sample size. If used properly, these techniques efficiently and reliably help us better understand the world we live in. The end-of-chapter exercises and future chapters provide the opportunity for you to experience for yourself how these techniques are used in biology, chemistry, engineering, psychology, and many other disciplines.</p>
+</div>
+<div id="exercises-3" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p></p>
+Assume that you have a small garden and are interested in knowing whether particular species of tomato plants will yield more tomatoes. You are also interested in knowing if adding fertilizer will increase the growth of tomatoes. You will try three species of tomatoes with and without fertilizer and measure the total weight of the tomatoes produced. Write a brief outline for an experimental design.
+<p>Assume that you are working on a study with two factors, each with two levels. Sketch an interaction plot where there is an interaction effect but there are no main effects. Hint: Assume that both levels of the first factor have a mean of 50. Also assume that both levels of the second factor have a mean of 50. However, all four factor-level combination means will need to be something other than 50.</p>
+\
+Data set:
+\
+Data set:
+<p>\
+Data set: </p>
+<p>Cholesterol is a waxy substance found in blood and cell membranes. All animals need some cholesterol in their system; however, too much cholesterol can cause heart attacks and strokes. A study was conducted to determine how exercise, diet, and three types of drugs impact cholesterol levels. Seventy-two patients at a nearby hospital who had been diagnosed with high cholesterol (a level greater than 240 milligrams per deciliter) consented to be in the study. Each of the 72 patients was randomly assigned to a specific treatment, and after six months the patients’ cholesterol levels were measured again. These measurements are provided in the data set.</p>
+<p>\
+Data set: </p>
+<p>Antibacterial agents have become very popular in the marketplace, in products from gels to plastic children’s toys. However, even now, you are surrounded by bacteria. Scientists have known for many years that bacteria are able to adhere to solid surfaces and form a resistant coat; however, it was not until the 1970s that the concept of biofilms became prevalent in the scientific community.<span class="math inline">\(^7\)</span> These films make completely removing bacteria from a surface nearly impossible.</p>
+<p>Why should you care? Before the discovery of vaccines and antibiotics, humans succumbed to a myriad of acute infectious diseases. However, the majority of these have been eradicated or controlled, making bacterial infections from biofilms among the most threatening.<span class="math inline">\(^8\)</span> Today, battles against biofilm-forming bacteria are on the front lines of medical research. Interestingly, biofilms coat every surface that you see around you.</p>
+<p>Two students, Isaac and Courtney, sampled surfaces around their campus to analyze the prevalence of bacteria. They compared different types of surfaces in both residential and academic buildings.</p>
+<p>Data were collected by wiping surfaces with a wet Q-tip and swabbing the result on a standard nutrient agar plate. Locations were all tested on April 24, 2009 over the course of a two-hour period. The plates were incubated at 37°C for 48 hours before colony-forming units (CFUs) were counted as a measure of bacteria levels. Figure 4.5 shows several of the plates from this study. When CFUs exceeded 400 per plate, one fourth of the plate was counted and the total was calculated from that sample.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig5"></span>
+<img src="docs/Fig4_5_Bacteria.jpg" alt="Pictures of representative plates from Isaac and Courtney’s samples around campus: (A) a bathroom door handle in Norris, (B) a desk in Noyce (the large cluster is a mold spot, not counted as a CFU), (C) a desk in Yellow House (the white film is a fungus, not counted as a CFU), (D) a desk in ARH, and (E) a bathroom door handle in the Cowles apartment. Photos courtesy of Derek R. Blanchette." width="80%" />
+<p class="caption">
+Figure 4.5: Pictures of representative plates from Isaac and Courtney’s samples around campus: (A) a bathroom door handle in Norris, (B) a desk in Noyce (the large cluster is a mold spot, not counted as a CFU), (C) a desk in Yellow House (the white film is a fungus, not counted as a CFU), (D) a desk in ARH, and (E) a bathroom door handle in the Cowles apartment. Photos courtesy of Derek R. Blanchette.
+</p>
+</div>
+Six different buildings were swabbed, with two buildings representing each type of facility:
+<p>Within each building, two faucets, two door handles, and two desk surfaces were swabbed.</p>
+<p>\
+Data set: </p>
+<p>Soda fizz is caused by carbon dioxide that is dissolved into liquid under pressure of up to 1200 pounds per square inch. When the consumer opens the package, pressure is released, the carbon dioxide gas is liberated from the liquid, and gas bubbles rise to the surface. This creates the desired tingling taste.<span class="math inline">\(^9\)</span> Since soda fizz is caused by the release of a gas, temperature may have an effect on amount of fizz, as gas volume generally increases with increased temperature. Furthermore, since the fizz is caused by gas bubbles being released from the liquid, the tilt of the cup being poured into may also impact the amount of fizz.</p>
+<p>Two students, Julie and Daphne, conducted an experiment to test the effects of soda type (Pepsi vs. 7-Up), angle of the cup (cup flat on the table or slightly tipped), and soda temperature (refrigerated at 5°C vs. room temperature at 21°C) on the height of fizz produced when soda was poured out of a can into a cup. For each of the 24 trials, these students poured a can of either Pepsi or 7-Up into a clear cup and measured the peak fizz (in centimeters) produced, using a ruler on the outside of the cup.</p>
+<p>\
+Data set: </p>
+<p>Michael Eysenck tested 100 subjects (50 people between the ages of 55 and 65, 50 younger people) to determine if there was a relationship between age and memory. Each subject was shown 27 words and asked to recall as many of those words as possible. He also tested whether five different techniques impacted memory. Each subject was given one of five types of instructions:</p>
+<p>Counting: count the number of letters in each word \
+Rhyming: think of a word that rhymes with each word \
+Adjective: think of an adjective to describe each word \
+Imagery: create an image of each word \
+Intentional: remember as many words as possible</p>
+<p>The subjects in the first four groups were not aware that they would later be asked to recall each word. The data set called provides the number of words that each subject properly wrote down after being asked to recall the list.</p>
+\
+Data set:
+<p>
+Data set: </p>
+<p>Have you ever wondered how paper cups are made? During the process, different temperatures, adhesives, pressure settings, paper stocks, types of machine, machine speeds, and many other variables can impact the quality of the cup that is made. Some cup-making machines can produce over 300 cups per minute. However, it can take a few hours to find the optimal running conditions. This can lead to a significant amount of wasted time and materials, as operators adjust the machine settings until good-quality cups are produced.</p>
+<p>A manager of a manufacturing company, shift managers, cup machine operators, and a lone statistician decided to identify which factors were most influential in keeping their cups from leaking. Over 30 possible factors were identified, but after some thoughtful discussions the group settled on six variables that should be tested for their effects on leaking cups. One of the six factors of interest was which paper supplier to use. Since the company was considering changing suppliers, funds were available to do some product testing before a purchase was made. However, each trial (each run of production under specified factor conditions) would cost the company thousands of dollars in lost production time, material costs, and employee costs. The following is a list of questions representing the main factors in this study.</p>
+<p>The company agreed to conduct 32 tests, but wanted to test all six factors and all corresponding two-way interactions. Fractional factorial designs are very useful for this type of exploratory data analysis. The details of fractional factorial designs are beyond the scope of this text. However, balanced data are a key concept behind these designs. For example, in the Cups data, every factor has two levels and each level has 16 observations. In addition, within the first factor level (the 16 observations where side-seam temperature is set to 70%), every other factor is still balanced (every other factor has 8 observations at each level).</p>
+<p>\end{list}</p>
+</div>
+<div id="endnotes-1" class="section level2 unnumbered hasAnchor">
+<h2><strong>Endnotes</strong><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#endnotes-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Ideally, they would have preferred to have at least two people count each bag to ensure against errors, but that would have doubled the time needed to conduct the experiment. Repeatability and reliability (often called gauge R&amp;R) studies are a technique discussed in many quality control texts as a way to ensure that different people or processes provide similar results.
+<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><span class="math inline">\(^*\)</span>This is often written as <span class="math inline">\(H_{0,1}\)</span>: there is no <em>Brand</em> effect or <span class="math inline">\(H_{0,1}: \alpha_{\text{Fastco}} = \alpha_{\text{PopSecret}} = 0\)</span>, where <span class="math inline">\(\alpha\)</span> is called the effect size. For example, <span class="math inline">\(\alpha_{\text{Fastco}} = \mu_{\text{Fastco}} - \mu\)</span>, where <span class="math inline">\(\mu\)</span> is the overall grand mean of the responses.<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>If you have studied ANOVA tables before, you may find it surprising that we focus on mean squares (MS) and do not discuss sums of squares (SS) or degrees of freedom (df). The focus of this section is the concepts and logic behind ANOVA. ANOVA is the process of comparing between group and within group variability. These types of variability are represented by the mean squares. Chapter 2 and the extended activities discuss sums of squares and degrees of freedom.<a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="multiple-regression-how-much-is-your-car-worth.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="blocks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-DOE.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

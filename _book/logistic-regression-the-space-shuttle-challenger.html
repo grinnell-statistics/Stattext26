@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Logistic Regression: The Space Shuttle Challenger | Making Decisions with Data</title>
+  <meta name="description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Logistic Regression: The Space Shuttle Challenger | Making Decisions with Data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Logistic Regression: The Space Shuttle Challenger | Making Decisions with Data" />
+  
+  <meta name="twitter:description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  
+
+<meta name="author" content="Shonda Kuiper" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html"><i class="fa fa-check"></i><b>1</b> Nonparametric Methods: Schistosomiasis</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#investigation-can-a-new-drug-reduce-the-spread-of-schistosomiasis"><i class="fa fa-check"></i><b>1.1</b> Investigation: Can a New Drug Reduce the Spread of Schistosomiasis?</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-describing-the-data"><i class="fa fa-check"></i>Activity: Describing the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#statistical-inference-through-a-randomization-test"><i class="fa fa-check"></i><b>1.2</b> Statistical Inference Through a Randomization Test</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-conducting-a-randomization-test-by-hand"><i class="fa fa-check"></i>Activity: Conducting a Randomization Test by Hand</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#performing-a-randomization-test-using-a-computer-simulation"><i class="fa fa-check"></i><b>1.3</b> Performing a Randomization Test Using a Computer Simulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-using-computer-simulations-to-conduct-a-hypothesis-test"><i class="fa fa-check"></i>Activity: Using Computer Simulations to Conduct a Hypothesis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#two-sided-tests"><i class="fa fa-check"></i><b>1.4</b> Two-Sided Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-a-two-sided-hypothesis-test"><i class="fa fa-check"></i>Activity: A Two-Sided Hypothesis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#what-can-we-conclude-from-the-schistosomiasis-study"><i class="fa fa-check"></i><b>1.5</b> What Can We Conclude from the Schistosomiasis Study?</a></li>
+<li class="chapter" data-level="1.6" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#permutation-tests-versus-randomization-tests"><i class="fa fa-check"></i><b>1.6</b> Permutation Tests versus Randomization Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#age-discrimination-study"><i class="fa fa-check"></i>Age Discrimination Study</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-is-there-evidence-of-age-discrimination"><i class="fa fa-check"></i>Activity: Is There Evidence of Age Discrimination?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#permutation-and-randomization-tests-for-matched-pairs-designs"><i class="fa fa-check"></i><b>1.7</b> Permutation and Randomization Tests for Matched Pairs Designs</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#music-and-relaxation"><i class="fa fa-check"></i>Music and Relaxation</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-testing-the-effect-of-music-on-relaxation"><i class="fa fa-check"></i>Activity: Testing the Effect of Music on Relaxation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#the-bootstrap-distribution"><i class="fa fa-check"></i><b>1.8</b> The Bootstrap Distribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-creating-a-sampling-distribution-and-a-bootstrap-distribution"><i class="fa fa-check"></i>Activity: Creating a Sampling Distribution and a Bootstrap Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#using-bootstrap-methods-to-create-confidence-intervals"><i class="fa fa-check"></i><b>1.9</b> Using Bootstrap Methods to Create Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#bootstrap-t-confidence-intervals"><i class="fa fa-check"></i>Bootstrap t Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#bootstrap-percentile-confidence-intervals"><i class="fa fa-check"></i>Bootstrap Percentile Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#when-to-use-bootstrap-confidence-intervals"><i class="fa fa-check"></i>When to Use Bootstrap Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activityestimating-salaries-of-medical-faculty"><i class="fa fa-check"></i>Activity:Estimating Salaries of Medical Faculty</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#relationship-between-the-randomization-test-and-the-two-sample-t-test"><i class="fa fa-check"></i><b>1.10</b> Relationship Between the Randomization Test and the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="1.11" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#wilcoxon-rank-sum-tests-for-two-independent-samples"><i class="fa fa-check"></i><b>1.11</b> Wilcoxon Rank Sum Tests for Two Independent Samples</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-wilcoxon-rank-sum-tests"><i class="fa fa-check"></i>Activity: <em>Wilcoxon Rank Sum Tests</em></a></li>
+</ul></li>
+<li class="chapter" data-level="1.12" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#kruskal-wallis-test-for-two-or-more-independent-samples"><i class="fa fa-check"></i><b>1.12</b> Kruskal-Wallis Test for Two or More Independent Samples</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-kruskal-wallis-test"><i class="fa fa-check"></i>Activity: Kruskal-Wallis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.13" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#multiple-comparisons"><i class="fa fa-check"></i><b>1.13</b> Multiple Comparisons</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-comparing-car-prices"><i class="fa fa-check"></i>Activity: Comparing Car Prices</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-the-least-significant-differences-method-and-the-bonferroni-method"><i class="fa fa-check"></i>Activity: The Least-Significant Differences Method and the Bonferroni Method</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#choosing-a-critical-value"><i class="fa fa-check"></i>Choosing a Critical Value</a></li>
+</ul></li>
+<li class="chapter" data-level="1.14" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#chapter-summary"><i class="fa fa-check"></i><b>1.14</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html"><i class="fa fa-check"></i><b>2</b> Making Connections: The Two-Sample t-Test, Regression, and ANOVA</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#investigation-do-distracting-colors-influence-the-time-to-complete-a-game"><i class="fa fa-check"></i><b>2.1</b> Investigation: Do Distracting Colors Influence the Time to Complete a Game?</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-understanding-the-study-design"><i class="fa fa-check"></i>Activity: Understanding the Study Design</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-two-sample-t-test-to-compare-population-means"><i class="fa fa-check"></i><b>2.2</b> The Two-Sample t-Test to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-statistical-model"><i class="fa fa-check"></i><b>2.2.1</b> The Statistical Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-statistical-models-for-the-two-sample-t-test"><i class="fa fa-check"></i>Activity: Statistical Models for the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-the-two-sample-t-test"><i class="fa fa-check"></i>Model Assumptions for the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-assumptions-for-the-t-test"><i class="fa fa-check"></i>Activity: Checking Assumptions for the t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-regression-model-to-compare-population-means"><i class="fa fa-check"></i><b>2.3</b> The Regression Model to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-linear-regression-model"><i class="fa fa-check"></i>The Linear Regression Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-a-regression-model-and-hypothesis-test-for-the-slope"><i class="fa fa-check"></i>Activity: Calculating a Regression Model and Hypothesis Test for the Slope</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-regression"><i class="fa fa-check"></i>Model Assumptions for Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-model-assumptions"><i class="fa fa-check"></i>Activity: Checking Model Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#anova-to-compare-population-means"><i class="fa fa-check"></i><b>2.4</b> ANOVA to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-anova-model"><i class="fa fa-check"></i><b>2.4.1</b> The ANOVA Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-the-anova-model"><i class="fa fa-check"></i>Activity: The ANOVA Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-estimating-the-model-values"><i class="fa fa-check"></i>Activity: Estimating the Model Values</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-anova"><i class="fa fa-check"></i>Model Assumptions for ANOVA</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-assumptions"><i class="fa fa-check"></i>Activity: Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#comparing-planned-variability-to-random-variability"><i class="fa fa-check"></i><b>2.5</b> Comparing Planned Variability to Random Variability</a></li>
+<li class="chapter" data-level="2.6" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#random-sampling-and-random-allocation"><i class="fa fa-check"></i><b>2.6</b> Random Sampling and Random Allocation</a></li>
+<li class="chapter" data-level="2.7" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#what-can-we-conclude-from-the-game-study"><i class="fa fa-check"></i><b>2.7</b> What Can We Conclude from the Game Study?</a></li>
+<li class="chapter" data-level="2.8" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#normal-probability-plots-to-assess-normality"><i class="fa fa-check"></i><b>2.8</b> Normal Probability Plots to Assess Normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-creating-probability-plots"><i class="fa fa-check"></i>Activity: Creating Probability Plots</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-understanding-variability-in-random-samples"><i class="fa fa-check"></i>Activity: Understanding Variability in Random Samples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations"><i class="fa fa-check"></i><b>2.9</b> Transformations</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations-for-anova"><i class="fa fa-check"></i>Transformations for ANOVA</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-transforming-emissions-data"><i class="fa fa-check"></i>Activity: Transforming Emissions Data</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#back-transformations"><i class="fa fa-check"></i>Back Transformations</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations-for-regression"><i class="fa fa-check"></i>Transformations for Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-transforming-brain-and-body-weight-data"><i class="fa fa-check"></i>Activity: Transforming Brain and Body Weight Data</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#choosing-the-right-transformation"><i class="fa fa-check"></i>Choosing the Right Transformation</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-comparing-four-x-y-data-sets"><i class="fa fa-check"></i>Activity: Comparing Four <span class="math inline">\((x, y)\)</span> Data Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#calculating-test-statistics"><i class="fa fa-check"></i><b>2.10</b> Calculating Test Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-two-sample-t-test-with-the-equal-variance-assumption"><i class="fa fa-check"></i>The Two-Sample <span class="math inline">\(t\)</span>-Test with the Equal Variance Assumption</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-the-two-sample-t-test"><i class="fa fa-check"></i>Activity: Calculating the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-testing-the-slope-coefficient"><i class="fa fa-check"></i>Activity: Testing the Slope Coefficient</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#analysis-of-variance-anova"><i class="fa fa-check"></i>Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-an-anova-table"><i class="fa fa-check"></i>Activity: Calculating an ANOVA Table</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#confidence-intervals"><i class="fa fa-check"></i><b>2.11</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-a-confidence-interval-for-the-regression-coefficient"><i class="fa fa-check"></i>Activity: Calculating a Confidence Interval for the Regression Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#chapter-summary-1"><i class="fa fa-check"></i><b>2.12</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html"><i class="fa fa-check"></i><b>3</b> Multiple Regression: How Much Is Your Car Worth?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#investigation-how-can-we-build-a-model-to-estimate-used-car-prices"><i class="fa fa-check"></i><b>3.1</b> Investigation: How Can We Build a Model to Estimate Used Car Prices?</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-a-simple-linear-regression-model"><i class="fa fa-check"></i>Activity: A Simple Linear Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#goals-of-multiple-regression"><i class="fa fa-check"></i><b>3.2</b> Goals of Multiple Regression</a></li>
+<li class="chapter" data-level="3.3" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#variable-selection-techniques-to-describe-or-predict-a-response"><i class="fa fa-check"></i><b>3.3</b> Variable Selection Techniques to Describe or Predict a Response</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#stepwise-regression"><i class="fa fa-check"></i>Stepwise Regression</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#selecting-the-best-subset-of-predictors"><i class="fa fa-check"></i>Selecting the “Best Subset” of Predictors</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-comparing-variable-selection-techniques"><i class="fa fa-check"></i>Activity: Comparing Variable Selection Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#checking-model-assumptions"><i class="fa fa-check"></i><b>3.4</b> Checking Model Assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#heteroskedasticity"><i class="fa fa-check"></i>Heteroskedasticity</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#examining-residual-plots-across-timeorder"><i class="fa fa-check"></i>Examining Residual Plots Across Time/Order</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-outliers-and-influential-observations"><i class="fa fa-check"></i>Activity: Outliers and Influential Observations</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#normally-distributed-residuals"><i class="fa fa-check"></i>Normally Distributed Residuals</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#correlation-between-explanatory-variables"><i class="fa fa-check"></i>Correlation Between Explanatory Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interpreting-model-coefficients"><i class="fa fa-check"></i><b>3.5</b> Interpreting Model Coefficients</a></li>
+<li class="chapter" data-level="3.6" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#categorical-explanatory-variables"><i class="fa fa-check"></i><b>3.6</b> Categorical Explanatory Variables</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#creating-indicator-variables"><i class="fa fa-check"></i>Creating Indicator Variables</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-building-regression-models-with-indicator-variables"><i class="fa fa-check"></i>Activity: Building Regression Models with Indicator Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#what-can-we-conclude-from-the-2005-gm-car-study"><i class="fa fa-check"></i><b>3.7</b> What Can We Conclude from the 2005 GM Car Study?</a></li>
+<li class="chapter" data-level="3.8" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#f-tests-for-multiple-regression"><i class="fa fa-check"></i><b>3.8</b> <span class="math inline">\(F\)</span>-Tests for Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#decomposition-of-sum-of-squares"><i class="fa fa-check"></i>Decomposition of Sum of Squares</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-a-closer-look-at-least-squares-regression-equations"><i class="fa fa-check"></i>Activity: A Closer Look at Least Squares Regression Equations</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#the-analysis-of-variance-table"><i class="fa fa-check"></i>The Analysis of Variance Table</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#testing-the-significance-of-a-regression-model"><i class="fa fa-check"></i>Testing the Significance of a Regression Model</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#the-extra-sum-of-squares-f-test"><i class="fa fa-check"></i>The Extra Sum of Squares <span class="math inline">\(F\)</span>-Test</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-testing-multiple-coefficients"><i class="fa fa-check"></i>Activity: Testing Multiple Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#developing-a-model-to-confirm-a-theory"><i class="fa fa-check"></i><b>3.9</b> Developing a Model to Confirm a Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-testing-a-theory-on-cars"><i class="fa fa-check"></i>Activity: Testing a Theory on Cars</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interaction-and-terms-for-curvature"><i class="fa fa-check"></i><b>3.10</b> Interaction and Terms for Curvature</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interaction-terms"><i class="fa fa-check"></i>Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-understanding-interaction-terms"><i class="fa fa-check"></i>Activity: Understanding Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#quadratic-and-cubic-terms"><i class="fa fa-check"></i>Quadratic and Cubic Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-understanding-quadratic-terms"><i class="fa fa-check"></i>Activity: Understanding Quadratic Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-creating-new-terms-to-predict-the-retail-price-of-cars"><i class="fa fa-check"></i>Activity: Creating New Terms to Predict the Retail Price of Cars</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#a-closer-look-at-variable-selection-criteria"><i class="fa fa-check"></i><b>3.11</b> A Closer Look at Variable Selection Criteria</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#adjusted-mathrmr2"><i class="fa fa-check"></i>Adjusted <span class="math inline">\(\mathrm{R}^2\)</span></a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#mallows-c_p"><i class="fa fa-check"></i>Mallows’ <span class="math inline">\(C_p\)</span></a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#akaikes-information-criterion-aic-and-bayes-information-criterion-bic"><i class="fa fa-check"></i>Akaike’s Information Criterion (AIC) and Bayes’ Information Criterion (BIC)</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#model-validation"><i class="fa fa-check"></i>Model Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#chapter-summary-2"><i class="fa fa-check"></i><b>3.12</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#endnotes"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><i class="fa fa-check"></i><b>4</b> The Design and Analysis of Factorial Experiments: Microwave Popcorn</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#investigation-which-microwave-popcorn-is-the-best"><i class="fa fa-check"></i><b>4.1</b> Investigation: Which Microwave Popcorn Is the Best?</a></li>
+<li class="chapter" data-level="4.2" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#elements-of-a-well-designed-experiment"><i class="fa fa-check"></i><b>4.2</b> Elements of a Well-Designed Experiment</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#identifying-a-response-variable"><i class="fa fa-check"></i>Identifying a Response Variable</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#identifying-the-factors-and-levels"><i class="fa fa-check"></i>Identifying the Factors and Levels</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#choosing-a-design"><i class="fa fa-check"></i>Choosing a Design</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#determining-sample-sizes-for-completely-randomized-designs"><i class="fa fa-check"></i>Determining Sample Sizes for Completely Randomized Designs</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-determining-the-number-of-treatment-combinations"><i class="fa fa-check"></i>Activity: Determining the Number of Treatment Combinations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#analyzing-a-two-way-factorial-design"><i class="fa fa-check"></i><b>4.3</b> Analyzing a Two-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-visualizing-the-data"><i class="fa fa-check"></i>Activity: Visualizing the Data</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#notation-for-multiple-explanatory-variables"><i class="fa fa-check"></i>Notation for Multiple Explanatory Variables</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-understanding-notation"><i class="fa fa-check"></i>Activity: Understanding Notation</a></li>
+<li class="chapter" data-level="4.3.1" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#comparing-variances-"><i class="fa fa-check"></i><b>4.3.1</b> Comparing Variances{-} </a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-f-statistics"><i class="fa fa-check"></i>Activity: Calculating F-Statistics</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#interpreting-interaction-terms"><i class="fa fa-check"></i>Interpreting Interaction Terms</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#analyzing-a-three-way-factorial-design"><i class="fa fa-check"></i><b>4.4</b> Analyzing a Three-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-conducting-a-three-way-anova"><i class="fa fa-check"></i>Activity: Conducting a Three-Way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#what-can-we-conclude-from-the-popcorn-study"><i class="fa fa-check"></i><b>4.5</b> What Can We Conclude from the Popcorn Study?</a></li>
+<li class="chapter" data-level="4.6" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#paper-towels-developing-a-statistical-model-for-a-two-way-factorial-design"><i class="fa fa-check"></i><b>4.6</b> Paper Towels: Developing a Statistical Model for a Two-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-algebraic-notation"><i class="fa fa-check"></i>Activity: Algebraic Notation</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#calculating-effects"><i class="fa fa-check"></i>Calculating Effects</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-estimating-main-effects"><i class="fa fa-check"></i>Activity: Estimating Main Effects</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-interaction-effects"><i class="fa fa-check"></i>Activity: Calculating Interaction Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#paper-towels-the-relationship-between-effects-and-anova"><i class="fa fa-check"></i><b>4.7</b> Paper Towels: The Relationship Between Effects and ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#degrees-of-freedom"><i class="fa fa-check"></i>Degrees of Freedom</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-degrees-of-freedom-for-interaction-terms"><i class="fa fa-check"></i>Activity: Calculating Degrees of Freedom for Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-analyzing-the-paper-towel-data"><i class="fa fa-check"></i>Activity: Analyzing the Paper Towel Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#contrasts-and-multiple-comparisons"><i class="fa fa-check"></i><b>4.8</b> Contrasts and Multiple Comparisons</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activitycomparing-one-way-and-two-way-anova"><i class="fa fa-check"></i>Activity:Comparing One-Way and Two-Way ANOVA</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-contrasts"><i class="fa fa-check"></i>Activity: Calculating Contrasts</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#chapter-summary-3"><i class="fa fa-check"></i><b>4.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#exercises-3"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#endnotes-1"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><i class="fa fa-check"></i><b>5</b> Categorical Data Analysis: Is a Tumor Malignant or Benign?</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#investigation-is-cell-shape-associated-with-malignancy"><i class="fa fa-check"></i><b>5.1</b> Investigation: Is Cell Shape Associated with Malignancy?</a></li>
+<li class="chapter" data-level="5.2" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#summarizing-categorical-data"><i class="fa fa-check"></i><b>5.2</b> Summarizing Categorical Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-descriptive-statistics-and-graphs"><i class="fa fa-check"></i>Activity: Descriptive Statistics and Graphs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#a-simulation-study-how-likely-is-it-that-the-observed-sample-would-occur-by-chance"><i class="fa fa-check"></i><b>5.3</b> A Simulation Study: How Likely Is It That the Observed Sample Would Occur by Chance?</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-conducting-a-simulation-study-with-cards"><i class="fa fa-check"></i>Activity: Conducting a Simulation Study with Cards</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-computer-simulation"><i class="fa fa-check"></i>Activity: Computer Simulation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#fishers-exact-test"><i class="fa fa-check"></i><b>5.4</b> Fisher’s Exact Test</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-calculating-fishers-exact-test"><i class="fa fa-check"></i>Activity: Calculating Fisher’s Exact Test</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#two-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.5</b> Two-Sided Hypothesis Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-calculating-a-two-sided-hypothesis-test"><i class="fa fa-check"></i>Activity: Calculating a Two-Sided Hypothesis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#chi-square-test"><i class="fa fa-check"></i><b>5.6</b> Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-calculating-expected-counts"><i class="fa fa-check"></i>Activity: Calculating Expected Counts</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-conducting-a-chi-square-test"><i class="fa fa-check"></i>Activity: Conducting a Chi-Square Test</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-simulating-the-chi-square-test-statistic"><i class="fa fa-check"></i>Activity: Simulating the Chi-Square Test Statistic</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#what-can-we-conclude-from-the-cancer-study"><i class="fa fa-check"></i><b>5.7</b> What Can We Conclude from the Cancer Study?</a></li>
+<li class="chapter" data-level="5.8" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#relative-risk-and-the-odds-ratio"><i class="fa fa-check"></i><b>5.8</b> Relative Risk and the Odds Ratio</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-calculating-additional-summary-statistics"><i class="fa fa-check"></i>Activity: Calculating Additional Summary Statistics</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#cautions-about-relative-risk-reduction-in-medical-studies"><i class="fa fa-check"></i>Cautions About Relative Risk Reduction in Medical Studies</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-comparing-relative-and-absolute-risk-reduction"><i class="fa fa-check"></i>Activity: Comparing Relative and Absolute Risk Reduction</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#sampling-designs"><i class="fa fa-check"></i><b>5.9</b> Sampling Designs</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-retrospective-studies-and-the-odds-ratio"><i class="fa fa-check"></i>Activity: Retrospective Studies and the Odds Ratio</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#tests-for-the-homogeneity-of-odds"><i class="fa fa-check"></i>Tests for the Homogeneity of Odds</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#comparing-tests-of-homogeneity-and-independence"><i class="fa fa-check"></i><b>5.10</b> Comparing Tests of Homogeneity and Independence</a></li>
+<li class="chapter" data-level="5.11" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#chi-square-goodness-of-fit-tests"><i class="fa fa-check"></i><b>5.11</b> Chi-Square Goodness-of-Fit Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-playing-a-dice-game"><i class="fa fa-check"></i>Activity: Playing a Dice Game</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#chapter-summary-4"><i class="fa fa-check"></i><b>5.12</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#exercises-4"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#endnotes-2"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression: The Space Shuttle Challenger</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#investigation-did-temperature-influence-the-likelihood-of-an-o-ring-failure"><i class="fa fa-check"></i><b>6.1</b> Investigation: Did Temperature Influence the Likelihood of an O-Ring Failure?</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-describing-the-data-1"><i class="fa fa-check"></i>Activity: Describing the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#review-of-the-least-squares-regression-model"><i class="fa fa-check"></i><b>6.2</b> Review of the Least Squares Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-building-a-least-squares-regression-model"><i class="fa fa-check"></i>Activity: Building a Least Squares Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#the-logistic-regression-model"><i class="fa fa-check"></i><b>6.3</b> The Logistic Regression Model</a></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#the-logistic-regression-model-using-maximum-likelihood-estimates"><i class="fa fa-check"></i><b>6.4</b> The Logistic Regression Model Using Maximum Likelihood Estimates</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-using-software-to-calculate-maximum-likelihood-estimates"><i class="fa fa-check"></i>Activity: Using Software to Calculate Maximum Likelihood Estimates</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-estimating-the-probability-of-success-with-maximum-likelihood-estimates"><i class="fa fa-check"></i>Activity: Estimating the Probability of Success with Maximum Likelihood Estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#interpreting-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.5</b> Interpreting the Logistic Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-interpreting-a-logistic-regression-model"><i class="fa fa-check"></i>Activity: Interpreting a Logistic Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#inference-for-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.6</b> Inference for the Logistic Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#assumptions-for-logistic-regression-models"><i class="fa fa-check"></i>Assumptions for Logistic Regression Models</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#the-wald-statistic"><i class="fa fa-check"></i>The Wald Statistic</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Making Decisions with Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="logistic-regression-the-space-shuttle-challenger" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Logistic Regression: The Space Shuttle Challenger<a href="logistic-regression-the-space-shuttle-challenger.html#logistic-regression-the-space-shuttle-challenger" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><span style="float:right;"> <em>The best thing about being a statistician is that you get to play in everyone’s backyard.</em></span><br />
+<span style="float:right;"> —John Tukey<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></span></p>
+<p>There are many investigations where a researcher is interested in developing a regression model when the response variable is dichotomous (has only two categories). Dichotomous responses can be represented with binary data (data with values of only zero or one). Logistic regression is used to examine the relationship between one or more explanatory variables and a binary response variable.</p>
+<p>In this chapter, we will look at several studies, including O-ring failure data provided by the National Aeronautics and Space Administration (NASA) after the space shuttle Challenger disaster, in order to introduce the following logistic regression techniques:</p>
+<ul>
+<li>Calculating and interpreting the logistic regression model<br />
+</li>
+<li>Using the Wald statistic and likelihood ratio tests to determine the significance of individual explanatory variables<br />
+</li>
+<li>Calculating the log-odds function and maximum likelihood estimates<br />
+</li>
+<li>Conducting goodness-of-fit tests to evaluate model appropriateness<br />
+</li>
+<li>Assessing regression model performance by looking at a classification table, showing correct and incorrect classification of the response variable<br />
+</li>
+<li>Extending logistic regression to cases with multiple explanatory variables</li>
+</ul>
+<div id="investigation-did-temperature-influence-the-likelihood-of-an-o-ring-failure" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Investigation: Did Temperature Influence the Likelihood of an O-Ring Failure?<a href="logistic-regression-the-space-shuttle-challenger.html#investigation-did-temperature-influence-the-likelihood-of-an-o-ring-failure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On January 28, 1986, the NASA space shuttle program launched its 25th shuttle flight from Kennedy Space Center in Florida. Seventy-three seconds into the flight, the external fuel tank collapsed and spilled liquid oxygen and hydrogen. These chemicals ignited, destroying the shuttle and killing all seven crew members on board. Reports to President Reagan and videos of the event are available at the Kennedy Space Center website.*</p>
+<p>Investigations showed that an O-ring seal in the right solid rocket booster failed to isolate the fuel supply. Figure 6.1 shows the space shuttle Challenger just after ignition with the fuel tank and two 149.16-foot-long solid rocket boosters. Figure 6.2 shows a diagram of a solid rocket booster. Because of its size, the rocket boosters were built and shipped in separate sections. A forward, center and aft field joint connected the sections. Two O-rings (one primary and one secondary), which resemble giant rubber bands 0.28 inch thick but 37 feet in diameter, were used to seal the field joints between each of the sections.</p>
+<p>An O-ring seal was used to stop the gases inside the solid rocket booster from escaping. However, the cold outside air temperature caused the O-rings to become brittle and fail to seal properly. Gases at 5800 °F escaped and burned a hole through the side of the rocket booster.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig1"></span>
+<img src="docs/Fig7_1Rocket.png" alt="Picture of the space shuttle Challenger just after ignition. Each solid rocket booster had six O-rings, two at each field joint. The O-rings at the right aft field joint failed." width="100%" />
+<p class="caption">
+Figure 6.1: Picture of the space shuttle Challenger just after ignition. Each solid rocket booster had six O-rings, two at each field joint. The O-rings at the right aft field joint failed.
+</p>
+</div>
+<p><em>The Report of the Presidential Commission on the Space Shuttle Challenger Accident</em>, also known as the Rogers’ Commission Report, states:</p>
+<blockquote>
+<p>““O-ring resiliency is directly related to its temperature. . . . A warm O-ring that has been compressed
+will return to its original shape much quicker than will a cold O-ring when compression is relieved.
+. . . A compressed O-ring at 75 degrees Fahrenheit is five times more responsive in returning to its
+uncompressed shape than a cold O-ring at 30 degrees Fahrenheit. . . . At the cold launch temperature
+experienced, the O-ring would be very slow in returning to its normal rounded shape. . . . It would
+remain in its compressed position in the O-ring channel and not provide a space between itself and the
+upstream channel wall. Thus, it is probable the O-ring would not . . . seal the gap in time to preclude
+joint failure due to blow-by and erosion from hot combustion gases. . . . Of 21 launches with ambient
+temperatures of 61 degrees Fahrenheit or greater, only four showed signs of O-ring thermal distress:
+i.e., erosion or blow-by and soot. Each of the launches below 61 degrees Fahrenheit resulted in one
+or more O-rings showing signs of thermal distress.”<span class="math inline">\(^2\)</span></p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig2"></span>
+<img src="docs/Fig7_2Rocket2.png" alt="Diargam of a solid rocket booster." width="100%" />
+<p class="caption">
+Figure 6.2: Diargam of a solid rocket booster.
+</p>
+</div>
+<p>A lamentable aspect of this disaster is that the problem with the O-rings was already understood by
+some engineers prior to the Challenger launch. In February 1984, the Marshall Configuration Control
+Board sent a memo about the O-ring erosion that occurred on STS 41-B (the 10th space shuttle flight and
+the 4th mission for the Challenger shuttle). Messages continued to increase in intensity, as evidenced by
+a 1985 internal memo from Thiokol Corporation, the company that designed the O-ring. Employees from
+Thiokol wrote the following to their Vice President of Engineering: “This letter is written to ensure that
+management is fully aware of the seriousness of the current O-Ring erosion problem in the SRM joints
+from an engineering standpoint.”<span class="math inline">\(^3\)</span></p>
+<p>With the temperature on January 28, 1986, expected to be 31°F, Thiokol Corporation recommended
+against the Challenger launch. However, this flight was getting significant publicity because a high school
+teacher, Christa McAuliffe, was on the flight. The flight had already been delayed several times, and there
+was no quick solution to the O-ring concern. The engineers were overruled, and the decision was made to go
+ahead with the launch. The eventual presidential investigation stated,
+&gt;“The decision to launch the Challenger was flawed. Those who made that decision were unaware of
+the recent history of problems concerning the O-rings and the joint and were unaware of the initial
+written recommendation of the contractor advising against the launch at temperatures below 53
+degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management
+reversed its position. They did not have a clear understanding of Rockwell’s concern that it was not
+safe to launch because of ice on the pad. If the decision makers had known all of the facts, it is highly
+unlikely that they would have decided to launch 51-L on January 28, 1986.”<span class="math inline">\(^4\)</span></p>
+<p>It seems that even though some engineers did comprehend the severity of the problem, they were unable
+to properly communicate the results. Prior to the ill-fated Challenger flight, the solid rocket boosters for 24
+shuttle launches were recovered and inspected for damage. Even though O-ring damage was present in some
+of the flights, the O-rings were not damaged enough to allow any gas to escape. Since damage was very
+minimal, all 24 prior flights were considered a success by NASA.</p>
+<ul>
+<li>Flight 4 is a missing data point because the rockets were lost at sea.</li>
+</ul>
+<p>Table 6.1 shows the temperature at the time of each launch and whether any damage was visible in any of the O‑rings. In this chapter, we will define a successful launch as one with no evidence of any O‑ring damage. In Table 6.1, <strong>Successful Launch</strong> is a categorical variable, with 0 representing a launch where O‑ring damage occurred and 1 indicating a successful launch with no O‑ring damage. Throughout the rest of this investigation, the relatively small data set in Table 6.1 will be used to demonstrate techniques that can be used to determine if the likelihood of O‑ring damage is related to temperature.</p>
+<div id="activity-describing-the-data-1" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Describing the Data<a href="logistic-regression-the-space-shuttle-challenger.html#activity-describing-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Based on the description of the Challenger disaster O‑ring concerns, identify which variable in the space shuttle data set in Table 6.1 should be the explanatory variable and which should be the response variable.</p></li>
+<li><p>Imagine you were an engineer working for Thiokol Corporation prior to January 1986. Create a few graphs of the data in Table 6.1. Is it obvious that temperature is related to the success of the O‑rings? Submit any charts or graphs you have created that show a potential relationship between temperature and O‑ring damage.</p></li>
+</ol>
+<p>In this chapter, we will develop a regression model using a binary response variable, Successful Launch. For the space shuttle data set, y = 1 represents a successful flight with no O-ring damage and y = 0 represents a flight with some O-ring damage. Binary response data occur in many fields; for example, we may want to know</p>
+<ul>
+<li>whether a disease is present or absent</li>
+<li>whether or not a person is a good credit risk for a loan</li>
+<li>whether or not a high school student should be admitted to a particular college</li>
+<li>whether or not an individual is involved in substance abuse</li>
+</ul>
+<p>The next section describes why the least squares regression model is not appropriate when the response is binary. Logistic regression is used to examine the relationship between one or more explanatory variables and a binary response variable. Like other regression models, logistic regression models often have explanatory variables that are quantitative, but they can be categorical as well</p>
+</div>
+</div>
+<div id="review-of-the-least-squares-regression-model" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Review of the Least Squares Regression Model<a href="logistic-regression-the-space-shuttle-challenger.html#review-of-the-least-squares-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Chapters 2 and 3, you saw that the ordinary least squares regression model has the form
+<span class="math display">\[\begin{align}
+y_i &amp;= \beta_0 + \beta_1 x_i + \epsilon_i
+\quad\text{for } i = 1, 2, 3, \dots, n
+\tag{6.1}
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of observations, <span class="math inline">\(y_i\)</span> is the <span class="math inline">\(i\)</span>th value of a , <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are regression coefficients, <span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i\)</span>th value of the explanatory variable, and <span class="math inline">\(\epsilon_i\)</span> represents normally distributed errors with a constant variance. Equation (6.2) states that the mean response (the expected response at each particular <span class="math inline">\(x_i\)</span>) is equal to the linear predictor <span class="math inline">\(\beta_0 + \beta_1 x_i\)</span> for each observed value <span class="math inline">\(x_i\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+E(Y_i \mid x_i) &amp;= \beta_0 + \beta_1 x_i
+\quad\text{for } i = 1, 2, 3, \dots, n
+\tag{6.2}
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are parameters that can be estimated with sample data. In addition to assuming that the regression model has a linear predictor, we assume that the error terms in the least squares regression model are independent and follow the normal distribution with a zero mean and a fixed standard deviation:</p>
+<p><span class="math display">\[\begin{align}
+\epsilon_i &amp;\overset{\mathrm{iid}}{\sim} N(0, \sigma^2)
+\quad\text{for } i = 1, 2, 3, \dots, n
+\tag{6.3}
+\end{align}\]</span></p>
+<p>Equation (6.3) states that each independent and identically distributed error term follows a normal probability
+distribution that is centered at zero and has a constant variance.</p>
+<p>
+When there is only one explanatory variable, as in Equation (6.1), ordinary least squares regression is often called simple linear regression. As shown in Chapter 3, the model is called least squares regression because the line minimizes the sum of the squared residuals (the difference between an observed value and the expected response). Least squares estimates for <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> (represented as <span class="math inline">\(b_0 = \hat\beta_0\)</span> and <span class="math inline">\(b_1 = \hat\beta_1\)</span>) can be calculated even when the normality and equal variance assumptions are violated. However, these assumptions about the error terms are needed to conduct hypothesis tests and construct confidence intervals for <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.
+</p>
+<div id="activity-building-a-least-squares-regression-model" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Building a Least Squares Regression Model<a href="logistic-regression-the-space-shuttle-challenger.html#activity-building-a-least-squares-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="3" style="list-style-type: decimal">
+<li>Use the data in Table 6.1 to create a scatterplot with a least squares regression line for the space shuttle data. Calculate the predicted response values <span class="math inline">\(\hat y = b_0 + b_1 x\)</span> when the temperature is 60°F and when the temperature is 85°F.</li>
+</ol>
+</div>
+</div>
+<div id="the-logistic-regression-model" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> The Logistic Regression Model<a href="logistic-regression-the-space-shuttle-challenger.html#the-logistic-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When the response variable is binary, the response is typically defined as a probability of success, instead of 0 or 1. For example, in Question 3, when the temperature is 60°F, the least squares regression line estimates that the probability of a successful launch is 0.338. The expected response at each particular <span class="math inline">\(x_i\)</span> is defined as</p>
+<p><span class="math display">\[\begin{align}
+\pi_i &amp;= P(Y_i = 1) = \text{probability that a launch has no O-ring damage at temperature } x_i \notag \\
+      &amp;= E(Y_i \mid x_i) \notag \\
+      &amp;= \beta_0 + \beta_1 x_i \quad \text{for } i = 1,2,3,\dots,n \tag{6.4}
+\end{align}\]</span></p>
+<p>While the linear model (<span class="math inline">\(\beta_0 + \beta_1 x_i\)</span>) in Equation (6.4) is simple, it is not appropriate to use, since probabilities must be between 0 and 1. For example, with a temperature value <span class="math inline">\(x_i = 50\)</span>, the least squares regression model in Question 3 would predict a probability of <span class="math inline">\(-0.036\)</span>. In order to restrict the predictions to values between 0 and 1, an S-shaped function called the log-odds function will be used.</p>
+<p>Logistic regression uses the following model to fit an S-shaped relationship between <span class="math inline">\(\pi\)</span> and <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+\ln\bigl(\frac{\pi_i}{1 - \pi_i}\bigr) &amp;= \beta_0 + \beta_1 x_i
+\tag{6.5}
+\end{align}\]</span></p>
+<p>where ln represents the natural log, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are regression parameters, and <span class="math inline">\(\pi_i\)</span> is the probability of a successful launch for a given temperature (<span class="math inline">\(x_i\)</span>). The ratio <span class="math inline">\(\pi/(1 - \pi)\)</span> is called the odds, the probability of success over the probability of failure. Thus, the function ln[<span class="math inline">\(\pi/(1 - \pi)\)</span>] is called the log-odds of <span class="math inline">\(\pi\)</span> or the logistic or logit transformation of <span class="math inline">\(\pi\)</span>.* Figure 6.3 shows both the least squares regression model and the logistic regres-
+sion model for the space shuttle data.</p>
+<p>
+In Chapter 6, the odds of an outcome are defined as <span class="math inline">\(\pi/(1 - \pi)\)</span>, the probability of a success (no O-ring damage) over the probability of a failure (O-ring damage). For example, if a computer randomly selects a day of the week, the odds of selecting Saturday (Saturday is considered a success) are 1 to 6, since</p>
+<p><span class="math display">\[\begin{align}
+\text{odds} = \frac{\pi}{1 - \pi} = \frac{1/7}{(1 - (1/7))} = \frac{1}{6}.
+\notag
+\end{align}\]</span></p>
+<p>Similarly, the odds are 6 to 1 against Saturday being selected (any day but Saturday is a success).
+</p>
+<div class="figure"><span style="display:block;" id="fig:fig3"></span>
+<img src="_main_files/figure-html/fig3-1.png" alt="Space shuttle data with a simple linear regression model and a logistic regression model." width="576" />
+<p class="caption">
+Figure 6.3: Space shuttle data with a simple linear regression model and a logistic regression model.
+</p>
+</div>
+<p>*?Throughout this chapter, we will use terms such as or , but we actually use natural logs (ln) in
+our calculations.</p>
+<p>Equation (6.5) can be solved for <span class="math inline">\(\pi_i\)</span> to show that</p>
+<p><span class="math display">\[\begin{align}
+\pi_i &amp;= \frac{e^{\beta_0 + \beta_1 x_i}}{1 + e^{\beta_0 + \beta_1 x_i}} \tag{6.6}
+\end{align}\]</span></p>
+<p>
+Binary logistic regression assumes that for each <span class="math inline">\(x_i\)</span> value, the response variable <span class="math inline">\(Y_i\)</span> follows a Bernoulli distribution (described in the extended activities). This means we assume that (1) each <span class="math inline">\(Y_i\)</span> is independent, (2) each <span class="math inline">\(Y_i\)</span> falls into exactly one of two categories represented by either a zero or a one, and (3) for each <span class="math inline">\(x_i\)</span>, <span class="math inline">\(P(Y_i = 1) = \pi_i\)</span> and <span class="math inline">\(P(Y_i = 0) = 1 - \pi_i\)</span> (more specifically written as <span class="math inline">\(P(Y_i = 1 \mid x_i) = \pi_i\)</span> and <span class="math inline">\(P(Y_i = 0 \mid x_i) = 1 - \pi_i\)</span>). This third assumption states that for any given explanatory variable (a specific temperature value), the probability of success (no O-ring failures) is constant.
+</p>
+<p>It is possible to use least squares regression techniques to estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> in logistic regression models. However, the assumptions needed for hypothesis tests and confidence intervals using the ordinary least squares regression model are not met. Specifically, even after the log-odds transformation, Figure 6.3 demonstrates that the residuals are not normally distributed and the variability of the residuals depends on the explanatory variable.</p>
+<p>Residuals (observed values minus expected values) are used to estimate the error terms. Visual inspection of residual plots is often used to check for normality. Recall from previous work in regression that if the residuals are normally distributed, the scatterplot of the residuals versus the explanatory variable should resemble a randomly scattered oval of points. For example, it should resemble the random scatter you would see if you happened to drop 23 coins (one for each residual value).</p>
+<p>In logistic regression, the residuals are <span class="math inline">\(y_i - \hat\pi_i\)</span>. If the observed response <span class="math inline">\(y_i = 0\)</span>, then the residual value is <span class="math inline">\(-\hat\pi_i\)</span>. If the observed response <span class="math inline">\(y_i = 1\)</span>, then the residual value is <span class="math inline">\(1 - \hat\pi_i\)</span>. This leads to the two curves shown in Figure 6.4. When the temperature is low in the space shuttle data (around 55°F, as seen in Figure 6.3), the observed responses tend to be zero and the predicted responses (<span class="math inline">\(\hat\pi_i\)</span>’s) are small positive numbers. Thus, the residual values (<span class="math inline">\(-\hat\pi_i\)</span>’s) are negative and close to zero. When the temperature is high, the observed responses tend to be one, the predicted responses are close to one, and the residual values are positive and close to zero.</p>
+<pre><code>## Warning: package &#39;patchwork&#39; was built under R version 4.5.1</code></pre>
+<div class="figure"><span style="display:block;" id="fig:fig4"></span>
+<img src="_main_files/figure-html/fig4-1.png" alt="A scatterplot of the residuals from the space shuttle logistic regression model and a sample of what a scatterplot of normally distributed residuals might look like." width="576" />
+<p class="caption">
+Figure 6.4: A scatterplot of the residuals from the space shuttle logistic regression model and a sample of what a scatterplot of normally distributed residuals might look like.
+</p>
+</div>
+
+</div>
+<div id="the-logistic-regression-model-using-maximum-likelihood-estimates" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> The Logistic Regression Model Using Maximum Likelihood Estimates<a href="logistic-regression-the-space-shuttle-challenger.html#the-logistic-regression-model-using-maximum-likelihood-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Logistic regression is a special case of what is known as a generalized linear model. Generalized linear models expand linear regression models to cases where the normal assumptions do not hold. All generalized linear models have three components:</p>
+<p>Generalized linear models can also be used when the response variable follows other distributions. For example, <span class="math inline">\(y\)</span> may follow a Poisson or gamma distribution. Textbooks on generalized linear models derive link functions for each of these types of response variables. In least squares regression where the response has a normal distribution, as in Equation (6.1), the link function is simply the identity function. In other words, the response needs no transformation in simple linear regression models.</p>
+<p>Clearly the logistic regression model in Figure 6.3 is nonlinear. So it may seem somewhat surprising to consider logistic regression as a generalized linear model. The reason we still call this model linear is that the link function, the log-odds transformation, is modeled with a linear predictor, <span class="math inline">\(\beta_0 + \beta_1 x\)</span>.</p>
+<p>Instead of using least squares estimates, generalized linear models use the method of maximum likelihood to estimate the coefficients <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The extended activities provide more detail on calculating maximum likelihood estimates in logistic regression. In the space shuttle example, we will simply use a computer software package to find maximum likelihood estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.</p>
+<p> In least squares regression, we often transform the response variable (<span class="math inline">\(y\)</span>) so that the data fit model assumptions. In addition to linearizing data, transforming <span class="math inline">\(y\)</span> impacts the variability and the distribution of the error terms. In generalized linear models, the link function transforms the expected response (<span class="math inline">\(\pi\)</span>) to fit a linear predictor. For those who have had calculus, link functions are also differentiable and invertible.
+</p>
+<div id="activity-using-software-to-calculate-maximum-likelihood-estimates" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Using Software to Calculate Maximum Likelihood Estimates<a href="logistic-regression-the-space-shuttle-challenger.html#activity-using-software-to-calculate-maximum-likelihood-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Solve Equation (6.5) for <span class="math inline">\(\pi_i\)</span> to show that Equation (6.6) is true.</p></li>
+<li><p>Use Equation (6.6) to create six graphs. In each graph, plot the explanatory variable (<span class="math inline">\(x\)</span>) versus the expected probability of success (<span class="math inline">\(\pi\)</span>) using <span class="math inline">\(\beta_0 = -10\)</span> and <span class="math inline">\(-5\)</span> and <span class="math inline">\(\beta_1 = 0.5\)</span>, <span class="math inline">\(1\)</span>, and <span class="math inline">\(1.5\)</span>. Repeat the process for <span class="math inline">\(\beta_0 = 10\)</span> and <span class="math inline">\(5\)</span> and <span class="math inline">\(\beta_1 = -0.5\)</span>, <span class="math inline">\(-1\)</span>, and <span class="math inline">\(-1.5\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Do not submit the graphs, but explain the impact of changing <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.<br />
+</li>
+<li>For all of these graphs, what value of <span class="math inline">\(\pi\)</span> appears to have the steepest slope?</li>
+</ol></li>
+<li><p>Use statistical software to calculate the maximum likelihood estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. Compare the maximum likelihood estimates to the least squares estimates in Question 3.</p></li>
+</ol>
+<p>Figure 6.3 shows a logistic regression model using maximum likelihood estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. Using Equation (6.6) and the maximum likelihood estimates from Question 6, we can estimate the probability that a launch has no O-ring damage at temperature <span class="math inline">\(x_i\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+\hat\pi_i
+&amp;= \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i}} \\
+&amp;= \frac{e^{-15.043 + 0.232 x_i}}{1 + e^{-15.043 + 0.232 x_i}} \\
+&amp;\quad \text{for } i = 1,2,3,\dots,n \tag{6.9}
+\end{align}\]</span></p>
+<p>Notice that <span class="math inline">\(\pi\)</span> in Equation (6.6) has been replaced by <span class="math inline">\(\hat\pi\)</span> in Equation (6.9) because the parameters in the linear regression model (<span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>) have been estimated with our sample data; <span class="math inline">\(b_0 = \hat\beta_0 = -15.043\)</span> and <span class="math inline">\(b_1 = \hat\beta_1 = 0.232\)</span>.</p>
+</div>
+<div id="activity-estimating-the-probability-of-success-with-maximum-likelihood-estimates" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Estimating the Probability of Success with Maximum Likelihood Estimates<a href="logistic-regression-the-space-shuttle-challenger.html#activity-estimating-the-probability-of-success-with-maximum-likelihood-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="7" style="list-style-type: decimal">
+<li>Use Equation (6.9) to predict the probability that a launch has no O-ring damage when the temperature is 31°F, 50°F, and 75°F.</li>
+</ol>
+<p>At this point, it seems reasonable to question why the O-rings were not considered a higher risk at the time of the 1986 Challenger launch. After all, the odds of a successful launch (no O-ring damage) at the expected temperature of 31°F are about 1 to 2555 and the predicted odds change dramatically based on temperature. It is important to recognize that the previous launches did not result in the same disaster as the Challenger launch because the O-rings showed only “minor” damage. This wasn’t enough for gas to escape—only an indicator that the O-rings might not be as resilient as expected.</p>
+<blockquote>
+<p><strong>CAUTION</strong>Estimating a value for a temperature of 31°F is extrapolating beyond our data set. Just as in least squares regression, caution should be used when making predictions outside the range of explanatory variables that are available.
+</p>
+</blockquote>
+</div>
+</div>
+<div id="interpreting-the-logistic-regression-model" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Interpreting the Logistic Regression Model<a href="logistic-regression-the-space-shuttle-challenger.html#interpreting-the-logistic-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Interpretation of logistic regression models is often done in terms of the odds of success (odds of a launch with no O-ring damage). When the temperature is 59°F, the odds of a successful launch with no O-ring damage are <span class="math inline">\(\hat\pi/(1 - \hat\pi) = 0.2066/(1 - 0.2066) = 0.2605 \approx 0.25 = 1/4\)</span>. Thus, at 59°F, we state that the odds of a successful launch are about 1 to 4. When the temperature is 60°F, the odds of a successful launch are <span class="math inline">\(\hat\pi/(1 - \hat\pi) = 0.3285 \approx 0.333 \approx 1/3\)</span>. At 60°F, we state that the odds of a successful launch are about 1 to 3.</p>
+<p>The slope is not as easy to interpret for a logistic regression model as for a simple linear regression model. While ordinary least squares regression focuses on <span class="math inline">\(\beta_1\)</span>, logistic regression measures the change in the odds of success by the term <span class="math inline">\(e^{b_1}\)</span>, which is called the odds ratio. If we increase <span class="math inline">\(x_i\)</span> by 1 unit in a logistic regression model, the predicted odds that <span class="math inline">\(y = 1\)</span> (i.e., the launch will not have any O-ring damage) will be multiplied by <span class="math inline">\(e^{b_1}\)</span>. For example, when the temperature changes from 59°F to 60°F, the odds increase by a multiplicative factor of <span class="math inline">\(e^{b_1} = e^{0.232} = 1.2613\)</span>. In other words,</p>
+<p><span class="math display">\[\begin{align}
+\text{odds of success at 59°F} \times e^{b_1}
+&amp;= 0.2605(1.2613) \notag \\
+&amp;= 0.3285 \notag \\
+&amp;= \text{odds of success at 60°F} \notag
+\end{align}\]</span></p>
+<p>For any temperature value <span class="math inline">\(x_i\)</span>, this relationship can also be stated as</p>
+<p><span class="math display">\[\begin{align}
+\text{odds ratio} = e^{b_1} &amp;= \frac{\text{odds}(x_i + 1)}{\text{odds}(x_i)} \tag{6.10}
+\end{align}\]</span></p>
+<p>
+Taking the exponent of Equation (6.5), we can write the odds of success as
+<span class="math display">\[\begin{align}
+\text{odds} = \biggl(\frac{\pi_i}{1 - \pi_i}\biggr) &amp;= e^{\beta_0 + \beta_1 x_i} = e^{\beta_0}(e^{\beta_1})^{x_i} \tag{6.11}
+\end{align}\]</span></p>
+<p>Thus, as <span class="math inline">\(x_i\)</span> increases by 1,
+<span class="math display">\[\begin{align}
+e^{\beta_0}(e^{\beta_1})^{x_i + 1} &amp;= e^{\beta_0}(e^{\beta_1})^{x_i}(e^{\beta_1}) \tag{6.12}
+\end{align}\]</span></p>
+<p>
+</p>
+<div id="activity-interpreting-a-logistic-regression-model" class="section level3 unnumbered hasAnchor">
+<h3>Activity: Interpreting a Logistic Regression Model<a href="logistic-regression-the-space-shuttle-challenger.html#activity-interpreting-a-logistic-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Calculate the odds of a launch with no O-ring damage when the temperature is 60°F and when the temperature is 70°F.</p></li>
+<li><p>When <span class="math inline">\(x_i\)</span> increases by 10, state in terms of <span class="math inline">\(e^{b_1}\)</span> how much you would expect the odds to change.<br />
+</p></li>
+<li><p>The difference between the odds of success at 60°F and 59°F is about 0.3285 – 0.2605 = 0.068. Would you expect the difference between the odds at 52°F and 51°F to also be about 0.068? Explain why or why not.</p></li>
+<li><p>Create a plot of two logistic regression models. Plot temperature versus the estimated probability using maximum likelihood estimates from Question 6, and plot temperature versus the estimated probability using least squares estimates from Question 3.</p></li>
+</ol>
+<p>Thus far, we have developed a model to estimate the odds of a successful launch with no O-ring failures. However, we have not yet discussed the variability of the estimates or how confident we can be of the results. In the next section, we will discuss two hypothesis tests that can be used to determine if the odds of a successful launch are related to temperature. In other words, can we conclude that the logistic regression coefficient <span class="math inline">\(b_1\)</span> is not equal to zero?</p>
+<p>
+</p>
+</div>
+</div>
+<div id="inference-for-the-logistic-regression-model" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Inference for the Logistic Regression Model<a href="logistic-regression-the-space-shuttle-challenger.html#inference-for-the-logistic-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="assumptions-for-logistic-regression-models" class="section level3 unnumbered hasAnchor">
+<h3>Assumptions for Logistic Regression Models<a href="logistic-regression-the-space-shuttle-challenger.html#assumptions-for-logistic-regression-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Inference for logistic regression uses statistical theory that is based on limits as the sample size approaches infinity. The techniques, based on what is called asymptotic theory, work well with large sample sizes, but are only approximate with outliers or small sample sizes. It is common for logistic regression models to be developed for data sets of any size, but savvy statisticians will always use caution when interpreting the results for data sets with small sample sizes (such as the space shuttle example).</p>
+</div>
+<div id="the-wald-statistic" class="section level3 unnumbered hasAnchor">
+<h3>The Wald Statistic<a href="logistic-regression-the-space-shuttle-challenger.html#the-wald-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>D. Leonhardt, “John Tukey, 85, Statistician, Coined the Word ‘Software’,” New York Times Archives on the Web, 7/28/2000, stat.bell-labs.com/who/tukey/nytimes.html. John Tukey (1915–2000) had a formal background in chemistry and mathematics. Conducting data analysis during World War II peaked his interest in statistics, and he became one of the most influential statisticians of the 20th century.<a href="logistic-regression-the-space-shuttle-challenger.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/06-LogRegr.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>A Closer Look: Nonparametric Methods | A Book Chapter Example</title>
+
+    <meta name="author" content="Your Name" />
+  
+   
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="A Closer Look: Nonparametric Methods | A Book Chapter Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Closer Look: Nonparametric Methods | A Book Chapter Example" />
+  
+  
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.9.0/transition.js"></script>
+    <script src="libs/bs3compat-0.9.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.9.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+    <style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+      <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">A Book Chapter Example</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="a-closer-look-nonparametric-methods" class="section level1 unnumbered">
+<h1>A Closer Look: Nonparametric Methods</h1>
+<div id="permutation-tests-versus-randomization-tests" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> <strong>Permutation Tests versus Randomization Tests</strong></h2>
+<p>The random allocation of experimental units (e.g., mice) to groups provides the basis for statistical inference in
+a randomized comparative experiment. In the schistosomiasis K11777 treatment study, we used a significance
+test to ascertain whether cause and effect was at work. In the context of the random allocation study design,
+we called our significance test a randomization test.
+| In <strong>observational studies</strong>, subjects are not randomly allocated to groups. In this context, we apply the
+same inferential procedures as in the previous experiment, but we commonly call the significance test a
+<strong>permutation test</strong> rather than a randomization test.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> More importantly, in observational studies, the results
+of the test cannot typically be used to claim cause and effect; a researcher should exhibit more caution in the
+interpretation of results.</p>
+<p>
+</p>
+<p>
+</p>
+</div>
+<div id="age-discrimination-study" class="section level2 unnumbered">
+<h2>Age Discrimination Study</h2>
+<p>Westvaco is a company that produces paper products. In 1991, Robert Martin was working in the engineering
+department of the company’s envelope division when he was laid off in Round 2 of several rounds of layoffs
+by the company.3 He sued the company, claiming to be the victim of age discrimination. The ages of the 10
+workers involved in Round 2 were: 25, 33, 35, 38, 48, 55, 55, 55, 56, and 64. The ages of the three people
+laid off were 55, 55, and 64.</p>
+<div class="line-block">Figure 1.3 shows a comparative dotplot for age by layoff category. This dotplot gives the impression that</div>
+<p>Robert Martin may have a case: It appears as if older workers were more likely to be laid off. But we know
+enough about variability to be cautious.</p>
+<p>[[[Fig1.3]]]</p>
+</div>
+<div id="extended-activity-is-there-evidence-of-age-discrimination" class="section level2 unnumbered">
+<h2>Extended Activity: <em>Is There Evidence of Age Discrimination?</em></h2>
+<p>Data set: <code>Age</code>
+17. Conduct a permutation test to determine whether the observed difference between means is likely to
+occur just by chance. Use <code>Age</code> as the response variable and <code>Layoff</code> as the explanatory variable. Here
+we are interested in only a one-sided hypothesis test to determine if the mean age of people who were
+laid off is higher than the mean age of people who were not laid off.</p>
+<ol start="18" style="list-style-type: decimal">
+<li>Modify the program/macro you created in Question 17 to conduct a one-sided hypothesis test to determine
+if the median age of people who were laid off is higher than the median age of people who were
+not laid off. Report the p-value and compare your results to those in Question 17.</li>
+</ol>
+<div class="line-block"> Since there was no random allocation (i.e., people were not randomly assigned to a layoff group),</div>
+<p>statistical significance does not give us the right to assert that greater age is <em>causing</em> a difference in being
+laid off. The null hypothesis in this context becomes “The observed difference could be explained as if
+by random allocation alone.” That is, we proceed as any practicing social scientist must when working
+with observational data. We “imagine” an experiment in which workers are randomly allocated to a
+layoff group and then determine if the observed average difference between the ages of laid-off workers
+and those not laid off is significantly larger than would be expected to occur by chance in a randomized
+comparative experiment.
+| While age could be the cause for the difference—hence proving an allegation of age discrimination—
+there are many other possibilities (i.e., extraneous variables), such as the educational levels of the
+workers, their competence to do the job, and ratings on past performance evaluations. Rejecting the
+“as if by random allocation” hypothesis in the nonrandomized context can be a useful step toward
+establishing causality; however, it cannot establish causality unless the extraneous variables have been
+properly accounted for.
+| In the actual court case, data from all three rounds of layoffs were statistically analyzed. The analysis
+showed some evidence that older people were more likely to be laid off; however, Robert Martin ended up
+settling out of court.</p>
+</div>
+<div id="permutation-and-randomization-tests-for-matched-pairs-designs" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> <strong>Permutation and Randomization Tests for Matched Pairs Designs</strong></h2>
+<p>The ideas developed in this chapter can be extended to other study designs, such as a basic two-variable design
+called a matched pairs design. In a matched pairs design, each experimental unit provides both measurements
+in a study with two treatments (one of which could be a control). Conversely, in the completely randomized
+situation of the schistosomiasis K11777 treatment study, half the units were assigned to control and half to
+treatment; no mouse received both treatments.</p>
+</div>
+<div id="music-and-relaxation" class="section level2 unnumbered">
+<h2>Music and Relaxation</h2>
+<p>Grinnell College students Anne Tillema and Anna Tekippe conducted an experiment to study the effect of
+music on a person’s level of relaxation. They hypothesized that fast songs would increase pulse rate more
+than slow songs. The file called Music contains the data from their experiment. They decided to use a person’s
+pulse rate as an operational definition of the person’s level of relaxation and to compare pulse rates for two selections of music: a fast song and a slow song. For the fast song they chose “Beyond” by Nine Inch
+Nails, and for the slow song they chose Rachmaninoff’s “Vocalise.” They recruited 28 student subjects for
+the experiment.</p>
+<div class="line-block">Anne and Anna came up with the following experimental design. Their fundamental question</div>
+<p>involved two treatments: (1) listening to the fast song and (2) listening to the slow song. They could
+have randomly allocated 14 subjects to hear the fast song and 14 subjects to hear the slow song, but
+their more efficient approach was to have each subject provide both measurements. That is, each subject
+listened to both songs, giving rise to two data values for each subject, called a matched pairs. Randomization
+came into play when it was decided by a coin flip whether each subject would listen first to the
+fast song or the slow song.</p>
+<p>
+</p>
+<div class="line-block"> Specifically, as determined by coin flips, half the subjects experienced the following procedure:</div>
+<p>[one minute of rest; measure pulse (prepulse)] <span class="math inline">\(&gt;\)</span> [listen to fast song for 2 minutes; measure pulse
+for second minute (fast song pulse)] <span class="math inline">\(&gt;\)</span> [rest for one minute] <span class="math inline">\(&gt;\)</span> [listen to slow song for 2 minutes;
+measure pulse for second minute (slow song pulse)].</p>
+<div class="line-block">The other half experienced the procedure the same way except that they heard the slow song first and</div>
+<p>the fast song second.
+| Each subject gives us two measurements of interest for analysis: (1) fast song pulse minus prepulse
+and (2) slow song pulse minus prepulse. In the data file, these two measurements are called <code>Fastdiff</code> and
+<code>Slowdiff</code>, respectively.</p>
+<div class="line-block">Figure 1.4 shows a dotplot of the 28 <code>Fastdiff</code>-minus-<code>Slowdiff</code> values. Notice that positive numbers</div>
+<p>predominate and the mean difference is 1.857 beats per minute, both suggesting that the fast song does indeed
+heighten response (pulse rate) more than the slow song. We need to confirm this suspicion with a randomization
+test.</p>
+<div class="line-block">To perform a randomization test, we mimic the randomization procedure of the study design. Here,</div>
+<p>the randomization determined the order in which the subject heard the songs, so randomization is applied
+to the two measurements of interest for each subject. To compute a p-value, we determine how frequently
+we would obtain an observed difference as large as or larger than 1.857.</p>
+<p>[[[Fig1.4]]]</p>
+</div>
+<div id="extended-activity-testing-the-effect-of-music-on-relaxation" class="section level2 unnumbered">
+<h2>Extended Activity: <em>Testing the Effect of Music on Relaxation</em></h2>
+Data set: <code>Music</code>
+<p>
+</p>
+</div>
+<div id="the-bootstrap-distribution" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> <strong>The Bootstrap Distribution</strong></h2>
+<p>Bootstrapping is another simulation technique that is commonly used to develop confidence intervals and
+hypothesis tests. Bootstrap techniques are useful because they generalize to situations where traditional methods
+based on the normal distribution cannot be applied. For example, they can be used to create confidence intervals
+and hypothesis tests for any parameter of interest, such as a median, ratio, or standard deviation. Bootstrap
+methods differ from previously discussed techniques in that they sample <strong>with replacement</strong> (randomly draw
+an observation from the original sample and put the observation back before drawing the next observation).
+| Permutation tests, randomization tests, and bootstrapping are often called <strong>resampling techniques</strong>
+because, instead of collecting many different samples from a population, we take repeated samples (called
+resamples) from just one random sample.</p>
+</div>
+<div id="extended-activity-creating-a-sampling-distribution-and-a-bootstrap-distribution" class="section level2 unnumbered">
+<h2>Extended Activity: <em>Creating a Sampling Distribution and a Bootstrap Distribution</em></h2>
+Data set: <code>ChiSq</code>
+<p>
+</p>
+<div class="line-block">In many real-world situations, the process used in Question 21 is not practical because collecting more</div>
+<p>than one simple random sample is too expensive or time consuming. While the approach in Question 22 is
+computer intensive, it is simple and convenient since it uses only one simple random sample. The key idea
+behind bootstrap methods is the assumption that the original sample represents the population, so resamples
+from the one simple random sample can be used to represent samples from the population, as is done in Question
+22. Thus, the bootstrap distribution provides an approximation of the sampling distribution.</p>
+<div class="line-block">Most traditional methods of statistical inference involve collecting one sample and calculating the sample</div>
+<p>mean. Then, based on the central limit theorem, assumptions are made about the shape and spread of the
+sampling distribution. In Question 22 we used one sample to calculate the sample mean and then used the
+bootstrap distribution to estimate the shape and spread of the sampling distribution.</p>
+<div class="line-block">The central limit theorem tells us about the shape and spread of the sample mean. A key advantage of</div>
+<p>the bootstrap distribution is that it works for any parameter of interest. Thus, the bootstrap distribution can be
+used to estimate the shape and spread for any sampling distribution of interest.</p>
+<p>
+</p>
+<div class="line-block">Figure 1.5 shows the sampling distribution and the bootstrap distribution when a sample size of 10 is used to estimate the mean of the <code>ChiSq</code> data. Notice that the spreads for both histograms are</div>
+<p>roughly equivalent. The central limit theorem tells us that the standard deviation of the sampling distribution (the distribution of <span class="math inline">\(\bar{x}\)</span> ) should be <span class="math inline">\(\sigma\)</span>/<span class="math inline">\(\sqrt{n}\)</span> = 1.3153/<span class="math inline">\(\sqrt{10}\)</span> = 0.4159. The standard deviation of the bootstrap distribution is 0.4541, which is a reasonable estimate of the standard deviation of the sampling distribution. In addition, both graphs have similar, right-skewed shapes. The strength of the bootstrap method is that it provides accurate estimates of the shape and spread of the sampling distribution. In general, histograms from the bootstrap distribution will have a similar shape and spread as histograms
+from the sampling distribution.</p>
+<p>[[[Fig 1.5]]]</p>
+<div class="line-block">The bootstrap method does not improve our estimate of the population mean. The mean of the sampling distribution in Question 21 will typically be very close to the population mean. But the mean of the bootstrap distribution in Question 22 typically will not be as accurate, because it is based on only one simple random sample. Ideally, we would like to know how close the statistic from our original sample is to the population parameter. A statistic is biased if it is not centered at the value of the population parameter. We can use the bootstrap distribution to estimate the bias of a statistic. The difference between the original sample mean and the bootstrap mean is called the <strong>bootstrap estimate of bias</strong>.</div>
+<p>
+</p>
+</div>
+<div id="using-bootstrap-methods-to-create-confidence-intervals" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> <strong>Using Bootstrap Methods to Create Confidence Intervals</strong></h2>
+<p>A <strong>confidence interval</strong> gives a range of plausible values for some parameter. This is a range of values surrounding an observed estimate of the parameter—an estimate based on the data. To this range of values we attach a level of confidence that the true parameter lies in the range. An alpha-level, <span class="math inline">\(\alpha\)</span>, is often used to specify the level of confidence. For example, when <span class="math inline">\(\alpha\)</span> = 0.05, we have a 100(1 - <span class="math inline">\(\alpha\)</span>), = 95<span class="math inline">\(\%\)</span> confidence level. Thus, a 100(1 - <span class="math inline">\(\alpha\)</span>), confidence interval gives an estimate of where we think the parameter is and how precisely we have it pinned down.</p>
+</div>
+<div id="bootstrap-t-confidence-intervals-" class="section level2" number="1.10">
+<h2><span class="header-section-number">1.10</span> *<strong>Bootstrap t Confidence Intervals</strong>{-}</h2>
+<p>If the bootstrap distribution appears to be approximately normal, it is typically safe to assume that a
+t-distribution can be used to calculate a 100(1 - <span class="math inline">\(\alpha\)</span>), confidence interval for <span class="math inline">\(\mu\)</span>, often called a bootstrap
+t confidence interval:</p>
+<p><span class="math display">\[\begin{equation}
+  \bar{x} \pm t^*\left(S^*\right)
+  \tag{1.1} \label{eq:1_1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(S^*\)</span> is the standard deviation of the bootstrap distribution and <span class="math inline">\(t^*\)</span> is the critical value of the t-distribution with n - 1 degrees of freedom.</p>
+<div class="line-block">The one simple random sample of size n = 10 used to create the bootstrap distribution in Figure 1.5b has a mean of <span class="math inline">\(\bar{x}\)</span> = 1.238 and a standard deviation of s = 1.490. The bootstrap distribution in Figure 1.5b has a mean of <span class="math inline">\(\bar{x}^*\)</span> = 1.249 and a standard deviation of <span class="math inline">\(S^*\)</span> = 0.4541. Notice that Formula (1.1) uses the mean from the original sample but uses the bootstrap distribution to estimate the spread. If we <em>incorrectly assume</em> that the sampling distribution in Figure 1.5 is normal, a 95% bootstrap t confidence interval for <span class="math inline">\(\mu\)</span> is given by</div>
+<p><span class="math display">\[\begin{equation}
+  \bar{x} \pm t^*\left(S^*\right) = 1.238 \pm 2.262(0.4541)
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(t^*\)</span> = 2.262 is the critical value corresponding to the 97.5th percentile of the t-distribution with n - 1 = 9
+degrees of freedom. Thus, the 95% confidence interval for <span class="math inline">\(\mu\)</span> is (0.211, 2.265).</p>
+<p>
+</p>
+<p>With skewed data or small sample sizes (if the original data are not normally distributed), parametric
+methods (which are based on the central limit theorem) are not appropriate. In Figure 1.5 we see that the
+sampling distribution is skewed to the right. <em>Thus, with a sample size of 10, neither the traditional onesample
+t confidence interval nor the bootstrap t confidence interval is reliable in this example</em>. However,
+with a sample size of 40, the histograms in Questions 21 and 22 should tend to look somewhat normally
+distributed.</p>
+</div>
+<div id="bootstrap-percentile-confidence-intervals" class="section level2 unnumbered">
+<h2>Bootstrap Percentile Confidence Intervals</h2>
+<p>Bootstrap percentile confidence intervals are found by calculating the appropriate percentiles of the bootstrap distribution. To find a 100(1 - <span class="math inline">\(\alpha\)</span>) confidence interval, take the <span class="math inline">\(\alpha\)</span>/2 * 100 percentile of each tail of the bootstrap distribution. For example, to find a 95% confidence interval for <span class="math inline">\(\mu\)</span>, sort all the observations from the bootstrap distribution and find the values that represents the 2.5th and 97.5th percentiles of the bootstrap distribution. The
+2.5th percentile of the bootstrap distribution in Figure 1.5b is 0.546, and the 97.5th percentile is 2.282. Thus,
+a 95% confidence interval for <span class="math inline">\(\mu\)</span> is (0.546, 2.282).
+Notice that the percentile confidence interval is not centered at the sample mean. Since the bootstrap
+distribution is right skewed, the right side of the confidence interval (2.282 - 1.238 = 1.044) is wider than
+the left side of the confidence interval (1.238 - 0.546 = 0.692). This lack of symmetry can influence the
+accuracy of the confidence interval.</p>
+<p>
+</p>
+</div>
+<div id="when-to-use-bootstrap-confidence-intervals" class="section level2 unnumbered">
+<h2>When to Use Bootstrap Confidence Intervals</h2>
+<p>Bootstrap methods are extremely useful when we cannot use theory, such as the central limit theorem, to
+approximate the sampling distribution. Thus, bootstrap methods can be used to create confidence intervals
+for essentially any parameter of interest, while the central limit theorem is limited to only a few parameters
+(such as the population mean).<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> However, bootstrap methods are not always reliable.</p>
+<div class="line-block">Small sample sizes still produce problems for bootstrap methods. When the sample size is small, (1) the sample statistic may not accurately estimate the population parameter, (2) the distribution of sample means is less likely to be symmetric, and (3) the shape and spread of the bootstrap distribution may not accurately represent those of the true sampling distribution.</div>
+<div class="line-block">In addition, bootstrap methods do not work equally well for all parameters. For example, the end-ofchapter</div>
+<p>exercises show that bootstrapping often provides unreliable bootstrap distributions for median values because the median of a resample is likely to have only a few possible values. Thus, confidence intervals for medians should be used only with large (n <span class="math inline">\(\geq\)</span> 100) sample sizes.</p>
+<div class="line-block">It is not easy to determine whether bootstrap methods provide appropriate confidence intervals. The bootstrap t and bootstrap percentile confidence intervals are often compared to each other. While the percentile confidence interval tends to be more accurate, neither of the two should be used if the intervals are not relatively</div>
+<p>close. If the bootstrap distribution is skewed or biased, other methods should be used to find confidence intervals. More advanced bootstrap methods (such as BCa and tilting confidence intervals) are available that are generally accurate when bias or skewness exists in the bootstrap distribution.<span class="math inline">\(^5\)</span></p>
+</div>
+<div id="extended-activityestimating-salaries-of-medical-faculty" class="section level2 unnumbered">
+<h2>Extended Activity:<em>Estimating Salaries of Medical Faculty</em></h2>
+Data set: <code>MedSalaries</code>
+</div>
+<div id="relationship-between-the-randomization-test-and-the-two-sample-t-test" class="section level2" number="1.11">
+<h2><span class="header-section-number">1.11</span> <strong>Relationship Between the Randomization Test and the Two-Sample t-Test</strong></h2>
+<p>R.A. Fisher, perhaps the preeminent statistician of the 20th century, introduced the randomization test in the context of a two-group randomly allocated experiment in his famous 1935 book, <em>Design of Experiments</em>.<span class="math inline">\(^6\)</span> At that time he acknowledged that the randomization test was not practical because of the computational
+intensity of the calculation. Clearly, 1935 predates modern computing. Indeed, Efron and Tibshirani describe the permutation test as “a computer-intensive statistical technique that predates computers.”<span class="math inline">\(^7\)</span> Fisher went on to assert that the classical two-sample t-test (for independent samples) approximates the randomization test very well. Ernst cites references to several approximations to the randomization tests using classical and computationally tractable methods that have been published over time.<span class="math inline">\(^8\)</span></p>
+<div class="line-block">If you have seen two-sample tests previously, it is likely to have been in the context of what Ernst calls the population model, which he distinguishes from the randomization model. In a *<strong>population model</strong>, units are selected at random from one or more populations. Most observational studies are population models. One simple case of a population model involves comparing two separate population means. In this case, we can take two independent simple random samples and use the classic two-sample t-test to make the comparison.</div>
+<div class="line-block">In a *<strong>randomization model</strong>, a fixed number of experimental units are randomly allocated to treatments. Most experiments are randomization models. In randomization models such as the schistosomiasis example,</div>
+<p>the two samples are formed from a collection of available experimental units that are randomly divided into two groups. Since there are a fixed number of units, the groups are not completely independent. For example,
+if one of the 10 male mice had a natural resistance to schistosomiasis and was randomly placed in the treatment group, we would expect the control group to have a slightly higher worm count. Since the two groups are not completely independent, the assumptions of the classic two-sample t-test are violated. Even if the sample sizes in the schistosomiasis study were much larger, the randomization test would be a more appropriate test than the two-sample t-test. However, empirical evidence has shown that the two-sample t-test is a very good approximation to the randomization test when sample sizes are large enough. We are fortunate that, in this age of modern computing, we no longer have to routinely compromise by using the t-test to approximate the randomization test.</p>
+<p>
+</p>
+</div>
+<div id="wilcoxon-rank-sum-tests-for-two-independent-samples" class="section level2" number="1.12">
+<h2><span class="header-section-number">1.12</span> <strong>Wilcoxon Rank Sum Tests for Two Independent Samples</strong></h2>
+<p>The <strong>Wilcoxon rank sum test</strong>, also called the two-sample <strong>Mann-Whitney test</strong>, makes inferences about the difference between two populations based on data from two independent random samples. This test ranks observations from two samples by arranging them in order from smallest to largest.</p>
+<div class="line-block">Focusing on ranks instead of the actual observed values allows us to remove assumptions about the normal distribution. Rank-based tests have been used for many years. However, rank-based methods (discussed</div>
+<p>in this section and the next section) are much less accurate than methods based on simulations. In general, randomization tests, permutation tests, or bootstrap methods should be used whenever possible.</p>
+<div class="line-block">The following example examines whether pitchers and first basemen who play for National League baseball teams have the same salary distribution. The null and alternative hypotheses are written as,</div>
+<p><span class="math inline">\(H_0\)</span>: the distribution of the salaries is the same for pitchers and first basemen
+<span class="math inline">\(H_a\)</span>: the distribution of the salaries is different for pitchers and first basemen</p>
+<div class="line-block">Table 1.2 shows the salaries of five pitchers and five first basemen who were randomly selected from all National League baseball players. Table 1.3 ranks each of the players based on 2005 salaries.</div>
+<div class="line-block">Note that if two players had exactly the same salary, standard practice would be to average the ranks of the tied values.</div>
+<table>
+<caption>(#tab:table1_2)Randomly selected pitchers and first baseman from 2005 National League baseball teams.</caption>
+<thead>
+<tr class="header">
+<th align="left">Team</th>
+<th align="left">Position</th>
+<th align="left">Name</th>
+<th align="right">Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Milwaukee Brewers</td>
+<td align="left">Pitcher</td>
+<td align="left">Obermueller, Wes</td>
+<td align="right">342000</td>
+</tr>
+<tr class="even">
+<td align="left">Houston Astros</td>
+<td align="left">Pitcher</td>
+<td align="left">Backe, Brandon</td>
+<td align="right">350000</td>
+</tr>
+<tr class="odd">
+<td align="left">Atlanta Braves</td>
+<td align="left">Pitcher</td>
+<td align="left">Sosa, Jorge</td>
+<td align="right">650000</td>
+</tr>
+<tr class="even">
+<td align="left">Atlanta Braves</td>
+<td align="left">Pitcher</td>
+<td align="left">Thomson, John</td>
+<td align="right">4250000</td>
+</tr>
+<tr class="odd">
+<td align="left">Cincinnati Reds</td>
+<td align="left">First Baseman</td>
+<td align="left">Casey, Sean</td>
+<td align="right">7800000</td>
+</tr>
+<tr class="even">
+<td align="left">Arizona Diamondbacks</td>
+<td align="left">First Baseman</td>
+<td align="left">Green, Shawn</td>
+<td align="right">7833333</td>
+</tr>
+<tr class="odd">
+<td align="left">San Diego Padres</td>
+<td align="left">First Baseman</td>
+<td align="left">Nevin, Phil</td>
+<td align="right">9625000</td>
+</tr>
+<tr class="even">
+<td align="left">New York Mets</td>
+<td align="left">Pitcher</td>
+<td align="left">Glavine, Tom</td>
+<td align="right">10765608</td>
+</tr>
+<tr class="odd">
+<td align="left">Colorado Rockies</td>
+<td align="left">First Baseman</td>
+<td align="left">Helton, Todd</td>
+<td align="right">12600000</td>
+</tr>
+<tr class="even">
+<td align="left">Philadelphia Phillies</td>
+<td align="left">First Baseman</td>
+<td align="left">Thome, Jim</td>
+<td align="right">13166667</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>This text defines a randomization test as a permutation test that is based on random allocation. Some statisticians do not
+distinguish between permutation tests and randomization tests. They call simulation studies permutation tests, whether
+they are based on observational studies or experiments.<a href="a-closer-look-nonparametric-methods.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Theoretical methods allow distributional tests for more than just the population mean. However, for purposes of this text it is sufficient to understand that distributional methods tend to be more complicated and are limited to testing only a few
+parameters that could be of interest.<a href="a-closer-look-nonparametric-methods.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>A Book Chapter Example</strong>" was written by Your Name. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

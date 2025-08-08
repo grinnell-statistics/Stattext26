@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Multiple Regression: How Much Is Your Car Worth? | Making Decisions with Data</title>
+<meta name="author" content="Shonda Kuiper">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Multiple Regression: How Much Is Your Car Worth? | Making Decisions with Data">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Multiple Regression: How Much Is Your Car Worth? | Making Decisions with Data">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="Essentially, all models are wrong; some are useful. -George E. P. Box11  Multiple regression is arguably the single most important method in all of statistics. Regression models are widely used in...">
+<meta property="og:description" content="Essentially, all models are wrong; some are useful. -George E. P. Box11  Multiple regression is arguably the single most important method in all of statistics. Regression models are widely used in...">
+<meta name="twitter:description" content="Essentially, all models are wrong; some are useful. -George E. P. Box11  Multiple regression is arguably the single most important method in all of statistics. Regression models are widely used in...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Making Decisions with Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> An Introduction to Nonparametric Methods: Schistosomiasis</a></li>
+<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="making-connections-the-two-sample-t-test-regression-and-anova.html"><span class="header-section-number">2</span> Making Connections: The Two-Sample t-Test, Regression, and ANOVA</a></li>
+<li><a class="active" href="multiple-regression-how-much-is-your-car-worth.html"><span class="header-section-number">3</span> Multiple Regression: How Much Is Your Car Worth?</a></li>
+<li><a class="" href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><span class="header-section-number">4</span> The Design and Analysis of Factorial Experiments: Microwave Popcorn</a></li>
+<li><a class="" href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><span class="header-section-number">5</span> Categorical Data Analysis: Is a Tumor Malignant or Benign?</a></li>
+<li><a class="" href="logistic-regression-the-space-shuttle-challenger.html"><span class="header-section-number">6</span> Logistic Regression: The Space Shuttle Challenger</a></li>
+<li><a class="" href="logistic-regression-the-space-shuttle-challenger-1.html"><span class="header-section-number">7</span> Logistic Regression: The Space Shuttle Challenger</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-regression-how-much-is-your-car-worth" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Multiple Regression: How Much Is Your Car Worth?<a class="anchor" aria-label="anchor" href="#multiple-regression-how-much-is-your-car-worth"><i class="fas fa-link"></i></a>
+</h1>
+<p><span style="float:right;"> <em>Essentially, all models are wrong; some are useful.</em></span><br><span style="float:right;"> -George E. P. Box<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;G.E.P. Box and N.R. Draper’s Empirical Model-Building and Response Surfaces (New York: Wiley, 1987),p. 4 24.&lt;/p&gt;"><sup>11</sup></a>
+</span></p>
+<p><br><br></p>
+<p>Multiple regression is arguably the single most important method in all of statistics.
+Regression models are widely used in many disciplines. In addition, a good understanding
+of regression is all but essential for understanding many other, more sophisticated
+statistical methods.</p>
+<p>This chapter consists of a set of activities that will enable you to build a multivariate
+regression model. The model will be used to describe the relationship between the retail price of 2005 used GM cars and various car characteristics, such as mileage, make, model, presence or absence of cruise control, and engine size. The set of activities in this chapter allows you work through the entire process of model building and assessment, including</p>
+<ul>
+<li>Applying variable selection techniques</li>
+<li>Using residual plots to check for violations of model assumptions, such as heteroskedasticity, outliers, autocorrelation, and nonnormality distributed errors</li>
+<li>Transforming data to better fit model assumptions</li>
+<li>Understanding the impact of correlated explanatory variables</li>
+<li>Incorporating categorical explanatory variables into a regression model</li>
+<li>Applying F-tests in multiple regression</li>
+</ul>
+<div style="page-break-after: always;"></div>
+<div id="investigation-how-can-we-build-a-model-to-estimate-used-car-prices" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> <strong>Investigation: How Can We Build a Model to Estimate Used Car Prices?</strong><a class="anchor" aria-label="anchor" href="#investigation-how-can-we-build-a-model-to-estimate-used-car-prices"><i class="fas fa-link"></i></a>
+</h2>
+<p>Have you ever browsed through a car dealership and observed the sticker prices on the vehicles? If you have ever seriously considered purchasing a vehicle, you can probably relate to the difficulty of determining whether that vehicle is a good deal or not. Most dealerships are willing to negotiate on the sale price, so how can you know how much to negotiate? For novices (like this author), it is very helpful to refer to an outside
+pricing source, such as the Kelley Blue Book, before agreeing on a purchase price.</p>
+<p>For over 80 years, Kelley Blue Book has been a resource for accurate vehicle pricing. The company’s Website, <a href="http://www.kbb.com" class="uri">http://www.kbb.com</a>, provides a free online resource where anyone can input several car characteristics (such as age, mileage, make, model, and condition) and quickly receive a good estimate of the retail price.</p>
+<p>In this chapter, you will use a relatively small subset of the Kelley Blue Book database to describe the association of several explanatory variables (car characteristics) with the retail value of a car. Before developing a complex multiple regression model with several variables, let’s start with a quick review of the simple linear regression model by asking a question: Are cars with lower mileage worth more? It seems reasonable
+to expect to see a relationship between mileage (number of miles the car has been driven) and retail value. The data set Cars contains the make, model, equipment, mileage, and Kelley Blue Book suggested retail price of several used 2005 GM cars.</p>
+</div>
+<div id="a-simple-linear-regression-model" class="section level2 unnumbered">
+<h2>A Simple Linear Regression Model<a class="anchor" aria-label="anchor" href="#a-simple-linear-regression-model"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data set: <span class="math inline">\(Cars\)</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Produce a scatterplot from the Cars data set to display the relationship between mileage (Mileage) and suggested retail price (Price). Does the scatterplot show a strong relationship between Mileage and Price?</p></li>
+<li><p>Calculate the least squares regression line, <span class="math inline">\(Price = b_0 + b_1(Mileage)\)</span>. Report the regression model, the <span class="math inline">\(R^2\)</span> value, the correlation coefficient, the t-statistics, and <span class="math inline">\(p\)</span>-values for the estimated model coefficients (the intercept and slope). Based on these statistics, can you conclude that Mileage is a strong indicator of Price? Explain your reasoning in a few sentences.</p></li>
+<li><p>The first car in this data set is a Buick Century with 8221 miles. Calculate the residual value for this car (the observed retail price minus the expected price calculated from the regression line).</p></li>
+</ol>
+<blockquote>
+<p><strong>MATHMATICAL NOTE</strong> For any regression equation of the form <span class="math inline">\(y_i = \beta_0 + \beta_1x_i + \epsilon_i\)</span> the hypothesis test for the slope of the regression equation (b1) is similar to other t-tests discussed in introductory textbooks. (Mathematical details for this hypothesis test are described in Chapter 2.)</p>
+</blockquote>
+<p>To test the null hypothesis that the slope coefficient is zero (<span class="math inline">\(H_0 : \beta_1 = 0\)</span> versus <span class="math inline">\(H_1 : \beta_1 \ne 0\)</span>), calculate the following test statistic:</p>
+<p><span class="math display">\[\begin{equation}\label{SlopeTest}
+t = \frac{b_1 - \beta_1}{\hat{\sigma}_{b_1}}
+\tag{3.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(b_1\)</span> is the estimated slope calculated from the data and <span class="math inline">\(\hat{\sigma}_{b_1}\)</span> is an estimate of the standard deviation of <span class="math inline">\(b_1\)</span>. Probability theory can be used to prove that if the regression model assumptions are true, the t-statistic in Equation 3.1 follows a t-distribution with n - 2 degrees of freedom. If the sample statistic, <span class="math inline">\(b_1\)</span>, is far away from <span class="math inline">\(\beta_1\)</span> = 0 relative to the estimated standard deviation, the t-statistic will be large and the corresponding <span class="math inline">\(p\)</span>-value will be small.</p>
+<p>The t-statistic for the slope coefficient indicates that Mileage is an important variable. However, the <span class="math inline">\(R^2\)</span> value (the percentage of variation explained by the regression line) indicates that the regression line is not very useful in predicting retail price. (A review of the <span class="math inline">\(R^2\)</span> value is given in the extended activities.) As is always the case with statistics, we need to visualize the data rather than focus solely on a <span class="math inline">\(p\)</span>-value. Figure 3.1 shows that the expected price decreases as mileage increases, but the observed points do not appear to be close to the regression line. Thus, it seems reasonable that including additional explanatory variables in the regression model might help to better explain the variation in retail price.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig1"></span>
+<img src="docs/Fig3_1.png" alt="Scatterplot and least squares regression model: $Price = 24,765 - 0.1725(Mileage)$. The regression line shows that for each additional mile a car is driven, the expected price of the car decreases by about 17 cents. However, many points are not close to the regression line, indicating that the expected price is not an accurate estimate of the actual observed price." width="80%"><p class="caption">
+Figure 3.1: Scatterplot and least squares regression model: <span class="math inline">\(Price = 24,765 - 0.1725(Mileage)\)</span>. The regression line shows that for each additional mile a car is driven, the expected price of the car decreases by about 17 cents. However, many points are not close to the regression line, indicating that the expected price is not an accurate estimate of the actual observed price.
+</p>
+</div>
+<p>In this chapter, you will build a linear combination of explanatory variables that explains the response variable, retail price. As you work through the chapter, you will find that there is not one technique, or “recipe,” that will give the best model. In fact, you will come to see that there isn’t just one “best” model for these data.</p>
+<p>Unlike in most mathematics classes, where every student is expected to submit the one right answer to an assignment, here it is expected that the final regression models submitted by various students will be at least slightly different. While a single “best” model may not exist for these data, there are certainly many bad models that should be avoided. This chapter focuses on understanding the process of developing a statistical
+model. It doesn’t matter if you are developing a regression model in economics, psychology, sociology, or engineering—there are common key questions and processes that should be evaluated before a final model is submitted.</p>
+</div>
+<div id="goals-of-multiple-regression" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> <strong>Goals of Multiple Regression</strong><a class="anchor" aria-label="anchor" href="#goals-of-multiple-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>It is important to note that multiple regression analysis can be used to serve different goals. The goals will influence the type of analysis that is conducted. The most common goals of multiple regression are to describe, predict, or confirm.</p>
+<ul>
+<li>
+<strong>Describe</strong>: A model may be developed to describe the relationship between multiple explanatory variables and the response variable.</li>
+<li>
+<strong>Predict</strong>: A regression model may be used to generalize to observations outside the sample. Just as in simple linear regression, explanatory variables should be within the range of the sample data to predict future responses.</li>
+<li>
+<strong>Confirm</strong>: Theories are often developed about which variables or combination of variables should be included in a model. For example, is mileage useful in predicting retail price? Inferential techniques can be used to test if the association between the explanatory variables and the response could just be due to chance. Theory may also predict the type of relationship that exists, such as “cars with lower mileage are worth more.” More specific theories can also be tested, such as “retail price decreases linearly with mileage.”</li>
+</ul>
+<p>When the goal of developing a multiple regression model is description or prediction, the primary issue is often determining which variables to include in the model (and which to leave out). All potential explanatory variables can be included in a regression model, but that often results in a cumbersome model that is difficult to understand. On the other hand, a model that includes only one or two of the explanatory variables, such as the model in Figure 3.1, may be much less accurate than a more complex model. This tension between finding a simple model and finding the model that best explains the response is what makes it difficult to find a “best” model. The process of finding the most reasonable mix, which provides a relatively simple linear combination of explanatory variables, often resembles an exploratory artistic process much more than a formulaic recipe.</p>
+<p>Including redundant or unnecessary variables not only creates an unwieldy model but also can lead to test statistics (and conclusions from corresponding hypothesis tests) that are less reliable. If explanatory variables are highly correlated, then their effects in the model will be estimated with more imprecision. This imprecision leads to larger standard errors and can lead to insignificant test results for individual variables that can be important in the model. Failing to include a relevant variable can result in biased estimates of the regression coefficients and invalid t-statistics, especially when the excluded variable is highly significant or when the excluded variable is correlated with other variables also in the model.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;More details are provided in more advanced textbooks such as M. H. Kutner, J. Neter, C. J. Nachtsheim, and W. Li, Applied Linear Regression Models (New York: McGraw-Hill, 2004).&lt;/p&gt;"><sup>12</sup></a></p>
+</div>
+<div id="variable-selection-techniques-to-describe-or-predict-a-response" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> <strong>Variable Selection Techniques to Describe or Predict a Response</strong><a class="anchor" aria-label="anchor" href="#variable-selection-techniques-to-describe-or-predict-a-response"><i class="fas fa-link"></i></a>
+</h2>
+<p>If your objective is to describe a relationship or predict new response variables, variable selection techniques are useful for determining which explanatory variables should be in the model. For this investigation, we will consider the response to be the suggested retail price from Kelley Blue Book (the Price variable in the data). We may initially believe the following are relevant potential explanatory variables:</p>
+<ul>
+<li>Make (Buick, Cadillac, Chevrolet, Pontiac, SAAB, Saturn)</li>
+<li>Model (specific car for each previously listed Make)</li>
+<li>Trim (specific type of Model)</li>
+<li>Type (Sedan, Coupe, Hatchback, Convertible, or Wagon)</li>
+<li>Cyl (number of cylinders: 4, 6, or 8)</li>
+<li>Liter (a measure of engine size)</li>
+<li>Doors (number of doors: 2, 4)</li>
+<li>Cruise (1 = cruise control, 0 = no cruise control)</li>
+<li>Sound (1 = upgraded speakers, 0 = standard speakers)</li>
+<li>Leather (1 = leather seats, 0 = not leather seats)</li>
+<li>Mileage (number of miles the car has been driven)</li>
+</ul>
+</div>
+<div id="stepwise-regression" class="section level2 unnumbered">
+<h2>Stepwise Regression<a class="anchor" aria-label="anchor" href="#stepwise-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>When a large number of variables are available, <strong>stepwise regression</strong> is an iterative technique that has historically been used to identify key variables to include in a regression model. For example, <strong>forward stepwise regression</strong> begins by fitting several single-predictor regression models for the response; one regression model is developed for each individual explanatory variable. The single explanatory variable (call it <span class="math inline">\(X_1\)</span>) that best explains the response (has the highest <span class="math inline">\(R^2\)</span> value) is selected to be in the model.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;An F-test is conducted on each of the models. The size of the F-statistic (and corresponding &lt;span class="math inline"&gt;\(p\)&lt;/span&gt;-value) is used to evaluate the fit of each model. When models with the same number of predictors are compared, the model with the largest F-statistic will also have the largest &lt;span class="math inline"&gt;\(R^2\)&lt;/span&gt; value.&lt;/p&gt;'><sup>13</sup></a></p>
+<p>In the next step, all possible regression models using <span class="math inline">\(X_1\)</span> and exactly one other explanatory variable are calculated. From among all these two-variable models, the regression model that best explains the response is used to identify <span class="math inline">\(X_2\)</span>. After the first and second explanatory variables, <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, have been selected, the process is repeated to find X3. This continues until including additional variables in the model no longer
+greatly improves the model’s ability to describe the response.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;An &lt;span class="math inline"&gt;\(\alpha\)&lt;/span&gt;-level is often used to determine if any of the explanatory variables not currently in the model should be added to the model. If the &lt;span class="math inline"&gt;\(p\)&lt;/span&gt;-value of all additional explanatory variables is greater than the &lt;span class="math inline"&gt;\(\alpha\)&lt;/span&gt;-level, no more variables will be entered into the model. Larger &lt;span class="math inline"&gt;\(\alpha\)&lt;/span&gt;-level (such as a = 0.2) will include more terms while smaller &lt;span class="math inline"&gt;\(\alpha\)&lt;/span&gt;-level (such as a = 0.05) will include fewer terms.&lt;/p&gt;'><sup>14</sup></a></p>
+<p><strong>Backward stepwise regression</strong> is similar to forward stepwise regression except that it starts with all potential explanatory variables in the model. One by one, this technique removes variables that make the smallest contribution to the model fit until a “best” model is found.</p>
+<p>While sequential techniques are easy to implement, there are usually better approaches to finding a regression model. Sequential techniques have a tendency to include too many variables and at the same timeso metimes eliminate important variables.3 With improvements in technology, most statisticians prefer to use more “global” techniques (such as best subset methods), which compare all possible subsets of the explanatory variables.</p>
+<blockquote>
+<p><strong>Note</strong> Later sections will show that when explanatory variables are highly correlated, sequential procedures often leave out variables that explain (are highly correlated with) the response. In addition, sequential procedures involve numerous iterations and each iteration involves hypothesis tests about the significanceof coefficients. Remember that with any multiple comparison problem, an <span class="math inline">\(\alpha\)</span>-level of 0.05 means there is a 5% chance that each irrelevant variable will be found significant and may inappropriately be determined important for the model.</p>
+</blockquote>
+</div>
+<div id="selecting-the-best-subset-of-predictors" class="section level2 unnumbered">
+<h2>Selecting the “Best Subset” of Predictors<a class="anchor" aria-label="anchor" href="#selecting-the-best-subset-of-predictors"><i class="fas fa-link"></i></a>
+</h2>
+<p>A researcher must balance increasing <span class="math inline">\(R^2\)</span> against keeping the model simple. When models with the same number of parameters are compared, the model with the highest <span class="math inline">\(R^2\)</span> value should typically be selected. A larger <span class="math inline">\(R^2\)</span> value indicates that more of the variation in the response variable is explained by the model. However, <span class="math inline">\(R^2\)</span> never decreases when another explanatory variable is added. Thus, other techniques are suggested for comparing models with different numbers of explanatory variables.</p>
+<p>Statistics such as the adjusted <span class="math inline">\(R^2\)</span>, Mallows’ <span class="math inline">\(C_p\)</span>, and Akaike’s and Bayes’ information criteria are used to determine a “best” model. Each of these statistics includes a penalty for including too many terms. In other words, when two models have equal <span class="math inline">\(R^2\)</span> values, each of these statistics will select the model with fewer terms. <strong>Best subsets techniques</strong> use several statistics to simultaneously compare several regression models with the same number of predictors.</p>
+<p>The <strong>coefficient of determination</strong>, <strong><span class="math inline">\(R^2\)</span></strong> is the percentage of variation in the response variable that is explained by the regression line.</p>
+<p><span class="math display">\[\begin{align}\label{R2}
+R^2 &amp;= \frac{\sum_{i=1}^{n}(\hat{y}_i - \bar{y})^2}{\sum_{i=1}^{n}({y}_i - \bar{y})^2} \\
+    &amp;= 1 - \frac{\sum_{i=1}^{n}({y}_i - \hat{y}_i)^2}{\sum_{i=1}^{n}({y}_i - \bar{y})^2}
+\tag{3.2}
+\end{align}\]</span></p>
+<p>When the sum of the squared residuals <span class="math inline">\({\sum_{i=1}^{n}({y}_i - \hat{y})^2}\)</span> are small compared to the total spread of the responses <span class="math inline">\({\sum_{i=1}^{n}({y}_i - \bar{y})^2}\)</span>, <span class="math inline">\(R^2\)</span> is close to one. <span class="math inline">\(R^2\)</span> = 1 indicates that the regression model perfectly fits the data.</p>
+<p>Calculations for <span class="math inline">\(R^2_{adj}\)</span> are</p>
+<p><span class="math display">\[\begin{equation}\label{R2Adj}
+R^2_{adj}  = 1 - (\frac{n-1}{n-p})\frac{\sum_{i=1}^{n}({y}_i - \hat{y}_i)^2}{\sum_{i=1}^{n}({y}_i - \bar{y})^2}
+\tag{3.3}
+\end{equation}\]</span></p>
+<p>Calculations for <span class="math inline">\(C_p\)</span> are</p>
+<p><span class="math display">\[\begin{equation}\label{Cp}
+C_p  = (n-p)\frac{\hat{\sigma}^2}{\hat{\sigma}^2_{Full}} + (2p-n)
+\tag{3.4}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the sample size, <span class="math inline">\(p\)</span> is the number of coefficients in the model (including the constant term), <span class="math inline">\(\hat{\sigma}^2\)</span> estimates the variance of the residuals in the model, and <span class="math inline">\(\hat{\sigma}^2_{Full}\)</span> estimates the variance of the residuals in the full model (i.e., the model with all possible terms).</p>
+<p><span class="math inline">\(R^2_{adj}\)</span> is similar to <span class="math inline">\(R^2\)</span> , except that <span class="math inline">\(R^2_{adj}\)</span> includes a penalty when unnecessary terms are included in the model. Specifically, when <span class="math inline">\(p\)</span> is larger, <span class="math inline">\((n - 1)/(n - p)\)</span> is larger, and thus <span class="math inline">\(R^2_{adj}\)</span> is smaller.</p>
+<p><span class="math inline">\(C_p\)</span> also adjusts for the number of terms in the model. Notice that when the current model explains the data as well as the full model, <span class="math inline">\(\hat{\sigma}^2 / \hat{\sigma}^2_{Full} = 1\)</span>. Then <span class="math inline">\(C_p = (n - p)(1) + 2p - n = p\)</span>. Thus, the objective is to find the smallest
+<span class="math inline">\(C_p\)</span> value that is close to the number of coefficients in the model. Mathematical details for these calculations are provided in the extended activities.</p>
+</div>
+<div id="comparing-variable-selection-techniques" class="section level2 unnumbered">
+<h2>Comparing Variable Selection Techniques<a class="anchor" aria-label="anchor" href="#comparing-variable-selection-techniques"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Dataset: Cars</strong><br>
+4. Use the Cars data to conduct a stepwise regression analysis.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Calculate seven regression models, each with one of the following explanatory variables: Cyl, Liter, Doors, Cruise, Sound, Leather, and Mileage. Identify the explanatory variable that corresponds to the model with the largest <span class="math inline">\(R^2\)</span> value. Call this variable <span class="math inline">\(X_1\)</span>.</p></li>
+<li><p>Calculate six regression models. Each model should have two explanatory variables, <span class="math inline">\(X_1\)</span> and one of the other six explanatory variables. Find the two-variable model that has the highest <span class="math inline">\(R^2\)</span> value. How much did <span class="math inline">\(R^2\)</span> improve when this second variable was included?</p></li>
+<li><p>Instead of continuing this process to identify more variables, use the software instructions provided to conduct a stepwise regression analysis. List each of the explanatory variables in the model suggested by the stepwise regression procedure.</p></li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Use the software instructions provided to develop a model using best subsets techniques. Notice that stepwise regression simply states which model to use, while best subsets provides much more information and requires the user to choose how many variables to include in the model. In general, statisticians select models that have a relatively low Cp, a large <span class="math inline">\(R^2\)</span>, and a relatively small number of explanatory variables. (It is rare for these statistics to all suggest the same model. Thus, the researcher much choose a model based on his or her goals. The extended activities provide additional details
+about each of these statistics.) Based on the output from best subsets, which explanatory variables should be included in a regression model?</p></li>
+<li><p>Compare the regression models in Questions 4 and 5.</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Are different explanatory variables considered important?</p></li>
+<li><p>Did the stepwise regression in Question 4 provide any indication that Liter could be useful in predicting Price? Did the best subsets output in Question 5 provide any indication that Liter might be useful in predicting Price? Explain why best subsets techniques can be more informative than sequential techniques.</p></li>
+</ol>
+<p>Neither sequential nor best subsets techniques guarantee a best model. Arbitrarily using slightly different criteria will produce different models. Best subset methods allow us to compare models with a specific number of predictors, but models with more predictors do not always include the same terms as smaller models. Thus, it is often difficult to interpret the importance of any coefficients in the model.</p>
+<p>Variable selection techniques are useful in providing a high <span class="math inline">\(R^2\)</span> value while limiting the number of variables. When our goal is to develop a model to describe or predict a response, we are concerned not about the significance of each explanatory variable, but about how well the overall model fits.</p>
+<p>If our goal involves confirming a theory, iterative techniques are not recommended. Confirming a theory is similar to hypothesis testing. Iterative variable selection techniques test each variable or combination of variables several times, and thus the <span class="math inline">\(p\)</span>-values are not reliable. The stated significance level for a t-statistic is valid only if the data are used for a single test. If multiple tests are conducted to find the best equation, the actual significance level for each test for an individual component is invalid.</p>
+<blockquote>
+<p><strong>Key Concept</strong>
+If variables are selected by iterative techniques, hypothesis tests should not be used to determine the significance of these same terms.</p>
+</blockquote>
+</div>
+<div id="checking-model-assumptions-1" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> <strong>Checking Model Assumptions</strong><a class="anchor" aria-label="anchor" href="#checking-model-assumptions-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>The simple linear regression model discussed in introductory statistics courses typically has the following form:</p>
+<p><span class="math display">\[\begin{equation}\label{slr}
+y_i = \beta_0 + \beta_1 x_i + \epsilon_i \quad \text{for } i = 1, 2, \dots, n \quad \text{where } \epsilon_i \sim N(0, \sigma^2)
+\tag{3.5}
+\end{equation}\]</span></p>
+<p>For this linear regression model, the mean response<span class="math inline">\(\beta_0 + \beta_1x_i\)</span> is a linear function of the explanatory variable, <span class="math inline">\(x\)</span>. The multiple linear regression model has a very similar form. The key difference is that now more terms are included in the model.</p>
+<p><span class="math display">\[\begin{align}\label{mlr}
+y_i &amp;= \beta_0 + \beta_1x_{1,i} + {...} + \beta_{p-1}  + \epsilon_i  \\
+    &amp;\quad  \text{   for } i = 1, 2, \dots, n \quad \text{where } \epsilon_i \sim N(0, \sigma^2)
+\tag{3.6}
+\end{align}\]</span></p>
+<p>In this chapter, <span class="math inline">\(p\)</span> represents the number of parameters in the regression model <span class="math inline">\((\beta_0 + \beta_1x_{1,i} + {...} + \beta_{p-1})\)</span> and <span class="math inline">\(n\)</span> is the total number of observations in the data. In this chapter, we make the following assumptions about the regression model:</p>
+<ul>
+<li>The model parameters <span class="math inline">\((\beta_0 + \beta_1x_{1,i} + {...} + \beta_{p-1})\)</span> and <span class="math inline">\(\sigma\)</span> are constant.</li>
+<li>Each term in the model is additive.</li>
+<li>The error terms in the regression model are independent and have been sampled from a single population (identically distributed). This is often abbreviated as iid.</li>
+<li>The error terms follow a normal probability distribution centered at zero with a fixed variance, <span class="math inline">\(\sigma^2\)</span>. This assumption is denoted as <span class="math inline">\(\epsilon_i \sim N(0,\sigma^2)\)</span> for <span class="math inline">\(i = 1, {...}, ~ n\)</span>.</li>
+</ul>
+<p>Regression assumptions about the error terms are generally checked by looking at the residuals from the data: <span class="math inline">\(({y}_i - \hat{y}_i)\)</span>. Here, <span class="math inline">\(y_i\)</span> are the observed responses and <span class="math inline">\(\hat{y}_i\)</span> are the estimated responses calculated by the regression model. Instead of formal hypothesis tests, plots will be used to visually assess whether the assumptions hold. The theory and methods are simplest when any scatterplot of residuals resembles a
+single, horizontal, oval balloon, but real data may not cooperate by conforming to the ideal pattern. An ornery plot may show a wedge, a curve, or multiple clusters. Figure 3.2 shows examples of each of these types of residual plots.</p>
+<p>Suppose you held a cup full of coins and dropped them all at once. We hope to find residual plots that resemble the random pattern that would likely result from dropped coins (like the oval-shaped plot). The other three plots show patterns that would be very unlikely to occur by random chance. Any plot patterns that are not nice oval shapes suggest that the error terms are violating at least one model assumption, and thus it is
+likely that we have unreliable estimates of our model coefficients. The following section illustrates strategies for dealing with one of these unwanted shapes: a wedge-shaped pattern.</p>
+<p>In single-variable regression models, residual plots show the same information as the initial fitted line plot. However, the residual plots often emphasize violations of model assumptions better than the fitted line plot. In addition, multivariate regression lines are very difficult to visualize. Thus, residual plots are essentialwhen multiple explanatory variables are used.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig2"></span>
+<img src="docs/Fig3_2.png" alt="Common shapes of residual plots. Ideally, residual plots should look like a randomly scattered set of dropped coins, as seen in the oval-shaped plot. If a pattern exists, it is usually best to try other regression models." width="100%"><p class="caption">
+Figure 2.1: Common shapes of residual plots. Ideally, residual plots should look like a randomly scattered set of dropped coins, as seen in the oval-shaped plot. If a pattern exists, it is usually best to try other regression models.
+</p>
+</div>
+</div>
+<div id="heteroskedasticity" class="section level2 unnumbered">
+<h2>Heteroskedasticity<a class="anchor" aria-label="anchor" href="#heteroskedasticity"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Heteroskedasticity</strong> is a term used to describe the situation where the variance of the error term is not constant for all levels of the explanatory variables. For example, in the regression equation <span class="math inline">\(Price = 24,765 - 0.173 (Mileage)\)</span>, the spread of the suggested retail price values around the regression line should be about the same whether mileage is 0 or mileage is 50,000. If heteroskedasticity exists in the model, the most common remedy is to transform either the explanatory variable, the response variable, or both in the hope that the transformed relationship will exhibit <strong>homoskedasticity</strong> (equal variances around the regression line) in the error terms.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Using the regression equation calculated in Question 5, create plots of the residuals versus each explanatory variable in the model. Also create a plot of the residuals versus the predicted retail price (often called a <strong>residual versus fit plot</strong>).</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Does the size of the residuals tend to change as mileage changes</p></li>
+<li><p>Does the size of the residuals tend to change as the predicted retail price changes? You should see patterns indicating heteroskedasticity (nonconstant variance).</p></li>
+<li><p>Another pattern that may not be immediately obvious from these residual plots is the right skewness seen in the residual versus mileage plot. Often economic data, such as price, are right skewed. To see the pattern, look at just one vertical slice of this plot. With a pencil, draw a vertical line corresponding to mileage equal to 8000. Are the points in the residual plots balanced around the line <span class="math inline">\(Y = 0\)</span>?</p></li>
+<li><p>Describe any patterns seen in the other residual plots.</p></li>
+</ol>
+<ol start="8" style="list-style-type: decimal">
+<li>Transform the suggested retail price to log (Price) and <span class="math inline">\(\sqrt{Price}\)</span>. Transforming data using roots, logarithms, or reciprocals can often reduce heteroskedasticity and right skewness. (Transformations are discussed in Chapter 2. Create regression models and residual plots for these transformed response variables using the explanatory variables selected in Question 5.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Which transformation did the best job of reducing the heteroskedasticity and skewness in the residual plots? Give the <span class="math inline">\(R^2\)</span> values of both new models.</p></li>
+<li><p>Do the best residual plots correspond to the best <span class="math inline">\(R^2\)</span> values? Explain.
+While other transformations could be tried, throughout this investigation we will refer to the log-transformed response variable as TPrice.</p></li>
+</ol>
+<p>Figure 3.3 shows residual plots that were created to answer Questions 7 and 8. Notice that when the response variable is Price, the residual versus fit plot has a clear wedge-shaped pattern. The residuals have much more spread when the fitted value is large (i.e., expected retail price is close to $40,000) than when the fitted value is near $10,000. Using TPrice as a response did improve the residual versus fit plot. Although
+there is still a faint wedge shape, the variability of the residuals is much more consistent as the fitted value changes. Figure 3.3 reveals another pattern in the residuals. The following section will address why points in both plots appear in clusters.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig3"></span>
+<img src="docs/Fig3_3.png" alt=" Residual versus fit plots using Price and TPrice (the log10 transformation), as responses. The residual plot with Price as the response has a much stronger wedge-shaped pattern than the one with TPrice." width="100%"><p class="caption">
+Figure 2.2:  Residual versus fit plots using Price and TPrice (the log10 transformation), as responses. The residual plot with Price as the response has a much stronger wedge-shaped pattern than the one with TPrice.
+</p>
+</div>
+</div>
+<div id="examining-residual-plots-across-timeorder" class="section level2 unnumbered">
+<h2>Examining Residual Plots Across Time/Order<a class="anchor" aria-label="anchor" href="#examining-residual-plots-across-timeorder"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Autocorrelation</strong> exists when consecutive error terms are related. If autocorrelation exists, the assumption about the independence of the error terms is violated. To identify autocorrelation, we plot the residuals versus the order of the data entries. If the ordered plot shows a pattern, then we conclude that autocorrelation exists. When autocorrelation exists, the variable responsible for creating the pattern in the ordered residual plot should be included in the model.</p>
+<p>Time (order in which the data were collected) is perhaps the most common source of autocorrelation, but other forms, such as spatial autocorrelations, can also be present. If time is indeed a variable that should be included in the model, a specific type of regression model, called a time series model, should be used.</p>
+<ol start="9" style="list-style-type: decimal">
+<li><p>Create a residual versus order plot from the TPrice versus Mileage regression line. Describe any pattern you see in the ordered residual plot. Apparently something in our data is affecting the residuals based on the order of the data. Clearly, time is not the influential factor in our data set (all of the data are from 2005). Can you suggest a variable in the Cars data set that may be causing this pattern?</p></li>
+<li><p>Create a second residual versus order plot using TPrice as the response and using the explanatory variables selected in Question 5. Describe any patterns that you see in these plots.</p></li>
+</ol>
+<p>While ordered plots make sense in model checking only when there is a meaningful order to the data, the residual versus order plots could demonstrate the need to include additional explanatory variables in the regression model. Figure 3.4 shows the two residual plots created in Questions 9 and 10. Both plots show that the data points are clearly clustered by order. However, there is less clustering when the six explanatory variables (Mileage, Cyl, Doors, Cruise, Sound, and Leather) are in the model. Also notice that the residuals tend to be closer to zero in the second graph. Thus, the second graph (with six explanatory variables) tends to have estimates that are closer to the actual observed values.</p>
+<p>We do not have a time variable in this data set, so reordering the data would not change the meaning of the data. Reordering the data could eliminate the pattern; however, the clear pattern seen in the residual versus order plots should not be ignored because it indicates that we could create a model with a much higher <span class="math inline">\(R^2\)</span> value if we could account for this pattern in our model. This type of autocorrelation is called <strong>taxonomic autocorrelation</strong>, meaning that the relationship seen in this residual plot is due to how the items in the data set are classified. Suggestions on how to address this issue are given in later sections.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig4"></span>
+<img src="docs/Fig3_4.png" alt=" Residual versus order plots using TPrice as the response. The first graph uses Mileage as the explanatory variable, and the second graph uses Mileage, Cyl, Doors, Cruise, Sound, and Leather as explanatory variables." width="80%"><p class="caption">
+Figure 2.3:  Residual versus order plots using TPrice as the response. The first graph uses Mileage as the explanatory variable, and the second graph uses Mileage, Cyl, Doors, Cruise, Sound, and Leather as explanatory variables.
+</p>
+</div>
+</div>
+<div id="outliers-and-influential-observations" class="section level2 unnumbered">
+<h2>Outliers and Influential Observations<a class="anchor" aria-label="anchor" href="#outliers-and-influential-observations"><i class="fas fa-link"></i></a>
+</h2>
+<ol start="11" style="list-style-type: decimal">
+<li>Calculate a regression equation using the explanatory variables suggested in Question 5 and Price as the response. Identify any residuals (or cluster of residuals) that don’t seem to fit the overall pattern in the residual versus fit and residual versus mileage plots. Any data values that don’t seem to fit the general pattern of the data set are called outliers.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Identify the specific rows of data that represent these points. Are there any consistencies that you can find?</p></li>
+<li><p>Is this cluster of outliers helpful in identifying the patterns that were found in the ordered residual plots? Why or why not?</p></li>
+</ol>
+<ol start="12" style="list-style-type: decimal">
+<li>Run the analysis with and without the largest cluster of potential outliers (the cluster of outliers corresponds to the Cadillac convertibles). Use Price as the response. Does the cluster of outliers influence the coefficients in the regression line?</li>
+</ol>
+<p>If the coefficients change dramatically between the regression models, these points are considered <strong>influential</strong>. If any observations are influential, great care should be taken to verify their accuracy.</p>
+<p>In addition to reducing heterskedasticity, transformations can often reduce the effect of outliers. Figure 3.5 shows the residual versus fit plots using Price and TPrice, respectively. The cluster of outliers corresponding to the Cadillac convertibles is much more visible in the plot with the untransformed (Price) response variable. Even though there is still clustering in the transformed data, the residuals corresponding to the Cadillac convertibles are no longer unusually large.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig5"></span>
+<img src="docs/Fig3_5.png" alt=" Residual versus fit plots using Price and TPrice as the response. The circled observations in the plot using Price are no longer clear outliers in the plot using TPrice." width="100%"><p class="caption">
+Figure 2.4:  Residual versus fit plots using Price and TPrice as the response. The circled observations in the plot using Price are no longer clear outliers in the plot using TPrice.
+</p>
+</div>
+<p>In some situations, clearly understanding outliers can be more time consuming (and possibly more interesting) than working with the rest of the data. It can be quite difficult to determine if an outlier was accurately recorded or whether the outliers should be included in the analysis.</p>
+<p>If the outliers were accurately recorded and transformations are not useful in eliminating them, it can be difficult to know what to do with them. The simplest approach is to run the analysis twice: once with the outliers included and once without. If the results are similar, then it doesn’t matter if the outliers are included or not. If the results do change, it is much more difficult to know what to do. Outliers should never automatically be removed because they don’t fit the overall pattern of the data. Most statisticians tend to err on the side of keeping the outliers in the sample data set unless there is clear evidence that they were mistakenly recorded. Whatever final model is selected, it is important to clearly state if you are aware that your results are sensitive to outliers.</p>
+</div>
+<div id="normally-distributed-residuals" class="section level2 unnumbered">
+<h2>Normally Distributed Residuals<a class="anchor" aria-label="anchor" href="#normally-distributed-residuals"><i class="fas fa-link"></i></a>
+</h2>
+<p>Even though the calculations of the regression model and <span class="math inline">\(R^2\)</span> do not depend on the normality assumption, identifying patterns in residual plots can often lead to another model that better explains the response variable.</p>
+<p>To determine if the residuals are normally distributed, two graphs are often created: a histogram of the residuals and a normal probability plot. Normal probability plots are created by sorting the data (the residuals in this case) from smallest to largest. Then the sorted residuals are plotted against a theoretical normal distribution. If the plot forms a straight line, the actual data and the theoretical data have the same shape (i.e., the same distribution). (Normal probability plots are discussed in more detail in
+Chapter 2.)</p>
+<ol start="13" style="list-style-type: decimal">
+<li>Create a regression line to predict TPrice from Mileage. Create a histogram and a normal probability plot of the residuals.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Do the residuals appear to follow the normal distribution?</p></li>
+<li><p>Are the ten outliers visible on the normal probability plot and the histogram?</p></li>
+</ol>
+<p>Figure 3.6 shows the normal probability plot using six explanatory variables to estimate TPrice. While the outliers are not visible, both plots still show evidence of lack of normality. Simply plugging data into a software package and using an iterative variable selection technique will not reliably create a “best” model.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig6"></span>
+<img src="docs/Fig3_6.png" alt=" Normal probability plot and histogram of residuals from the model using TPrice as the response and Mileage, Cyl, Doors, Cruise, Sound, and Leather as the explanatory variables." width="100%"><p class="caption">
+Figure 2.5:  Normal probability plot and histogram of residuals from the model using TPrice as the response and Mileage, Cyl, Doors, Cruise, Sound, and Leather as the explanatory variables.
+</p>
+</div>
+<blockquote>
+<p><strong>Key Concept</strong>
+Before a final model is selected, the residuals should be plotted against fitted (estimated) values, observation order, the theoretical normal distribution, and each explanatory variable in the model. Table 3.1 shows how each residual plot is used to check model assumptions. If a pattern exists in any of the residual plots, the <span class="math inline">\(R^2\)</span> value is likely to improve if different explanatory variables or transformations are included in the model.</p>
+</blockquote>
+</div>
+<div id="correlation-between-explanatory-variables" class="section level2 unnumbered">
+<h2>Correlation Between Explanatory Variables<a class="anchor" aria-label="anchor" href="#correlation-between-explanatory-variables"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Multicollinearity</strong> exists when two or more explanatory variables in a multiple regression model are highly correlated with each other. If two explanatory variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are highly correlated, it can be very difficult to identify whether <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, or both variables are actually responsible for influencing the response variable, <span class="math inline">\(Y\)</span>.</p>
+<ol start="14" style="list-style-type: decimal">
+<li>Create three regression models using Price as the response variable. In all three cases, provide the regression model, <span class="math inline">\(R^2\)</span> value, t-statistic for the slope coefficients, and corresponding <span class="math inline">\(p\)</span>-values.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>In the first model, use only Mileage and Liter as the explanatory variables. Is Liter an important explanatory variable in this model?</li>
+<li>In the second model, use only Mileage and number of cylinders (Cyl) as the explanatory variables. Is Cyl an important explanatory variable in this model?</li>
+<li>In the third model, use Mileage, Liter, and number of cylinders (Cyl) as the explanatory variables. How did the test statistics and <span class="math inline">\(p\)</span>-values change when all three explanatory variables were included in the model?</li>
+</ol>
+<ol start="15" style="list-style-type: decimal">
+<li><p>Note that the <span class="math inline">\(R^2\)</span> values are essentially the same in all three models in Question 14. The coefficients for Mileage also stay roughly the same for all three models—the inclusion of Liter or Cyl in the model does not appear to influence the Mileage coefficient. Depending on which model is used, we state that for each additional mile on the car, Price is reduced somewhere between $0.152 to $0.16. Describe how the coefficient for Liter depends on whether Cyl is in the model.</p></li>
+<li><p>Plot Cyl versus Liter and calculate the correlation between these two variables. Is there a strong correlation between these two variables? Explain.</p></li>
+</ol>
+<p>Recall that Question 4 suggested deleting Liter from the model. The goal in stepwise regression is to find the “best” model based on the <span class="math inline">\(R^2\)</span> value. If two explanatory variables both impact the response in the same way, stepwise regression will rather arbitrarily pick one variable and ignore the other.</p>
+<blockquote>
+<p><strong>Key Concept</strong>
+Stepwise regression can often completely miss important explanatory variables when there is multicollinearity.</p>
+</blockquote>
+<p>Most software packages can create a matrix plot of the correlations and corresponding scatterplots of all explanatory variables. This matrix plot is helpful in identifying any patterns of interdependence among the explanatory variables. An easy-to-apply guideline for determining if multicollinearity needs to be dealt with is to use the <strong>variance inflation factor (VIF)</strong>.</p>
+<p>VIF conducts a regression of each explanatory variable (<span class="math inline">\(X_i\)</span>) on the remaining explanatory variables, calculates the corresponding <span class="math inline">\(R^2\)</span> value (<span class="math inline">\({R_i}^2\)</span>), and then calculates the following function for each variable Xi : <span class="math inline">\(1/(1 - {R_i}^2)\)</span>. If the <span class="math inline">\({R_i}^2\)</span> value is zero, VIF is one, and Xi is uncorrelated with all other explanatory variables. Montgomery, Peck, and Vining state, “Practical experience indicates that if any of the VIFs exceed 5 or 10, it is an indication that the associated regression coefficients are poorly estimated because of multicollinearity.”<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Details of these methods are described in D.C. Montgomery, E. A. Peck, and G. G. Vining, Introduction to Linear Regression Analysis, 3rd ed. (New York: Wiley, 2001).&lt;/p&gt;"><sup>15</sup></a></p>
+<p>Figure 3.7 shows that Liter and Cyl are highly correlated. Within the context of this problem, it doesn’t make physical sense to consider holding one variable constant while the other variable increases. In general, it may not be possible to “fix” a multicollinearity problem. If the goal is simply to describe or predict retail prices, multicollinearity is not a critical issue. Redundant variables should be eliminated from the model, but highly correlated variables that both contribute to the model are acceptable if you are not interpreting the coefficients. However, if your goal is to confirm whether an explanatory variable is associated with a response (test a theory), then it is essential to identify the presence of multicollinearity and to recognize that the coefficients are unreliable when it exists.</p>
+<blockquote>
+<p><strong>Key Concept</strong>
+If your goal is to create a model to describe or predict, then multicollinearity really is not a problem. Note that multicollinearity has very little impact on the <span class="math inline">\(R^2\)</span> value. However, if your goal is to understand how a specific explanatory variable influences the response, as is often done when confirming a theory, then multicollinearity can cause coefficients (and their corresponding <span class="math inline">\(p\)</span>-values when testing their significance) to be unreliable.</p>
+</blockquote>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig7"></span>
+<img src="docs/Fig3_7.png" alt=" Scatterplot showing a clear association between Liter and Cyl." width="100%"><p class="caption">
+Figure 3.2:  Scatterplot showing a clear association between Liter and Cyl.
+</p>
+</div>
+<p>The following approaches are commonly used to address multicollinearity:</p>
+<ul>
+<li>
+<strong>Get more information</strong>: If it is possible, expanding the data collection may lead to samples where the variables are not so correlated. Consider whether a greater range of data could be collected or whether data could be measured differently so that the variables are not correlated. For example, the data here are only for GM cars. Perhaps the relationship between engine size in liters and number of cylinders is not so strong for data from a wider variety of manufacturers.</li>
+<li>
+<strong>Re-evaluate the model</strong>: When two explanatory variables are highly correlated, deleting one variable will not significantly impact the <span class="math inline">\(R^2\)</span> value. However, if there are theoretical reasons to include both variables in the model, keep both terms. In our example, Liter and number of cylinders (Cyl) are measuring essentially the same quantity. Liter represents the volume displaced during one complete engine cycle; number of cylinders (Cyl) also is a measure of the volume that can be displaced.</li>
+<li>
+<strong>Combine the variables</strong>: Using other statistical techniques such as principal components, it is possible to combine the correlated variables “optimally” into a single variable that can be used in the model. There may be theoretical reasons to combine variables in a certain way. For example, the volume (size) and weight of a car are likely highly positively correlated. Perhaps a new variable defined as density = weight/volume could be used in a model predicting price rather than either of these individual variables.</li>
+</ul>
+<p>In this investigation, we are simply attempting to develop a model that can be used to estimate price, so multicollinearity will not have much impact on our results. If we did re-evaluate the model in light of the fact that Liter and number of cylinders (Cyl) both measure displacement (engine size), we might note that Liter is a more specific variable, taking on several values, while Cyl has only three values in the data set. Thus, we might choose to keep Liter and remove Cyl in the model.</p>
+</div>
+<div id="interpreting-model-coefficients" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> <strong>Interpreting Model Coefficients</strong><a class="anchor" aria-label="anchor" href="#interpreting-model-coefficients"><i class="fas fa-link"></i></a>
+</h2>
+<p>While multiple regression is very useful in understanding the impacts of various explanatory variables on a response, there are important limitations. When predictors in the model are highly correlated, the size and meaning of the coefficients can be difficult to interpret. In Question 14, the following three models were developed:</p>
+<p><span class="math display">\[\begin{align}
+Price &amp;= 9427 - 0.160(Mileage) + 4968(Liter)\\
+Price &amp;= 3146 - 0.152(Mileage) + 4028(Cyl)\\
+Price &amp;= 4708 - 0.154(Mileage) + 1545(Liter) + 2848(Cyl)\\
+\end{align}\]</span></p>
+<p>The interpretation of model coefficients is more complex in multiple linear regression than in simple linear regression. It can be misleading to try to interpret a coefficient without considering other terms in the model. For example, when Mileage and Liter are the two predictors in a regression model, the Liter coefficient might seem to indicate that an increase of one in Liter will increase the expected price by $4968. However, when Cyl is also included in the model, the Liter coefficient seems to indicate that an increase of one in Liter will increase the expected price by $1545. The size of a regression coefficient and even the direction can change depending on which other terms are in the model.</p>
+<p>In this investigation, we have shown that Liter and Cyl are highly correlated. Thus, it is unreasonable to believe that Liter would change by one unit but Cyl would stay constant. The multiple linear regression coefficients cannot be considered in isolation. Instead, the Liter coefficient shows how the expected price will change when Liter increases by one unit, after accounting for corresponding changes in all the other
+explanatory variables in the model.</p>
+<blockquote>
+<p><strong>Key Concept</strong>
+In multiple linear regression, the coefficients tell us how much the expected response will change when the explanatory variable increases by one unit, after accounting for corresponding changes in all other terms in the model.</p>
+</blockquote>
+</div>
+<div id="categorical-explanatory-variables" class="section level2" number="3.6">
+<h2>
+<span class="header-section-number">3.6</span> <strong>Categorical Explanatory Variables</strong><a class="anchor" aria-label="anchor" href="#categorical-explanatory-variables"><i class="fas fa-link"></i></a>
+</h2>
+<p>As we saw in Question 9, there is a clear pattern in the residual versus order plot for the Kelley Blue Book car pricing data. It is likely that one of the categorical variables (Make, Model, Trim, or Type) could explain this pattern.</p>
+<p>If any of these categorical variables are related to the response variable, then we want to add these variables to our regression model. A common procedure used to incorporate categorical explanatory variables into a regression model is to define indicator variables, also called dummy variables. Creating indicator variables is a process of mapping the one column (variable) of categorical data into several columns (indicator variables) of 0 and 1 data.</p>
+<p>Let’s take the variable Make as an example. The six possible values (Buick, Cadillac, Chevrolet, Pontiac, SAAB, Saturn) can be recoded using six indicator variables, one for each of the six makes of car. For example, the indicator variable for Buick will have the value 1 for every car that is a Buick and 0 for each car that is not a Buick. Most statistical software packages have a command for creating the indicator variables automatically.</p>
+</div>
+<div id="creating-indicator-variables" class="section level2 unnumbered">
+<h2>Creating Indicator Variables<a class="anchor" aria-label="anchor" href="#creating-indicator-variables"><i class="fas fa-link"></i></a>
+</h2>
+<ol start="17" style="list-style-type: decimal">
+<li><p>Create boxplots or individual value plots of the response variable TPrice versus the categorical variables Make, Model, Trim, and Type. Describe any patterns you see.</p></li>
+<li><p>Create indicator variables for Make. Name the columns, in order, Buick, Cadillac, Chevrolet, Pontiac, SAAB, and Saturn. Look at the new data columns and describe how the indicator variables are defined. For example, list all possible outcomes for the Cadillac indicator variable and explain what each outcome
+represents.</p></li>
+</ol>
+<p>Any of the indicator variables in Question 18 can be incorporated into a regression model. However, if you want to include Make in its entirety in the model, do not include all six indicator variables. Five will suffice because there is complete redundancy in the sixth indicator variable. If the first five indicator variables are all 0 for a particular car, we automatically know that this car belongs to the sixth category. Below, we will leave the Buick indicator variable out of our model. The coefficient for an indicator variable is an estimate of the average amount by which the response variable will change. For example, the estimated coefficient for the Saturn variable is an estimate of the average difference in TPrice when the car is a Saturn rather than a Buick (after adjusting for corresponding changes in all other terms in the model).</p>
+<blockquote>
+<p><strong>Mathematical Note</strong>
+For any categorical explanatory variable with <span class="math inline">\(g\)</span> groups, only <span class="math inline">\(g - 1\)</span> terms should be included in the regression model. Most software packages use matrix algebra to develop multiple regression models. If all <span class="math inline">\(g\)</span> terms are in the model, explanatory variables will be 100% correlated (you can exactly predict the value of one variable if you know the other variables) and the needed matrix inversion cannot be done. If the researcher chooses to leave all <span class="math inline">\(g\)</span> terms in the model, most software packages will arbitrarily remove one term so that the needed matrix calculations can be completed.</p>
+</blockquote>
+<p>It may be tempting to simplify the model by including only a few of the most significant indicator variables. For example, instead of including five indicator variables for Make, you might consider only using Cadillac and SAAB. Most statisticians would recommend against this. By limiting the model to only indicator variables that are significant in the sample data set, we can overfit the model.</p>
+<p>Models are <strong>overfit</strong> when researchers overwork a data set in order to increase the <span class="math inline">\(R^2\)</span> value. For example, a researcher could spend a significant amount of time picking a few indicator variables from Make, Model, Trim, and Type in order to find the best <span class="math inline">\(R^2\)</span> value. While the model would likely estimate the mean response well, it unlikely to accurately predict new values of the response variable.</p>
+<p>This is a fairly nuanced point. The purpose of variable selection techniques is to select the variables that best explain the response variable. However, overfitting may occur if we break up categorical variables into smaller units and then pick and choose among the best parts of those variables. (The Model Validation section
+in the extended activities discusses this topic in more detail.</p>
+</div>
+<div id="activity-building-regression-models-with-indicator-variables" class="section level2 unnumbered">
+<h2>Activity: Building Regression Models with Indicator Variables<a class="anchor" aria-label="anchor" href="#activity-building-regression-models-with-indicator-variables"><i class="fas fa-link"></i></a>
+</h2>
+<p>19 Build a new regression model using TPrice as the response and Mileage, Liter, Saturn, Cadillac, Chevrolet, Pontiac, and SAAB as the explanatory variables. Explain why you expect the <span class="math inline">\(R^2\)</span> value to increase when you add terms for Make.</p>
+<ol start="20" style="list-style-type: decimal">
+<li>Create indicator variables for Type. Include the Make and Type indicator variables, plus the variables Liter, Doors, Cruise, Sound, Leather, and Mileage, in a model to predict TPrice. Remember to leave at least one category out of the model for the Make and Type indicator variables (e.g., leave Buick and Hatchback out of the model). Compare this regression model to the other models that you have fit to the data in this investigation. Does the normal probability plot suggest that the residuals could follow a normal distribution? Describe whether the residual versus fit, the residual versus order, and the residual versus each explanatory variable plots look more random than they did in earlier problems.</li>
+</ol>
+<p>The additional categorical variables are important in improving the regression model. Figure 3.8 shows that when Make and Type are not in the model, the residuals are clustered. When Make and Type are included in the model, the residuals appear to be more randomly distributed. By incorporating Make and Type, we have been able to explain some of variability that was causing the clustering. In addition, the sizes of the residuals are much smaller. Smaller residuals indicate a better fitting model and a higher <span class="math inline">\(R^2\)</span> value.</p>
+<p>Even though Make and Type improved the residual plots, there is still clustering that might be improved by incorporating Model into the regression equation. However, if the goal is simply to develop a model that accurately estimates retail prices, the <span class="math inline">\(R^2\)</span> value in Question 20 is already fairly high. Are there a few more terms that can be added to the model that would dramatically improve the <span class="math inline">\(R^2\)</span> value?</p>
+<p>To determine a final model, you should attempt to maximize the <span class="math inline">\(R^2\)</span> value while simultaneously keeping the model relatively simple. For your final model, you should comment on the residual versus fit, residual versus order, and any other residual plots that previously showed patterns. If any pattern exists in the residual plots, it may be worth attempting a new regression model that will account for these patterns. If the regression model can be modified to address the patterns in the residuals, the <span class="math inline">\(R^2\)</span> value will improve. However, note that the <span class="math inline">\(R^2\)</span> value is already fairly high. It may not be worth making the model more complex for only a slight increase in the <span class="math inline">\(R^2\)</span> value.</p>
+<ol start="21" style="list-style-type: decimal">
+<li>Create a regression model that is simple (i.e., does not have too many terms) and still accurately predicts retail price. Validate the model assumptions. Look at residual plots and check for heteroskedasticity, multicollinearity, autocorrelation, and outliers. Your final model should not have significant clusters, skewness, outliers, or heteroskedasticity appearing in the residual plots. Submit your suggested least squares regression formula along with a limited number of appropriate graphs that provide justification for your model. Describe why you believe this model is “best.”</li>
+</ol>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig8"></span>
+<img src="docs/Fig3_8.png" alt=" Residual versus order plots show that incorporating the indicator variables into the regression model improves the random behavior and reduces the sizes of the residuals." width="100%"><p class="caption">
+Figure 3.3:  Residual versus order plots show that incorporating the indicator variables into the regression model improves the random behavior and reduces the sizes of the residuals.
+</p>
+</div>
+</div>
+<div id="what-can-we-conclude-from-the-2005-gm-car-study" class="section level2" number="3.7">
+<h2>
+<span class="header-section-number">3.7</span> <strong>What Can We Conclude from the 2005 GM Car Study?</strong><a class="anchor" aria-label="anchor" href="#what-can-we-conclude-from-the-2005-gm-car-study"><i class="fas fa-link"></i></a>
+</h2>
+<p>The data are from an observational study, not an experiment. Therefore, even though the <span class="math inline">\(R^2\)</span> value reveals a strong relationship between our explanatory variables and the response, a significant correlation (and thus a significant coefficient) does not imply a causal link between the explanatory variable and the response. There may be theoretical or practical reasons to believe that mileage (or any of the other
+explanatory variables) causes lower prices, but the final model can be used only to show that there is an association.</p>
+<p>Best subsets and residual graphs were used to develop a model that is useful for describing or predicting the retail price based on a function of the explanatory variables. However, since iterative techniques were used, the <span class="math inline">\(p\)</span>-values corresponding to the significance of each individual coefficient are not reliable.</p>
+<p>For this data set, cars were randomly selected within each make, model, and type of 2005 GM car produced, and then suggested retail prices were determined from Kelley Blue Book. While this is not a simple random sample of all 2005 GM cars actually on the road, there is still reason to believe that your final model will provide an accurate description or prediction of retail price for used 2005 GM cars. Of course, as time goes by, the value of these cars will be reduced and updated models will need to be developed.</p>
+</div>
+<div id="f-tests-for-multiple-regression" class="section level2" number="3.8">
+<h2>
+<span class="header-section-number">3.8</span> <strong><span class="math inline">\(F\)</span>-Tests for Multiple Regression</strong><a class="anchor" aria-label="anchor" href="#f-tests-for-multiple-regression"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="decomposition-of-sum-of-squares" class="section level2 unnumbered">
+<h2>Decomposition of Sum of Squares<a class="anchor" aria-label="anchor" href="#decomposition-of-sum-of-squares"><i class="fas fa-link"></i></a>
+</h2>
+<p>Many of the calculations involved in multiple regression are very closely related to those for the simple linear regression model. Simple linear regression models have the advantage of being easily visualized with scatterplots. Thus, we start with a simple linear regression model to derive several key equations used in multiple regression.</p>
+<p>Figure 3.9 shows a scatterplot and regression line for a subset of the used 2005 Kelly Blue Book Cars data. The data set is restricted to just Chevrolet Cavalier Sedans. In this scatterplot, one specific observation is highlighted: the point where <span class="math inline">\(Mileage\)</span> is 11,488 and the observed <span class="math inline">\(Price\)</span> is <span class="math inline">\(y_i = 14{,}678.1\)</span>.</p>
+<p>In Figure 3.9, we see that for any individual observation the total deviation <span class="math inline">\((y_i - \bar{y})\)</span> is decomposed into two parts:</p>
+<p><span class="math display">\[\begin{equation}
+y_i - \bar{y} = (y_i - \hat{y}_i) + (\hat{y}_i - \bar{y})
+\tag{3.7}
+\end{equation}\]</span></p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig9"></span>
+<img src="docs/Fig3_9.png" alt="Scatterplot and regression line for Chevrolet Cavalier Sedans: Price = 15,244 - 0.111(Mileage)." width="100%"><p class="caption">
+Figure 3.4: Scatterplot and regression line for Chevrolet Cavalier Sedans: Price = 15,244 - 0.111(Mileage).
+</p>
+</div>
+<p>Using our highlighted observation (11,488, 14,678.1), we see that
+<span class="math display">\[\begin{equation}\label{3.7}
+y_i - \bar{y} = (y_i - \hat{y}_i) + (\hat{y}_i - \bar{y})
+\tag{3.7}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+14{,}678.1 - 12{,}962 = (14{,}678.1 - 13{,}967.68) + (13{,}967.68 - 12{,}962) \notag
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+1716.1 = 710.42 + 1005.68 \notag
+\end{equation}\]</span></p>
+<p>Squaring both sides of Equation <span class="math inline">\(\ref{3.7}\)</span> and then summing over all observations results in</p>
+<p><span class="math display">\[\begin{align}\label{eq:SumSquares}
+\sum_{i=1}^n (y_i - \bar{y})^2
+  &amp;= \sum_{i=1}^n (y_i - \hat{y}_i)^2
+  + \sum_{i=1}^n (\hat{y}_i - \bar{y})^2
+  + 2 \sum_{i=1}^n (\hat{y}_i - \bar{y})(y_i - \hat{y}_i) \\[6pt]
+  &amp;= \sum_{i=1}^n (y_i - \hat{y}_i)^2 + \sum_{i=1}^n (\hat{y}_i - \bar{y})^2 \\[6pt] \tag{3.8}
+\end{align}\]</span></p>
+<p>To show that Equation 3.8 is true, we can write
+<span class="math display">\[\begin{equation}
+2 \sum_{i=1}^n (y_i - \hat{y}_i)(\hat{y}_i - \bar{y})
+  = 2 \sum_{i=1}^n \hat{y}_i (y_i - \hat{y}_i)
+  - 2 \bar{y} \sum_{i=1}^n (y_i - \hat{y}_i) \notag
+\end{equation}\]</span></p>
+<p>The key point of the previous calculations is to show that the total variability in the response, <span class="math inline">\(\sum_{i=1}^n (y_i - \bar{y})^2\)</span>, can be decomposed into the following:</p>
+<div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:center;border-bottom: none;">
+</th>
+<th style="text-align:center;border-bottom: none;">
+</th>
+<th style="text-align:center;border-bottom: none;">
+</th>
+<th style="text-align:center;border-bottom: none;">
+</th>
+<th style="text-align:center;border-bottom: none;">
+</th>
+<th style="text-align:center;border-bottom: none;">
+</th>
+<th style="text-align:center;border-bottom: none;">
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:center;border: none;">
+Total
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+Residual
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+Regression
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border: none;">
+(SST)
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+(SSE)
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+(SSR)
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border: none;">
+↓
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+↓
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+↓
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border: none;">
+<span class="math inline">\(\sum_{i=1}^n (y_i - \bar{y})^2\)</span>
+</td>
+<td style="text-align:center;border: none;">
+=
+</td>
+<td style="text-align:center;border: none;">
+<span class="math inline">\(\sum_{i=1}^n (y_i - \hat{y}_i)^2\)</span>
+</td>
+<td style="text-align:center;border: none;">
+<span class="math inline">\(+\)</span>
+</td>
+<td style="text-align:center;border: none;">
+<span class="math inline">\(\sum_{i=1}^n (\hat{y}_i - \bar{y})^2\)</span>
+</td>
+<td style="text-align:center;border: none;">
+</td>
+<td style="text-align:center;border: none;">
+(3.9)
+</td>
+</tr>
+</tbody>
+</table></div>
+<!-- \begin{equation} --><!-- \sum_{i=1}^n (y_i - \bar{y})^2 = \sum_{i=1}^n (y_i - \hat{y}_i)^2 + \sum_{i=1}^n (\hat{y}_i - \bar{y})^2 --><!-- \tag{3.9} --><!-- \end{equation} --><blockquote>
+<p><strong>MATHEMATICAL NOTE</strong><br>
+Recall that the sum of residuals, <span class="math inline">\(\sum_{i=1}^n (y_i - \hat{y}_i)\)</span>, equals zero. In addition, it can be shown that the sum of the residuals, weighted by the corresponding predicted value, always sums to zero: <span class="math inline">\(\sum_{i=1}^n \hat{y}_i (y_i - \hat{y}_i) = 0.\)</span> (See Questions 25 through 29.)</p>
+</blockquote>
+<div id="extended-activity-a-closer-look-at-least-squares-regression-equations" class="section level3 unnumbered">
+<h3>Extended Activity: A Closer Look at Least Squares Regression Equations<a class="anchor" aria-label="anchor" href="#extended-activity-a-closer-look-at-least-squares-regression-equations"><i class="fas fa-link"></i></a>
+</h3>
+<p>Data set: <span class="math inline">\(Cavalier\)</span><br>
+Note that calculus is required for Activity Questions 25 through 29.</p>
+<ol start="22" style="list-style-type: decimal">
+<li>Create a regression model to predict Price from Mileage for the Cavalier data. Calculate the total sum of squares (SST), residual sum of squares (SSE), and regression sum of squares (SSR). Verify that SST = SSE + SSR.<br>
+</li>
+<li>Show that <span class="math inline">\(\sum_{i=1}^n (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = 0\)</span> for the model given in the previous question.<br>
+</li>
+<li>Using your final model in Question 21, calculate the total sum of squares (SST), residual sum of squares (SSE), and regression sum of squares (SSR). Verify that SST = SSE + SSR.<br>
+</li>
+<li>Set the partial derivative of the residual sum of squares with respect to <span class="math inline">\(b_0\)</span> to zero, to show that <span class="math inline">\(b_0 n + b_1 \sum_{i=1}^n x_i = \sum_{i=1}^n y_i.\)</span>
+</li>
+<li>Set the partial derivative of the residual sum of squares with respect to <span class="math inline">\(b_1\)</span> to zero, to show that <span class="math inline">\(b_0 \sum_{i=1}^n x_i + b_1 \sum_{i=1}^n x_i^2 = \sum_{i=1}^n x_i y_i.\)</span>
+</li>
+<li>The equations in Questions 25 and 26 are called the normal equations for simple linear regression. Use the normal equations to derive the least squares regression coefficients, <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>.<br>
+</li>
+<li>Use the fact that <span class="math inline">\(\sum_{i=1}^n (y_i - \hat{y}_i) = 0\)</span> and <span class="math inline">\(\hat{y}_i = b_0 + b_1 x_i\)</span> to show that
+<span class="math display">\[\begin{equation}
+\sum_{i=1}^n \hat{y}_i (y_i - \hat{y}_i)
+  = b_1 \Bigl(\sum_{i=1}^n x_i y_i - b_0 \sum_{i=1}^n x_i - b_1 \sum_{i=1}^n x_i^2\Bigr). \notag
+\end{equation}\]</span>
+</li>
+<li>Use Questions 26 and 28 to show that <span class="math inline">\(\sum_{i=1}^n \hat{y}_i (y_i - \hat{y}_i) = 0.\)</span>
+</li>
+</ol>
+</div>
+<div id="the-analysis-of-variance-table" class="section level3 unnumbered">
+<h3>The Analysis of Variance Table<a class="anchor" aria-label="anchor" href="#the-analysis-of-variance-table"><i class="fas fa-link"></i></a>
+</h3>
+<p>The objective of regression is to create a model that best fits the observed points. Least squares regression models define a “best fit” as a model that minimizes the sum of squared residual values, <span class="math inline">\(\sum_{i=1}^n (y_i - \hat{y}_i)^2\)</span>.</p>
+<p>The coefficient of determination, <span class="math inline">\(R^2\)</span>, is the percentage of variation in the response variable that is explained by the regression line:</p>
+<p><span class="math display">\[\begin{equation}
+R^2 = \frac{\sum_{i=1}^n (\hat{y}_i - \bar{y})^2}{\sum_{i=1}^n (y_i - \bar{y})^2}
+     = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}
+\tag{3.10}
+\end{equation}\]</span></p>
+<blockquote>
+<p><strong>KEY CONCEPT</strong><br>
+The coefficient of determination, <span class="math inline">\(R^2\)</span>, is a measure of the usefulness of the explanatory variables in the model. If the explanatory variables are useful in predicting the response, the residual sum of squares, <span class="math inline">\(\sum_{i=1}^n (y_i - \hat{y}_i)^2\)</span>, is small compared to the total spread of the responses, <span class="math inline">\(\sum_{i=1}^n (y_i - \bar{y})^2\)</span>. In other words, the amount of variability explained by the regression model, <span class="math inline">\(\sum_{i=1}^n (\hat{y}_i - \bar{y})^2\)</span>, is a large proportion of the total variability of the responses.</p>
+</blockquote>
+<p>The sum of squares calculations are often summarized in an analysis of variance (ANOVA) table, as shown in Table 3.2.</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:anovatable">Table 3.1: </span> ANOVA table for a least squares regression model, where n is the number of observations and p is the number of terms in the model (including the constant term).</caption>
+<colgroup>
+<col width="7%">
+<col width="9%">
+<col width="38%">
+<col width="31%">
+<col width="13%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Source</th>
+<th align="center">df</th>
+<th align="center">SS</th>
+<th align="center">MS</th>
+<th align="center">F.Statistic</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Regression</td>
+<td align="center"><span class="math inline">\(\quad p - 1\)</span></td>
+<td align="center"><span class="math inline">\(\displaystyle SSR = \sum_{i=1}^n (\hat{y}_i - \bar{y})^2\)</span></td>
+<td align="center"><span class="math inline">\(MS_{Regr} = \tfrac{SSR}{df_{Regr}}\)</span></td>
+<td align="center"><span class="math inline">\(F = MS_{Regr}/MSE\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Error</td>
+<td align="center"><span class="math inline">\(\quad n - p\)</span></td>
+<td align="center"><span class="math inline">\(\displaystyle SSE = \sum_{i=1}^n (y_i - \hat{y}_i)^2\)</span></td>
+<td align="center"><span class="math inline">\(MSE = \tfrac{SSE}{df_{Error}} = \hat{\sigma}^2\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="center"><span class="math inline">\(\quad n - 1\)</span></td>
+<td align="center"><span class="math inline">\(\displaystyle SST = \sum_{i=1}^n (y_i - \bar{y})^2\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="testing-the-significance-of-a-regression-model" class="section level2 unnumbered">
+<h2>Testing the Significance of a Regression Model<a class="anchor" aria-label="anchor" href="#testing-the-significance-of-a-regression-model"><i class="fas fa-link"></i></a>
+</h2>
+<p>Once a model has been developed, we are often interested in testing if there is a relationship between the response and the set of all explanatory terms in the model. To conduct an overall test of model adequacy, we test the following null and alternative hypotheses:</p>
+<p><span class="math display">\[\begin{equation}
+H_0: \beta_1 = \beta_2 = \dots = \beta_{p-1} = 0
+\notag
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+H_a: \text{at least one of the coefficients is not }0
+\notag
+\end{equation}\]</span></p>
+<p>Notice that the <span class="math inline">\(\beta_0\)</span> term in our regression model is not included in the null or the alternative hypothesis. Table 3.2 provides the details for the calculation of the F-statistic:
+<span class="math display">\[\begin{equation}
+F = \frac{MS_{Regr}}{MSE}
+  = \frac{SSR/(p - 1)}{SSE/(n - p)}
+\tag{3.11}
+\end{equation}\]</span></p>
+<p>This statistic follows an <span class="math inline">\(F_{p-1,\,n-p}\)</span> distribution, where <span class="math inline">\(n\)</span> is the number of observations and <span class="math inline">\(p\)</span> is the number of terms in the model (including <span class="math inline">\(\beta_0\)</span>). The same assumptions about the error terms, <span class="math inline">\(\epsilon_i \overset{\mathrm{iid}}{\sim}N(0,\sigma^2)\)</span>, need to be checked before conducting the hypothesis test.</p>
+<p>NOTE<br>
+There are no model assumptions needed about the error terms to calculate estimates of the coefficients. However, all the model assumptions should be checked before conducting a hypothesis test.</p>
+</div>
+<div id="the-extra-sum-of-squares-f-test" class="section level2 unnumbered">
+<h2>The Extra Sum of Squares <span class="math inline">\(F\)</span>-Test<a class="anchor" aria-label="anchor" href="#the-extra-sum-of-squares-f-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>We are often interested in testing the contribution of a particular variable (or subset of variables) to the regression sum of squares. The <strong>extra sum of squares <span class="math inline">\(F\)</span>-test</strong> can test the contribution of a specific set of variables by comparing the residuals of a full and a reduced model.</p>
+<p>Suppose a model has been fit with <span class="math inline">\(k\)</span> terms—we call this a <strong>full model</strong>. We may hypothesize that only <span class="math inline">\(p &lt; k\)</span> terms really contribute to the regression model—we call this smaller model the <strong>reduced model</strong>. In this situation, we want to test whether
+<span class="math display">\[\begin{equation}
+H_0: \beta_p = \beta_{p+1} = \dots = \beta_{k-1} = 0
+\notag
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+H_a: \text{at least one of the coefficients is not }0
+\notag
+\end{equation}\]</span></p>
+<p>The previous ANOVA <span class="math inline">\(F\)</span>-test can be modified to provide an <span class="math inline">\(F\)</span>-test for this hypothesis. Notice that this hypothesis test makes no assumptions about the other terms, <span class="math inline">\(\beta_0, \beta_1, \dots, \beta_{p-1}\)</span>, in the model. In addition, <em>every term in the reduced model must also be in the full model</em>.
+<span class="math display">\[\begin{equation}
+F = \frac{(SSR_{\text{full}} - SSR_{\text{reduced}})/(k - p)}{MSE_{\text{full}}}
+\tag{3.12}
+\end{equation}\]</span></p>
+<p>This statistic follows an F-distribution with <span class="math inline">\(k-p\)</span> and <span class="math inline">\(n-k\)</span> degrees of freedom. The extra sum of squares <span class="math inline">\(F\)</span>-test determines whether the difference between the sum of squared residuals in the full and reduced models is so large that it is unlikely to occur by chance.</p>
+</div>
+<div id="extended-activity-testing-multiple-coefficients" class="section level2 unnumbered">
+<h2>Extended Activity: Testing Multiple Coefficients<a class="anchor" aria-label="anchor" href="#extended-activity-testing-multiple-coefficients"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data set: <span class="math inline">\(Cavalier\)</span></p>
+<p>Consider the Cavalier data set and the regression model <span class="math inline">\(y = \beta_0 + \beta_1(Mileage) + \beta_2(Cruise) + \epsilon\)</span></p>
+<ol start="30" style="list-style-type: decimal">
+<li><p>Submit the ANOVA table, <span class="math inline">\(F\)</span>-statistic, and <span class="math inline">\(p\)</span>-value to test the hypothesis <span class="math inline">\(H_0: \beta_1 = \beta_2 = 0\)</span> versus <span class="math inline">\(H_a\)</span>: at least one of the coefficients is not 0.</p></li>
+<li><p>Conduct an extra sum of squares test to determine if <span class="math inline">\(Trim\)</span> is useful. More specifically, use the reduced model in the previous question and the full model
+<span class="math display">\[\begin{equation}
+y = \beta_0 + \beta_1(\text{Mileage}) + \beta_2(\text{Cruise}) + \beta_3(\text{LS Sport Sedan 4D}) + \beta_4(\text{Sedan 4D}) + \epsilon \notag
+\end{equation}\]</span>
+to test the hypothesis <span class="math inline">\(H_0: \beta_3 = \beta_4 = 0\)</span> versus <span class="math inline">\(H_a\)</span>: at least one of the coefficients is not 0.</p></li>
+</ol>
+<hr>
+</div>
+<div id="developing-a-model-to-confirm-a-theory" class="section level2" number="3.9">
+<h2>
+<span class="header-section-number">3.9</span> <strong>Developing a Model to Confirm a Theory</strong><a class="anchor" aria-label="anchor" href="#developing-a-model-to-confirm-a-theory"><i class="fas fa-link"></i></a>
+</h2>
+<p>If the goal is to confirm a theoretical relationship, statisticians tend to go through the following steps to identify an appropriate theoretical model.</p>
+<ul>
+<li><p>Verify that the response variable provides the information needed to address the question of interest. What are the range and variability of responses you expect to observe? Is the response measurement precise enough to address the question of interest?</p></li>
+<li><p>Investigate all explanatory variables that may be of importance or could potentially influence your results. Note that some terms in the model will be included even though the coefficients may not be significant. In most studies, there is often prior information or a theoretical explanation for the relationship between explanatory and response variables. Nonstatistical information is often essential in developing good statistical models.</p></li>
+<li><p>For each of the explanatory variables that you plan to include in the model, describe whether you would expect a positive or negative correlation between that variable and the response variable.</p></li>
+<li><p>Use any background information available to identify what other factors are assumed to be controlled within the model. Could measurements, materials, and the process of data collection create unwanted variability? Identify any explanatory variables that may influence the response; then determine if information on these variables can be collected and if the variables can be controlled throughout the study. For example, in the Kelley Blue Book data set, the condition of the car was assumed to be the same for all cars. The data were collected for GM cars with model year 2005. Since these cars were relatively new and the cars were considered to be in excellent condition, any model we create for these data would not be relevant for cars that had been in any type of accident.</p></li>
+<li><p>What conditions would be considered normal for this type of study? Are these conditions controllable? If a condition changed during the study, how might it impact the results?</p></li>
+</ul>
+<p>After a theoretical model is developed, regression analysis is conducted one time to determine if the data support the theories.</p>
+<blockquote>
+<p><strong>KEY CONCEPT</strong> The same data should not be looked at both to develop a model and to test it.</p>
+</blockquote>
+</div>
+<div id="extended-activity-testing-a-theory-on-cars" class="section level2 unnumbered">
+<h2>Extended Activity: Testing a Theory on Cars<a class="anchor" aria-label="anchor" href="#extended-activity-testing-a-theory-on-cars"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data set: <span class="math inline">\(Cars\)</span></p>
+<p>Assume that you have been asked to determine if there is an association between each of the explanatory variables and the response in the Cars data set.</p>
+<ol start="32" style="list-style-type: decimal">
+<li><p>Use any background information you may have (not the <em>Cars</em> data set) to predict how each explana-
+tory variable (except Model and Trim) will influence TPrice. For example, will Liter or Mileage have a positive or negative association with TPrice? List each Make and identify which will impact TPrice most and in which direction.</p></li>
+<li><p>Identify which factors are controlled in this data set. Can you suggest any factors outside the provided data set that should have been included? If coefficients are found to be significant (have small <span class="math inline">\(p\)</span>-values), will these relationships hold for all areas in the United States? Will the relationships hold for 2004 or 2001 cars?</p></li>
+<li><p>Run a regression analysis to test your hypothesized model. Which variables are important in your model? Did you accurately estimate the direction of each relationship? Note that even if a variable is not significant, it is typically kept in the model if there is a theoretical justification
+for it.</p></li>
+</ol>
+</div>
+<div id="interaction-and-terms-for-curvature" class="section level2" number="3.10">
+<h2>
+<span class="header-section-number">3.10</span> <strong>Interaction and Terms for Curvature</strong><a class="anchor" aria-label="anchor" href="#interaction-and-terms-for-curvature"><i class="fas fa-link"></i></a>
+</h2>
+<p>In addition to using the variables provided in a data set, it is often beneficial to create new variables that are functions of the existing explanatory variables. These new explanatory variables are often quadratic (<span class="math inline">\(X^2\)</span>), cubic (<span class="math inline">\(X^3\)</span>), or a product of two explanatory variables (<span class="math inline">\(X_1*X_2\)</span>), called <strong>interaction terms</strong>.</p>
+<div id="interaction-terms" class="section level3 unnumbered">
+<h3>Interaction Terms<a class="anchor" aria-label="anchor" href="#interaction-terms"><i class="fas fa-link"></i></a>
+</h3>
+<p>An <strong>interaction</strong> is present if the effect of one variable, such as Mileage, depends on a second variable, such as Cyl. If an interaction exists, the influence of Cyl changes for different Mileage values, and also the influence of Mileage will depend on Cyl.</p>
+<p>The data set <span class="math inline">\(4-8Cyl\)</span> includes several four- and eight-cylinder cars from the original Cars data. Figure 3.10 shows a scatterplot and regression line to predict Price using both Mileage and Cyl. The regression model in Figure 3.10 has no interaction term. The parallel lines show that the estimated impact of changing cylinder size does not depend on mileage. Thus, for any given number of miles, when the number of cylinders changes from four to eight, we expect an increase in Price of <span class="math inline">\(4 \times 3443 = 13{,}772\)</span>.</p>
+<p>In the same way, the Mileage coefficient states that holding Cyl constant, we expect Price to decrease by <span class="math inline">\(0.20\)</span> for each additional mile on the car.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig10"></span>
+<img src="docs/Fig3_10.png" alt="Scatterplot and least squares regression line: Price = 15,349 - 0.20(Mileage) + 3443(Cyl). For each cylinder size, an increase of one mile is expected to reduce price by $0.20." width="100%"><p class="caption">
+Figure 3.5: Scatterplot and least squares regression line: Price = 15,349 - 0.20(Mileage) + 3443(Cyl). For each cylinder size, an increase of one mile is expected to reduce price by $0.20.
+</p>
+</div>
+<p>Figure 3.10 shows a scatterplot and regression line to predict <span class="math inline">\(Price\)</span> using <span class="math inline">\(Mileage\)</span>, <span class="math inline">\(Cyl\)</span>, and a <span class="math inline">\(Mileage*Cyl\)</span> interaction term (called <span class="math inline">\(MileCyl\)</span>). The lack of parallel lines in the regression model <span class="math inline">\(\text{Price} = 4533 + 0.340(\text{Mileage}) + 5431(\text{Cyl}) - 0.0995(\text{MileCyl})\)</span> indicates an interaction effect.</p>
+<p>Caution should be used in interpreting coefficients when interaction terms are present. The coefficient for <span class="math inline">\(Mileage\)</span> can no longer be globally interpreted as reducing <span class="math inline">\(Price\)</span> by <span class="math inline">\(0.20\)</span> for each additional mile. Now, when there are four cylinders, <span class="math inline">\(Price\)</span> is reduced by <span class="math inline">\(0.058\ [0.340(1) - 0.0995(1 \times 4) = -0.058]\)</span> with each additional mile. When there are eight cylinders, <span class="math inline">\(Price\)</span> is reduced by <span class="math inline">\(0.456\ [0.340(1) - 0.0995(1 \times 8) = -0.456]\)</span> with each additional mile. Thus, an additional mile impacts <span class="math inline">\(Price\)</span> differently depending on the second variable, <span class="math inline">\(Cyl\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig11"></span>
+<img src="docs/Fig3_11.png" alt="Scatterplot and and least squares regression line: Price = 4533 + 0.340(Mileage) + 5431(Cyl) + 0.0995(MileCyl). If the interaction term (MileCyl) is important, we expect to have regression lines that are not parallel." width="100%"><p class="caption">
+Figure 3.6: Scatterplot and and least squares regression line: Price = 4533 + 0.340(Mileage) + 5431(Cyl) + 0.0995(MileCyl). If the interaction term (MileCyl) is important, we expect to have regression lines that are not parallel.
+</p>
+</div>
+</div>
+</div>
+<div id="extended-activity-understanding-interaction-terms" class="section level2 unnumbered">
+<h2>Extended Activity: Understanding Interaction Terms<a class="anchor" aria-label="anchor" href="#extended-activity-understanding-interaction-terms"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data set: <span class="math inline">\(4-8Cyl\)</span></p>
+<ol start="35" style="list-style-type: decimal">
+<li>Use the <span class="math inline">\(4-8Cyl\)</span> data set to calculate the two regression equations shown in Figures 3.10 and 3.11.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Does the <span class="math inline">\(R^2_{\text{adj}}\)</span> value increase when the interaction term is added? Based on the change in <span class="math inline">\(R^2_{\text{adj}}\)</span>, should the interaction term be included in the model?</li>
+<li>For both models, calculate the estimated price of a four-cylinder car when <span class="math inline">\(Mileage\)</span> = 10,000.</li>
+<li>Assuming <span class="math inline">\(Mileage\)</span> = 10,000, for both models explain how increasing from four to eight cylinders will impact the estimated price.</li>
+<li>Conduct an extra sum of squares test to determine if the <span class="math inline">\(MileCyl\)</span> interaction term is important to the model.</li>
+</ol>
+<ol start="36" style="list-style-type: decimal">
+<li>Use the <span class="math inline">\(4-8Cyl\)</span> data set to calculate the regression line <span class="math inline">\(Price = \beta_0 + \beta_1(Mileage) + \beta_3(Cadillac) + \beta_4(SAAB)\)</span>. You will need to create indicator variables for <span class="math inline">\(Make\)</span> before calculating the regression line.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Create a scatterplot with <span class="math inline">\(Mileage\)</span> as the explanatory variable and <span class="math inline">\(Price\)</span> as the response. Overlay a second graph with <span class="math inline">\(Mileage\)</span> as the explanatory variable and <span class="math inline">\(\hat y\)</span> as the response. Notice that the predicted values (the <span class="math inline">\(\hat y\)</span> values) form two separate lines. Do the parallel lines (no interaction model) look appropriate?</li>
+<li>Conduct one extra sum of squares test to determine if interaction terms (<span class="math inline">\(MileCadillac\)</span> and <span class="math inline">\(MileSAAB\)</span>) are important to the model (i.e., test the hypothesis <span class="math inline">\(H_0: \beta_5 = \beta_6 = 0\)</span> versus <span class="math inline">\(H_a\)</span>: at least one of the coefficients is not 0, where <span class="math inline">\(\beta_5\)</span> and <span class="math inline">\(\beta_6\)</span> are the coefficients for the two interaction terms). Create a scatterplot with the full regression model to explain the results of the hypothesis test.</li>
+</ol>
+</div>
+<div id="quadratic-and-cubic-terms" class="section level2 unnumbered">
+<h2>Quadratic and Cubic Terms<a class="anchor" aria-label="anchor" href="#quadratic-and-cubic-terms"><i class="fas fa-link"></i></a>
+</h2>
+<p>If a plot of residuals versus an explanatory variable shows curvature, the model may be improved by including a quadratic term. Is the relationship between mileage and retail price linear or quadratic for the Kelley Blue Book data? To test this, a quadratic term <span class="math inline">\(Mileage*Mileage\)</span> can be created and included in a regression model.</p>
+<blockquote>
+<p><strong>MATHEMATICAL NOTE</strong><br>
+Even though models with quadratic (<span class="math inline">\(x^2\)</span>) or cubic (<span class="math inline">\(x^3\)</span>) terms are not linear functions of the original explanatory variables, the mean response is linear in the regression coefficients (<span class="math inline">\(\beta_0, \beta_1, \beta_2, \dots\)</span>). For example <span class="math inline">\(y = \beta_0 + z_1 \beta_1 + z_2 \beta_2 + \epsilon\)</span> would be considered a linear regression model when <span class="math inline">\(z_1 = x\)</span> and <span class="math inline">\(z_2 = x^2\)</span>.</p>
+</blockquote>
+</div>
+<div id="extended-activity-understanding-quadratic-terms" class="section level2 unnumbered">
+<h2>Extended Activity: Understanding Quadratic Terms<a class="anchor" aria-label="anchor" href="#extended-activity-understanding-quadratic-terms"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data set: <span class="math inline">\(MPG\)</span>
+The MPG data compare the miles per gallon of several cars against the speed the car was going as well as displacement. Displacement is a measure of the volume of all the cylinders within an engine. The larger the displacement, the more quickly fuel can move through an engine, giving the vehicle more power.</p>
+<ol start="37" style="list-style-type: decimal">
+<li>Use the <span class="math inline">\(MPG\)</span> data to create a regression model to predict <span class="math inline">\(MPG\)</span> from <span class="math inline">\(Speed\)</span> and <span class="math inline">\(Displacement\)</span>: <span class="math inline">\(\mathrm{MPG} = \beta_0 + \beta_1(\mathrm{Speed}) + \beta_2(\mathrm{Displacement}).\)</span>
+</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>What are the regression equation and <span class="math inline">\(R^2\)</span> value?</li>
+<li>Look at residual versus <span class="math inline">\(Speed\)</span> and residual versus <span class="math inline">\(Displacement\)</span> plots. Describe any patterns you see.</li>
+<li>What does the residual normal probability plot show?</li>
+</ol>
+<ol start="38" style="list-style-type: decimal">
+<li>Create a regression model to predict <span class="math inline">\(MPG\)</span> from Speed: <span class="math inline">\(\mathrm{MPG} = \beta_0 + \beta_1(\mathrm{Speed}).\)</span>
+</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>What are the regression equation and <span class="math inline">\(R^2\)</span> value?</li>
+<li>Look at residual versus <span class="math inline">\(Speed\)</span> and residual versus <span class="math inline">\(Displacement\)</span> plots. Describe any patterns in the residual plots.</li>
+<li>Describe any patterns in the residual normal probability plot.</li>
+<li>Is <span class="math inline">\(Displacement\)</span> an important explanatory variable? Use the residual plots and <span class="math inline">\(R^2\)</span> to give an intuitive explanation.</li>
+</ol>
+<ol start="39" style="list-style-type: decimal">
+<li>Create a model using displacement to predict <span class="math inline">\(MPG\)</span>: <span class="math inline">\(\mathrm{MPG} = \beta_0 + \beta_1(\mathrm{Displacement}).\)</span>
+</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>What are the regression equation and <span class="math inline">\(R^2\)</span> value?</li>
+<li>Look at residual versus <span class="math inline">\(Speed\)</span> and residual versus <span class="math inline">\(Displacement\)</span> plots. Describe any patterns in the residual plots.</li>
+</ol>
+<ol start="40" style="list-style-type: decimal">
+<li>Create a (<span class="math inline">\(\mathrm{Speed}\)</span>)^2 term (called <span class="math inline">\(Speed_Sq\)</span>) and incorporate that term into your regression model to predict <span class="math inline">\(MPG\)</span>: <span class="math inline">\(\mathrm{MPG} = \beta_0 + \beta_1(\mathrm{Speed}) + \beta_2(\mathrm{Displacement}) + \beta_3(\mathrm{Speed\_Sq}).\)</span>
+</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>What are the regression equation and <span class="math inline">\(R^2\)</span> value?</li>
+<li>Look at residual versus <span class="math inline">\(Speed\)</span> and residual versus <span class="math inline">\(Displacement\)</span> plots. Describe any changes when (<span class="math inline">\(\mathrm{Speed}\)</span>)^2 is added to the model.</li>
+<li>What does the residual normal probability plot show?</li>
+</ol>
+</div>
+<div id="extended-activity-creating-new-terms-to-predict-the-retail-price-of-cars" class="section level2 unnumbered">
+<h2>Extended Activity: Creating New Terms to Predict the Retail Price of Cars<a class="anchor" aria-label="anchor" href="#extended-activity-creating-new-terms-to-predict-the-retail-price-of-cars"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data set: <span class="math inline">\(Cars\)</span>
+The potential outliers identified in Question 11 can provide an interesting demonstration of an interaction. Figure 3.12 shows that the slope to predict <span class="math inline">\(Price\)</span> from <span class="math inline">\(Mileage\)</span> for the ten Cadillac XLR-V8s is much steeper than the slope found when using the other cars. This shows that depreciation for these high-end cars is almost 50 cents a mile, as opposed to 15 cents a mile on average for all car types combined.</p>
+<div class="figure">
+<span style="display:block;" id="fig:df4plot"></span>
+<img src="Chap3_files/figure-html/df4plot-1.png" alt="Scatterplot and regression lines: For the Cadillac XLR-V8, the regression line is Price = 71,997 - 0.4827(Mileage). This is a much steeper line than the regression line for all other cars: Price = 23,894 - 0.1549(Mileage)." width="576"><p class="caption">
+Figure 3.7: Scatterplot and regression lines: For the Cadillac XLR-V8, the regression line is Price = 71,997 - 0.4827(Mileage). This is a much steeper line than the regression line for all other cars: Price = 23,894 - 0.1549(Mileage).
+</p>
+</div>
+<ol start="41" style="list-style-type: decimal">
+<li>Create a quadratic mileage term. Create two models to predict <span class="math inline">\(TPrice\)</span>, one with only <span class="math inline">\(Mileage\)</span> and another with both <span class="math inline">\(Mileage\)</span> and <span class="math inline">\((Mileage)^2\)</span> (called <span class="math inline">\(MileSq\)</span>).</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>How much does the <span class="math inline">\(R^2\)</span> value increase if a quadratic term is added to the model <span class="math inline">\(TPrice = \beta_0 + \beta_1(Mileage)\)</span>?</li>
+<li>Look at plots of residuals versus <span class="math inline">\(Mileage\)</span> in both models. Did the addition of the <span class="math inline">\(MileSq\)</span> term improve the residual plots?</li>
+</ol>
+<ol start="42" style="list-style-type: decimal">
+<li><p>Create an interaction term <span class="math inline">\(Mileage*Cyl\)</span> (called <span class="math inline">\(MileCyl\)</span>). Use <span class="math inline">\(Mileage\)</span>, <span class="math inline">\(Cyl\)</span>, and <span class="math inline">\(MileCyl\)</span> to predict <span class="math inline">\(Price\)</span>. Does this interaction term appear to improve the model? Use residual plots and <span class="math inline">\(R^2\)</span> to justify your answer.<br>
+While there is no “best” model, many final models developed by students in Question 21 tend to include the terms <span class="math inline">\(Cadillac\)</span>, <span class="math inline">\(Convertible\)</span>, and <span class="math inline">\(Liter\)</span>. Since each of these terms is related to the Cadillac XLR-V8, it may be helpful to include an interaction term for <span class="math inline">\(Mileage*Cadillac\)</span>, <span class="math inline">\(Mileage*Convertible\)</span>, or <span class="math inline">\(Mileage*Liter\)</span>. Other <span class="math inline">\(Mileage\)</span>, <span class="math inline">\(Make\)</span>, or <span class="math inline">\(Type\)</span> interactions may also be helpful additions to the model.</p></li>
+<li><p>Develop additional quadratic and interaction terms. Determine if they improve the regression model in Question 42.</p></li>
+<li><p>Submit a new regression model that best predicts <span class="math inline">\(TPrice\)</span>. Does including quadratic or interaction terms improve your model from what was developed in Question 21?</p></li>
+</ol>
+<p>Unless there is a clear reason to include them, researchers typically do not create interaction terms and test whether they should be included in a model. Most of the researcher’s effort should be spent on determining whether the original explanatory variables provided in the data set are related to the response. If an interaction term (<span class="math inline">\(X_i * X_j\)</span>) is included in a final model, it is common practice to include each of the original terms (<span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span>) in the model as well (even if the coefficients of the original terms are close to zero).</p>
+</div>
+<div id="a-closer-look-at-variable-selection-criteria" class="section level2" number="3.11">
+<h2>
+<span class="header-section-number">3.11</span> <strong>A Closer Look at Variable Selection Criteria</strong><a class="anchor" aria-label="anchor" href="#a-closer-look-at-variable-selection-criteria"><i class="fas fa-link"></i></a>
+</h2>
+<p>The growing number of large data sets as well as increasing computer power has dramatically improved the ability of researchers to find a <strong>parsimonious model</strong> (a model that carefully selects a relatively small number of the most useful explanatory variables). However, even with intensive computing power, the process of finding a “best” model is often more of an art than a science.</p>
+<p>As shown earlier, stepwise procedures that use prespecified conditions to automatically add or delete variables can have some limitations:</p>
+<ul>
+<li><p>When explanatory variables are correlated, stepwise procedures often fail to include variables that are useful in describing the results.</p></li>
+<li><p>Stepwise procedures tend to overfit the data (fit unhelpful variables) by searching for any terms that explain the variability in the sample results. This chance variability in the sample results may not be reflected in the entire population from which the sample was collected.</p></li>
+<li><p>The automated stepwise process provides a “best” model that can be easily misinterpreted, since it doesn’t require a researcher to explore the data to get an intuitive feel for the data. For example, stepwise procedures don’t encourage researchers to look at residual plots that may reveal interesting patterns within the data.</p></li>
+</ul>
+</div>
+<div id="adjusted-r2" class="section level2 unnumbered">
+<h2>Adjusted <span class="math inline">\(R^2\)</span><a class="anchor" aria-label="anchor" href="#adjusted-r2"><i class="fas fa-link"></i></a>
+</h2>
+<p>While <span class="math inline">\(R^2\)</span> is useful in determining how well a particular model fits the data, it is not very useful in variable selection. Adding new explanatory variables to a regression model will never increase the residual sum of squares; thus, <span class="math inline">\(R^2\)</span> will increase (or stay the same) even when an explanatory variable does not contribute to the fit.</p>
+<p>The <strong>adjusted</strong> <span class="math inline">\(R^2\)</span> (<span class="math inline">\(R^2_{adj}\)</span>) increases only if the improvement in model fit outweighs the cost of adding an additional term in the model:
+<span class="math display">\[\begin{equation}
+R^2_{adj} = 1 - \left(\frac{n - 1}{n - p}\right)\frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}
+= 1 - \left(\frac{n - 1}{n - p}\right)(1 - R^2)
+\tag{3.13}
+\end{equation}\]</span>
+where <span class="math inline">\(n\)</span> is the sample size and <span class="math inline">\(p\)</span> is the number of coefficients in the model (including the constant term).</p>
+<blockquote>
+<p>##MATHEMATICAL NOTE##<br>
+Intuitively, each additional term in a regression model means that one additional parameter value must be estimated. Each parameter estimate costs an additional degree of freedom. Thus, <span class="math inline">\(R^2_{adj}\)</span> is an <span class="math inline">\(R^2\)</span> value that is adjusted for degrees of freedom and can be written as
+<span class="math display">\[\begin{equation}
+R^2_{adj} = 1 - \frac{\text{MSE}}{\text{SST}/(n - 1)} \notag
+\end{equation}\]</span>
+<span class="math inline">\(R^2_{adj}\)</span> measures the spread of the residuals using MSE, while <span class="math inline">\(R^2\)</span> measures the spread of the residuals using SSE.</p>
+</blockquote>
+</div>
+<div id="mallows-c_p" class="section level2 unnumbered">
+<h2>Mallows’ <span class="math inline">\(C_p\)</span><a class="anchor" aria-label="anchor" href="#mallows-c_p"><i class="fas fa-link"></i></a>
+</h2>
+<p>Another approach to variable selection is to use Mallows’ <span class="math inline">\(C_p\)</span> statistic:
+<span class="math display">\[\begin{equation}
+C_p = (n - p)\left(\frac{\hat{\sigma}^2}{\hat{\sigma}^2_{Full}}\right) + (2p - n)
+= (n - p)\left(\frac{MSE}{MSE_{Full}}\right) + (2p - n)
+\tag{3.14}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the sample size, <span class="math inline">\(p\)</span> is the number of coefficients in the model (including the constant term), <span class="math inline">\(\hat{\sigma}^2\)</span> estimates the variance of the residuals in the model, and <span class="math inline">\(\hat{\sigma}^2_{Full}\)</span> estimates the variance of the residuals in the full model (i.e., the model with all potential explanatory variables in the data set).</p>
+<p>If the current model lacks an important explanatory variable, <span class="math inline">\(\hat{\sigma}^2\)</span> is much larger than <span class="math inline">\(\hat{\sigma}^2_{Full}\)</span> and <span class="math inline">\(C_p\)</span> tends to be large. For any models where <span class="math inline">\(\hat{\sigma}^2\)</span> is similar to <span class="math inline">\(\hat{\sigma}^2_{Full}\)</span>, <span class="math inline">\(C_p\)</span> provides a penalty, <span class="math inline">\(2p - n\)</span>, to favor models with a smaller number of terms. For a fixed number of terms, minimizing <span class="math inline">\(C_p\)</span> is equivalent to minimizing SSE, which is also equivalent to maximizing <span class="math inline">\(R^2\)</span>.</p>
+<p>The <span class="math inline">\(C_p\)</span> statistic assumes that <span class="math inline">\(\hat{\sigma}^2_{Full}\)</span> is an unbiased estimate of the overall residual variability, <span class="math inline">\(\sigma^2\)</span>. If the full model has several terms that are not useful in predicting the response (i.e., several coefficients are essentially zero), then <span class="math inline">\(\hat{\sigma}^2_{Full}\)</span> will overestimate <span class="math inline">\(\sigma^2\)</span> and <span class="math inline">\(C_p\)</span> will be small.*</p>
+<p>When the current model explains the data as well as the full model, <span class="math inline">\(\hat{\sigma}^2 / \hat{\sigma}^2_{Full} = 1\)</span>. Then <span class="math inline">\(C_p = (n - p)(1) + 2p - n = p\)</span> Thus, the objective is often to find the smallest <span class="math inline">\(C_p\)</span> value that is close to p.</p>
+<div id="akaikes-information-criterion-aic-and-bayes-information-criterion-bic" class="section level3 unnumbered">
+<h3>Akaike’s Information Criterion (AIC) and Bayes’ Information Criterion (BIC)<a class="anchor" aria-label="anchor" href="#akaikes-information-criterion-aic-and-bayes-information-criterion-bic"><i class="fas fa-link"></i></a>
+</h3>
+<p>Two additional model selection criteria are the Akaike information criterion (AIC) and the Bayesian information criterion (BIC).† Both of these criteria are popular because they are also applicable to regression models fit by maximum likelihood techniques (such as logistic regression), whereas <span class="math inline">\(R^2\)</span> and <span class="math inline">\(C_p\)</span> are appropriate only for least squares regression models.</p>
+<p>Calculations for these two criteria are provided below. These statistics also include a measure of the variability of the residuals plus a penalty term:
+<span class="math display">\[\begin{equation}
+AIC = n[\log(\hat{\sigma}^2)] + 2p \notag
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+BIC = n[\log(\hat{\sigma}^2)] + p[\log(n)] \notag
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the sample size, <span class="math inline">\(p\)</span> is the number of coefficients in the model, and <span class="math inline">\(\hat{\sigma}^2\)</span> estimates the variance of the residuals in the model.</p>
+<p>AIC and BIC are identical except for their penalties, <span class="math inline">\(2p\)</span> and <span class="math inline">\(p[\log(n)]\)</span>, respectively. Thus, AIC and BIC will tend to select slightly different models based on <span class="math inline">\(n\)</span>. AIC and BIC both select models that correspond to the smallest value.</p>
+<p>KEY CONCEPT<br>
+No individual criterion (<span class="math inline">\(R^2_{adj}\)</span>, <span class="math inline">\(C_p\)</span>, AIC, or BIC) is universally better than the other selection criteria. While these tools are helpful in selecting models, they do not produce a model that is necessarily “best.”</p>
+</div>
+</div>
+<div id="model-validation" class="section level2 unnumbered">
+<h2>Model Validation<a class="anchor" aria-label="anchor" href="#model-validation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Often our goal is not just to describe the sample data, but to generalize to the entire population from which the sample was drawn. Even if a regression model is developed that fits the existing sample data very well and satisfies the model assumptions, there is no guarantee that the model will accurately predict new observations.</p>
+<p>Variable selection techniques choose variables that account for the variation in the response. When there are many explanatory variables, it is likely that at least some of the terms selected don’t explain patterns seen in the entire population; they are included simply because of chance variability seen in the sample.</p>
+<p>To validate that a regression model is useful for predicting observations that were not used to develop
+the model, do the following:</p>
+<ul>
+<li><p>Collect new data from the same population as the original data. Use the new data to determine the
+predictive ability of the original regression model.</p></li>
+<li><p>Split the original data. For example, randomly select 75% of the observations from the original data
+set, develop a model, and check the appropriate model assumptions. Test the predictive ability of the
+model on the remaining 25% of the data set. This is often called <strong>cross-validation</strong>.</p></li>
+<li><p>When the data set is not large enough to split, try <strong>jackknife validation</strong>. Hold out one observation at a time, develop a model using the <span class="math inline">\(n-1\)</span> remaining observations, and then estimate the value of the observation that was held out. Repeat this process for each of the n observations and calculate a predictive <span class="math inline">\(R^2\)</span> value to evaluate the predictive ability of the model.</p></li>
+<li><p>Use theory and prior experience to compare your regression model with other models developed with
+similar data.</p></li>
+</ul>
+</div>
+<div id="chapter-summary-2" class="section level2 unnumbered">
+<h2>
+<strong>Chapter Summary</strong><a class="anchor" aria-label="anchor" href="#chapter-summary-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this chapter, we discussed techniques to describe, predict, and test hypotheses about the relationship between a quantitative response variable and multiple explanatory variables. The goals of a regression model will influence which techniques should be used and which conclusions can be drawn. The Cars activities in this chapter focused on developing a model that could describe the relationship between the explanatory variables and response variable as well as predict the value of the response based on a function of the explanatory variables.</p>
+<p>Iterative techniques such as best subsets regression are often very useful in identifying which terms should be included in a model. The process of selecting explanatory variables to include in a model often involves iterative techniques, in which numerous models are created and compared at each step in the process. Iterative techniques should not be used when the goal of multiple regression is to test hypotheses. Stepwise regression is used to find the model with the highest R2 value; however, it does not provide much useful information about the model. For example, important variables (such as Liter in our investigation) are often not included in the stepwise regression models. Best subsets regression is a more useful iterative technique because it allows the researcher to better identify important explanatory variables, even if multicollinearity (highly correlated explanatory variables) exists. Table 3.3 lists the key measures used in variable selection.</p>
+<p>No individual criterion (<span class="math inline">\(R^2_{adj}\)</span>, <span class="math inline">\(C_p\)</span>, <span class="math inline">\(AIC\)</span>, or <span class="math inline">\(BIC\)</span>) is universally better than the other selection criteria. These tools are helpful in selecting models, but they do not produce a model that is necessarily “best.”</p>
+<p>While iterative techniques are useful in reducing a large number of explanatory variables to a more manageable set, a researcher should ask the following questions to evaluate the resulting model:</p>
+<ul>
+<li>Were the techniques used to create the model appropriate based on the goals of the regression model?</li>
+<li>Do the coefficients make sense? Are the magnitudes of the coefficients reasonable? If the coefficients have the opposite sign than expected, multicollinearity may be present, the range of the explanatory variables may be too small, or important explanatory variables may be missing from the model.</li>
+<li>Do the residual plots identify any outliers or patterns that indicate unexplained structure that should be included in the model?</li>
+</ul>
+<p>If the goal is to use hypothesis testing to determine how each of the explanatory variables impacts the response, iterative techniques are not appropriate. In addition, hypothesis tests about specific explanatory variables are not reliable when multicollinearity or lack of normality exists.</p>
+<p>Model assumptions need to be met if the goal is to test hypotheses. While least squares regression models can be calculated without checking model assumptions, identifying patterns in residual plots that may indicate <strong>heteroskedasticity</strong>, <strong>autocorrelation</strong>, <strong>outliers</strong>, or <strong>lack of normality</strong> is important to creating a good model. If a pattern exists in any of the residual plots, it is likely that another model exists that better explains the response variable. Researchers need to be somewhat creative in deciding which graphs to create and how to adapt a model based on what they see.</p>
+<p></p>
+<p>$n$ is the sample size \
+<span class="math inline">\(p\)</span> is the number of coefficients in the model (including <span class="math inline">\(\beta_0\)</span>)</p>
+<p><span class="math display">\[
+  \hat{\sigma}^2 = \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{n - p}
+\]</span></p>
+<p>estimates the variance of the residuals in the current model tested. \
+<span class="math inline">\(\hat{\sigma}_{\text{Full}}^2\)</span> estimates the variance of the residuals in the full model (the model with all explanatory variables).</p>
+<p></p>
+<p><span class="math inline">\(n\)</span> is the sample size,
+<span class="math inline">\(p\)</span> is the number of coefficients in the model (including <span class="math inline">\(\beta_0\)</span>),</p>
+<p><span class="math inline">\(\hat{\sigma}^2 = \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{n - p}\)</span> estimates the variance of the residuals in the current model tested.
+<span class="math inline">\(\hat{\sigma}_{\text{Full}}^2\)</span> estimates the variance of the residuals in the full model (the model with all explanatory variables).</p>
+<p>Histograms or normal probability plots of residuals are used to determine if the residuals follow the normal distribution. Autocorrelation may exist when patterns appear in the ordered residual plots, indicating that each observation is not independent of the prior observation. Heteroskedasticity occurs when the variance of the residuals is not equal. If the variance increases as the expected value increases, a variance stabilizing transformation, such as the natural log or square root of the response, may reduce heteroskedasticity.</p>
+<p>Tests of regression coefficients (as in Question 2) and <strong>extra sum of squares tests</strong> can be used for exploratory purposes or to test a theory. The individual <span class="math inline">\(t\)</span>-test for coefficients can be unreliable if the explanatory variables are correlated. In addition, <span class="math inline">\(p\)</span>-values for this <span class="math inline">\(t\)</span>-test become less reliable as more tests are conducted.</p>
+<p>The following hypothesis test can be analyzed with Table 3.2:</p>
+<p><span class="math display">\[
+H_0\!: \beta_1 = \beta_2 = \cdots = \beta_{p-1} = 0
+\]</span>
+<span class="math display">\[
+H_a\!: \text{at least one of the coefficients in the null hypothesis is not 0}
+\]</span></p>
+<p>The extra sum of squares test shown in Table 3.4 is used to compare a full model (with <span class="math inline">\(k\)</span> terms) to a reduced model (with <span class="math inline">\(p\)</span> terms), where <span class="math inline">\(k &gt; p\)</span>. Every term in the reduced model must also be in the full model.</p>
+<p><span class="math display">\[
+H_0\!: \beta_p = \beta_{p+1} = \cdots = \beta_{k-1} = 0
+\]</span>
+<span class="math display">\[
+H_a\!: \text{at least one of the coefficients in the null hypothesis is not 0}
+\]</span></p>
+<p>Interaction terms and squared (or cubed) terms can be tested with the extra sum of squares test to determine if the additional terms improve the regression model. Testing models with all possible interaction and squared terms can become complex very quickly, so these terms are not typically tested unless there is some reason to include them.</p>
+<p>Often the goal is not just to describe the sample data, but to generalize to the entire population from which the sample was drawn. Model validation techniques such as cross-validation and jackknife techniques are used to verify that the regression model applies to a larger population than just the sample data.</p>
+<p>In multi-variable data sets, it is possible to obtain seemingly conflicting results. For example, we initially
+found a <span class="math inline">\(p\)</span>-value indicating that mileage was a significant predictor of price, but the <span class="math inline">\(R^2\)</span> value for the corresponding model was very small. Attempts to improve a regression model, such as by finding the appropriate data transformation or addressing multicollinearity, are often more of an art form than an automated process. Even highly technical statistical software packages cannot automatically develop a “best” model. Visual interpretation of residual plots typically provides a final model that is much better than a model developed by iterative (algorithmic) statistical software techniques.</p>
+<p>Multiple regression involves a large set of tools for developing, assessing, and interpreting a regression model with one response variable and two or more explanatory variables. Numerous texts have been written about this topic, and this chapter does not attempt to be a comprehensive explanation of multiple regression. The goal of this chapter is to provide a foundation so that the reader will understand how a statistician approaches multiple regression as it is actually practiced in many disciplines.</p>
+</div>
+<div id="exercises-2" class="section level2 unnumbered">
+<h2>
+<strong>Exercises</strong><a class="anchor" aria-label="anchor" href="#exercises-2"><i class="fas fa-link"></i></a>
+</h2>
+
+</div>
+<div id="endnotes-1" class="section level2 unnumbered">
+<h2>
+<strong>Endnotes</strong><a class="anchor" aria-label="anchor" href="#endnotes-1"><i class="fas fa-link"></i></a>
+</h2>
+
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html"><span class="header-section-number">2</span> Making Connections: The Two-Sample t-Test, Regression, and ANOVA</a></div>
+<div class="next"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><span class="header-section-number">4</span> The Design and Analysis of Factorial Experiments: Microwave Popcorn</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#multiple-regression-how-much-is-your-car-worth"><span class="header-section-number">3</span> Multiple Regression: How Much Is Your Car Worth?</a></li>
+<li><a class="nav-link" href="#investigation-how-can-we-build-a-model-to-estimate-used-car-prices"><span class="header-section-number">3.1</span> Investigation: How Can We Build a Model to Estimate Used Car Prices?</a></li>
+<li><a class="nav-link" href="#a-simple-linear-regression-model">A Simple Linear Regression Model</a></li>
+<li><a class="nav-link" href="#goals-of-multiple-regression"><span class="header-section-number">3.2</span> Goals of Multiple Regression</a></li>
+<li><a class="nav-link" href="#variable-selection-techniques-to-describe-or-predict-a-response"><span class="header-section-number">3.3</span> Variable Selection Techniques to Describe or Predict a Response</a></li>
+<li><a class="nav-link" href="#stepwise-regression">Stepwise Regression</a></li>
+<li><a class="nav-link" href="#selecting-the-best-subset-of-predictors">Selecting the “Best Subset” of Predictors</a></li>
+<li><a class="nav-link" href="#comparing-variable-selection-techniques">Comparing Variable Selection Techniques</a></li>
+<li><a class="nav-link" href="#checking-model-assumptions-1"><span class="header-section-number">3.4</span> Checking Model Assumptions</a></li>
+<li><a class="nav-link" href="#heteroskedasticity">Heteroskedasticity</a></li>
+<li><a class="nav-link" href="#examining-residual-plots-across-timeorder">Examining Residual Plots Across Time/Order</a></li>
+<li><a class="nav-link" href="#outliers-and-influential-observations">Outliers and Influential Observations</a></li>
+<li><a class="nav-link" href="#normally-distributed-residuals">Normally Distributed Residuals</a></li>
+<li><a class="nav-link" href="#correlation-between-explanatory-variables">Correlation Between Explanatory Variables</a></li>
+<li><a class="nav-link" href="#interpreting-model-coefficients"><span class="header-section-number">3.5</span> Interpreting Model Coefficients</a></li>
+<li><a class="nav-link" href="#categorical-explanatory-variables"><span class="header-section-number">3.6</span> Categorical Explanatory Variables</a></li>
+<li><a class="nav-link" href="#creating-indicator-variables">Creating Indicator Variables</a></li>
+<li><a class="nav-link" href="#activity-building-regression-models-with-indicator-variables">Activity: Building Regression Models with Indicator Variables</a></li>
+<li><a class="nav-link" href="#what-can-we-conclude-from-the-2005-gm-car-study"><span class="header-section-number">3.7</span> What Can We Conclude from the 2005 GM Car Study?</a></li>
+<li><a class="nav-link" href="#f-tests-for-multiple-regression"><span class="header-section-number">3.8</span> \(F\)-Tests for Multiple Regression</a></li>
+<li>
+<a class="nav-link" href="#decomposition-of-sum-of-squares">Decomposition of Sum of Squares</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#extended-activity-a-closer-look-at-least-squares-regression-equations">Extended Activity: A Closer Look at Least Squares Regression Equations</a></li>
+<li><a class="nav-link" href="#the-analysis-of-variance-table">The Analysis of Variance Table</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#testing-the-significance-of-a-regression-model">Testing the Significance of a Regression Model</a></li>
+<li><a class="nav-link" href="#the-extra-sum-of-squares-f-test">The Extra Sum of Squares \(F\)-Test</a></li>
+<li><a class="nav-link" href="#extended-activity-testing-multiple-coefficients">Extended Activity: Testing Multiple Coefficients</a></li>
+<li><a class="nav-link" href="#developing-a-model-to-confirm-a-theory"><span class="header-section-number">3.9</span> Developing a Model to Confirm a Theory</a></li>
+<li><a class="nav-link" href="#extended-activity-testing-a-theory-on-cars">Extended Activity: Testing a Theory on Cars</a></li>
+<li>
+<a class="nav-link" href="#interaction-and-terms-for-curvature"><span class="header-section-number">3.10</span> Interaction and Terms for Curvature</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#interaction-terms">Interaction Terms</a></li></ul>
+</li>
+<li><a class="nav-link" href="#extended-activity-understanding-interaction-terms">Extended Activity: Understanding Interaction Terms</a></li>
+<li><a class="nav-link" href="#quadratic-and-cubic-terms">Quadratic and Cubic Terms</a></li>
+<li><a class="nav-link" href="#extended-activity-understanding-quadratic-terms">Extended Activity: Understanding Quadratic Terms</a></li>
+<li><a class="nav-link" href="#extended-activity-creating-new-terms-to-predict-the-retail-price-of-cars">Extended Activity: Creating New Terms to Predict the Retail Price of Cars</a></li>
+<li><a class="nav-link" href="#a-closer-look-at-variable-selection-criteria"><span class="header-section-number">3.11</span> A Closer Look at Variable Selection Criteria</a></li>
+<li><a class="nav-link" href="#adjusted-r2">Adjusted \(R^2\)</a></li>
+<li>
+<a class="nav-link" href="#mallows-c_p">Mallows’ \(C_p\)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#akaikes-information-criterion-aic-and-bayes-information-criterion-bic">Akaike’s Information Criterion (AIC) and Bayes’ Information Criterion (BIC)</a></li></ul>
+</li>
+<li><a class="nav-link" href="#model-validation">Model Validation</a></li>
+<li><a class="nav-link" href="#chapter-summary-2">Chapter Summary</a></li>
+<li><a class="nav-link" href="#exercises-2">Exercises</a></li>
+<li><a class="nav-link" href="#endnotes-1">Endnotes</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/Chap3.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/Chap3.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Making Decisions with Data</strong>" was written by Shonda Kuiper. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

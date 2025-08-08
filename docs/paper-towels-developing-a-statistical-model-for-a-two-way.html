@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 4.6 Paper Towels: Developing a Statistical Model for a Two-Way | Chapter 9</title>
+<meta name="author" content="Your Name">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Chapter 8 4.6 Paper Towels: Developing a Statistical Model for a Two-Way | Chapter 9">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 4.6 Paper Towels: Developing a Statistical Model for a Two-Way | Chapter 9">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="As a final project in an introductory statistics class, several students decided to conduct a study to test the strength of paper towels. Several television advertisements had claimed that a...">
+<meta property="og:description" content="As a final project in an introductory statistics class, several students decided to conduct a study to test the strength of paper towels. Several television advertisements had claimed that a...">
+<meta name="twitter:description" content="As a final project in an introductory statistics class, several students decided to conduct a study to test the strength of paper towels. Several television advertisements had claimed that a...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Chapter 9</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> An Introduction to Nonparametric Methods: Schistosomiasis</a></li>
+<li><a class="" href="making-connections-the-two-sample-t-test-regression-and-anova.html"><span class="header-section-number">2</span> Making Connections: The Two-Sample t-Test, Regression, and ANOVA</a></li>
+<li><a class="" href="multiple-regression-how-much-is-your-car-worth.html"><span class="header-section-number">3</span> Multiple Regression: How Much Is Your Car Worth?</a></li>
+<li><a class="" href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><span class="header-section-number">4</span> The Design and Analysis of Factorial Experiments: Microwave Popcorn</a></li>
+<li><a class="" href="investigation-which-microwave-popcorn-is-the-best.html"><span class="header-section-number">5</span> 4.1 Investigation: Which Microwave Popcorn Is the Best?</a></li>
+<li><a class="" href="elements-of-a-well-designed-experiment.html"><span class="header-section-number">6</span> 4.2 Elements of a Well-Designed Experiment</a></li>
+<li><a class="" href="what-can-we-conclude-from-the-popcorn-study.html"><span class="header-section-number">7</span> 4.5 What Can We Conclude from the Popcorn Study?</a></li>
+<li><a class="active" href="paper-towels-developing-a-statistical-model-for-a-two-way.html"><span class="header-section-number">8</span> 4.6 Paper Towels: Developing a Statistical Model for a Two-Way</a></li>
+<li><a class="" href="paper-towels-the-relationship-between-effects-and-anova.html"><span class="header-section-number">9</span> 4.7 Paper Towels: The Relationship Between Effects and ANOVA</a></li>
+<li><a class="" href="contrasts-and-multiple-comparisons.html"><span class="header-section-number">10</span> 4.8 Contrasts and Multiple Comparisons</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">11</span> Footnotes and citations</a></li>
+<li><a class="" href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><span class="header-section-number">12</span> Categorical Data Analysis: Is a Tumor Malignant or Benign?</a></li>
+<li><a class="" href="activity-descriptive-statistics-and-graphs.html"><span class="header-section-number">13</span> Activity: Descriptive Statistics and Graphs</a></li>
+<li><a class="" href="logistic-regression-the-space-shuttle-challenger.html"><span class="header-section-number">14</span> Logistic Regression: The Space Shuttle Challenger</a></li>
+<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="survival-analysis-melting-chocolate-chips.html"><span class="header-section-number">15</span> Survival Analysis: Melting Chocolate Chips</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="paper-towels-developing-a-statistical-model-for-a-two-way" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> 4.6 Paper Towels: Developing a Statistical Model for a Two-Way<a class="anchor" aria-label="anchor" href="#paper-towels-developing-a-statistical-model-for-a-two-way"><i class="fas fa-link"></i></a>
+</h1>
+<p>As a final project in an introductory statistics class, several students decided to conduct a study to test the
+strength of paper towels. Several television advertisements had claimed that a certain brand of paper towel was
+the strongest, and these students wanted to determine if there really was a difference. The students sampled
+26 towels from two brands of paper towels, Comfort and Decorator.</p>
+<p>NOTE<br>
+Recall that random sampling is needed to extend the results to a larger population. If the students ran-
+domly sampled 26 towels from just one roll, the conclusions would hold only for that roll. Ideally they
+should have randomly purchased 26 rolls of each brand from multiple locations and then randomly
+selected one towel per roll</p>
+<p>Before any data were collected, these students determined that the following conditions should be held as
+constant as possible throughout the study:<br><span class="math inline">\(\bullet\)</span> Paper towels were selected that had the same size.<br><span class="math inline">\(\bullet\)</span> The towels were held at all four corners by two people.<br><span class="math inline">\(\bullet\)</span> Weights (10, 25, 50, 100, or 250 grams) were slowly added to the center of each towel by a third person until it broke.</p>
+<p>In this study, there are two factors. One has two levels, Comfort (Brand C) or Decorator (Brand D), and
+the other has three levels (0, 5, or 15 drops of water applied to the center of the paper towel). This leads to
+<span class="math inline">\(2 \times 3 = 6\)</span> conditions, called <strong>factor-level combinations</strong> or <strong>factorial combinations</strong>:
+Brand C &amp; 0 drops of water<br>
+Brand C &amp; 5 drops of water<br>
+Brand C &amp; 15 drops of water<br>
+Brand D &amp; 0 drops of water<br>
+Brand D &amp; 5 drops of water<br>
+Brand D &amp; 15 drops of water</p>
+<p>Twenty-six sheets were tested at each of the six factor-level combinations. Thus, there are 156 experimental
+units used in this study. The response variable is the breaking strength of each paper towel in grams. Breaking
+strength is defined as the total weight that each towel successfully held. The next additional weight caused
+the towel to break.</p>
+<p>The three null hypotheses corresponding to this two-factor design are as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(H_{01}:\)</span> there is no difference in mean strength between the two brands of paper towel
+<span class="math inline">\(H_{a1}:\)</span> the two brand means are different</p></li>
+<li><p><span class="math inline">\(H_{02}:\)</span> there is no difference in mean strength when 0, 5, or 15 drops of water are used<br><span class="math inline">\(H_{a2}:\)</span> the mean strength of at least one water amount group is different from the others</p></li>
+<li><p><span class="math inline">\(H_{03}:\)</span> the amount of water has no influence on how brand affects strength<br>
+or <span class="math inline">\(H_{03}:\)</span> the effect of the amount of water on strength is the same for both brands<br>
+or <span class="math inline">\(H_{03}:\)</span> there is no interaction between brand and water<br><span class="math inline">\(H_{a3}:\)</span> there is an interaction between brand and water</p></li>
+</ol>
+<p>Table 4.4 represents some of the data for the paper towel study. Each of the six cells has 26 observations.
+The complete data set is in the file PaperTowels. While not all observations are shown, Table 4.4 helps us
+understand the data structure. After the data have been collected, the averages for all meaningful groups of
+the data can be calculated as shown in Table 4.5.</p>
+<div id="extended-activity-algebraic-notation" class="section level3" number="8.0.1">
+<h3>
+<span class="header-section-number">8.0.1</span> Extended Activity: Algebraic Notation<a class="anchor" aria-label="anchor" href="#extended-activity-algebraic-notation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Data set: PaperTowels<br>
+20. What values in Table 4.4 are represented by <span class="math inline">\(\bar y_{213}\)</span> and <span class="math inline">\(\bar y_{122}\)</span>?<br>
+21. Give the proper algebraic notation for the observation representing the 3rd paper towel with Brand D and 15 drops of water.<br>
+22. What are the values of <span class="math inline">\(\bar y_{.3.}\)</span> and <span class="math inline">\(\bar y_{21.}\)</span>?<br>
+23. Complete Table 4.5 by calculating the three missing averages.</p>
+</div>
+<div id="calculating-effects" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Calculating Effects<a class="anchor" aria-label="anchor" href="#calculating-effects"><i class="fas fa-link"></i></a>
+</h2>
+<p>As the data structure becomes more complex, a statistical model becomes more useful for describing the population(s) from which the data may have come. Generally, statistical models consist of a <strong>mean response</strong> and a <strong>random error term</strong> (details are provided in Chapter 2). The mean response describes the expected (mean) breaking strength. Figure 4.4 is useful in visualizing the meaningful groups within this model that contribute to the mean response of the model: the grand mean, the two brand groups, the three water amount groups, and the six factor-level combination groups.</p>
+<p>The random error term follows an overall pattern that can be modeled with a probability distribution (e.g., the normal distribution). The error term incorporates the reality that observations will vary within each factor-level combination. Even when the same weights are applied to the same brand of paper towel, using the same water amount, the observed breaking strength may not be the same.</p>
+<p>The labels (e.g., the grand mean, group effects, and random errors) and symbols in Figure 4.4 are described below:</p>
+<ul>
+<li>
+<span class="math inline">\(y_{ijk}\)</span>: the <span class="math inline">\(k\)</span>th observed breaking strength (<span class="math inline">\(k = 1, 2, \dots, 26\)</span>) for brand <span class="math inline">\(i\)</span> and water amount <span class="math inline">\(j\)</span><br>
+</li>
+<li>
+<span class="math inline">\(\mu\)</span>: overall mean breaking strength of the entire population of paper towels across brands and water amounts (also called the grand mean)<br>
+</li>
+<li>
+<span class="math inline">\(\alpha_i\)</span>: brand effect (<span class="math inline">\(i = 1, 2\)</span>), where <span class="math inline">\(\alpha_1\)</span> is the effect of Brand C and <span class="math inline">\(\alpha_2\)</span> is the effect of Brand D<br>
+</li>
+<li>
+<span class="math inline">\(\beta_j\)</span>: amount of water effect (<span class="math inline">\(j = 1, 2, 3\)</span>), where <span class="math inline">\(\beta_1\)</span> represents the effect of 0 drops of water<br>
+</li>
+<li>
+<span class="math inline">\((\alpha\beta)_{ij}\)</span>: interaction effect, where <span class="math inline">\((\alpha\beta)_{23}\)</span> represents the Brand D/15 drops of water interaction effect<br>
+</li>
+<li>
+<span class="math inline">\(\varepsilon_{ijk}\)</span>: the random error—the difference between the <span class="math inline">\(k\)</span>th observed value (<span class="math inline">\(k = 1, 2, \dots, 26\)</span>) and the population mean breaking strength for brand <span class="math inline">\(i\)</span> and water amount <span class="math inline">\(j\)</span>
+</li>
+</ul>
+<p>[[[Figure 4.4 goes here]]]</p>
+<p>Notice that each of the <span class="math inline">\(2 \times 3 \times 26 = 156\)</span> observed strength measurements represents one of the 156 equations in Figure 4.4. The structure of the data is now used to write down a statistical model for the data:
+<span class="math display">\[
+y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk}
+\quad\text{for } i = 1,2;\; j = 1,2,3;\; k = 1,2,\dots,26
+\tag{4.5}
+\]</span></p>
+<p>KEY CONCEPT<br>
+Identifying the meaningful groups within each data set (the data structure) is the first step in developing a statistical model of the population(s) from which the data come.</p>
+<p>Table 4.5 shows that the <em>Strength</em> average changes from 1772.8 to 1123.4 with a change from Brand C to Brand D paper towels. This difference is smaller than the differences due to changes in the water amount. <strong>Main effects</strong> are calculated to measure the impact of changing the levels of each factor in the model. A main effect is the difference between the factor-level average and the grand mean. For example:</p>
+<p><span class="math display">\[
+\hat\alpha_1
+= \text{effect of Brand C}
+= \text{Brand C mean} - \text{grand mean}
+= \bar y_{1\cdot\cdot} - \bar y_{\cdot\cdot\cdot}
+= 1772.8 - 1448.1
+= 324.7,
+\]</span>
+<span class="math display">\[
+\hat\beta_3
+= \text{effect of 15 drops of water}
+= \text{15 drops mean} - \text{grand mean}
+= \bar y_{\cdot\cdot3} - \bar y_{\cdot\cdot\cdot}
+= 423.6 - 1448.1
+= -1024.5
+\tag{4.6}
+\]</span></p>
+<p>NOTE<br><span class="math inline">\(\mu,\alpha_i,\beta_j,(\alpha\beta)_{ij}\)</span> in Equation (4.5) are population parameters. Statistics such as <span class="math inline">\(\hat\alpha_1\)</span> and <span class="math inline">\(\hat\beta_3\)</span> in Equation (4.6) are used to estimate the population effect sizes.</p>
+<div id="extended-activity-estimating-main-effects" class="section level3" number="8.1.1">
+<h3>
+<span class="header-section-number">8.1.1</span> Extended Activity: Estimating Main Effects<a class="anchor" aria-label="anchor" href="#extended-activity-estimating-main-effects"><i class="fas fa-link"></i></a>
+</h3>
+<p>Data set: PaperTowels</p>
+<ol start="24" style="list-style-type: decimal">
+<li><p>Use the PaperTowels data to estimate the effect of Brand D and explain any symmetry that you find with the effect of Brand C calculated above.</p></li>
+<li><p>A main effects plot is a graph that plots the average response for each level of each factor. To properly compare the effect sizes, the vertical axis should be the same for each factor. Use statistical software to create a main effects plot. Identify and label the following values on the plot:<span class="math inline">\(\bar y_{1\cdot\cdot},\bar y_{\cdot\cdot3},\bar y_{\cdot\cdot\cdot}, \hat\alpha_1, \hat\beta_3.\)</span></p></li>
+</ol>
+<p>NOTE<br>
+This is still a balanced design, since <span class="math inline">\(n_{ij}\)</span> is the same for each factor-level combination. However, since the sample sizes are not the same in every group level (78 towels for each Brand mean and 52 towels for each Water level), the factor with the largest difference between means does not necessarily correspond to the smallest <em>p</em>-value.</p>
+<p>In addition to determining the main effects for each factor, it is often critical to identify how multiple factors interact in affecting the results. An interaction occurs when one factor affects the response variable differently depending on a second factor. To calculate the effect of the brand and water interaction, take the average for a particular factor combination minus the grand mean and the corresponding main effects:</p>
+<p><span class="math display">\[\begin{align}
+\text{Interaction effect of Brand C and 15 drops of water}
+  &amp;=
+    \begin{aligned}[]
+      \text{average of Brand C, 15 drops group}\\
+      \quad
+      -\bigl(\text{effect of Brand C}
+             +\;\text{effect of 15 drops}
+             +\;\text{grand mean}\bigr)
+    \end{aligned}
+    \nonumber
+\\[6pt]
+&amp;= \bar y_{13\cdot} - \bigl[\hat\alpha_1 + \hat\beta_3 + \bar y_{\cdot\cdot\cdot}\bigr]
+    \nonumber
+\\[6pt]
+&amp;= \bar y_{13\cdot}
+  - \bigl[(\bar y_{1\cdot\cdot}-\bar y_{\cdot\cdot\cdot})
+         +(\bar y_{\cdot3\cdot}-\bar y_{\cdot\cdot\cdot})
+         +\bar y_{\cdot\cdot\cdot}\bigr]
+    \nonumber
+\\[6pt]
+&amp;= 401.0 - \bigl[324.7 + (-1024.5) + 1448.1\bigr]
+    \nonumber
+\\[6pt]
+&amp;= -347.3
+\tag{4.7}
+\end{align}\]</span></p>
+<p>The estimate of the Brand C and 15 drops of water interaction effect in Equation (4.7) tells us that the best
+estimate of any paper towel strength from this group should be reduced by an additional 347.3 after we take
+into account all other influencing factors (the grand mean and main effects).</p>
+</div>
+<div id="extended-activity-calculating-interaction-effects" class="section level3" number="8.1.2">
+<h3>
+<span class="header-section-number">8.1.2</span> Extended Activity: Calculating Interaction Effects<a class="anchor" aria-label="anchor" href="#extended-activity-calculating-interaction-effects"><i class="fas fa-link"></i></a>
+</h3>
+<p>Data set: PaperTowels</p>
+<ol start="26" style="list-style-type: decimal">
+<li><p>Show that <span class="math inline">\(\bar y_{ij\cdot} - \bar y_{i\cdot\cdot} - \bar y_{\cdot j\cdot} + \bar y_{\cdot\cdot\cdot}\)</span> is equivalent to the <span class="math inline">\(ij\)</span>th interaction effect.</p></li>
+<li><p>Calculate the other five interaction effects. Hand draw Figure 4.4 and fill out the effect sizes with observed values (i.e., replace <span class="math inline">\(\mu, \alpha_i, \beta_j,\)</span> and <span class="math inline">\((\alpha\beta)_{ij}\)</span> with estimates from the data). Do not fill out the observations or the error terms (<span class="math inline">\(y_{ijk}\)</span> or <span class="math inline">\(\varepsilon_{ijk}\)</span>).</p></li>
+<li><p>Create an interaction plot. Does there appear to be evidence of an interaction effect?</p></li>
+<li><p>Draw a diagram similar to Figure 4.4 for a two-way factorial design with four levels of the first factor, three levels of the second factor, and two observations per factor-level combination in Equation (4.5).</p></li>
+<li><p>Residuals, or observed random error terms, are defined as the observed responses, (y_{ij</p></li>
+</ol>
+<p>The effect for Brand C might be positive (Brand C has a higher average breaking strength than Brand D), but then the effect for Brand D must be negative and exactly the same size as the effect for Brand C. The two effects sum to zero. This is called a <strong>restriction</strong> on the model terms. The entire set of restrictions for the model in Equation (4.5) is provided below.</p>
+<p><span class="math display">\[
+\sum_{i=1}^2 \alpha_i = \alpha_1 + \alpha_2 = 0,
+\quad
+\sum_{j=1}^3 \beta_j = \beta_1 + \beta_2 + \beta_3 = 0,
+\]</span>
+<span class="math display">\[
+\sum_{i=1}^2 (\alpha\beta)_{ij} = (\alpha\beta)_{1j} + (\alpha\beta)_{2j} = 0
+\quad\text{for all } j,
+\]</span>
+<span class="math display">\[
+\sum_{j=1}^3 (\alpha\beta)_{ij} = (\alpha\beta)_{i1} + (\alpha\beta)_{i2} + (\alpha\beta)_{i3} = 0
+\quad\text{for all } i
+\tag{4.8}
+\]</span></p>
+<p>More specifically, the restrictions state that the interaction effects involving Brand C must sum to zero
+(i.e., <span class="math inline">\((\alpha\beta)_{11} + (\alpha\beta)_{12} + (\alpha\beta)_{13} = 0\)</span>).
+In the same way, all interactions corresponding to the 15 drops of
+water groups must also sum to zero. All six restrictions corresponding to the interactions can be checked in
+Question 27. The residual values sum to zero within each group of interest. This will always be true whenever
+calculating effects. This is not surprising, since effects measure the deviation of a particular group mean from
+the overall mean.</p>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="what-can-we-conclude-from-the-popcorn-study.html"><span class="header-section-number">7</span> 4.5 What Can We Conclude from the Popcorn Study?</a></div>
+<div class="next"><a href="paper-towels-the-relationship-between-effects-and-anova.html"><span class="header-section-number">9</span> 4.7 Paper Towels: The Relationship Between Effects and ANOVA</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li>
+<a class="nav-link" href="#paper-towels-developing-a-statistical-model-for-a-two-way"><span class="header-section-number">8</span> 4.6 Paper Towels: Developing a Statistical Model for a Two-Way</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#extended-activity-algebraic-notation"><span class="header-section-number">8.0.1</span> Extended Activity: Algebraic Notation</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#calculating-effects"><span class="header-section-number">8.1</span> Calculating Effects</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#extended-activity-estimating-main-effects"><span class="header-section-number">8.1.1</span> Extended Activity: Estimating Main Effects</a></li>
+<li><a class="nav-link" href="#extended-activity-calculating-interaction-effects"><span class="header-section-number">8.1.2</span> Extended Activity: Calculating Interaction Effects</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/Chap4.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/Chap4.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Chapter 9</strong>" was written by Your Name. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

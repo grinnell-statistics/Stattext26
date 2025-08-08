@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Page not found | Making Decisions with Data</title>
+  <meta name="description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Page not found | Making Decisions with Data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Page not found | Making Decisions with Data" />
+  
+  <meta name="twitter:description" content="<p>This is a first version of an applied statistics textbook.
+The HTML output format for this example is bookdown::gitbook,</p>" />
+  
+
+<meta name="author" content="Shonda Kuiper" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html"><i class="fa fa-check"></i><b>1</b> Nonparametric Methods: Schistosomiasis</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#investigation-can-a-new-drug-reduce-the-spread-of-schistosomiasis"><i class="fa fa-check"></i><b>1.1</b> Investigation: Can a New Drug Reduce the Spread of Schistosomiasis?</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-describing-the-data"><i class="fa fa-check"></i>Activity: Describing the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#statistical-inference-through-a-randomization-test"><i class="fa fa-check"></i><b>1.2</b> Statistical Inference Through a Randomization Test</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-conducting-a-randomization-test-by-hand"><i class="fa fa-check"></i>Activity: Conducting a Randomization Test by Hand</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#performing-a-randomization-test-using-a-computer-simulation"><i class="fa fa-check"></i><b>1.3</b> Performing a Randomization Test Using a Computer Simulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-using-computer-simulations-to-conduct-a-hypothesis-test"><i class="fa fa-check"></i>Activity: Using Computer Simulations to Conduct a Hypothesis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#two-sided-tests"><i class="fa fa-check"></i><b>1.4</b> Two-Sided Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-a-two-sided-hypothesis-test"><i class="fa fa-check"></i>Activity: A Two-Sided Hypothesis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#what-can-we-conclude-from-the-schistosomiasis-study"><i class="fa fa-check"></i><b>1.5</b> What Can We Conclude from the Schistosomiasis Study?</a></li>
+<li class="chapter" data-level="1.6" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#permutation-tests-versus-randomization-tests"><i class="fa fa-check"></i><b>1.6</b> Permutation Tests versus Randomization Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#age-discrimination-study"><i class="fa fa-check"></i>Age Discrimination Study</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-is-there-evidence-of-age-discrimination"><i class="fa fa-check"></i>Activity: Is There Evidence of Age Discrimination?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#permutation-and-randomization-tests-for-matched-pairs-designs"><i class="fa fa-check"></i><b>1.7</b> Permutation and Randomization Tests for Matched Pairs Designs</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#music-and-relaxation"><i class="fa fa-check"></i>Music and Relaxation</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-testing-the-effect-of-music-on-relaxation"><i class="fa fa-check"></i>Activity: Testing the Effect of Music on Relaxation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#the-bootstrap-distribution"><i class="fa fa-check"></i><b>1.8</b> The Bootstrap Distribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-creating-a-sampling-distribution-and-a-bootstrap-distribution"><i class="fa fa-check"></i>Activity: Creating a Sampling Distribution and a Bootstrap Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#using-bootstrap-methods-to-create-confidence-intervals"><i class="fa fa-check"></i><b>1.9</b> Using Bootstrap Methods to Create Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#bootstrap-t-confidence-intervals"><i class="fa fa-check"></i>Bootstrap t Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#bootstrap-percentile-confidence-intervals"><i class="fa fa-check"></i>Bootstrap Percentile Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#when-to-use-bootstrap-confidence-intervals"><i class="fa fa-check"></i>When to Use Bootstrap Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activityestimating-salaries-of-medical-faculty"><i class="fa fa-check"></i>Activity:Estimating Salaries of Medical Faculty</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#relationship-between-the-randomization-test-and-the-two-sample-t-test"><i class="fa fa-check"></i><b>1.10</b> Relationship Between the Randomization Test and the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="1.11" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#wilcoxon-rank-sum-tests-for-two-independent-samples"><i class="fa fa-check"></i><b>1.11</b> Wilcoxon Rank Sum Tests for Two Independent Samples</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-wilcoxon-rank-sum-tests"><i class="fa fa-check"></i>Activity: <em>Wilcoxon Rank Sum Tests</em></a></li>
+</ul></li>
+<li class="chapter" data-level="1.12" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#kruskal-wallis-test-for-two-or-more-independent-samples"><i class="fa fa-check"></i><b>1.12</b> Kruskal-Wallis Test for Two or More Independent Samples</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-kruskal-wallis-test"><i class="fa fa-check"></i>Activity: Kruskal-Wallis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.13" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#multiple-comparisons"><i class="fa fa-check"></i><b>1.13</b> Multiple Comparisons</a>
+<ul>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-comparing-car-prices"><i class="fa fa-check"></i>Activity: Comparing Car Prices</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#activity-the-least-significant-differences-method-and-the-bonferroni-method"><i class="fa fa-check"></i>Activity: The Least-Significant Differences Method and the Bonferroni Method</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#choosing-a-critical-value"><i class="fa fa-check"></i>Choosing a Critical Value</a></li>
+</ul></li>
+<li class="chapter" data-level="1.14" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#chapter-summary"><i class="fa fa-check"></i><b>1.14</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="nonparametric-methods-schistosomiasis.html"><a href="nonparametric-methods-schistosomiasis.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html"><i class="fa fa-check"></i><b>2</b> Making Connections: The Two-Sample t-Test, Regression, and ANOVA</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#investigation-do-distracting-colors-influence-the-time-to-complete-a-game"><i class="fa fa-check"></i><b>2.1</b> Investigation: Do Distracting Colors Influence the Time to Complete a Game?</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-understanding-the-study-design"><i class="fa fa-check"></i>Activity: Understanding the Study Design</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-two-sample-t-test-to-compare-population-means"><i class="fa fa-check"></i><b>2.2</b> The Two-Sample t-Test to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-statistical-model"><i class="fa fa-check"></i><b>2.2.1</b> The Statistical Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-statistical-models-for-the-two-sample-t-test"><i class="fa fa-check"></i>Activity: Statistical Models for the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-the-two-sample-t-test"><i class="fa fa-check"></i>Model Assumptions for the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-assumptions-for-the-t-test"><i class="fa fa-check"></i>Activity: Checking Assumptions for the t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-regression-model-to-compare-population-means"><i class="fa fa-check"></i><b>2.3</b> The Regression Model to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-linear-regression-model"><i class="fa fa-check"></i>The Linear Regression Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-a-regression-model-and-hypothesis-test-for-the-slope"><i class="fa fa-check"></i>Activity: Calculating a Regression Model and Hypothesis Test for the Slope</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-regression"><i class="fa fa-check"></i>Model Assumptions for Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-model-assumptions"><i class="fa fa-check"></i>Activity: Checking Model Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#anova-to-compare-population-means"><i class="fa fa-check"></i><b>2.4</b> ANOVA to Compare Population Means</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-anova-model"><i class="fa fa-check"></i><b>2.4.1</b> The ANOVA Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-the-anova-model"><i class="fa fa-check"></i>Activity: The ANOVA Model</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-estimating-the-model-values"><i class="fa fa-check"></i>Activity: Estimating the Model Values</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#model-assumptions-for-anova"><i class="fa fa-check"></i>Model Assumptions for ANOVA</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-checking-assumptions"><i class="fa fa-check"></i>Activity: Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#comparing-planned-variability-to-random-variability"><i class="fa fa-check"></i><b>2.5</b> Comparing Planned Variability to Random Variability</a></li>
+<li class="chapter" data-level="2.6" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#random-sampling-and-random-allocation"><i class="fa fa-check"></i><b>2.6</b> Random Sampling and Random Allocation</a></li>
+<li class="chapter" data-level="2.7" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#what-can-we-conclude-from-the-game-study"><i class="fa fa-check"></i><b>2.7</b> What Can We Conclude from the Game Study?</a></li>
+<li class="chapter" data-level="2.8" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#normal-probability-plots-to-assess-normality"><i class="fa fa-check"></i><b>2.8</b> Normal Probability Plots to Assess Normality</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-creating-probability-plots"><i class="fa fa-check"></i>Activity: Creating Probability Plots</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-understanding-variability-in-random-samples"><i class="fa fa-check"></i>Activity: Understanding Variability in Random Samples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations"><i class="fa fa-check"></i><b>2.9</b> Transformations</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations-for-anova"><i class="fa fa-check"></i>Transformations for ANOVA</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-transforming-emissions-data"><i class="fa fa-check"></i>Activity: Transforming Emissions Data</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#back-transformations"><i class="fa fa-check"></i>Back Transformations</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#transformations-for-regression"><i class="fa fa-check"></i>Transformations for Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-transforming-brain-and-body-weight-data"><i class="fa fa-check"></i>Activity: Transforming Brain and Body Weight Data</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#choosing-the-right-transformation"><i class="fa fa-check"></i>Choosing the Right Transformation</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-comparing-four-x-y-data-sets"><i class="fa fa-check"></i>Activity: Comparing Four <span class="math inline">\((x, y)\)</span> Data Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#calculating-test-statistics"><i class="fa fa-check"></i><b>2.10</b> Calculating Test Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#the-two-sample-t-test-with-the-equal-variance-assumption"><i class="fa fa-check"></i>The Two-Sample <span class="math inline">\(t\)</span>-Test with the Equal Variance Assumption</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-the-two-sample-t-test"><i class="fa fa-check"></i>Activity: Calculating the Two-Sample t-Test</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-testing-the-slope-coefficient"><i class="fa fa-check"></i>Activity: Testing the Slope Coefficient</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#analysis-of-variance-anova"><i class="fa fa-check"></i>Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-an-anova-table"><i class="fa fa-check"></i>Activity: Calculating an ANOVA Table</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#confidence-intervals"><i class="fa fa-check"></i><b>2.11</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#activity-calculating-a-confidence-interval-for-the-regression-coefficient"><i class="fa fa-check"></i>Activity: Calculating a Confidence Interval for the Regression Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#chapter-summary-1"><i class="fa fa-check"></i><b>2.12</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="making-connections-the-two-sample-t-test-regression-and-anova.html"><a href="making-connections-the-two-sample-t-test-regression-and-anova.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html"><i class="fa fa-check"></i><b>3</b> Multiple Regression: How Much Is Your Car Worth?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#investigation-how-can-we-build-a-model-to-estimate-used-car-prices"><i class="fa fa-check"></i><b>3.1</b> Investigation: How Can We Build a Model to Estimate Used Car Prices?</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-a-simple-linear-regression-model"><i class="fa fa-check"></i>Activity: A Simple Linear Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#goals-of-multiple-regression"><i class="fa fa-check"></i><b>3.2</b> Goals of Multiple Regression</a></li>
+<li class="chapter" data-level="3.3" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#variable-selection-techniques-to-describe-or-predict-a-response"><i class="fa fa-check"></i><b>3.3</b> Variable Selection Techniques to Describe or Predict a Response</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#stepwise-regression"><i class="fa fa-check"></i>Stepwise Regression</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#selecting-the-best-subset-of-predictors"><i class="fa fa-check"></i>Selecting the “Best Subset” of Predictors</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-comparing-variable-selection-techniques"><i class="fa fa-check"></i>Activity: Comparing Variable Selection Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#checking-model-assumptions"><i class="fa fa-check"></i><b>3.4</b> Checking Model Assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#heteroskedasticity"><i class="fa fa-check"></i>Heteroskedasticity</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#examining-residual-plots-across-timeorder"><i class="fa fa-check"></i>Examining Residual Plots Across Time/Order</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-outliers-and-influential-observations"><i class="fa fa-check"></i>Activity: Outliers and Influential Observations</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#normally-distributed-residuals"><i class="fa fa-check"></i>Normally Distributed Residuals</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#correlation-between-explanatory-variables"><i class="fa fa-check"></i>Correlation Between Explanatory Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interpreting-model-coefficients"><i class="fa fa-check"></i><b>3.5</b> Interpreting Model Coefficients</a></li>
+<li class="chapter" data-level="3.6" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#categorical-explanatory-variables"><i class="fa fa-check"></i><b>3.6</b> Categorical Explanatory Variables</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#creating-indicator-variables"><i class="fa fa-check"></i>Creating Indicator Variables</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-building-regression-models-with-indicator-variables"><i class="fa fa-check"></i>Activity: Building Regression Models with Indicator Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#what-can-we-conclude-from-the-2005-gm-car-study"><i class="fa fa-check"></i><b>3.7</b> What Can We Conclude from the 2005 GM Car Study?</a></li>
+<li class="chapter" data-level="3.8" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#f-tests-for-multiple-regression"><i class="fa fa-check"></i><b>3.8</b> <span class="math inline">\(F\)</span>-Tests for Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#decomposition-of-sum-of-squares"><i class="fa fa-check"></i>Decomposition of Sum of Squares</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-a-closer-look-at-least-squares-regression-equations"><i class="fa fa-check"></i>Activity: A Closer Look at Least Squares Regression Equations</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#the-analysis-of-variance-table"><i class="fa fa-check"></i>The Analysis of Variance Table</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#testing-the-significance-of-a-regression-model"><i class="fa fa-check"></i>Testing the Significance of a Regression Model</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#the-extra-sum-of-squares-f-test"><i class="fa fa-check"></i>The Extra Sum of Squares <span class="math inline">\(F\)</span>-Test</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-testing-multiple-coefficients"><i class="fa fa-check"></i>Activity: Testing Multiple Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#developing-a-model-to-confirm-a-theory"><i class="fa fa-check"></i><b>3.9</b> Developing a Model to Confirm a Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-testing-a-theory-on-cars"><i class="fa fa-check"></i>Activity: Testing a Theory on Cars</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interaction-and-terms-for-curvature"><i class="fa fa-check"></i><b>3.10</b> Interaction and Terms for Curvature</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#interaction-terms"><i class="fa fa-check"></i>Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-understanding-interaction-terms"><i class="fa fa-check"></i>Activity: Understanding Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#quadratic-and-cubic-terms"><i class="fa fa-check"></i>Quadratic and Cubic Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-understanding-quadratic-terms"><i class="fa fa-check"></i>Activity: Understanding Quadratic Terms</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#activity-creating-new-terms-to-predict-the-retail-price-of-cars"><i class="fa fa-check"></i>Activity: Creating New Terms to Predict the Retail Price of Cars</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#a-closer-look-at-variable-selection-criteria"><i class="fa fa-check"></i><b>3.11</b> A Closer Look at Variable Selection Criteria</a>
+<ul>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#adjusted-mathrmr2"><i class="fa fa-check"></i>Adjusted <span class="math inline">\(\mathrm{R}^2\)</span></a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#mallows-c_p"><i class="fa fa-check"></i>Mallows’ <span class="math inline">\(C_p\)</span></a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#akaikes-information-criterion-aic-and-bayes-information-criterion-bic"><i class="fa fa-check"></i>Akaike’s Information Criterion (AIC) and Bayes’ Information Criterion (BIC)</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#model-validation"><i class="fa fa-check"></i>Model Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#chapter-summary-2"><i class="fa fa-check"></i><b>3.12</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#exercises-2"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression-how-much-is-your-car-worth.html"><a href="multiple-regression-how-much-is-your-car-worth.html#endnotes"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><i class="fa fa-check"></i><b>4</b> The Design and Analysis of Factorial Experiments: Microwave Popcorn</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#investigation-which-microwave-popcorn-is-the-best"><i class="fa fa-check"></i><b>4.1</b> Investigation: Which Microwave Popcorn Is the Best?</a></li>
+<li class="chapter" data-level="4.2" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#elements-of-a-well-designed-experiment"><i class="fa fa-check"></i><b>4.2</b> Elements of a Well-Designed Experiment</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#identifying-a-response-variable"><i class="fa fa-check"></i>Identifying a Response Variable</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#identifying-the-factors-and-levels"><i class="fa fa-check"></i>Identifying the Factors and Levels</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#choosing-a-design"><i class="fa fa-check"></i>Choosing a Design</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#determining-sample-sizes-for-completely-randomized-designs"><i class="fa fa-check"></i>Determining Sample Sizes for Completely Randomized Designs</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-determining-the-number-of-treatment-combinations"><i class="fa fa-check"></i>Activity: Determining the Number of Treatment Combinations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#analyzing-a-two-way-factorial-design"><i class="fa fa-check"></i><b>4.3</b> Analyzing a Two-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-visualizing-the-data"><i class="fa fa-check"></i>Activity: Visualizing the Data</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#notation-for-multiple-explanatory-variables"><i class="fa fa-check"></i>Notation for Multiple Explanatory Variables</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-understanding-notation"><i class="fa fa-check"></i>Activity: Understanding Notation</a></li>
+<li class="chapter" data-level="4.3.1" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#comparing-variances-"><i class="fa fa-check"></i><b>4.3.1</b> Comparing Variances{-} </a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-f-statistics"><i class="fa fa-check"></i>Activity: Calculating F-Statistics</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#interpreting-interaction-terms"><i class="fa fa-check"></i>Interpreting Interaction Terms</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#analyzing-a-three-way-factorial-design"><i class="fa fa-check"></i><b>4.4</b> Analyzing a Three-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-conducting-a-three-way-anova"><i class="fa fa-check"></i>Activity: Conducting a Three-Way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#what-can-we-conclude-from-the-popcorn-study"><i class="fa fa-check"></i><b>4.5</b> What Can We Conclude from the Popcorn Study?</a></li>
+<li class="chapter" data-level="4.6" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#paper-towels-developing-a-statistical-model-for-a-two-way-factorial-design"><i class="fa fa-check"></i><b>4.6</b> Paper Towels: Developing a Statistical Model for a Two-Way Factorial Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-algebraic-notation"><i class="fa fa-check"></i>Activity: Algebraic Notation</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#calculating-effects"><i class="fa fa-check"></i>Calculating Effects</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-estimating-main-effects"><i class="fa fa-check"></i>Activity: Estimating Main Effects</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-interaction-effects"><i class="fa fa-check"></i>Activity: Calculating Interaction Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#paper-towels-the-relationship-between-effects-and-anova"><i class="fa fa-check"></i><b>4.7</b> Paper Towels: The Relationship Between Effects and ANOVA</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#degrees-of-freedom"><i class="fa fa-check"></i>Degrees of Freedom</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-degrees-of-freedom-for-interaction-terms"><i class="fa fa-check"></i>Activity: Calculating Degrees of Freedom for Interaction Terms</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-analyzing-the-paper-towel-data"><i class="fa fa-check"></i>Activity: Analyzing the Paper Towel Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#contrasts-and-multiple-comparisons"><i class="fa fa-check"></i><b>4.8</b> Contrasts and Multiple Comparisons</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activitycomparing-one-way-and-two-way-anova"><i class="fa fa-check"></i>Activity:Comparing One-Way and Two-Way ANOVA</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#activity-calculating-contrasts"><i class="fa fa-check"></i>Activity: Calculating Contrasts</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#chapter-summary-3"><i class="fa fa-check"></i><b>4.9</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#exercises-3"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html"><a href="the-design-and-analysis-of-factorial-experiments-microwave-popcorn.html#endnotes-1"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><i class="fa fa-check"></i><b>5</b> Categorical Data Analysis: Is a Tumor Malignant or Benign?</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#investigation-is-cell-shape-associated-with-malignancy"><i class="fa fa-check"></i><b>5.1</b> Investigation: Is Cell Shape Associated with Malignancy?</a></li>
+<li class="chapter" data-level="5.2" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#summarizing-categorical-data"><i class="fa fa-check"></i><b>5.2</b> Summarizing Categorical Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-descriptive-statistics-and-graphs"><i class="fa fa-check"></i>Activity: Descriptive Statistics and Graphs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#a-simulation-study-how-likely-is-it-that-the-observed-sample-would-occur-by-chance"><i class="fa fa-check"></i><b>5.3</b> A Simulation Study: How Likely Is It That the Observed Sample Would Occur by Chance?</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-conducting-a-simulation-study-with-cards"><i class="fa fa-check"></i>Activity: Conducting a Simulation Study with Cards</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-computer-simulation"><i class="fa fa-check"></i>Activity: Computer Simulation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#fishers-exact-test"><i class="fa fa-check"></i><b>5.4</b> Fisher’s Exact Test</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-calculating-fishers-exact-test"><i class="fa fa-check"></i>Activity: Calculating Fisher’s Exact Test</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#two-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.5</b> Two-Sided Hypothesis Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-calculating-a-two-sided-hypothesis-test"><i class="fa fa-check"></i>Activity: Calculating a Two-Sided Hypothesis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#chi-square-test"><i class="fa fa-check"></i><b>5.6</b> Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-calculating-expected-counts"><i class="fa fa-check"></i>Activity: Calculating Expected Counts</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-conducting-a-chi-square-test"><i class="fa fa-check"></i>Activity: Conducting a Chi-Square Test</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-simulating-the-chi-square-test-statistic"><i class="fa fa-check"></i>Activity: Simulating the Chi-Square Test Statistic</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#what-can-we-conclude-from-the-cancer-study"><i class="fa fa-check"></i><b>5.7</b> What Can We Conclude from the Cancer Study?</a></li>
+<li class="chapter" data-level="5.8" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#relative-risk-and-the-odds-ratio"><i class="fa fa-check"></i><b>5.8</b> Relative Risk and the Odds Ratio</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-calculating-additional-summary-statistics"><i class="fa fa-check"></i>Activity: Calculating Additional Summary Statistics</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#cautions-about-relative-risk-reduction-in-medical-studies"><i class="fa fa-check"></i>Cautions About Relative Risk Reduction in Medical Studies</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-comparing-relative-and-absolute-risk-reduction"><i class="fa fa-check"></i>Activity: Comparing Relative and Absolute Risk Reduction</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#sampling-designs"><i class="fa fa-check"></i><b>5.9</b> Sampling Designs</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-retrospective-studies-and-the-odds-ratio"><i class="fa fa-check"></i>Activity: Retrospective Studies and the Odds Ratio</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#tests-for-the-homogeneity-of-odds"><i class="fa fa-check"></i>Tests for the Homogeneity of Odds</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#comparing-tests-of-homogeneity-and-independence"><i class="fa fa-check"></i><b>5.10</b> Comparing Tests of Homogeneity and Independence</a></li>
+<li class="chapter" data-level="5.11" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#chi-square-goodness-of-fit-tests"><i class="fa fa-check"></i><b>5.11</b> Chi-Square Goodness-of-Fit Tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#activity-playing-a-dice-game"><i class="fa fa-check"></i>Activity: Playing a Dice Game</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#chapter-summary-4"><i class="fa fa-check"></i><b>5.12</b> Chapter Summary</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#exercises-4"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="categorical-data-analysis-is-a-tumor-malignant-or-benign.html"><a href="categorical-data-analysis-is-a-tumor-malignant-or-benign.html#endnotes-2"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression: The Space Shuttle Challenger</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#investigation-did-temperature-influence-the-likelihood-of-an-o-ring-failure"><i class="fa fa-check"></i><b>6.1</b> Investigation: Did Temperature Influence the Likelihood of an O-Ring Failure?</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-describing-the-data-1"><i class="fa fa-check"></i>Activity: Describing the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#review-of-the-least-squares-regression-model"><i class="fa fa-check"></i><b>6.2</b> Review of the Least Squares Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-building-a-least-squares-regression-model"><i class="fa fa-check"></i>Activity: Building a Least Squares Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#the-logistic-regression-model"><i class="fa fa-check"></i><b>6.3</b> The Logistic Regression Model</a></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#the-logistic-regression-model-using-maximum-likelihood-estimates"><i class="fa fa-check"></i><b>6.4</b> The Logistic Regression Model Using Maximum Likelihood Estimates</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-using-software-to-calculate-maximum-likelihood-estimates"><i class="fa fa-check"></i>Activity: Using Software to Calculate Maximum Likelihood Estimates</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-estimating-the-probability-of-success-with-maximum-likelihood-estimates"><i class="fa fa-check"></i>Activity: Estimating the Probability of Success with Maximum Likelihood Estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#interpreting-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.5</b> Interpreting the Logistic Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-interpreting-a-logistic-regression-model"><i class="fa fa-check"></i>Activity: Interpreting a Logistic Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#inference-for-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.6</b> Inference for the Logistic Regression Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#assumptions-for-logistic-regression-models"><i class="fa fa-check"></i>Assumptions for Logistic Regression Models</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#the-wald-statistic"><i class="fa fa-check"></i>The Wald Statistic</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-wald-confidence-intervals-and-hypothesis-tests"><i class="fa fa-check"></i>Activity: Wald Confidence Intervals and Hypothesis Tests</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#the-likelihood-ratio-test"><i class="fa fa-check"></i>The Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-the-likelihood-ratio-test"><i class="fa fa-check"></i>Activity: The Likelihood Ratio Test</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#what-can-we-conclude-from-the-space-shuttle-study"><i class="fa fa-check"></i><b>6.7</b> What Can We Conclude from the Space Shuttle Study?</a></li>
+<li class="chapter" data-level="6.8" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#logistic-regression-with-multiple-explanatory-variables"><i class="fa fa-check"></i><b>6.8</b> Logistic Regression with Multiple Explanatory Variables</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-estimating-the-probability-of-malignancy-in-cancer-cells"><i class="fa fa-check"></i>Activity: Estimating the Probability of Malignancy in Cancer Cells</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#the-drop-in-deviance-test"><i class="fa fa-check"></i><b>6.9</b> The Drop-in-Deviance Test</a></li>
+<li class="chapter" data-level="6.10" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#measures-of-association"><i class="fa fa-check"></i><b>6.10</b> Measures of Association</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-measures-of-association"><i class="fa fa-check"></i>Activity: Measures of Association</a></li>
+</ul></li>
+<li class="chapter" data-level="6.11" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#review-of-means-and-variances-of-binary-and-binomial-data"><i class="fa fa-check"></i><b>6.11</b> Review of Means and Variances of Binary and Binomial Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-understanding-the-binomial-distribution"><i class="fa fa-check"></i>Activity: Understanding the Binomial Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#calculating-logistic-regression-models-for-binomial-counts"><i class="fa fa-check"></i><b>6.12</b> Calculating Logistic Regression Models for Binomial Counts</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-binomial-logistic-regression"><i class="fa fa-check"></i>Activity: Binomial Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.13" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#calculating-residuals-for-logistic-models-with-binomial-counts"><i class="fa fa-check"></i><b>6.13</b> Calculating Residuals for Logistic Models with Binomial Counts</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-evaluating-residuals-in-binomial-logistic-regression"><i class="fa fa-check"></i>Activity: Evaluating Residuals in Binomial Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.14" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#assessing-the-fit-of-a-logistic-regression-model-with-binomial-counts"><i class="fa fa-check"></i><b>6.14</b> Assessing the Fit of a Logistic Regression Model with Binomial Counts</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-calculating-residuals-by-hand"><i class="fa fa-check"></i>Activity: Calculating Residuals by Hand</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-goodnessoffit-tests-for-continuous-explanatory-variables"><i class="fa fa-check"></i>Activity: Goodness‐of‐Fit Tests for Continuous Explanatory Variables</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-goodnessoffit-tests-for-continuous-explanatory-variables-1"><i class="fa fa-check"></i>Activity: Goodness‐of‐Fit Tests for Continuous Explanatory Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.15" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#diagnostic-plots"><i class="fa fa-check"></i><b>6.15</b> Diagnostic Plots</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-identifying-outliers-and-influential-observations"><i class="fa fa-check"></i>Activity: Identifying Outliers and Influential Observations</a></li>
+</ul></li>
+<li class="chapter" data-level="6.16" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#maximum-likelihood-estimation-in-logistic-regression"><i class="fa fa-check"></i><b>6.16</b> Maximum Likelihood Estimation in Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#maximum-likelihood-estimator-for-binary-data"><i class="fa fa-check"></i>Maximum Likelihood Estimator for Binary Data</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#activity-calculating-maximum-likelihood-estimates"><i class="fa fa-check"></i>Activity: Calculating Maximum Likelihood Estimates</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#maximum-likelihood-estimator-for-logistic-regression-models"><i class="fa fa-check"></i>Maximum Likelihood Estimator for Logistic Regression Models</a></li>
+</ul></li>
+<li class="chapter" data-level="6.17" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#chapter-summary-5"><i class="fa fa-check"></i><b>6.17</b> Chapter Summary</a></li>
+<li class="chapter" data-level="6.18" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#exercises-5"><i class="fa fa-check"></i><b>6.18</b> Exercises</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression-the-space-shuttle-challenger.html"><a href="logistic-regression-the-space-shuttle-challenger.html#endnotes-3"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html"><i class="fa fa-check"></i><b>7</b> Survival Analysis: Melting Chocolate Chips</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#investigation-how-long-does-it-take-for-chocolate-chips-to-melt"><i class="fa fa-check"></i><b>7.1</b> Investigation: How Long Does It Take for Chocolate Chips to Melt?</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-melting-chocolate-chips"><i class="fa fa-check"></i>Activity: Melting Chocolate Chips</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#overview-of-survival-analysis-studies-and-data"><i class="fa fa-check"></i><b>7.2</b> Overview of Survival Analysis Studies and Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#incomplete-event-times-censoring"><i class="fa fa-check"></i>Incomplete Event Times: Censoring</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-melting-chocolate-chips-1"><i class="fa fa-check"></i>Activity: Melting Chocolate Chips</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-survival-function"><i class="fa fa-check"></i><b>7.3</b> The Survival Function</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-empirical-survival-function"><i class="fa fa-check"></i>The Empirical Survival Function</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-empirical-survival-function"><i class="fa fa-check"></i>Activity: Empirical Survival Function</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-kaplanmeier-estimator"><i class="fa fa-check"></i>The Kaplan–Meier Estimator</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-time-intervals-for-the-chip-melting-times"><i class="fa fa-check"></i>Activity: Time Intervals for the Chip Melting Times</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-estimated-conditional-melting-probabilities"><i class="fa fa-check"></i>Activity: Estimated Conditional Melting Probabilities</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-kaplanmeier-estimates"><i class="fa fa-check"></i>Activity: Kaplan–Meier Estimates</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#graphing-the-kaplanmeier-curve"><i class="fa fa-check"></i>Graphing the Kaplan–Meier Curve</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-kaplanmeier-curves"><i class="fa fa-check"></i>Activity: Kaplan–Meier Curves</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#additional-chip-melting-experiences"><i class="fa fa-check"></i>Additional Chip Melting Experiences</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-chip-melting-experiences"><i class="fa fa-check"></i>Activity: Chip Melting Experiences</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#descriptive-statistics-for-survival-data"><i class="fa fa-check"></i><b>7.4</b> Descriptive Statistics for Survival Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#estimating-the-mean-survival-time"><i class="fa fa-check"></i>Estimating the Mean Survival Time</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-estimated-mean-chip-melting-time"><i class="fa fa-check"></i>Activity: Estimated Mean Chip Melting Time</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#estimating-percentiles-of-the-survival-time-distribution"><i class="fa fa-check"></i>Estimating Percentiles of the Survival Time Distribution</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-estimated-median-chip-melting-time"><i class="fa fa-check"></i>Activity: Estimated Median Chip Melting Time</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#confidence-intervals-for-survival-probabilities"><i class="fa fa-check"></i><b>7.5</b> Confidence Intervals for Survival Probabilities</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-standard-error-of-the-kaplanmeier-estimator"><i class="fa fa-check"></i>The Standard Error of the Kaplan–Meier Estimator</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-standard-errors-and-confidence-intervals-for-survival-probabilities"><i class="fa fa-check"></i>Activity: Standard Errors and Confidence Intervals for Survival Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#comparing-survival-functions"><i class="fa fa-check"></i><b>7.6</b> Comparing Survival Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-log-rank-test"><i class="fa fa-check"></i>The Log-Rank Test</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-calculating-the-expected-number-and-variance-of-melted-chips"><i class="fa fa-check"></i>Activity: Calculating the Expected Number and Variance of Melted Chips</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-log-rank-test-statistic"><i class="fa fa-check"></i>Activity: Log-Rank Test Statistic</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-log-rank-test-for-chip-melting-activity"><i class="fa fa-check"></i>Activity: Log-Rank Test for Chip Melting Activity</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-wilcoxon-test"><i class="fa fa-check"></i>The Wilcoxon Test</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#beyond-different-survival-experiences-regression-models-for-survival-data"><i class="fa fa-check"></i>Beyond Different Survival Experiences: Regression Models for Survival Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#what-can-we-conclude-about-melting-chocolate-chips"><i class="fa fa-check"></i><b>7.7</b> What Can We Conclude About Melting Chocolate Chips?</a></li>
+<li class="chapter" data-level="7.8" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-hazard-function"><i class="fa fa-check"></i><b>7.8</b> The Hazard Function</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-population-hazard-function"><i class="fa fa-check"></i>The Population Hazard Function</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-estimated-hazard-function"><i class="fa fa-check"></i>The Estimated Hazard Function</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-chip-melting-hazard-rates"><i class="fa fa-check"></i>Activity: Chip Melting Hazard Rates</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-estimated-hazard-rates"><i class="fa fa-check"></i>Activity: Estimated Hazard Rates</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#age-at-first-alcoholic-drink"><i class="fa fa-check"></i>Age at First Alcoholic Drink</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-age-at-first-alcoholic-drink"><i class="fa fa-check"></i>Activity: Age at First Alcoholic Drink</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#college-graduation"><i class="fa fa-check"></i>College Graduation</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-college-graduation"><i class="fa fa-check"></i>Activity: College Graduation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#the-cumulative-hazard-function"><i class="fa fa-check"></i><b>7.9</b> The Cumulative Hazard Function</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#motorist-reaction-times"><i class="fa fa-check"></i>Motorist Reaction Times</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#estimator-of-the-cumulative-hazard-function"><i class="fa fa-check"></i>Estimator of the Cumulative Hazard Function</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-estimated-cumulative-hazard-function"><i class="fa fa-check"></i>Activity: Estimated Cumulative Hazard Function</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#time-to-rearrest-for-former-inmates"><i class="fa fa-check"></i>Time to Rearrest for Former Inmates</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#extended-activity-estimated-cumulative-hazard-function"><i class="fa fa-check"></i>Extended Activity: Estimated Cumulative Hazard Function</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#additional-types-of-incomplete-data"><i class="fa fa-check"></i><b>7.10</b> Additional Types of Incomplete Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#left-censoring-and-interval-censoring"><i class="fa fa-check"></i>Left Censoring and Interval Censoring</a></li>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#activity-left-censoring-and-interval-censoring"><i class="fa fa-check"></i>Activity: Left Censoring and Interval Censoring</a></li>
+<li class="chapter" data-level="7.10.1" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#chapter-summary-6"><i class="fa fa-check"></i><b>7.10.1</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#exercises-6"><i class="fa fa-check"></i><b>7.11</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="survival-analysis-melting-chocolate-chips.html"><a href="survival-analysis-melting-chocolate-chips.html#endnotes-4"><i class="fa fa-check"></i>Endnotes</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Making Decisions with Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/%s",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
