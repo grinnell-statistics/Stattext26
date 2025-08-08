@@ -110,6 +110,12 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\newpage
+
+About the book.
+
+\newpage
+
 \hypertarget{nonparametric-methods-schistosomiasis}{%
 \chapter{Nonparametric Methods: Schistosomiasis}\label{nonparametric-methods-schistosomiasis}}
 
@@ -1637,8 +1643,6 @@ No assumptions are needed about the error terms to calculate estimates (\(b_1 = 
 \item
   Create a scatterplot with the regression line in Question 11. Use the graph to give an interpretation of the slope and y-intercept, b1 and b0, in the context of the game study.
 \end{enumerate}
-
-\newpage
 
 \hypertarget{anova-to-compare-population-means}{%
 \section{ANOVA to Compare Population Means}\label{anova-to-compare-population-means}}
@@ -7020,7 +7024,7 @@ An O-ring seal was used to stop the gases inside the solid rocket booster from e
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{docs/Fig7_1Rocket} 
+{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_1Rocket} 
 
 }
 
@@ -7226,8 +7230,7 @@ where ln represents the natural log, \(\beta_0\) and \(\beta_1\) are regression 
 sion model for the space shuttle data.
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE:}
-In Chapter 6, the odds of an outcome are defined as \(\pi/(1 - \pi)\), the probability of a success (no O-ring damage) over the probability of a failure (O-ring damage). For example, if a computer randomly selects a day of the week, the odds of selecting Saturday (Saturday is considered a success) are 1 to 6, since
+\textbf{MATHEMATICAL NOTE:} In Chapter 6, the odds of an outcome are defined as \(\pi/(1 - \pi)\), the probability of a success (no O-ring damage) over the probability of a failure (O-ring damage). For example, if a computer randomly selects a day of the week, the odds of selecting Saturday (Saturday is considered a success) are 1 to 6, since
 \end{quote}
 
 \begin{align}
@@ -7269,8 +7272,7 @@ In logistic regression, the residuals are \(y_i - \hat\pi_i\). If the observed r
 \caption{\label{fig:fig64}A scatterplot of the residuals from the space shuttle logistic regression model and a sample of what a scatterplot of normally distributed residuals might look like.}
 \end{figure}
 
-\textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{When the response in a regression model is binomial, $\pi_i = P(Y_i = 1)$ is the probability of a success (a launch has no O-ring damage at temperature $x_i$). In simple linear regression models with a binomial response,}
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{When the response in a regression model is binomial, $\pi_i = P(Y_i = 1)$ is the probability of a success (a launch has no O-ring damage at temperature $x_i$). In simple linear regression models with a binomial response,}
 
 \begin{align}
 y_i &= \pi_i + \epsilon_i = \beta_0 + \beta_1 x_i + \epsilon_i \quad \text{for } i = 1,2,3,\dots,n \tag{6.7}
@@ -7391,8 +7393,7 @@ Thus, as \(x_i\) increases by 1,
 e^{\beta_0}(e^{\beta_1})^{x_i + 1} &= e^{\beta_0}(e^{\beta_1})^{x_i}(e^{\beta_1}) \tag{6.12}
 \end{align}
 
-\textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{The slope in a logistic regression model is typically described in terms of the odds ratio $e^{b_1}$. If we increase $x_i$ by 1 unit, the predicted odds will be multiplied by $e^{b_1}$. In our example, if the temperature increases by one degree, we increase the odds of a successful launch by $e^{b_1} = e^{0.232} = 1.2613$ times. Similarly, if we decrease $x_i$ by 1 unit, the predicted odds will be multiplied by $e^{-b_1} = 1/e^{b_1}$.}
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{The slope in a logistic regression model is typically described in terms of the odds ratio $e^{b_1}$. If we increase $x_i$ by 1 unit, the predicted odds will be multiplied by $e^{b_1}$. In our example, if the temperature increases by one degree, we increase the odds of a successful launch by $e^{b_1} = e^{0.232} = 1.2613$ times. Similarly, if we decrease $x_i$ by 1 unit, the predicted odds will be multiplied by $e^{-b_1} = 1/e^{b_1}$.}
 
 \hypertarget{activity-interpreting-a-logistic-regression-model}{%
 \subsection*{Activity: Interpreting a Logistic Regression Model}\label{activity-interpreting-a-logistic-regression-model}}
@@ -7413,8 +7414,7 @@ e^{\beta_0}(e^{\beta_1})^{x_i + 1} &= e^{\beta_0}(e^{\beta_1})^{x_i}(e^{\beta_1}
 
 Thus far, we have developed a model to estimate the odds of a successful launch with no O-ring failures. However, we have not yet discussed the variability of the estimates or how confident we can be of the results. In the next section, we will discuss two hypothesis tests that can be used to determine if the odds of a successful launch are related to temperature. In other words, can we conclude that the logistic regression coefficient \(b_1\) is not equal to zero?
 
-\textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{The probability, the odds, and the log-odds are three closely related calculations. Even though any of the three could be used to express the concepts of interest, the log-odds are often used to estimate the coefficients, while interpretation of logistic regression models typically relies on expected probabilities and odds because they are easier to interpret.}
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{The probability, the odds, and the log-odds are three closely related calculations. Even though any of the three could be used to express the concepts of interest, the log-odds are often used to estimate the coefficients, while interpretation of logistic regression models typically relies on expected probabilities and odds because they are easier to interpret.}
 
 \hypertarget{inference-for-the-logistic-regression-model}{%
 \section{Inference for the Logistic Regression Model}\label{inference-for-the-logistic-regression-model}}
@@ -7456,8 +7456,7 @@ Wald confidence intervals can also be created. In logistic regression, the confi
 
 where 1.96 = Z\^{}* represents a value corresponding to a 95\% confidence interval for a normal distribution with mean of 0 and standard deviation of 1. When \(b_1 = 0\), and thus the odds ratio \(e^{b_1} = 1\), the odds of success for temperature \(x_i\) are the same as the odds of success for any other temperature. Thus, \(e^{b_1} = 1\) tells us that there is no association between the explanatory variable and the response.
 
-\textbf{\textcolor{blue}{Key Concept:}}
-\textbackslash textcolor\{blue\}\{When a 95\% Wald confidence interval for the odds ratio does not contain 1, we reject the null hypothesis \(H_0: \beta_1 = 0\) (using an alpha-level of 0.05) and conclude that the odds of success do depend on the explanatory variable \(x_i\). If the interval does contain 1, we fail to reject \(H_0: \beta_1 = 0\).\}
+\textbf{\textcolor{blue}{Key Concept:}} \textbackslash textcolor\{blue\}\{When a 95\% Wald confidence interval for the odds ratio does not contain 1, we reject the null hypothesis \(H_0: \beta_1 = 0\) (using an alpha-level of 0.05) and conclude that the odds of success do depend on the explanatory variable \(x_i\). If the interval does contain 1, we fail to reject \(H_0: \beta_1 = 0\).\}
 
 The Minitab output in Figure 6.5 shows Wald's test and the corresponding confidence interval for the
 odds ratio. In the space shuttle example, the 95\% confidence interval does not include \(e^{\beta_1} = 1\); thus, we can reject the null hypotheses and conclude that the odds of a successful launch do depend on the temperature. Even though computer software provided a small p-value and a confidence interval that does not include 1, it is important to note that there are only 23 observations in this study. While Wald's test is reasonable with very large sample sizes, with smaller sample sizes it is known to have a tendency to result in a type II error---failing to reject the null hypothesis when it should be rejected.\footnote{?Recall that Z in Equation (6.13) is a statistic calculated from the sample data and Z* in Equation (6.11) is called a critical value. Z* represents a value based on a desired level of confidence. Z* is known before the data are collected, while Z is based on the sample data}
@@ -7498,7 +7497,7 @@ increases by 10°F, the odds are multiplied by \((e^{b_1})10 = 1.2613^{10} = 10.
 
 }
 
-\caption{Minitab output for the space shuttle study.}\label{fig:fig65}
+\caption{Software output for the space shuttle study.}\label{fig:fig65}
 \end{figure}
 
 \hypertarget{the-likelihood-ratio-test}{%
@@ -7580,7 +7579,7 @@ In Chapter 6, we used contingency tables with only two variables, cell shape and
 \subsection*{Activity: Estimating the Probability of Malignancy in Cancer Cells}\label{activity-estimating-the-probability-of-malignancy-in-cancer-cells}}
 \addcontentsline{toc}{subsection}{Activity: Estimating the Probability of Malignancy in Cancer Cells}
 
-Data set: Cancer2
+Data set: \texttt{Cancer2}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -7662,26 +7661,38 @@ Just as in the LRT described in connection with the shuttle example, degrees of 
 
 \begin{figure}
 \centering
-\includegraphics{_main_files/figure-latex/fig67-1.pdf}
-\caption{\label{fig:fig67} A scatterplot of the observed data and estimated probabilities for both round cells (Concave= 0) and concave cells (Concave= 1).}
+\includegraphics{_main_files/figure-latex/fig66-1.pdf}
+\caption{\label{fig:fig66} A scatterplot of the observed data and estimated probabilities for both round cells (Concave= 0) and concave cells (Concave= 1).}
 \end{figure}
 
 When the LRT is used for variable selection, it is often called the \textbf{change-in-deviance test} or \textbf{drop-in-deviance test}. This test is valid only when the restricted model is nested within the full model. A restricted model is \textbf{nested} in a full model when every explanatory variable in the restricted model is also in the full model.
 
-\textbackslash textbf\{\textcolor{blue}{Key Concept:}\}
+\textbf{\textcolor{blue}{Key Concept:}}
 \textcolor{blue}{To use the drop-in-deviance test to determine if $x_i$ should be included in a model:}
 
+\begin{quote}
 \textcolor{blue}{1. Calculate the deviance (or $-2 \times$ log-likelihood) for the full (i.e., unrestricted) model with all variables of interest.}
+\end{quote}
 
+\begin{quote}
 \textcolor{blue}{2. Calculate the deviance (or $-2 \times$ log-likelihood) for the reduced (i.e., restricted) model (e.g., the model including all the variables in step 1 except for $x_i$).}
+\end{quote}
 
+\begin{quote}
 \textcolor{blue}{3. Calculate $G = 2 \times$ log-likelihood (full model) $-2 \times$ log-likelihood (restricted model) = deviance (restricted model) $-$ deviance (full model).}
+\end{quote}
 
+\begin{quote}
 \textcolor{blue}{4. Calculate the degrees of freedom, the number of parameters in the full model minus the number of parameters in the restricted model.}
+\end{quote}
 
+\begin{quote}
 \textcolor{blue}{5. Find the $p$-value, the percentage of the $\chi^2$ distribution that exceeds $G$.}
+\end{quote}
 
+\begin{quote}
 \textcolor{blue}{6. If the $p$-value is small, reject $H_0: \beta_i = 0$ and conclude that $x_i$ should be included in the model. If the $p$-value is large, the explanatory variable, $x_i$, can be eliminated from the model.}
+\end{quote}
 
 \begin{quote}
 \textbf{MATHEMATICAL NOTE}
@@ -7733,7 +7744,7 @@ If all possible pairs were concordant, then Somers' \(D\) would equal 1. If the 
 \subsection*{Activity: Measures of Association}\label{activity-measures-of-association}}
 \addcontentsline{toc}{subsection}{Activity: Measures of Association}
 
-Data set: \(Shuttle\)
+Data set: \texttt{Shuttle}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -7764,11 +7775,11 @@ functions.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{docs/Fig7_8MinitabPairs} 
+{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_8MinitabPairs} 
 
 }
 
-\caption{Minitab output showing measures of association for the space shuttle data.}\label{fig:fig68}
+\caption{Minitab output showing measures of association for the space shuttle data.}\label{fig:fig67}
 \end{figure}
 
 \hypertarget{review-of-means-and-variances-of-binary-and-binomial-data}{%
@@ -7903,7 +7914,7 @@ i & Median radius $(x_i)$ & Benign $(n_i - y_i)$ & Malignant $(y_i)$ & Total $(n
 \subsection*{Activity: Binomial Logistic Regression}\label{activity-binomial-logistic-regression}}
 \addcontentsline{toc}{subsection}{Activity: Binomial Logistic Regression}
 
-Data set: Table 6.3
+Data set: \texttt{Table\ 6.3}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -7928,16 +7939,14 @@ Figure 6.9 plots the observed percentages of malignant cells and the correspondi
 
 \begin{figure}
 \centering
-\includegraphics{_main_files/figure-latex/fig69-1.pdf}
-\caption{\label{fig:fig69}A logistic regression model, with \(\hat \pi_i\) estimated from Equation (6.8) using maximum likelihood estimates, plotted with the observed probability of malignancy for the grouped data in Table 6.3.}
+\includegraphics{_main_files/figure-latex/fig68-1.pdf}
+\caption{\label{fig:fig68}A logistic regression model, with \(\hat \pi_i\) estimated from Equation (6.8) using maximum likelihood estimates, plotted with the observed probability of malignancy for the grouped data in Table 6.3.}
 \end{figure}
 
 \hypertarget{calculating-residuals-for-logistic-models-with-binomial-counts}{%
 \section{Calculating Residuals for Logistic Models with Binomial Counts}\label{calculating-residuals-for-logistic-models-with-binomial-counts}}
 
-When the response variable follows a binomial distribution as in Table 6.3, Pearson residuals and
-deviance residuals are often calculated. These residuals are calculated to evaluate how well a model
-fits the data.
+When the response variable follows a binomial distribution as in Table 6.3, Pearson residuals and deviance residuals are often calculated. These residuals are calculated to evaluate how well a model fits the data.
 
 Using our estimate \(\hat\pi_i = \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i}}\) for \(\pi_i\), we find the Pearson residual by taking the number of observed successes (\(y_i\)) minus the estimated number of expected successes (\(n_i \times \hat\pi_i\)) and then dividing by the estimated standard deviation:
 
@@ -7950,22 +7959,21 @@ Using our estimate \(\hat\pi_i = \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i}}
 Since the variance is not constant, each residual is weighted by its own estimated standard deviation.
 
 \begin{quote}
-\textbf{NOTE}
-We can calculate the Pearson residual using count data because we know that for any individual radius, \(x_i\), the response variable, \(y_i\), follows a binomial distribution with an estimated mean \(n_i \times \hat\pi_i\) and variance \(n_i \times \hat\pi_i \times (1 - \hat\pi_i)\).
+\textbf{NOTE} We can calculate the Pearson residual using count data because we know that for any individual radius, \(x_i\), the response variable, \(y_i\), follows a binomial distribution with an estimated mean \(n_i \times \hat\pi_i\) and variance \(n_i \times \hat\pi_i \times (1 - \hat\pi_i)\).
 \end{quote}
 
 \hypertarget{activity-evaluating-residuals-in-binomial-logistic-regression}{%
 \subsection*{Activity: Evaluating Residuals in Binomial Logistic Regression}\label{activity-evaluating-residuals-in-binomial-logistic-regression}}
 \addcontentsline{toc}{subsection}{Activity: Evaluating Residuals in Binomial Logistic Regression}
 
-Data set: Table 6.3
+Data set: \texttt{Table\ 6.3}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{26}
 \tightlist
 \item
-  Create a logistic regression model to predict the probability of a malignant cell from the grouped radius data in Table 6.3.\\
+  Create a logistic regression model to predict the probability of a malignant cell from the grouped radius data in Table 6.3.
 \end{enumerate}
 
 \begin{enumerate}
@@ -7992,9 +8000,7 @@ Data set: Table 6.3
   \Bigr]}
   \tag{6.24}
   \end{align}
-  where the sign is positive if the observed \(y_i\) is higher than the estimated mean and negative if the
-  observed \(y_i\) is less than the estimated mean. Repeat Question 27 but use the deviance residual instead
-  of the Pearson residual.
+  where the sign is positive if the observed \(y_i\) is higher than the estimated mean and negative if the observed \(y_i\) is less than the estimated mean. Repeat Question 27 but use the deviance residual instead of the Pearson residual.
 \end{enumerate}
 
 \hypertarget{assessing-the-fit-of-a-logistic-regression-model-with-binomial-counts}{%
@@ -8027,7 +8033,7 @@ Test 3: Hosmer and Lemeshow developed a test similar to the Pearson chi‐square
 \subsection*{Activity: Calculating Residuals by Hand}\label{activity-calculating-residuals-by-hand}}
 \addcontentsline{toc}{subsection}{Activity: Calculating Residuals by Hand}
 
-Data set: \(Cancercells\)
+Data set: \texttt{Cancercells}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -8116,7 +8122,7 @@ the data are not considered a good fit:
 
 }
 
-\caption{Minitab output for the Cancercells study}\label{fig:fig610}
+\caption{Software output for the Cancercells study}\label{fig:fig69}
 \end{figure}
 
 \begin{itemize}
@@ -8135,7 +8141,7 @@ When the data are sparse (the observed, and therefore the expected, cell counts 
 \subsection*{Activity: Goodness‐of‐Fit Tests for Continuous Explanatory Variables}\label{activity-goodnessoffit-tests-for-continuous-explanatory-variables}}
 \addcontentsline{toc}{subsection}{Activity: Goodness‐of‐Fit Tests for Continuous Explanatory Variables}
 
-Data set: \(Cancer2\)
+Data set: \texttt{Cancer2}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -8161,7 +8167,7 @@ Hosmer and Lemeshow state that slight violations of the sample size requirements
 \subsection*{Activity: Goodness‐of‐Fit Tests for Continuous Explanatory Variables}\label{activity-goodnessoffit-tests-for-continuous-explanatory-variables-1}}
 \addcontentsline{toc}{subsection}{Activity: Goodness‐of‐Fit Tests for Continuous Explanatory Variables}
 
-Data set: \(Cancer2\)
+Data set: \texttt{Cancer2}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -8197,8 +8203,8 @@ Figure 6.11 shows the delta chi‐square, delta deviance, and delta beta values 
 
 \begin{figure}
 \centering
-\includegraphics{_main_files/figure-latex/fig611-1.pdf}
-\caption{\label{fig:fig611}Scatterplots of delta deviance, delta chi-square, and delta beta values versus the expected probabilities from the space shuttle data. Circled values represent launches at 75°F.}
+\includegraphics{_main_files/figure-latex/fig610-1.pdf}
+\caption{\label{fig:fig610}Scatterplots of delta deviance, delta chi-square, and delta beta values versus the expected probabilities from the space shuttle data. Circled values represent launches at 75°F.}
 \end{figure}
 
 Figure 6.12 shows the delta chi‐square and delta beta values plotted against the \textbf{leverage} values. Leverages are values between 0 and 1 that depend only on the explanatory variables (not the response). Large leverage values indicate that the observation (covariate pattern) has extreme explanatory values and may have a large influence on the regression coefficients.
@@ -8216,7 +8222,7 @@ Figure 6.12 shows the delta chi‐square and delta beta values plotted against t
 \subsection*{Activity: Identifying Outliers and Influential Observations}\label{activity-identifying-outliers-and-influential-observations}}
 \addcontentsline{toc}{subsection}{Activity: Identifying Outliers and Influential Observations}
 
-Data set: \(Cancer2\)
+Data set: \texttt{Cancer2}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -8245,8 +8251,7 @@ Data set: \(Cancer2\)
 Maximum likelihood estimation is a fairly complex topic. The goal of this section is simply to provide an example of how to calculate maximum likelihood estimates with binomial data. After completing this section, you should have a better understanding of how the LRT and the deviance test are calculated. However, as stated earlier, maximum likelihood estimates are very computationally intensive and are best left to computer algorithms.
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE}
-When the assumptions about the residuals in the least squares regression model described in Section 6.2 are satisfied, the maximum likelihood estimates of \(\beta_0\) and \(\beta_1\) are identical to the least squares estimates.
+\textbf{MATHEMATICAL NOTE} When the assumptions about the residuals in the least squares regression model described in Section 6.2 are satisfied, the maximum likelihood estimates of \(\beta_0\) and \(\beta_1\) are identical to the least squares estimates.
 \end{quote}
 
 \hypertarget{maximum-likelihood-estimator-for-binary-data}{%

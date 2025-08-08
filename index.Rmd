@@ -27,7 +27,23 @@ library(plotly)
 #library(myfirstpackage)
 ```
 
-About the book.
+\newpage
+
+**About the book**
+
+This book is designed to help students discover the power, versatility, and broad applicability of statistics. Centered around a collection of practical statistical methods commonly used in both the natural and social sciences, the text emphasizes a hands-on approach to data analysis grounded in real-world applications.
+
+Each chapter features guided activities that lead students through the full process of statistical inquiry—from asking meaningful questions and exploring data to drawing and communicating conclusions. These activities are built around compelling, interdisciplinary problems that reflect the challenges faced by today’s researchers and decision-makers.
+
+The text can serve as a second course for undergraduate students who have completed a one-semester, algebra-based introductory statistics course or a high school Advanced Placement Statistics course. 
+
+
+
+**About the author**
+
+Dr. Shonda Kuiper is a Professor of Statistics at Grinnell College. She teaches a variety of statistics courses, with an emphasis on applying statistics across multiple disciplines. Dr. Kuiper also serves as a statistical consultant for student and faculty research. She received her Bachelor of Arts and Sciences degree in mathematics from Wartburg College, and has an MS and a PhD in statistics from Iowa State University.  Dr. Kuiper is a Fellow of the American Statistical Association for her innovative work in statistics education and the recipient of multiple National Science Foundation grants to develop materials for undergraduate statistics courses. In addition to previously holding teaching positions, she served as a senior engineer and later as a consulting statistician for Hallmark Cards, Inc.
+
+\newpage
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

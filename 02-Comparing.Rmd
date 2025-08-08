@@ -1,8 +1,4 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
+
 
 ```{r}
 library(dplyr)
@@ -379,7 +375,7 @@ No assumptions are needed about the error terms to calculate estimates ($b_1 = \
 
 15. Create a scatterplot with the regression line in Question 11. Use the graph to give an interpretation of the slope and y-intercept, b1 and b0, in the context of the game study.
 
-\newpage
+
 
 ## ANOVA to Compare Population Means
 
