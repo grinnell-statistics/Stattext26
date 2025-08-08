@@ -27,7 +27,7 @@ library(plotly)
 #library(myfirstpackage)
 ```
 
-
+About the book.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
