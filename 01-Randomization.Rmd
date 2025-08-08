@@ -1107,3 +1107,32 @@ Take a simple random sample of size n = 40 from the ChiSq data. Create a bootstr
  \end{enumerate} 
 
 
+### Endnotes{-}
+
+\begin{enumerate}
+
+\item SDouglas Montgomery, Design and Analysis of Experiments (New York: Wiley, 2005), p. 21.
+\item Maha-Hamadien Abdulla, Kee-Chong Lim, Mohammed Sajid, James H. McKerrow, and Conor R. Caffrey, “Schistosomiasis
+Mansoni: Novel Chemotherapy Using a Cysteine Protease Inhibitor,” PLoS Medicine 4.1 (Jan. 2007).
+Online: http://www.pubmedcentral.nih.gov/articlerender.fcgi?tool=pubmed&pubmedid=17214506. Note: Professor
+Conor R. Caffrey provided the raw data upon request.
+\item This data set is from the text by Ann E. Watkins, Richard L. Scheaffer, and George W. Cobb, Statistics in Action
+(Emeryville, CA: Key Curriculum Press, 2004).
+\item Bradley Efron, The Jackknife, the Bootstrap, and Other Resampling Plans, Society of Industrial and Applied Mathematics
+CBMS-NSF Monographs, 38 (1982).
+\item Bradley Efron, “Nonparametric Standard Errors and Confidence Intervals, Canadian Journal of Statistics, 36 (1981).
+\item R. A. Fisher, Design of Experiments (Edinburgh, UK: Oliver and Boyd, 1935).
+\item Bradley Efron and Robert Tibshirani, An Introduction to the Bootstrap (New York: CRC Press, 1993), p. 202.
+\item Michael D. Ernst, “Permutation Methods: A Basis for Exact Inference,” Statistical Science, 19.4 (2004), 676–685.
+\item E. L. Lehmann, Nonparametrics Statistical Methods Based on Ranks (Upper Saddle River, NJ: Prentice Hall, 1998).
+\item C. Bellera, M. Julien, and J. Hanley, “Normal Approximations to the Distributions of the Wilcoxon Statistics: Accurate
+to What N? Graphical Insights,” Journal of Statistics Education, 18.2 (2010).
+\item Douglas Montgomery, Design and Analysis of Experiments (New York: Wiley, 2005).
+\item Fred L. Ramsey and Daniel W. Schafer, The Statistical Sleuth (Pacific Grove, CA: Duxbury, 2002).
+\item S. Petrellese, “Adelphi Settlement in Sex Discrimination Case a ‘Step in Right Direction,”’ Garden City News,
+March 29, 2009. Retrieved on Jan. 31, 2010, from http://www.gcnews.com/news/2009-03-27/Front_page/004.html.
+\item L. W. Perna, “Sex and Race Differences in Faculty Rank and Tenure,” Research in Higher Education, 42 (2001),
+541–567: L. W. Perna, “Sex Differences in Faculty Salaries: A Cohort Analysis,” Review of Higher Education, 24
+(2001), 283–307.
+
+\end{enumerate}

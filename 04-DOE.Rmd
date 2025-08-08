@@ -1,3 +1,9 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
 
 ```{r}
 library(readr)
@@ -218,7 +224,7 @@ Factorial designs are efficient because much more information can be calculated,
 
 Table 4.2 shows the `Popcorn` data set organized by the *Brand* and *Time* factors. Each of the four treatment combinations has eight observations. The data are also provided in the file `Popcorn`.
 
-```{r fig1, warning=FALSE, echo=FALSE, fig.width=3.5, message=FALSE, fig.cap="Individual value plot of the PopRate (100 $\times$ count of popped kernels/total kernels) for each Brand and cooking Time factor-level combination. Points have jittering (small fluctuations) so that all values are visible."}
+```{r fig41, warning=FALSE, echo=FALSE,out.width="80%", message=FALSE, fig.cap="Individual value plot of the PopRate (100 $\times$ count of popped kernels/total kernels) for each Brand and cooking Time factor-level combination. Points have jittering (small fluctuations) so that all values are visible."}
 library(ggplot2)
 #pop <- read.csv("Popcorn2.csv")
 data("C4Popcorn")
@@ -271,6 +277,8 @@ cat(
     format = "latex",
     booktabs = TRUE,
     escape = FALSE,
+    caption = "Popcorn study data: the `PopRate` for each bag of popcorn with sample mean
+corresponding to each factor-level combination.",
     align = c("l", rep("c", 4)),
     row.names = FALSE
   ) %>%
@@ -325,7 +333,7 @@ cat(
 >6. Which notation would be used to describe the sample average of the 135-second group?  
 7. Explain the difference between $\bar{y}_{21}$ and $\bar{y}_{12}$.
 
-### Comparing Variances{-} ^[If you have studied ANOVA tables before, you may find it surprising that we focus on mean squares (MS) and do not discuss sums of squares (SS) or degrees of freedom (df). The focus of this section is the concepts and logic behind ANOVA. ANOVA is the process of comparing between group and within group variability. These types of variability are represented by the mean squares. Chapter 2 and the extended activities discuss sums of squares and degrees of freedom.]
+### Comparing Variances {-} ^[If you have studied ANOVA tables before, you may find it surprising that we focus on mean squares (MS) and do not discuss sums of squares (SS) or degrees of freedom (df). The focus of this section is the concepts and logic behind ANOVA. ANOVA is the process of comparing between group and within group variability. These types of variability are represented by the mean squares. Chapter 2 and the extended activities discuss sums of squares and degrees of freedom.]
 
 Figure 4.1 and Table 4.3 indicate that the difference between the *Time* means is much larger than the difference between the *Brand* means. In addition, the difference between *Time* means is much larger for the Pop Secret brand than for the Fastco brand. In this section, we will conduct an analysis, called analysis of variance, to find $p$-values for testing each of the three hypotheses stated earlier about the underlying mean responses.
 
@@ -388,7 +396,7 @@ The interaction term is not simply a measure of the spread between the four fact
 
 \begin{align}
 \text{MSE} &= 
-\frac{\sum_{i=1}^{2}\sum_{j=1}^{2}(n_{ij} - 1)s_{ij}^2}{(n_{11} - 1) + (n_{12} - 1) + (n_{21} - 1) + (n_{22} - 1)} \notag \\
+\frac{\sum_{i=1}^{2}\sum_{j=1}^{2}(n_{ij} - 1)s_{ij}^2}{(n_{11} - 1) + (n_{12} - 1) + (n_{21} - 1) + (n_{22} - 1)} \notag \\[2em]
 &= \frac{(8 - 1)s_{11}^2 + (8 - 1)s_{12}^2 + (8 - 1)s_{21}^2 + (8 - 1)s_{22}^2}
 {(8 - 1) + (8 - 1) + (8 - 1) + (8 - 1)}
 \tag{4.4}\label{4.4}
@@ -761,7 +769,7 @@ Interaction effect of Brand C and 15 drops of water interaction effect
 - (effect of Brand C + effect of 15 drops + grand mean)
 \begin{align}
 = \bar{y}_{13.} - [\hat{\alpha}_1 + \hat{\beta}_3 + \bar{y}_{..}] \notag \\
-= \bar{y}_{13.} - [(\bar{y}_{1.} - \bar{y}_{..}) + (\bar{y}_{.3} - \bar{y}_{..}) + \bar{y}_{..}] \notag \\
+= \bar{y}_{13.} - [(\bar{y}_{1.} - \bar{y}_{...}) + (\bar{y}_{.3} - \bar{y}_{...}) + \bar{y}_{...}] \notag \\
 = 401.0 - [324.7 + (-1024.5) + 1448.1] \notag \\
 = -347.3 \hspace{1cm} \tag{4.7}
 \end{align}
@@ -874,7 +882,7 @@ where $N = 156$ is the total sample size.
 
 Data set: `PaperTowels`
 
-31. Table 4.6 is a table with two rows and three columns, similar to the interaction effect term in the two-way factorial diagram in Figure 4.4. However, for this question we will assume that only two effects are known: $(\alpha\beta)_{11} = 2$ and $(\alpha\beta)_{12} = -5$.
+31. Table 4.6 is a table with two rows and three columns, similar to the interaction effect term in the two-way factorial diagram in Figure 4.4. However, for this question we will assume that only two effects are known: $\widehat{(\alpha\beta)}_{11} = 2$ and $\widehat{(\alpha\beta)}_{12} = -5$.
 
 ```{r tab6, echo=FALSE, results='asis'}
 df4.6 <- data.frame(
@@ -897,11 +905,11 @@ cat(
 )
 ```
 
-a. Equation \ref{4.8} states that all the $AB$ effects within Brand C add up to zero [$(\alpha\beta)_{11} + (\alpha\beta)_{12} + (\alpha\beta)_{13} = 0$]. Use this rule to calculate $(\alpha\beta)_{13}$.
+a. Equation \ref{4.8} states that all the $AB$ effects within Brand C add up to zero [$\widehat{(\alpha\beta)}_{11} + \widehat{(\alpha\beta)}_{12} + (\widehat{(\alpha\beta)}_{13} = 0$]. Use this rule to calculate $\widehat{(\alpha\beta)}_{13}$.
 
-b. Equation \ref{4.8} also states that all the $AB$ effects within 0 water amount add up to zero (the same for 5 and 15 drops of water). Use this rule to calculate $(\alpha\beta)_{21}$, $(\alpha\beta)_{22}$, and $(\alpha\beta)_{23}$.
+b. Equation \ref{4.8} also states that all the $AB$ effects within 0 water amount add up to zero (the same for 5 and 15 drops of water). Use this rule to calculate $\widehat{(\alpha\beta)}_{21}$, $\widehat{(\alpha\beta)}_{22}$, and $\widehat{(\alpha\beta)}_{23}$.
 
-c. Consider a different interaction table with two rows and three columns. Explain why it is not possible to have effects of $(\alpha\beta)_{11} = 4$, $(\alpha\beta)_{13} = -4$, and $(\alpha\beta)_{22} = 6$ and still follow the restrictions in Equation \ref{4.8}.
+c. Consider a different interaction table with two rows and three columns. Explain why it is not possible to have effects of $\widehat{(\alpha\beta)}_{11} = 4$, $\widehat{(\alpha\beta)}_{13} = -4$, and $\widehat{(\alpha\beta)}_{22} = 6$ and still follow the restrictions in Equation 4.8.
 
 d. What are the degrees of freedom corresponding to any interaction term (in a balanced completely randomized design) with two levels of factor $A$ and three levels of factor $B$? In other words, under the restrictions in Equation \ref{4.8}, what is the number of free pieces of information (the number of cells in Table 4.6 that are not fixed)?
 
@@ -909,16 +917,16 @@ d. What are the degrees of freedom corresponding to any interaction term (in a b
 
 ```{r tab47, echo=FALSE, results='asis'}
 df4.7 <- data.frame(
-  " " = c("3", "$-2$", "1", "3", ""),
-  " " = c("1", "6", "4", "5", ""),
-  " " = c("", "", "", "", ""),
+  c("3", "$-2$", "1", "3", ""),
+  c("1", "6", "4", "5", ""),
+  c("", "", "", "", ""),
   check.names = FALSE
 )
+
 cat(
   kable(
     df4.7,
     format = "latex",
-    booktabs = TRUE,
     escape = FALSE,
     caption = "Interaction effects.",
     align = c("c", "c")

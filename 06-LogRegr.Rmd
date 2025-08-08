@@ -222,9 +222,10 @@ Similarly, the odds are 6 to 1 against Saturday being selected (any day but Satu
 
 
 ```{r fig63, warning=FALSE, echo=FALSE, fig.width=4, fig.height=2.68, message=FALSE, fig.cap="Space shuttle data with a simple linear regression model and a logistic regression model."}
-#shuttle <- read.csv("Shuttle.csv", stringsAsFactors = FALSE)
-data("C7Shuttle")
-shuttle<-C7Shuttle
+
+
+url<-'https://raw.githubusercontent.com/grinnell-statistics/STA310data/refs/heads/master/Shuttle.csv'
+shuttle<- read.csv(url)
 ggplot(shuttle, aes(x = Temperature, y = Success)) +
   geom_jitter(width = 0, height = 0.02, size = 2, shape = 21, fill = "black", color = "black") +
   # logistic fit
