@@ -1,9 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-
 
 ```{r}
 library(dplyr)
@@ -143,7 +137,7 @@ The descriptive analysis in Questions 1 and 2 points to a positive treatment eff
 Most introductory statistics courses focus on hypothesis tests that involve using a normal, t-, chi-square or F-distribution to calculate the $\scriptstyle p$-value. These tests are often based on the central limit theorem. In the schistosomiasis study, there are only five observations in each group. This is a much smaller sample size than is recommended for the central limit theorem, especially given that Figure 1.1 indicates that the data may not be normally distributed. Since we cannot be confident that the sample averages are normally distributed, we will use a distribution-free test, also called a nonparametric test. Such tests do not require
 the distribution of our sample statistic to have any specific form and are often useful in studies with very small sample sizes.
 
->**MATHMATICAL NOTE**  For any population with mean $\scriptstyle \mu$ and finite standard deviation $\scriptstyle \sigma$, the **central limit theorem** states that the sample mean $\scriptstyle \bar{x}$ from an independent and identically distributed sample tends to follow the normal distribution if the sample size is large enough. The mean of $\scriptstyle \bar{x}$ is the same as the population mean, $\scriptstyle \mu$, while the standard deviation of x is $\scriptstyle \sigma / \sqrt{n}$, where $\scriptstyle n$ is the sample size.
+>**MATHEMATICAL NOTE**  For any population with mean $\scriptstyle \mu$ and finite standard deviation $\scriptstyle \sigma$, the **central limit theorem** states that the sample mean $\scriptstyle \bar{x}$ from an independent and identically distributed sample tends to follow the normal distribution if the sample size is large enough. The mean of $\scriptstyle \bar{x}$ is the same as the population mean, $\scriptstyle \mu$, while the standard deviation of x is $\scriptstyle \sigma / \sqrt{n}$, where $\scriptstyle n$ is the sample size.
 
 We will use a form of nonparametric statistical inference known as a randomization hypothesis test to analyze the data from the schistosomiasis study. **Randomization hypothesis tests** are significance tests that simulate the random allocation of units to treatments many times in order to determine the likelihood of observing an outcome at least as extreme as the one found in the actual study.
 
@@ -606,7 +600,7 @@ Small sample sizes still produce problems for bootstrap methods. When the sample
 In addition, bootstrap methods do not work equally well for all parameters. For example, the end-ofchapter exercises show that bootstrapping often provides unreliable bootstrap distributions for median values because the median of a resample is likely to have only a few possible values. Thus, confidence intervals for medians should be used only with large n ($\scriptstyle \geq$ 100) sample sizes.
 
 It is not easy to determine whether bootstrap methods provide appropriate confidence intervals. The bootstrap t and bootstrap percentile confidence intervals are often compared to each other. While the percentile confidence interval tends to be more accurate, neither of the two should be used if the intervals are not relatively
-close. If the bootstrap distribution is skewed or biased, other methods should be used to find confidence intervals. More advanced bootstrap methods (such as BCa and tilting confidence intervals) are available that are generally accurate when bias or skewness exists in the bootstrap distribution.[[[$^5$]]]
+close. If the bootstrap distribution is skewed or biased, other methods should be used to find confidence intervals. More advanced bootstrap methods (such as BCa and tilting confidence intervals) are available that are generally accurate when bias or skewness exists in the bootstrap distribution.$^5$
 
 
 
@@ -734,7 +728,7 @@ If W is far from $\scriptstyle \mu_W$, then the Wilcoxon rank sum test rejects t
 
 
 
->**MATHMATICAL NOTE** Computer software such as R, S-plus, or SAS tends to use the exact distribution of W, though Minitab uses a normal approximation for this test. If the data contain ties, the exact distribution for the Wilcoxon rank sum statistic changes and the standard deviation of W should be adjusted. Statistical software will typically detect the ties and use the normal distribution (using the adjusted standard deviation) instead of an exact distribution.$^{10}$
+>**MATHEMATICAL NOTE** Computer software such as R, S-plus, or SAS tends to use the exact distribution of W, though Minitab uses a normal approximation for this test. If the data contain ties, the exact distribution for the Wilcoxon rank sum statistic changes and the standard deviation of W should be adjusted. Statistical software will typically detect the ties and use the normal distribution (using the adjusted standard deviation) instead of an exact distribution.$^{10}$
 
 
 
@@ -810,7 +804,7 @@ Data set: `NLBB Salaries`
 
 
 
->**MATHMATICAL NOTE** {If the spread of each group appears to increase as the center (mean or median) increases, transforming the data—such as by taking the log of each response variable—will make the data appear much more normally distributed. Then parametric techniques can often be used on the transformed data. In the baseball salary example, the data are highly right skewed in at least two groups. While a log transformation on salaries is helpful, there is still not enough evidence that the transformed salaries are normally distributed. Thus, nonparametric methods are likely the most appropriate approach to testing whether there is a difference in the distribution of salaries based on position.
+>**MATHEMATICAL NOTE** {If the spread of each group appears to increase as the center (mean or median) increases, transforming the data—such as by taking the log of each response variable—will make the data appear much more normally distributed. Then parametric techniques can often be used on the transformed data. In the baseball salary example, the data are highly right skewed in at least two groups. While a log transformation on salaries is helpful, there is still not enough evidence that the transformed salaries are normally distributed. Thus, nonparametric methods are likely the most appropriate approach to testing whether there is a difference in the distribution of salaries based on position.
 }
 
 
@@ -877,7 +871,7 @@ One technique that is commonly used to address the problem with multiple compari
 
 
 
->**MATHMATICAL NOTE** Other terms that are commonly discussed with multiple comparisons are **familywise type I error** and ***comparisonwise type I error**. Bonferroni’s method is an example of a technique that maintains the familywise type I error. With the familywise type I error 0.05, assuming that there really is no difference between any of the K pairs, there is only a 5% chance that any test will reject $\scriptstyle H_0$. The least-significant differences method is used to maintain a comparisonwise type I error rate: Assuming that a particular null hypothesis test is true, there is a 5% chance we will (incorrectly) reject that particular hypothesis. Montgomery’s Design and Analysis of Experiments text provides more information on multiple comparisons.[[[$^{11}$]]]
+>**MATHEMATICAL NOTE** Other terms that are commonly discussed with multiple comparisons are **familywise type I error** and ***comparisonwise type I error**. Bonferroni’s method is an example of a technique that maintains the familywise type I error. With the familywise type I error 0.05, assuming that there really is no difference between any of the K pairs, there is only a 5% chance that any test will reject $\scriptstyle H_0$. The least-significant differences method is used to maintain a comparisonwise type I error rate: Assuming that a particular null hypothesis test is true, there is a 5% chance we will (incorrectly) reject that particular hypothesis. Montgomery’s Design and Analysis of Experiments text provides more information on multiple comparisons.$^{11}$
 
 
 
