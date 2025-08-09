@@ -33,11 +33,17 @@ library(plotly)
 
 **About the book**
 
-This book is designed to help students discover the power, versatility, and broad applicability of statistics. Centered around a collection of practical statistical methods commonly used in both the natural and social sciences, the text emphasizes a hands-on approach to data analysis grounded in real-world applications.
+This book is designed to help students discover the power, versatility, and broad applicability of statistics. Centered around a collection of practical statistical methods commonly used in both the natural and social sciences, this work emphasizes a hands-on approach to data analysis grounded in real-world applications.
 
 Each chapter features guided activities that lead students through the full process of statistical inquiry—from asking meaningful questions and exploring data to drawing and communicating conclusions. These activities are built around compelling, interdisciplinary problems that reflect the challenges faced by today’s researchers and decision-makers.
 
-The text can serve as a second course for undergraduate students who have completed a one-semester, algebra-based introductory statistics course or a high school Advanced Placement Statistics course. 
+The text can serve as a second course for undergraduate students who have completed a one-semester, algebra-based introductory statistics course or a high school Advanced Placement Statistics course.
+
+
+**Data sets**
+All data sets are available at \textcolor{blue}{github.com/grinnell-statistics/STA310data}.
+
+
 
 
 
