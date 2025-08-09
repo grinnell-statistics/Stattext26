@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 
 
 ```{r}
@@ -61,17 +66,23 @@ data_with_mean <- bind_rows(data, mean_values)
 data_with_mean[nrow(data_with_mean),1]<-paste('Mean',mean_values[1])
 
 
-kable(data_with_mean,
-      format = "latex",
-      booktabs = TRUE,
-      caption = "Worm count data for the schistosomiasis study.",
-      col.names = c("Treatment","Control","Treatment","Control")) %>%
-  kable_styling(latex_options = c("striped", "hold_position"),
-                font_size = 10,
-                position = "center",
-                full_width = FALSE) %>%
+kable(
+  data_with_mean,
+  format = "latex",
+  booktabs = TRUE,
+  caption = "Worm count data for the schistosomiasis study.",
+  col.names = c("Treatment","Control","Treatment","Control"),
+  align = rep("c", ncol(data_with_mean))   # Center all columns
+) %>%
+  kable_styling(
+    latex_options = c("striped", "hold_position"),
+    font_size = 10,
+    position = "center",
+    full_width = FALSE
+  ) %>%
   add_header_above(c("Female" = 2, "Male" = 2)) %>%
   row_spec(nrow(data_with_mean), bold = TRUE)
+
 ```
 
 
@@ -80,6 +91,7 @@ kable(data_with_mean,
 ```{r graph1, warning=FALSE, echo=FALSE, message=FALSE, fig.height = 2, fig.cap="Individual value plot of the worm count data"}
 
 url<-'https://raw.githubusercontent.com/grinnell-statistics/STA310data/refs/heads/master/Mice.csv'
+
 data<-read.csv(url)
 
 long_data<- data%>% 
@@ -89,8 +101,25 @@ long_data<- data%>%
   separate(group,into=c("Gender","Type"),sep="\\.")
 
 
-ggplot(long_data,aes(x=Gender,y=Number,fill=Type,))+
-  geom_dotplot(binaxis="y",stackdir="center",position="dodge")+labs(x="Gender",y="Worm Count",fill="Type")
+ggplot(long_data, aes(x = Gender, y = Number, fill = Type, shape = Type)) +
+  geom_dotplot(
+    binaxis = "y",
+    stackdir = "center",
+    stackgroups = TRUE,
+    binpositions = "all",
+    position = position_dodge(width = 0.8),
+    binwidth = 1
+  ) +
+  labs(
+    x = "Gender",
+    y = "Worm Count",
+    fill = "Type",
+    shape = "Type"
+  ) +
+  scale_fill_manual(values = c("Trt" = "lightyellow", "Ctl" = "blue")) +
+  theme_minimal()
+
+
 ```
 
 
@@ -111,15 +140,13 @@ The descriptive analysis in Questions 1 and 2 points to a positive treatment eff
 Most introductory statistics courses focus on hypothesis tests that involve using a normal, t-, chi-square or F-distribution to calculate the $p$-value. These tests are often based on the central limit theorem. In the schistosomiasis study, there are only five observations in each group. This is a much smaller sample size than is recommended for the central limit theorem, especially given that Figure 1.1 indicates that the data may not be normally distributed. Since we cannot be confident that the sample averages are normally distributed, we will use a distribution-free test, also called a nonparametric test. Such tests do not require
 the distribution of our sample statistic to have any specific form and are often useful in studies with very small sample sizes.
 
-
->**MATHMATICAL NOTE**  For any population with mean $\mu$ and finite standard deviation $\sigma$, the **central limit theorem** states that the sample mean $\bar{x}$ from an independent and identically distributed sample tends to follow the normal distribution if the sample size is large enough. The mean of $\bar{x}$ is the same as the population mean, $\mu$, while the standard deviation of x is $\sigma / \sqrt{n}$, where $n$ is the sample size.
+>**MATHMATICAL NOTE**  For any population with mean $\mu$ and finite standard deviation $\sigma$, the **central limit theorem** states that the sample mean $\bar{x}$ from an independent and identically distributed sample tends to follow the normal distribution if the sample size is large enough. The mean of \(\small \bar{x}\) is the same as the population mean, \(\small \mu\), while the standard deviation of x is \(\small \sigma / \sqrt{n}\), where {\small $n$} is the sample size.
 
 We will use a form of nonparametric statistical inference known as a randomization hypothesis test to analyze the data from the schistosomiasis study. **Randomization hypothesis tests** are significance tests that simulate the random allocation of units to treatments many times in order to determine the likelihood of observing an outcome at least as extreme as the one found in the actual study.
 
 
 
-\textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{\textbf{Parametric tests} (such as $z$-tests, $t$-tests, or $F$-tests) assume that data come from a population that follows a probability distribution or use the central limit theorem to make inferences about a population. \textbf{Nonparametric tests} (such as randomization tests) do not require assumptions about the distribution of the population or large sample sizes in order to make inferences about a population.}
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{\textbf{Parametric tests} (such as $z$-tests, $t$-tests, or $F$-tests) assume that data come from a population that follows a probability distribution or use the central limit theorem to make inferences about a population. \textbf{Nonparametric tests} (such as randomization tests) do not require assumptions about the distribution of the population or large sample sizes in order to make inferences about a population.}
 
 We will introduce the basic concepts of randomization tests in a setting where units (mice in this example) are randomly allocated to a treatment or control group. Using a significance test, we will decide if an observed treatment effect (the observed difference between the mean responses in the treatment and control) is “real” or if “random chance alone” could plausibly explain the observed effect. The null hypothesis states that “random chance alone” is the reason for the observed effect. In this initial discussion, the alternative hypothesis will be onesided because we want to show that the true treatment mean ($\mu_{treatment}$) is less than the true control mean ($\mu_{control}$). Later, we will expand the discussion to consider modifications needed to deal with two-sided alternatives.
 
@@ -130,17 +157,14 @@ We will introduce the basic concepts of randomization tests in a setting where u
 Whether they take the form of significance tests or confidence intervals, inferential procedures rest on the fundamental question for inference: “What would happen if we did this many times?” Let’s unpack this question in the context of the female mice in the schistosomiasis study. We observed a difference in means of 7.6 = 12.00 - 4.40 worms between control and treatment groups. While we expect that this large difference reflects the effectiveness of the drug, it is possible that chance alone could explain this difference. “chance alone” position is usually called the null hypothesis and includes the following assumptions:
 
 * The number of parasitic worms found in the liver naturally varies from mouse to mouse.
-* Whether or not the drug is effective, there clearly is variability in the responses of mice to the infestation
-of schistosomes.
-* Each group exhibits this variability, and even if the drug is not effective, some mice do better than
-others.
+* Whether or not the drug is effective, there clearly is variability in the responses of mice to the infestation of schistosomes.
+* Each group exhibits this variability, and even if the drug is not effective, some mice do better than others.
 * The only explanation for the observed difference of 7.6 worms in the means is that the random
 allocation randomly placed mice with larger numbers of worms in the control group and mice with
 smaller numbers of worms in the treatment group.
 
 
-In this study, the **null hypothesis** is that the treatment has no effect on the average worm count, and it
-is denoted as
+In this study, the **null hypothesis** is that the treatment has no effect on the average worm count, and it is denoted as
 
 \begin{center}
 $H_0$: $\mu_{control}$ = $\mu_{treatment}$
@@ -203,12 +227,13 @@ This long-run proportion is a probability that statisticians call the **$p$-valu
 
 
 
-\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{The calculation of an empirical $p$-value requires these steps:
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{The calculation of an empirical $p$-value requires these steps:}
 \begin{itemize}
-\item Repeat the random allocation process a number of times (N times).
-\item Record, each time, whether or not the group difference exceeds or is the same as the one observed in the actual experiment (let X be the number of times the group difference exceeds or is the same as the one observed).
-\item Compute X/N to get the $p$-value, the proportion of times the difference exceeds or is the same as the observed difference.
-\end{itemize}}
+\item \textcolor{blue}{Repeat the random allocation process a number of times (N times).}
+\item \textcolor{blue}{Record, each time, whether or not the group difference exceeds or is the same as the one observed in the actual experiment (let X be the number of times the group difference exceeds or is the same as the one observed).}
+\item \textcolor{blue}{Compute X/N to get the $p$-value, the proportion of times the difference exceeds or is the same as the observed difference.}
+\end{itemize}
+
 
 
 
@@ -1112,14 +1137,9 @@ Take a simple random sample of size n = 40 from the ChiSq data. Create a bootstr
 \begin{enumerate}
 
 \item SDouglas Montgomery, Design and Analysis of Experiments (New York: Wiley, 2005), p. 21.
-\item Maha-Hamadien Abdulla, Kee-Chong Lim, Mohammed Sajid, James H. McKerrow, and Conor R. Caffrey, “Schistosomiasis
-Mansoni: Novel Chemotherapy Using a Cysteine Protease Inhibitor,” PLoS Medicine 4.1 (Jan. 2007).
-Online: http://www.pubmedcentral.nih.gov/articlerender.fcgi?tool=pubmed&pubmedid=17214506. Note: Professor
-Conor R. Caffrey provided the raw data upon request.
-\item This data set is from the text by Ann E. Watkins, Richard L. Scheaffer, and George W. Cobb, Statistics in Action
-(Emeryville, CA: Key Curriculum Press, 2004).
-\item Bradley Efron, The Jackknife, the Bootstrap, and Other Resampling Plans, Society of Industrial and Applied Mathematics
-CBMS-NSF Monographs, 38 (1982).
+\item Maha-Hamadien Abdulla, Kee-Chong Lim, Mohammed Sajid, James H. McKerrow, and Conor R. Caffrey, “Schistosomiasis Mansoni: Novel Chemotherapy Using a Cysteine Protease Inhibitor,” PLoS Medicine 4.1 (Jan. 2007). Note: Professor Conor R. Caffrey provided the raw data upon request.
+\item This data set is from the text by Ann E. Watkins, Richard L. Scheaffer, and George W. Cobb, Statistics in Action (Emeryville, CA: Key Curriculum Press, 2004).
+\item Bradley Efron, The Jackknife, the Bootstrap, and Other Resampling Plans, Society of Industrial and Applied Mathematics CBMS-NSF Monographs, 38 (1982).
 \item Bradley Efron, “Nonparametric Standard Errors and Confidence Intervals, Canadian Journal of Statistics, 36 (1981).
 \item R. A. Fisher, Design of Experiments (Edinburgh, UK: Oliver and Boyd, 1935).
 \item Bradley Efron and Robert Tibshirani, An Introduction to the Bootstrap (New York: CRC Press, 1993), p. 202.
@@ -1129,10 +1149,7 @@ CBMS-NSF Monographs, 38 (1982).
 to What N? Graphical Insights,” Journal of Statistics Education, 18.2 (2010).
 \item Douglas Montgomery, Design and Analysis of Experiments (New York: Wiley, 2005).
 \item Fred L. Ramsey and Daniel W. Schafer, The Statistical Sleuth (Pacific Grove, CA: Duxbury, 2002).
-\item S. Petrellese, “Adelphi Settlement in Sex Discrimination Case a ‘Step in Right Direction,”’ Garden City News,
-March 29, 2009. Retrieved on Jan. 31, 2010, from http://www.gcnews.com/news/2009-03-27/Front_page/004.html.
-\item L. W. Perna, “Sex and Race Differences in Faculty Rank and Tenure,” Research in Higher Education, 42 (2001),
-541–567: L. W. Perna, “Sex Differences in Faculty Salaries: A Cohort Analysis,” Review of Higher Education, 24
-(2001), 283–307.
+\item S. Petrellese, “Adelphi Settlement in Sex Discrimination Case a ‘Step in Right Direction,”’ Garden City News, March 29, 2009. Retrieved on Jan. 31, 2010.
+\item L. W. Perna, “Sex and Race Differences in Faculty Rank and Tenure,” Research in Higher Education, 42 (2001), 541–567: L. W. Perna, “Sex Differences in Faculty Salaries: A Cohort Analysis,” Review of Higher Education, 24 (2001), 283–307.
 
 \end{enumerate}
