@@ -29,7 +29,7 @@ theme_set(
 \end{flushright}
 
 
-Statistics courses often teach the two-sample t-test, linear regression, and analysis of variance (ANOVA) as very distinct approaches to analyzing different types of data. However, this chapter makes connections among these three techniques by focusing on the statistical models. Statistical software has made it easy to calculate statistics and $p$-values. But without understanding the underlying model assumptions, it is easy to draw incorrect conclusions from the sample data. As studies become more complex, models become fundamental to drawing appropriate conclusions. In this chapter, a simple student experiment involving games and several additional studies are used to do the following:
+Statistics courses often teach the two-sample t-test, linear regression, and analysis of variance (ANOVA) as very distinct approaches to analyzing different types of data. However, this chapter makes connections among these three techniques by focusing on the statistical models. Statistical software has made it easy to calculate statistics and $\scriptstyle p$-values. But without understanding the underlying model assumptions, it is easy to draw incorrect conclusions from the sample data. As studies become more complex, models become fundamental to drawing appropriate conclusions. In this chapter, a simple student experiment involving games and several additional studies are used to do the following:
 
 
 - Compare the underlying statistical models for the two-sample t-test, linear regression, and
@@ -43,7 +43,7 @@ ANOVA
 \newpage
 
 
-## Investigation: Do Distracting Colors Influence the Time to Complete a Game?
+## \textcolor{blue}{ Investigation: Do Distracting Colors Influence the Time to Complete a Game?}
 
 In 1935, John Stroop published a paper presenting his research on the reaction time of undergraduate students identifying ink colors.2 He found that students took a longer time identifying ink colors when the ink was used to spell a different color. For example, if the word "\textcolor{blue}yellow\textcolor{black}" was printed in blue ink, students took longer to identify the blue ink because they automatically read the word “yellow.” Even though students were told only to identify the ink color, the automatized behavior of reading interfered with the task and slowed their reaction time.^[Note that many psychologists would call this procedural knowledge instead of automatized behavior. Both are processes that can be done without conscious thought, but automatized behaviors are processes that cannot be slowed down, do not
 decline with age, and show no gender differences.]  *Automatized behaviors* are behaviors that can be done automatically without carefully thinking through each step in the process. Stroop’s work, demonstrating that automatized behaviors can act as a distracter for other desired behaviors, is so well known that the effect is often called the *Stroop effect*.
@@ -70,21 +70,21 @@ knitr::include_graphics("docs/Fig2_1Shapesplosion.jpg")
 It is important to recognize that each subject in this study was assigned to exactly one treatment, either the standard game or the color distracter game. Some researchers may point out that a paired design (where each subject was assigned to both treatments) might have been more efficient. However, for the purposes of this chapter, this study will be treated as the students originally designed it: a study comparing two independent samples.
 
 
-### Activity: Understanding the Study Design {-} 
+### \textcolor{blue}{Practice:} Understanding the Study Design {-} 
 
 1. For this study, identify the units, the population for which conclusions can be drawn, the explanatory variable, and the response variable.
 
 2. Is this study an experiment or an observational study? Explain.
 
-3. The researchers hoped to determine if distracting colors influenced college students’ response times when playing a computerized game. Write out in words and symbols appropriate null and alternative hypotheses. Let $\mu_1$ represent the true mean response time of the color group and $\mu_2$ the true mean response time of the standard group. Use a two-sided alternative hypothesis for this question.
+3. The researchers hoped to determine if distracting colors influenced college students’ response times when playing a computerized game. Write out in words and symbols appropriate null and alternative hypotheses. Let $\scriptstyle \mu_1$ represent the true mean response time of the color group and $\scriptstyle \mu_2$ the true mean response time of the standard group. Use a two-sided alternative hypothesis for this question.
 
-4. Create an individual value plot or a boxplot of the Games1 data from this study. Describe the graph. For example, does it look as if the groups have equal means or equal standard deviations? Are there any unusual observations in the data set? Calculate the mean and standard deviation of the color distracter responses, $\bar{y}_1$ and $s_1$ , as well as the mean and standard deviation of the standard game responses, $\bar{y}_2$ and $s_2$.
+4. Create an individual value plot or a boxplot of the Games1 data from this study. Describe the graph. For example, does it look as if the groups have equal means or equal standard deviations? Are there any unusual observations in the data set? Calculate the mean and standard deviation of the color distracter responses, $\scriptstyle \bar{y}_1$ and $\scriptstyle s_1$ , as well as the mean and standard deviation of the standard game responses, $\scriptstyle \bar{y}_2$ and $\scriptstyle s_2$.
 
 Before they began the study, the student researchers compared it to other studies they had seen in the past. One student in the class was an economics major. He had seen hypothesis tests used in regression to analyze whether a certain variable belonged in a regression model. He suggested using regression to test if type of game (color distracter or standard) was important in modeling the time to play the game. Another student, a biology major, had previously completed an experiment in ecology in which her professor had told her to use an F-test and analysis of variance (ANOVA) to determine if a certain variable significantly influenced the results. A third student had seen the two-sample t-test explained in her statistics textbook and believed she should do what the textbook example did.
 
 Each of these approaches seems fairly reasonable, so how can you decide which technique to use? Determining which technique to use depends on developing an appropriate statistical model. Instead of simply stating which student is right, this chapter will analyze the study with all three techniques. Throughout each analysis, the chapter will emphasize the statistical modeling process in order to determine which technique is appropriate.
 
-## The Two-Sample t-Test to Compare Population Means
+## \textcolor{blue}{ The Two-Sample t-Test to Compare Population Means}
 
   \par
 
@@ -98,9 +98,9 @@ Generally, **statistical models** have the following form:
 
 The statistical model describes each observed value in a data set as the sum of a mean response for some subgroup of interest (often called a group mean) and a random error term. The mean response is fixed for each group, while the random error term is used to model the uncertainty of each individual outcome. The random error term for each individual outcome cannot be predicted, but in the long run there is a regular pattern that can be modeled with a distribution (such as the normal distribution).
 
-The key question in this study is whether or not the two types of games have different average completion times. The two-sample t-test starts with the assumption that the two group means are equal. This is often written as the null hypothesis $H_0 : \mu_1 - \mu_2 = 0$ or, equivalently, $H_0 : \mu_1 = \mu_2$.
+The key question in this study is whether or not the two types of games have different average completion times. The two-sample t-test starts with the assumption that the two group means are equal. This is often written as the null hypothesis $\scriptstyle H_0 : \mu_1 - \mu_2 = 0$ or, equivalently, $\scriptstyle H_0 : \mu_1 = \mu_2$.
 
-The underlying model used in the two-sample t-test is designed to account for these two group means ($\mu_1$ and $\mu_2$) and random error. The statistical model for the first population, the color distracter group, is:
+The underlying model used in the two-sample t-test is designed to account for these two group means ($\scriptstyle \mu_1$ and $\scriptstyle \mu_2$) and random error. The statistical model for the first population, the color distracter group, is:
 
 ```{r eval = FALSE, table2_1b, results='asis', echo=FALSE}
 
@@ -168,15 +168,15 @@ kable(tbl, format = "latex", booktabs = TRUE, align = "c", escape = FALSE) %>%
 ```
 
 
-where j is used to represent each observation in the sample from the first population. For example, $y_{1, 9}$ represents the 9th observation in the first group (the color distracter group). In this data set, there were 20 observations taken from the first population; thus, $n_1$ = 20.
+where j is used to represent each observation in the sample from the first population. For example, $\scriptstyle y_{1, 9}$ represents the 9th observation in the first group (the color distracter group). In this data set, there were 20 observations taken from the first population; thus, $\scriptstyle n_1$ = 20.
 
-This model states that the color distracter game is expected to be centered at the constant value $\mu_1$ . In addition, each observation is expected to have some variability (random error) that is typically modeled by a normal distribution with a mean equal to zero and a fixed variance s2. Similarly, each observation from the second group, the standard game, can be modeled as the sum of $\mu_2$ plus a random error term, $\epsilon_{2, j}$:
+This model states that the color distracter game is expected to be centered at the constant value $\scriptstyle \mu_1$ . In addition, each observation is expected to have some variability (random error) that is typically modeled by a normal distribution with a mean equal to zero and a fixed variance s2. Similarly, each observation from the second group, the standard game, can be modeled as the sum of $\scriptstyle \mu_2$ plus a random error term, $\scriptstyle \epsilon_{2, j}$:
 
 \begin{align*}
 y_{2, j} = \mu_2 + \epsilon_{2, j}  ~~\text{ for }~ j = 1, 2, ... ,n_2
 \end{align*}
 
-where $n_2 = 20$, $\mu_2$ is the mean of the standard group, and the $\epsilon_{2, j}$ are random variables (typically from a normal distribution) with a mean equal to zero and variance $\sigma^2$ . Often, this statistical model is more succinctly written as: 
+where $\scriptstyle n_2 = 20$, $\scriptstyle \mu_2$ is the mean of the standard group, and the $\scriptstyle \epsilon_{2, j}$ are random variables (typically from a normal distribution) with a mean equal to zero and variance $\scriptstyle \sigma^2$ . Often, this statistical model is more succinctly written as: 
 
 \begin{align} \label{2.1}
 y_{i, j} = \mu_i + \epsilon_{i, j} ~~\text{ for }~ j = 1, 2 \text{ and } j = 1, 2, ... ,n_2 ~~\text{ where }~  \epsilon_{i, j} \sim N(0,\sigma^2)
@@ -184,54 +184,54 @@ y_{i, j} = \mu_i + \epsilon_{i, j} ~~\text{ for }~ j = 1, 2 \text{ and } j = 1, 
 \end{align}
 
 >**MATHMATICAL NOTE**
-You may recall from your introductory statistics course that adding a constant to each random variable in a population does not change the shape or spread of the population. Since each mean response ($\mu_i$) is fixed (i.e., a constant value), Equation 2.1 can be used to show that $y_{i, j} \sim N(\mu_i,\sigma^2)$.
+You may recall from your introductory statistics course that adding a constant to each random variable in a population does not change the shape or spread of the population. Since each mean response ($\scriptstyle \mu_i$) is fixed (i.e., a constant value), Equation 2.1 can be used to show that $\scriptstyle y_{i, j} \sim N(\mu_i,\sigma^2)$.
 
 
-This model has one assumption that you may not have made when previously conducting a two-sample t-test. Equation 2.1 states that all $\epsilon_{i, j}$ come from a normally distributed population with a mean of zero and
+This model has one assumption that you may not have made when previously conducting a two-sample t-test. Equation 2.1 states that all $\scriptstyle \epsilon_{i, j}$ come from a normally distributed population with a mean of zero and
 variance s2 . This is called the **equal variance assumption**. Some introductory statistics courses discuss only a two-sample t-test that does not require the equal variance assumption. The equal variance assumption is
-made here because it makes sense for this experiment, the data support it ($s_1$ is close to $s_2$), and it allows a direct comparison to ANOVA and regression models.
+made here because it makes sense for this experiment, the data support it ($\scriptstyle s_1$ is close to $\scriptstyle s_2$), and it allows a direct comparison to ANOVA and regression models.
 
-In Equation 2.1, the mean response of the model is the population mean ($\mu_1$ or $\mu_2$). Just as a sample mean, $\bar{y}_i$, is used to estimate the population means, $\mu_i$, residuals are used to estimate the random error terms. **Residuals** are the difference between the observed response and the estimated mean response. For example, the random error term $\epsilon_{1, 12} = + \bar{y}_{1, 12} - \mu_1$ is estimated by $\hat{\epsilon}_{1, 12} = + \bar{y}_{1, 12} - \bar{y}_1$.
+In Equation 2.1, the mean response of the model is the population mean ($\scriptstyle \mu_1$ or $\scriptstyle \mu_2$). Just as a sample mean, $\scriptstyle \bar{y}_i$, is used to estimate the population means, $\scriptstyle \mu_i$, residuals are used to estimate the random error terms. **Residuals** are the difference between the observed response and the estimated mean response. For example, the random error term $\scriptstyle \epsilon_{1, 12} = + \bar{y}_{1, 12} - \mu_1$ is estimated by $\scriptstyle \hat{\epsilon}_{1, 12} = + \bar{y}_{1, 12} - \bar{y}_1$.
 
 
 
 >**NOTE**
-A **statistic** is any mathematical function of the sample data. **Parameters** are actual population values that cannot be known unless the entire population is sampled. The mean response is based on population parameters. If a sample data set is used, we do not know the population parameters. Sample statistics (such as the sample mean, $\bar{y}$, and the sample standard deviation, $s$) are used to estimate population parameters ($\mu$ and $\sigma$). Statisticians often use a hat on top of a parameter to represent an estimate of that parameter. For example, an estimate of the population standard deviation is written $s = \hat{\sigma}$ , and an estimate for a mean is written $\bar{y}_1 = \hat{\mu}_1$ or $\bar{y}_2 = \hat{\mu}_2$.
+A **statistic** is any mathematical function of the sample data. **Parameters** are actual population values that cannot be known unless the entire population is sampled. The mean response is based on population parameters. If a sample data set is used, we do not know the population parameters. Sample statistics (such as the sample mean, $\scriptstyle \bar{y}$, and the sample standard deviation, $\scriptstyle s$) are used to estimate population parameters ($\scriptstyle \mu$ and $\scriptstyle \sigma$). Statisticians often use a hat on top of a parameter to represent an estimate of that parameter. For example, an estimate of the population standard deviation is written $\scriptstyle s = \hat{\sigma}$ , and an estimate for a mean is written $\scriptstyle \bar{y}_1 = \hat{\mu}_1$ or $\scriptstyle \bar{y}_2 = \hat{\mu}_2$.
 
 
-### Activity: Statistical Models for the Two-Sample t-Test {-} 
+### \textcolor{blue}{Practice:} Statistical Models for the Two-Sample t-Test {-} 
 
 5. Assume that we have two very small populations that can be written as
-$y_{1,1} = 15$, $y_{1,2} = 17$, $y_{1,3} = 16$, $y_{2,1} = 11$, $y_{2,2} = 9$, $y_{2,3} = 10$. Find $\mu_1$, $\mu_2$, $\epsilon_{1, 1}$, $\epsilon_{1, 3}$, and $\epsilon_{2, 1}$. Notice the double subscripts on the observed responses: $y_{1,1}$ is read as “y one one.” The first subscript tells us that the observation was from the first group, and the second subscript tells us the observation number. For example, $y_{1,j}$ is the jth observation from the first group.
+$\scriptstyle y_{1,1} = 15$, $\scriptstyle y_{1,2} = 17$, $\scriptstyle y_{1,3} = 16$, $\scriptstyle y_{2,1} = 11$, $\scriptstyle y_{2,2} = 9$, $\scriptstyle y_{2,3} = 10$. Find $\scriptstyle \mu_1$, $\scriptstyle \mu_2$, $\scriptstyle \epsilon_{1, 1}$, $\scriptstyle \epsilon_{1, 3}$, and $\scriptstyle \epsilon_{2, 1}$. Notice the double subscripts on the observed responses: $\scriptstyle y_{1,1}$ is read as “y one one.” The first subscript tells us that the observation was from the first group, and the second subscript tells us the observation number. For example, $\scriptstyle y_{1,j}$ is the jth observation from the first group.
 
-6. Use the game study and the data in the file Games1 to identify $n_1$, $n_2$, $y_{1,12}$ , $y_{2,12}$ , $\epsilon_{1, 12}$, and $\epsilon_{2, 12}$,
-where $y_{1,12}$ represents the 12th observation from group 1 (the color distracter group). Note that since this is a sample, not a population, we do not know $\mu_1$ or $\mu_2$ , but we can estimate them with $\bar{y}_1 = \hat{\mu}_1$ and $\bar{y}_2 = \hat{\mu}_2$.
+6. Use the game study and the data in the file Games1 to identify $\scriptstyle n_1$, $\scriptstyle n_2$, $\scriptstyle y_{1,12}$ , $\scriptstyle y_{2,12}$ , $\scriptstyle \epsilon_{1, 12}$, and $\scriptstyle \epsilon_{2, 12}$,
+where $\scriptstyle y_{1,12}$ represents the 12th observation from group 1 (the color distracter group). Note that since this is a sample, not a population, we do not know $\scriptstyle \mu_1$ or $\scriptstyle \mu_2$ , but we can estimate them with $\scriptstyle \bar{y}_1 = \hat{\mu}_1$ and $\scriptstyle \bar{y}_2 = \hat{\mu}_2$.
 
 ### Model Assumptions for the Two-Sample t-Test{-}
 
 Several implicit assumptions are built into the model for the two-sample t-test shown in Equation 2.1:
 
-- Constant parameters: The population values in this model ($\mu_1$ , $\mu_2$ , and $\sigma$) do not change throughout the study.
+- Constant parameters: The population values in this model ($\scriptstyle \mu_1$ , $\scriptstyle \mu_2$ , and $\scriptstyle \sigma$) do not change throughout the study.
 - Additive terms: The model described in Equation 2.1 shows that the observed responses are the sum of our parameters and error terms. For example, we are not considering models such as
-$y_{i, j} = \mu_i * \epsilon_{i, j}$ .
-- $\epsilon_{i, j} \sim N(0,\sigma^2)$. This assumption has many key components:
+$\scriptstyle y_{i, j} = \mu_i * \epsilon_{i, j}$ .
+- $\scriptstyle \epsilon_{i, j} \sim N(0,\sigma^2)$. This assumption has many key components:
 - The error terms are independent and identically distributed (iid).
 - The error terms follow a normal probability distribution.
 - The error terms have a mean of zero. This implies that the average of several observed values will tend to be close to the true mean. In essence, there is no systematic bias in the error terms.
-- The population variance $\sigma^2$ is the same for both groups (color distracter and standard games) being tested.
+- The population variance $\scriptstyle \sigma^2$ is the same for both groups (color distracter and standard games) being tested.
 
-The first assumption tells us about the mean response. The parameter estimate ($\bar{y}_i$) would not be meaningful if the true parameter value ($\mu_i$) were not constant throughout the study. The second assumption simply states the types of models we are building. In later chapters with more complex models, we will discuss how to use residual plots to determine if the model is appropriate. In this chapter, we will focus on the assumptions about the error terms
+The first assumption tells us about the mean response. The parameter estimate ($\scriptstyle \bar{y}_i$) would not be meaningful if the true parameter value ($\scriptstyle \mu_i$) were not constant throughout the study. The second assumption simply states the types of models we are building. In later chapters with more complex models, we will discuss how to use residual plots to determine if the model is appropriate. In this chapter, we will focus on the assumptions about the error terms
 
 >**MATHMATICAL NOTE**
 In later chapters, we will show that a curved pattern in a residual versus fit plot suggests that an additive model may not be appropriate. In this example, there are only two fitted values (i.e., expected values), so we cannot see any curved patterns. When the additive assumption is violated, residual plots may also indicate different standard deviations, a nonnormal distribution, or lack of independence. Transforming the data to a new scale can often make the additivity assumption (and several of the other assumptions) more appropriate.
 
-The statistical model described in Equation 2.1 assumes that $\epsilon_{i, j}$ are modeled as **independent and identically distributed** (iid) random variables. The independent error term assumption states that there is no relationship between one observation and the next. For example, knowing that the 8th subject in a group played the game more quickly than average does not provide any information about whether the 7th or 9th person in the group will be above or below the average.
+The statistical model described in Equation 2.1 assumes that $\scriptstyle \epsilon_{i, j}$ are modeled as **independent and identically distributed** (iid) random variables. The independent error term assumption states that there is no relationship between one observation and the next. For example, knowing that the 8th subject in a group played the game more quickly than average does not provide any information about whether the 7th or 9th person in the group will be above or below the average.
 
 The identically distributed assumption states that each error is assumed to come from the same population distribution. Thus, each subject from a particular group is from the same population. If any error term
 based on a particular observation comes from a different population, the two-sample t-test will not be valid. For example, elementary school students may have different expected completion times for the Shapesplosion game than college students. It would be inappropriate to include younger students in a study where the population was assumed to be college students
 
 Model assumptions for the residuals should always be checked with plots of the data. The later activities will describe normality tests in more detail, but in most situations a simple graph of the residuals will
-suffice. The two sample t-test actually requires only that the sample means (each $\bar{y}_{i,j}$) be normally distributed. The central limit theorem allows us to assume this is true if group sample sizes are similar and large ($n_1 \ge 15$ and $n_2 \ge 15$) and there does not appear to be any extreme skewness or outliers in the residuals.
+suffice. The two sample t-test actually requires only that the sample means (each $\scriptstyle \bar{y}_{i,j}$) be normally distributed. The central limit theorem allows us to assume this is true if group sample sizes are similar and large ($\scriptstyle n_1 \ge 15$ and $\scriptstyle n_2 \ge 15$) and there does not appear to be any extreme skewness or outliers in the residuals.
 
 Since residuals are defined as the difference between each observed value and the corresponding group mean, they should always sum to zero. Thus, we cannot check residuals to determine whether each of the error
 terms is centered at zero. The assumption that the error terms are centered at zero is really stating that there are no other sources of variability that may be biasing our results. In essence, the only difference between the two population means is explained by the mean response. 
@@ -265,7 +265,7 @@ Every statistical hypothesis test has basic underlying conditions that need to b
 knitr::include_graphics("docs/Fig2_2.png")
 ```
 
-### Activity: Checking Assumptions for the t-Test{-}
+### \textcolor{blue}{Practice:} Checking Assumptions for the t-Test{-}
 
 7. Calculate the residuals in the Games1 data. Plot a histogram of the residuals (or create a normal probability plot of the residuals). Do the residuals appear to be somewhat normally distributed?
 
@@ -274,13 +274,13 @@ knitr::include_graphics("docs/Fig2_2.png")
 9. The variable StudentID represents the order in which the games were played. Plot the residuals versus the order of the data to determine if any patterns exist that may indicate that the observations are
 not independent.
 
-10. Use statistical software to conduct a two-sample t-test (assuming equal variances) and find the $p$-value corresponding to this statistic. In addition, use software to calculate a 95% confidence interval for
-the difference between the two means ($\mu_1$ - $\mu_2$ ). Equation 2.7 and the later activities provide details on conducting these calculations by hand. If H0 : $\mu_1$ = $\mu_2$ is true, the **$p$-value** states how likely it is that random chance alone would create a difference between two sample means ($\bar{y}_1 - \bar{y}_2$) at least as large as the one observed. Based on the $p$, what can you conclude about these two types of
+10. Use statistical software to conduct a two-sample t-test (assuming equal variances) and find the $\scriptstyle p$-value corresponding to this statistic. In addition, use software to calculate a 95% confidence interval for
+the difference between the two means ($\scriptstyle \mu_1$ - $\scriptstyle \mu_2$ ). Equation 2.7 and the later activities provide details on conducting these calculations by hand. If H0 : $\scriptstyle \mu_1$ = $\scriptstyle \mu_2$ is true, the **$\scriptstyle p$-value** states how likely it is that random chance alone would create a difference between two sample means ($\scriptstyle \bar{y}_1 - \bar{y}_2$) at least as large as the one observed. Based on the $\scriptstyle p$, what can you conclude about these two types of
 games?
 
 
 
-## The Regression Model to Compare Population Means
+## \textcolor{blue}{ The Regression Model to Compare Population Means}
 
 ### The Linear Regression Model{-}
 
@@ -291,9 +291,9 @@ y_i = \beta_0 + \beta_1x_i + \epsilon_i ~\text{ for } i = 1, 2, ... , n ~\text{ 
 \tag{2.2}
 \end{equation}
 
-A **simple linear regression** model is a straight-line regression model with a single explanatory variable and a single response variable. For this linear regression model, the mean response ($\beta_0 + \beta_1x_i$) is a function of two parameters, $\beta_0$ and $\beta_1$, and an explanatory variable, $x$. The random error terms, $\epsilon_i$, are assumed to be independent and to follow a normal distribution with mean zero and variance $\sigma^2$.
+A **simple linear regression** model is a straight-line regression model with a single explanatory variable and a single response variable. For this linear regression model, the mean response ($\scriptstyle \beta_0 + \beta_1x_i$) is a function of two parameters, $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$, and an explanatory variable, $\scriptstyle x$. The random error terms, $\scriptstyle \epsilon_i$, are assumed to be independent and to follow a normal distribution with mean zero and variance $\scriptstyle \sigma^2$.
 
-In Equation 2.1, we used double subscripts: $i = 1, 2$ was used to show that there were two distinct groups and $j = 1, 2, ... , n_i$ was used to identify each of the $n_1 = n_2 = 20$ items within the two groups. In the regression model, there is only one set of subscripts: $i = 1, 2, ..., n$, where $n = 40 = n_1 + n_2$. Instead of having two distinct means in the model ($\mu_1$ and $\mu_2$), as in the two-sample t-test, we have one regression model where the parameters, $\beta_0$ and $\beta_1$, are fixed. The categorical explanatory variable, $x$, indicates game type.
+In Equation 2.1, we used double subscripts: $\scriptstyle i = 1, 2$ was used to show that there were two distinct groups and $\scriptstyle j = 1, 2, ... , n_i$ was used to identify each of the $\scriptstyle n_1 = n_2 = 20$ items within the two groups. In the regression model, there is only one set of subscripts: $\scriptstyle i = 1, 2, ..., n$, where $\scriptstyle n = 40 = n_1 + n_2$. Instead of having two distinct means in the model ($\scriptstyle \mu_1$ and $\scriptstyle \mu_2$), as in the two-sample t-test, we have one regression model where the parameters, $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$, are fixed. The categorical explanatory variable, $\scriptstyle x$, indicates game type.
 
 A procedure commonly used to incorporate categorical explanatory variables, such as the game type, into a regression model is to define **indicator variables**, also called **dummy variables**, that will take on the role of the x variable in the model. Creating dummy variables is a process of mapping the column of categorical data into 0 and 1 data. For example, the indicator variable will have the value 1 for every observation from the color distracter game and 0 for every observation from the standard game. Most statistical software packages have a command for automatically creating dummy variables.
 
@@ -306,18 +306,18 @@ Indicator variables can be created to incorporate categorical explanatory variab
 
 
 
-### Activity: Calculating a Regression Model and Hypothesis Test for the Slope {-}
+### \textcolor{blue}{Practice:} Calculating a Regression Model and Hypothesis Test for the Slope {-}
 
-11. Use the software instructions and the Games1 data to create indicator variables where $x = 1$ represents the color distracter game and $x = 0$ represents the standard game. Develop a regression model using Time as the response and the indicator variable as the explanatory variable.
+11. Use the software instructions and the Games1 data to create indicator variables where $\scriptstyle x = 1$ represents the color distracter game and $\scriptstyle x = 0$ represents the standard game. Develop a regression model using Time as the response and the indicator variable as the explanatory variable.
 
-12. Use statistical software to calculate the t-statistic and $p$-value for the hypothesis tests $H_0 : \beta_1 = 0$ versus $H_1 : \beta_1 \ne 0$. In addition, construct a 95% confidence interval for $\beta_1$ . Based on these statistics, can you conclude that the coefficient, $\beta_1$, is significantly different from zero? Details for calculating these statistics by hand are provided in the later activities.
+12. Use statistical software to calculate the t-statistic and $\scriptstyle p$-value for the hypothesis tests $\scriptstyle H_0 : \beta_1 = 0$ versus $\scriptstyle H_1 : \beta_1 \ne 0$. In addition, construct a 95% confidence interval for $\scriptstyle \beta_1$ . Based on these statistics, can you conclude that the coefficient, $\scriptstyle \beta_1$, is significantly different from zero? Details for calculating these statistics by hand are provided in the later activities.
 
-13. Repeat the two previous questions, but use an indicator variable where $x = 1$ represents the standard game and $x = 0$ represents the color distracter game. Compare the regression line, hypothesis test, and $p$-value to those from the previous questions. When there are only two categories (color distracter and standard), does the choice of indicator variable impact your conclusions? Why or why not?
+13. Repeat the two previous questions, but use an indicator variable where $\scriptstyle x = 1$ represents the standard game and $\scriptstyle x = 0$ represents the color distracter game. Compare the regression line, hypothesis test, and $\scriptstyle p$-value to those from the previous questions. When there are only two categories (color distracter and standard), does the choice of indicator variable impact your conclusions? Why or why not?
 
-In the previous questions, we assigned $x$ to be the dummy variable that indicates the type of game. Notice that the mean response is still a constant (nonrandom) value for each of the two game categories. In other
-words, when $x = 1$ the mean response is a fixed value, and when $x = 0$ the mean response is a fixed value. In addition, the “slope” coefficient ($\beta_1$) can be considered as an estimate of the average amount by which the response variable will change from the standard game ($x = 0$) to the color distracter game ($x = 1$).
+In the previous questions, we assigned $\scriptstyle x$ to be the dummy variable that indicates the type of game. Notice that the mean response is still a constant (nonrandom) value for each of the two game categories. In other
+words, when $\scriptstyle x = 1$ the mean response is a fixed value, and when $\scriptstyle x = 0$ the mean response is a fixed value. In addition, the “slope” coefficient ($\scriptstyle \beta_1$) can be considered as an estimate of the average amount by which the response variable will change from the standard game ($\scriptstyle x = 0$) to the color distracter game ($\scriptstyle x = 1$).
 
-Although the notation has changed, the regression model and the model used in the two-sample t-test are mathematically equivalent. When a subject is from the color distracter group, the mean response is $\mu_1$ in the t-test and the mean response sets $x = 1$ in the regression model. Thus,
+Although the notation has changed, the regression model and the model used in the two-sample t-test are mathematically equivalent. When a subject is from the color distracter group, the mean response is $\scriptstyle \mu_1$ in the t-test and the mean response sets $\scriptstyle x = 1$ in the regression model. Thus,
 
 \begin{equation}
 \label{2.3} 
@@ -325,7 +325,7 @@ Although the notation has changed, the regression model and the model used in th
 \tag{2.3}
 \end{equation}
 
-When a subject is from the standard group, the mean response is $\mu_2$ in the t-test and the mean response sets $x = 0$ in regression. Thus,
+When a subject is from the standard group, the mean response is $\scriptstyle \mu_2$ in the t-test and the mean response sets $\scriptstyle x = 0$ in regression. Thus,
 
 \begin{equation}
 \label{2.4} 
@@ -341,24 +341,23 @@ Equations 2.3 and 2.4 can be combined to show the relationship between the two-s
 \tag{2.5}
 \end{equation}
 
-Thus, stating that $\mu_1 - \mu_2 = 0$ is equivalent to stating that $\beta_1 = 0$
+Thus, stating that $\scriptstyle \mu_1 - \mu_2 = 0$ is equivalent to stating that $\scriptstyle \beta_1 = 0$
 
->**Key Concept**
-In testing the difference in two population means, testing the null hypothesis $H_0 : \beta_1 = 0$ for a regression model is equivalent to testing the two-sample t-test hypothesis $H_0 : \mu_1 - \mu_2 = 0$ *when using the equal variance assumption*.
+>**Key Concept** In testing the difference in two population means, testing the null hypothesis $\scriptstyle H_0 : \beta_1 = 0$ for a regression model is equivalent to testing the two-sample t-test hypothesis $\scriptstyle H_0 : \mu_1 - \mu_2 = 0$ *when using the equal variance assumption*.
 
 
 ### Model Assumptions for Regression{-}
 
-While no distributional assumptions are needed to create estimates of b0 and b1 , it is necessary to check the same model assumptions when conducting a hypothesis test for b1. Just as in the two-sample t-test, the model assumes that the parameters b0 , b1 , and $\sigma^2$ are constant. In addition, Equation 2.2 shows that our model consists of the mean response plus the error term. The regression model also assumes that $\epsilon_i \sim N(0,\sigma^2)$.
+While no distributional assumptions are needed to create estimates of b0 and b1 , it is necessary to check the same model assumptions when conducting a hypothesis test for b1. Just as in the two-sample t-test, the model assumes that the parameters b0 , b1 , and $\scriptstyle \sigma^2$ are constant. In addition, Equation 2.2 shows that our model consists of the mean response plus the error term. The regression model also assumes that $\scriptstyle \epsilon_i \sim N(0,\sigma^2)$.
 
 This expression represents the following four assumptions:
 
 - The error terms are independent and identically distributed (iid).
 - The error terms follow a normal probability distribution.
 - The error terms have a mean of zero .
-- The error terms in the regression model are assumed to come from a single population with variance $\sigma^2$ (i.e., the variance does not depend on $x$).
+- The error terms in the regression model are assumed to come from a single population with variance $\scriptstyle \sigma^2$ (i.e., the variance does not depend on $\scriptstyle x$).
 
-In regression, assumptions about the error terms are also checked by residual plots. Here, $y_i$  represents each observed response and $\hat{y}_i = b_0 + b_1x_i$  represents the estimated mean response. So the residuals are simply the observed value minus the estimated value: $\hat{\epsilon}_i = y_i - \hat{y}_i$
+In regression, assumptions about the error terms are also checked by residual plots. Here, $\scriptstyle y_i$  represents each observed response and $\scriptstyle \hat{y}_i = b_0 + b_1x_i$  represents the estimated mean response. So the residuals are simply the observed value minus the estimated value: $\scriptstyle \hat{\epsilon}_i = y_i - \hat{y}_i$
 
 Figure 2.3 shows a histogram of the residuals and a plot of the residuals by type of game. The histogram shows that the residuals approximately follow the shape of a normal distribution. The residual versus game type graph shows that there are no obvious outliers and that the spread of both groups is roughly equivalent. Since residuals are just the mean response subtracted from the observed value, the center of the residual plots has shifted to zero. However, the spread of the residual versus game plot is identical to the spread of the individual value plot in Figure 2.2.
 
@@ -366,10 +365,9 @@ Figure 2.3 shows a histogram of the residuals and a plot of the residuals by typ
 knitr::include_graphics("docs/Fig2_3.png")
 ```
 
->**Key Concept**
-No assumptions are needed about the error terms to calculate estimates ($b_1 = \hat{\beta}_1$ and $b_0 = \hat{\beta}_0$) of the slope and intercept of the regression line. These estimates are simply well-known mathematical calculations. However, all the model assumptions should be satisfied in order to properly conduct a hypothesis test or create a confidence interval for $\beta_1$.
+>**Key Concept** No assumptions are needed about the error terms to calculate estimates ($\scriptstyle b_1 = \hat{\beta}_1$ and $\scriptstyle b_0 = \hat{\beta}_0$) of the slope and intercept of the regression line. These estimates are simply well-known mathematical calculations. However, all the model assumptions should be satisfied in order to properly conduct a hypothesis test or create a confidence interval for $\scriptstyle \beta_1$.
 
-### Activity: Checking Model Assumptions {-}
+### \textcolor{blue}{Practice:} Checking Model Assumptions {-}
 
 14. Calculate the residuals from the regression line in Question 11. Plot a histogram of the residuals (or create a normal probability plot of the residuals). In addition, create a residual versus order plot and use the informal test to determine if the equal variance assumption is appropriate for this study. Compare these plots to the residual plots created for the two-sample t-test. Why are these graphs so similar?
 
@@ -377,7 +375,7 @@ No assumptions are needed about the error terms to calculate estimates ($b_1 = \
 
 
 
-## ANOVA to Compare Population Means
+## \textcolor{blue}{ ANOVA to Compare Population Means}
 
 The term **ANOVA** is an acronym for **ANalysis Of VAriance**. ANOVA models often describe categorical explanatory variables in terms of factors and levels. The explanatory variable, also called a factor, in
 this study is the type of game; the two conditions, the two levels of the factor, are color distracter and standard.
@@ -393,44 +391,44 @@ The ANOVA model for the game study can be written as
 \label{2.6} y_{i,j} = \mu + \alpha_i + \epsilon_{i,j} for i = 1, 2 and j = 1, 2, ... , n where \epsilon_{i,j} \sim N(0,\sigma^2) \tag{2.6}
 \end{equation}
 
-The mean response in the ANOVA model is $\mu + \alpha_1$ for the color distracter group and $\mu + \alpha_2$ for the standard group, where $\mu$ is the mean of all the completion times in the study. This overall mean is often called the grand mean or the benchmark value; $\alpha_1$ is the **effect**, or **main effect**, of the color distracter group. **Effects** are a measure of differences between group means. The effect $\alpha_1$ represents the change in the response from the grand mean to the color distracter group mean.^[In this text m is always considered the overall mean of the data. Also throughout this chapter, we are always assuming balanced data.]
+The mean response in the ANOVA model is $\scriptstyle \mu + \alpha_1$ for the color distracter group and $\scriptstyle \mu + \alpha_2$ for the standard group, where $\scriptstyle \mu$ is the mean of all the completion times in the study. This overall mean is often called the grand mean or the benchmark value; $\scriptstyle \alpha_1$ is the **effect**, or **main effect**, of the color distracter group. **Effects** are a measure of differences between group means. The effect $\scriptstyle \alpha_1$ represents the change in the response from the grand mean to the color distracter group mean.^[In this text m is always considered the overall mean of the data. Also throughout this chapter, we are always assuming balanced data.]
 
 To summarize, here is what the symbols in the model represent:
 
-- $y_{i,j}$: observed completion time for subject j from group i
-- $\mu$: overall mean (the benchmark value)
-- $\alpha_i$: effect of group i (i = 1, 2)
-- $\epsilon_{i,j}$: error for the jth subject ( $j = 1, 2, ... , 20$) from the ith group ($i = 1, 2$)
+- $\scriptstyle y_{i,j}$: observed completion time for subject j from group i
+- $\scriptstyle \mu$: overall mean (the benchmark value)
+- $\scriptstyle \alpha_i$: effect of group i (i = 1, 2)
+- $\scriptstyle \epsilon_{i,j}$: error for the jth subject ( $\scriptstyle j = 1, 2, ... , 20$) from the ith group ($\scriptstyle i = 1, 2$)
 
 Although the notation varies, the mean response for the ANOVA model is mathematically equivalent to the mean response in the t-test.
 
 
- - $\mu_1 = \mu + \alpha_1$: population mean for the color distracter games
- - $\mu_2 = \mu + \alpha_2$: population mean for the standard games
+ - $\scriptstyle \mu_1 = \mu + \alpha_1$: population mean for the color distracter games
+ - $\scriptstyle \mu_2 = \mu + \alpha_2$: population mean for the standard games
 
 
-### Activity: The ANOVA Model {-}
+### \textcolor{blue}{Practice:} The ANOVA Model {-}
 
-16. Explain (or use equations to show) why the ANOVA hypothesis H0 : $\alpha_1$ = $\alpha_2$ is equivalent to the two- sample t-test hypothesis H0 : $\mu_1$ = $\mu_2$ .
+16. Explain (or use equations to show) why the ANOVA hypothesis $\scriptstyle H_0:$ $\scriptstyle \alpha_1$ = $\scriptstyle \alpha_2$ is equivalent to the two- sample t-test hypothesis H0 : $\scriptstyle \mu_1$ = $\scriptstyle \mu_2$ .
 *In this text m is always considered the overall mean of the data. Also throughout this chapter, we are always assuming balanced data.
 
->**MATHMATICAL NOTE** In the ANOVA model, there is the appearance that we are describing two means ($\mu_1$ and $\mu_2$) using three parameters ($\mu$, $\alpha_1$ , and $\alpha_2$). Since it can be shown that $\alpha_2 = -\alpha_1$, there are actually just two parameters ($\mu$ and $alpha_1$) that are estimated. Thus, the null hypothesis stating no effect size can also be written as $H_0: \alpha_1 = \alpha_2 = 0$ or $H_0: \mu_1 = \mu_2 = \mu$.
+>**MATHMATICAL NOTE** In the ANOVA model, there is the appearance that we are describing two means ($\scriptstyle \mu_1$ and $\scriptstyle \mu_2$) using three parameters ($\scriptstyle \mu$, $\scriptstyle \alpha_1$ , and $\scriptstyle \alpha_2$). Since it can be shown that $\scriptstyle \alpha_2 = -\alpha_1$, there are actually just two parameters ($\scriptstyle \mu$ and $\scriptstyle alpha_1$) that are estimated. Thus, the null hypothesis stating no effect size can also be written as $\scriptstyle H_0: \alpha_1 = \alpha_2 = 0$ or $\scriptstyle H_0: \mu_1 = \mu_2 = \mu$.
 
 17. Write the proper ANOVA model [provide the appropriate ij subscripts as in Equation 2.6] for the observation representing the 3rd subject from the color distracter group. Also give the notation for the observation representing the 20th subject from the standard group.
 
-18. Why doesn’t $\mu$ have any subscript in the ANOVA model?
+18. Why doesn’t $\scriptstyle \mu$ have any subscript in the ANOVA model?
 
 After the data have been collected, the averages for all three meaningful groupings of the data can be calculated. The following mathematical notation is often used to represent the calculated sample averages:
 
-- $\bar{y}_{..}$: **grand mean** (the overall average of the combined results)
-- $\bar{y}_{1.}$: average for the color distracter game sample results
-- $\bar{y}_{2.}$: average for the standard game sample results
+- $\scriptstyle \bar{y}_{..}$: **grand mean** (the overall average of the combined results)
+- $\scriptstyle \bar{y}_{1.}$: average for the color distracter game sample results
+- $\scriptstyle \bar{y}_{2.}$: average for the standard game sample results
 
->**Note** Throughout this chapter, $\bar{y}_{1.} = \bar{y}_{1}$ and $\bar{y}_{2.} = \bar{y}_{2}$. The dot notation is often used with more complex models to indicate that the average was taken over all values of that subscript. For example, $bar{y}_{2.}$ averages over all $j = 1, 2, 3, ... , n_2$, observations from the standard game sample results.
+>**Note** Throughout this chapter, $\scriptstyle \bar{y}_{1.} = \bar{y}_{1}$ and $\scriptstyle \bar{y}_{2.} = \bar{y}_{2}$. The dot notation is often used with more complex models to indicate that the average was taken over all values of that subscript. For example, $\scriptstyle bar{y}_{2.}$ averages over all $\scriptstyle j = 1, 2, 3, ... , n_2$, observations from the standard game sample results.
 
 
-The effect of the color distracter game, $\alpha_1$ , can be estimated by $\hat{\alpha}_1 = \bar{y}_{1.} - \bar{y}_{..}$. Similarly, $\hat{\alpha}_2 = \bar{y}_{2.} - \bar{y}_{..}$
-estimates the standard game effect, $\alpha_2$. As in regression and the two-sample t-test, each residual $\hat{\epsilon}_{ij}$ is the
+The effect of the color distracter game, $\scriptstyle \alpha_1$ , can be estimated by $\scriptstyle \hat{\alpha}_1 = \bar{y}_{1.} - \bar{y}_{..}$. Similarly, $\scriptstyle \hat{\alpha}_2 = \bar{y}_{2.} - \bar{y}_{..}$
+estimates the standard game effect, $\scriptstyle \alpha_2$. As in regression and the two-sample t-test, each residual $\scriptstyle \hat{\epsilon}_{ij}$ is the
 difference between an observed value and the corresponding mean response.
 
 $$
@@ -449,43 +447,43 @@ $$
 
 
 
-### Activity: Estimating the Model Values {-}
+### \textcolor{blue}{Practice:} Estimating the Model Values {-}
 
-19. Use the `Games1` data to calculate $\bar{y}_{..}$, $\bar{y}_{1.}$, and $\bar{y}_{2.}$.
+19. Use the `Games1` data to calculate $\scriptstyle \bar{y}_{..}$, $\scriptstyle \bar{y}_{1.}$, and $\scriptstyle \bar{y}_{2.}$.
 
 20. Estimate the effect sizes for the color distracter game and the standard game.
 
 21. The main effects are often visualized with a **main effects plot**. The main effects plot simply plots the average for each factor level and, in this example, shows that the color distracter group exhibited a higher average completion time than the standard group. Main effect plots are not very informative with just one explanatory variable. However, in more complex data sets with several explanatory variables, main effect plots can be quite useful in comparing effect sizes across all the explanatory variables. Use statistical software to create a main effects plot.
 
-22. Calculate the residual for the 20th observation from the standard group, $\hat{e}_{2, 20}$.
+22. Calculate the residual for the 20th observation from the standard group, $\scriptstyle \hat{e}_{2, 20}$.
 
 
 ### Model Assumptions for ANOVA {-}
 
-The model assumptions for ANOVA are equivalent to those for the two previous tests. In fact, the assumptions discussed in this section are called the six *Fisher assumptions*, after Ronald Fisher, who developed the ANOVA and the corresponding $F$-test.
+The model assumptions for ANOVA are equivalent to those for the two previous tests. In fact, the assumptions discussed in this section are called the six *Fisher assumptions*, after Ronald Fisher, who developed the ANOVA and the corresponding $\scriptstyle F$-test.
 
-- The parameters ($\mu$, each $\alpha_i$, and $\sigma^2$) are constant throughout the study.
+- The parameters ($\scriptstyle \mu$, each $\scriptstyle \alpha_i$, and $\scriptstyle \sigma^2$) are constant throughout the study.
 - Each term in the ANOVA model is added.
 - The error terms are independent and identically distributed (iid).
 - The error terms follow a normal probability distribution.
 - The error terms have a mean of zero.
 - Population variances within each factor level (each game type) are equal (i.e., the sample variances can be pooled).
 
-The following questions provide an opportunity to use software to calculate an **$F$-statistic** (the test statistic for $H_0: \alpha_1 = \alpha_2 = 0$ that is calculated using an ANOVA table) and corresponding $p$-value. In addition, you will use graphs to visualize the residuals to check the model assumptions. The later activities will describe the ANOVA calculations in more detail.
+The following questions provide an opportunity to use software to calculate an **$\scriptstyle F$-statistic** (the test statistic for $\scriptstyle H_0:\  \alpha_1 \ =\  \alpha_2 \ =\  0$ that is calculated using an ANOVA table) and corresponding $\scriptstyle p$-value. In addition, you will use graphs to visualize the residuals to check the model assumptions. The later activities will describe the ANOVA calculations in more detail.
 
-### Activity: Checking Assumptions {-}
+### \textcolor{blue}{Practice:} Checking Assumptions {-}
 
-23. Use statistical software to calculate the $F$-statistic and find the $p$-value. Use the $p$-value to draw conclusions from this study.
+23. Use statistical software to calculate the $\scriptstyle F$-statistic and find the $\scriptstyle p$-value. Use the $\scriptstyle p$-value to draw conclusions from this study.
 
-24. How does the $p$-value in ANOVA compare to the $p$-value you found for the two-sample $t$-test and the regression model?
+24. How does the $\scriptstyle p$-value in ANOVA compare to the $\scriptstyle p$-value you found for the two-sample $\scriptstyle t$-test and the regression model?
 
-25. Take the square root of the $F$-statistic in the ANOVA table. Does this value look familiar? Explain.
+25. Take the square root of the $\scriptstyle F$-statistic in the ANOVA table. Does this value look familiar? Explain.
 
 26. Check the model assumptions by creating a histogram of the residuals, a plot of the residuals versus the type of game, and a plot of the residuals versus the order of the observations (the order in which data were collected). Are the residuals approximately normal? Are the residual variances similar for the two factor levels? Are there patterns in the residual plots that might indicate that the residuals are not iid?
 
-27. Compare the three statistical models. Describe the connections among the $t$-test, ANOVA, and regression. Why are the $p$-values the same for all three models?
+27. Compare the three statistical models. Describe the connections among the $\scriptstyle t$-test, ANOVA, and regression. Why are the $\scriptstyle p$-values the same for all three models?
 
-## Comparing Planned Variability to Random Variability
+## \textcolor{blue}{ Comparing Planned Variability to Random Variability}
 
 The statistical model (observed value = mean response + random error) assumes that there are only two types of variability that can occur in a study. The difference between subgroup means (i.e., the difference between mean response values) represents the **planned variability** in the study. For example, in the game study we plan to find that the mean for the color distracter group is different from the mean for the standard group. The random error term is used to model the uncertainty of each individual outcome, called the **random variability**.
 
@@ -498,11 +496,11 @@ knitr::include_graphics("docs/Fig2_4.png")
 ```
 
 
-Even though the difference between group means (planned variability as described by the mean response) is the same, the variability within each group (random variability represented by the error term) is different. The residual variation (the denominator) is much larger for `Results A` than for `Results B`. Thus, the `Results B` data set will correspond to a larger test statistic and a smaller $p$-value, and we are more likely to reject the null hypothesis. Thus, `Results B` provides much stronger evidence that the difference between group means is not due simply to chance, but due to real differences in the two population means.
+Even though the difference between group means (planned variability as described by the mean response) is the same, the variability within each group (random variability represented by the error term) is different. The residual variation (the denominator) is much larger for `Results A` than for `Results B`. Thus, the `Results B` data set will correspond to a larger test statistic and a smaller $\scriptstyle p$-value, and we are more likely to reject the null hypothesis. Thus, `Results B` provides much stronger evidence that the difference between group means is not due simply to chance, but due to real differences in the two population means.
 
 
 
-## Random Sampling and Random Allocation
+## \textcolor{blue}{ Random Sampling and Random Allocation}
 
 There is one more type of variability that is not included in the statistical model: **unplanned systematic variability**. This variability is caused by extraneous variables that can bias the results. **Extraneous variables** (such as time of day, prior computer game experience of the subject, number of pegs in the game, or amount of background noise) are not of interest in our study, but they may have an influence on the completion time of the game.
 
@@ -526,23 +524,23 @@ Random allocation is much easier to do appropriately in this study. Simply flipp
 
 Random sampling and random allocation can be used to convert unplanned systematic variability into random variability. For example, in the game study, the subjects’ natural ability may bias the results if more talented subjects tend to play one game type over the other. However, if we randomly allocate subjects to a game type, we can expect each group to have an equivalent number of talented subjects. In addition, the variability in natural abilities now tends to look like the random variability that can be modeled with the error term.
 
-In this chapter, we assume this was a well-designed study with no obvious biases. We focus on creating models and better understanding the random error term in order to determine if statistical techniques (two-sample $t$-test, regression, and ANOVA) are appropriate. Later chapters will discuss how to address extraneous variables and properly design studies.
+In this chapter, we assume this was a well-designed study with no obvious biases. We focus on creating models and better understanding the random error term in order to determine if statistical techniques (two-sample $\scriptstyle t$-test, regression, and ANOVA) are appropriate. Later chapters will discuss how to address extraneous variables and properly design studies.
 
 >**NOTE**
 Later chapters will explain how studies can be designed to control for the influence of extraneous variables that are suspected of potentially biasing the results. Extraneous variables can be controlled by *limiting the study to conditions that are as consistent as possible*. For example, the researchers could decide to have the subjects play all games with the same number of pegs and play all games in a quiet room at the same time of day. Extraneous variables can also be controlled by *incorporating a new variable into the mean response*. Instead of simply testing for the type of game (color or standard), the researchers could include a second explanatory variable in the study. For example, the researchers could test each student’s ability before the study, group students into experienced and inexperienced groups, and then, within each experience group, randomly assign the type of game each student should play.
 
 
-## What Can We Conclude from the Game Study?
+## \textcolor{blue}{ What Can We Conclude from the Game Study?}
 
 Validation of model assumptions is essential before drawing conclusions from hypothesis tests. The residual plots created throughout this chapter appear to support the model assumptions. There are no clear trends or outliers in the residual plots. In general, the graphs do not give enough evidence to reject the assumption that the error terms are normally distributed with a mean of zero and a constant variance.
 
-The $p$-value for all three hypothesis tests is 0.0279. When we assume the null hypothesis is true in an experiment, we are assuming that there is nothing creating group differences except the random allocation process. Under this assumption, a group difference at least as extreme as the one actually observed would occur only 2.79% of the time. This allows us to conclude that the type of game does cause a difference in completion times.
+The $\scriptstyle p$-value for all three hypothesis tests is 0.0279. When we assume the null hypothesis is true in an experiment, we are assuming that there is nothing creating group differences except the random allocation process. Under this assumption, a group difference at least as extreme as the one actually observed would occur only 2.79% of the time. This allows us to conclude that the type of game does cause a difference in completion times.
 
-Under the conditions of this computer game study, we have shown that the statistical model and assumptions for the two-sample $t$-test (assuming equal variances), regression, and ANOVA models are mathematically equivalent. Thus, testing if there is a difference between means, if the regression slope is not zero, or if the factor effects are significant will lead to the same conclusion because they are exactly the same test.
+Under the conditions of this computer game study, we have shown that the statistical model and assumptions for the two-sample $\scriptstyle t$-test (assuming equal variances), regression, and ANOVA models are mathematically equivalent. Thus, testing if there is a difference between means, if the regression slope is not zero, or if the factor effects are significant will lead to the same conclusion because they are exactly the same test.
 
 The tests in this computer game study are identical because there were only two groups (two levels) of one explanatory variable and we assumed the variances of both groups were equivalent. Under these conditions, any of the three tests can be used to draw appropriate conclusions as long as the model assumptions are met. The later activities and end-of-chapter exercises provide more details about the differences among the three tests.
 
-## Normal Probability Plots to Assess Normality
+## \textcolor{blue}{ Normal Probability Plots to Assess Normality}
 
 Figure 2.5 shows two histograms of the residuals calculated from the Games1 data. Both histograms use the same data and the same class widths (width of each bar); the only difference is that the bins start at different positions. Note that the histogram on the left looks somewhat skewed while the right graph is fairly symmetric.
 
@@ -554,18 +552,18 @@ An alternative to histograms is normal probability plots. A **normal probability
 knitr::include_graphics("docs/Fig2_5.png")
 ```
 
-### Activity: Creating Probability Plots {-}
+### \textcolor{blue}{Practice:} Creating Probability Plots {-}
 Data set: `Normal`
 
 The following questions ask you to work through the process of calculating and interpreting probability plots.
 
-28. **Calculating a Normal Probability Plot by Hand**  Consider the following sample data set of $n = 5$ observations: 14, 11, 17, 15, 13. Complete the following steps to create a normal probability plot.  
+28. **Calculating a Normal Probability Plot by Hand**  Consider the following sample data set of $\scriptstyle n = 5$ observations: 14, 11, 17, 15, 13. Complete the following steps to create a normal probability plot.  
 
-a. Sort the data from smallest to largest. Use a subscript in parentheses, $(i)$, to represent the ordered data. For example $y_{(1)} = 11$ is the smallest observation and $y_{(5)} = 17$ is the largest observed value.  
+a. Sort the data from smallest to largest. Use a subscript in parentheses, $\scriptstyle (i)$, to represent the ordered data. For example $\scriptstyle y_{(1)} = 11$ is the smallest observation and $\scriptstyle y_{(5)} = 17$ is the largest observed value.  
 
-b. For each $(i)$, calculate the $(i - 0.5)/n$ percentile of the standard normal distribution. For example, corresponding to $(i) = (1)$, the $(1 - 0.5)/5 = 10$th percentile of the standard normal distribution is $-1.28$, since $P(Z \leq -1.28) = 0.10$ when $Z \sim N(0, 1)$. For $(i) = (3)$, the $(3 - 0.5)/5 = 50$th percentile (i.e., the median) of the standard normal distribution is $0$. Repeat this process for the other ordered values, $y_{(2)}, y_{(4)}$, and $y_{(5)}$. 
+b. For each $\scriptstyle (i)$, calculate the $\scriptstyle (i - 0.5)/n$ percentile of the standard normal distribution. For example, corresponding to $\scriptstyle (i) = (1)$, the $\scriptstyle (1 - 0.5)/5 = 10$th percentile of the standard normal distribution is $\scriptstyle -1.28$, since $\scriptstyle P(Z \leq -1.28) = 0.10$ when $\scriptstyle Z \sim N(0, 1)$. For $\scriptstyle (i) = (3)$, the $\scriptstyle (3 - 0.5)/5 = 50$th percentile (i.e., the median) of the standard normal distribution is $\scriptstyle 0$. Repeat this process for the other ordered values, $\scriptstyle y_{(2)}, y_{(4)}$, and $\scriptstyle y_{(5)}$. 
 
-c. Make a normal probability plot by creating a scatterplot with the percentiles of the observed data along the $x$-axis and the percentiles of the standard normal distribution along the $y$-axis. If the data fall along a straight line, then the data are consistent with the hypothesis that they are a random sample from a population that is normally distributed. The data in this question are a little “heavier” toward the tails (the normal distribution has more observations in the center and fewer observations toward the tails than does this data set), so the probability plot has an S-shaped curve. With only five data points, the shape is not as clear as it would be for a data set with a larger sample size from a “heavy-tailed” population.  
+c. Make a normal probability plot by creating a scatterplot with the percentiles of the observed data along the $\scriptstyle x$-axis and the percentiles of the standard normal distribution along the $\scriptstyle y$-axis. If the data fall along a straight line, then the data are consistent with the hypothesis that they are a random sample from a population that is normally distributed. The data in this question are a little “heavier” toward the tails (the normal distribution has more observations in the center and fewer observations toward the tails than does this data set), so the probability plot has an S-shaped curve. With only five data points, the shape is not as clear as it would be for a data set with a larger sample size from a “heavy-tailed” population.  
 
 d. If you standardized the data (subtracted the sample mean and then divided by the sample standard deviation), would you expect the shape of the normal probability plot to change?  
 
@@ -586,11 +584,11 @@ d. Draw (by hand) a picture of what a normal probability plot might look like fo
 
 e. Draw (by hand) a picture of what a normal probability plot might look like for a data set with *more* observations in both tails than you would expect from a normal distribution.  
 
->**NOTE** As with any other hypothesis test, when we fail to reject $H_0$ we do not prove $H_0$ is true. Normal probability plots cannot be used to prove that the data came from a normal distribution ($H_0$), but they can be used to show that the data are consistent with data from a normal population.
+>**NOTE** As with any other hypothesis test, when we fail to reject $\scriptstyle H_0$ we do not prove $\scriptstyle H_0$ is true. Normal probability plots cannot be used to prove that the data came from a normal distribution ($\scriptstyle H_0$), but they can be used to show that the data are consistent with data from a normal population.
 
 Assessing whether or not data could have come from a normal population by examining a normal probability plot requires some experience and may seem subjective. After all, even when data do come from a normal population, sampling variability (random variability) will sometimes lead to a normal probability plot where the data do not lie along a straight line.
 
-### Activity: Understanding Variability in Random Samples {-}
+### \textcolor{blue}{Practice:} Understanding Variability in Random Samples {-}
 
 Data set: `Games1`
 
@@ -598,11 +596,11 @@ Data set: `Games1`
 
  a. Create a normal probability plot of the residuals of the Games1 data from Question 26.  
 
- b. Use software to draw a random sample of $n = 40$ from an actual normal probability distribution with mean 0 and standard deviation 1. Create a normal probability plot of the sample data.  
+ b. Use software to draw a random sample of $\scriptstyle n = 40$ from an actual normal probability distribution with mean 0 and standard deviation 1. Create a normal probability plot of the sample data.  
 
  c. Repeat the previous question eight more times, for a total of nine normal probability plots of “data” from an actual normal probability distribution. Does the plot in Part A resemble the nine plots with data sampled from a normal distribution? If you can’t distinguish the Games1 residuals from the other plots, it would seem reasonable to assume that the Games1 residuals are normally distributed.
 
-## Transformations
+## \textcolor{blue}{ Transformations}
 
 ### Transformations for ANOVA {-}
 
@@ -610,19 +608,19 @@ It is common for data to not follow a normal distribution or for subgroups to ha
 
 In these types of situations, the data can often be transformed to fit model assumptions. Transformations are monotonic mathematical operations that change the scale of the explanatory variable, the response variable, or both. When groups within a data set have unequal variances or when data are skewed to the right, a square-root or natural-logarithm transformation on the response variable can often change the data to a scale where the equal variance and normality assumptions are more closely satisfied. Then the transformed data can be analyzed using traditional techniques such as ANOVA or regression.
 
->**MATHEMATICAL NOTE** Monotonic functions preserve the order of the original data. A monotonic increasing function maintains the direction of the data: For any two data points, when $y_i > y_j$ then $f(y_i) > f(y_j)$. A monotonic decreasing function reverses the direction of the data: For any two data points, when $y_i > y_j$ then $f(y_i) < f(y_j)$. If the transformation is not monotonic over the range of sample data (i.e., if the data set contains zeros or negative numbers), simply add a constant to each number to make all numbers positive or nonzero before transforming the data.
+>**MATHEMATICAL NOTE** Monotonic functions preserve the order of the original data. A monotonic increasing function maintains the direction of the data: For any two data points, when $\scriptstyle y_i > y_j$ then $\scriptstyle f(y_i) > f(y_j)$. A monotonic decreasing function reverses the direction of the data: For any two data points, when $\scriptstyle y_i > y_j$ then $\scriptstyle f(y_i) < f(y_j)$. If the transformation is not monotonic over the range of sample data (i.e., if the data set contains zeros or negative numbers), simply add a constant to each number to make all numbers positive or nonzero before transforming the data.
 
 Although an infinite number of transformations could be tried, it is best to focus on commonly used transformations such as the ones listed below:
 
-The **square-root transformation** ($y^{1/2} = \sqrt{y}$) is commonly used when the response variable represents counts, such as a count of the number of observed species. Square-root transformations are also very useful when the variances are proportional to the means.
+The **square-root transformation** ($\scriptstyle y^{1/2} = \sqrt{y}$) is commonly used when the response variable represents counts, such as a count of the number of observed species. Square-root transformations are also very useful when the variances are proportional to the means.
 
-The **log transformation** is often used when the data represent size or weight measurements. In addition, it is useful when the standard deviations are proportional to the means. A common logarithm is based on the number 10 and written $\log_{10}(x)$. This log is defined as $\log_{10}(10^x) = x$. The natural logarithm, $\ln(x)$, is based on the number $e = 2.71828$, so $\ln(e^x) = x$. For statistical tests, it makes no difference whether you use log base 10 ($\log_{10}$) or natural logs ($\ln$), because they differ only by a constant factor. The log base 10 of a number equals 2.303 times the natural log of the number. Log transformations are often preferred over other transformations because the results tend to be easier to interpret.
+The **log transformation** is often used when the data represent size or weight measurements. In addition, it is useful when the standard deviations are proportional to the means. A common logarithm is based on the number 10 and written $\scriptstyle \log_{10}(x)$. This log is defined as $\scriptstyle \log_{10}(10^x) = x$. The natural logarithm, $\scriptstyle \ln(x)$, is based on the number $\scriptstyle e = 2.71828$, so $\scriptstyle \ln(e^x) = x$. For statistical tests, it makes no difference whether you use log base 10 ($\scriptstyle \log_{10}$) or natural logs ($\scriptstyle \ln$), because they differ only by a constant factor. The log base 10 of a number equals 2.303 times the natural log of the number. Log transformations are often preferred over other transformations because the results tend to be easier to interpret.
 
-The **reciprocal transformation** ($y^{-1} = 1/y$) is often useful when the data represent waiting times, such as time until death or time until a battery fails. If most responses are relatively close to zero but a few responses are larger, this transformation will reduce the effect of large response values.
+The **reciprocal transformation** ($\scriptstyle y^{-1} = 1/y$) is often useful when the data represent waiting times, such as time until death or time until a battery fails. If most responses are relatively close to zero but a few responses are larger, this transformation will reduce the effect of large response values.
 
-The **arcsine transformation** ($\sin^{-1}(\sqrt{y})$) and **logit transformation** ($\log[y/(1-y)]$) are useful when measurements are proportions between 0 and 1. The arcsine transformation is often difficult to interpret and cannot be subjected to back transformation (described in the next section) to produce an informative interpretation. The logit function can be usefully interpreted and will be discussed in much more detail in Chapter 7.
+The **arcsine transformation** ($\scriptstyle \sin^{-1}(\sqrt{y})$) and **logit transformation** ($\scriptstyle \log[y/(1-y)]$) are useful when measurements are proportions between 0 and 1. The arcsine transformation is often difficult to interpret and cannot be subjected to back transformation (described in the next section) to produce an informative interpretation. The logit function can be usefully interpreted and will be discussed in much more detail in Chapter 7.
 
-### Activity: Transforming Emissions Data {-}
+### \textcolor{blue}{Practice:} Transforming Emissions Data {-}
 
 Data set: `Emission`
 
@@ -630,13 +628,13 @@ Data set: `Emission`
 
 a. Create individual value plots or side-by-side boxplots of Emission versus Year. Compare the mean and standard deviation of each group. Do the data within each group look consistent with data from a normal population?  
 
-b. Transform the response by taking the log of Emission. Create individual value plots or side-by-side boxplots of $\log(\text{Emission})$ versus Year. Compare the plot of the transformed data to the plot in Part A. Which plot shows data that better fit the model assumptions?  
+b. Transform the response by taking the log of Emission. Create individual value plots or side-by-side boxplots of $\scriptstyle \log(\text{Emission})$ versus Year. Compare the plot of the transformed data to the plot in Part A. Which plot shows data that better fit the model assumptions?  
 
-c. Calculate an ANOVA table, F-test, and $p$-value to determine if the average log(Emission) varies based on Year. Note that the end-of-chapter exercises and Section 2.9 show that ANOVA can compare more than two groups. In this question, $I = 5$ groups instead of 2 groups. However, the model and calculations are identical except that now $i = 1, 2, 3, 4, 5$ instead of $i = 1, 2$. The null hypothesis is $H_0\!:\! \mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5$ versus the alternative $H_a\!:\!$ at least one group mean is different from another.  
+c. Calculate an ANOVA table, F-test, and $\scriptstyle p$-value to determine if the average log(Emission) varies based on Year. Note that the end-of-chapter exercises and Section 2.9 show that ANOVA can compare more than two groups. In this question, $\scriptstyle I = 5$ groups instead of 2 groups. However, the model and calculations are identical except that now $\scriptstyle i = 1, 2, 3, 4, 5$ instead of $\scriptstyle i = 1, 2$. The null hypothesis is $\scriptstyle H_0\!:\! \mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5$ versus the alternative $\scriptstyle H_a\!:\!$ at least one group mean is different from another.  
 
 d. Create residual plots to evaluate whether the model assumptions for the F-test are violated. 
 
-Notice that although the log transformation was helpful, the data still have outliers. In addition, the equal variance and normality assumptions are still slightly violated. Some statisticians would consider the log-transformed data appropriate for the standard ANOVA. Others would try another transformation, such as taking the log of the transformed data again; this is called a log log transformation. Still others would suggest using a nonparametric test. (Nonparametric tests, such as the Kruskal-Wallis test, are described in Chapter 1.) Nonparametric tests do not require error terms to follow the normal distribution. While any of these analyses would be appropriate, it would not be appropriate to conduct several analyses on the same data and then report only the conclusions corresponding to the test that gave the smallest $p$-value. For example, if we tried three or four hypothesis tests each with an $\alpha$-level = 0.10 and then simply picked the test with the smallest $p$-value, our chances of incorrectly rejecting the null hypothesis would actually be greater than 10%.
+Notice that although the log transformation was helpful, the data still have outliers. In addition, the equal variance and normality assumptions are still slightly violated. Some statisticians would consider the log-transformed data appropriate for the standard ANOVA. Others would try another transformation, such as taking the log of the transformed data again; this is called a log log transformation. Still others would suggest using a nonparametric test. (Nonparametric tests, such as the Kruskal-Wallis test, are described in Chapter 1.) Nonparametric tests do not require error terms to follow the normal distribution. While any of these analyses would be appropriate, it would not be appropriate to conduct several analyses on the same data and then report only the conclusions corresponding to the test that gave the smallest $\scriptstyle p$-value. For example, if we tried three or four hypothesis tests each with an $\scriptstyle \alpha$-level = 0.10 and then simply picked the test with the smallest $\scriptstyle p$-value, our chances of incorrectly rejecting the null hypothesis would actually be greater than 10%.
 
 If there are very clear outliers, if data are skewed, or if the subgroup variances are clearly different, a transformation applied to the response variable may help the data fit the ANOVA model assumption. When the normality or equal variance assumption does not hold, the one-way ANOVA F-test still tends to be a fairly accurate method if there are equal sample sizes. The F-statistic is much less reliable when there are unbalanced sample sizes and one or more subgroups have a much larger variance than others.$^3$
 
@@ -644,16 +642,16 @@ If there are very clear outliers, if data are skewed, or if the subgroup varianc
 
 Transformations are not simply a way of playing around with the data until you get the answer you want. It is important to recognize that there is no reason to believe that the original scale used for the measurements is better than other scales. For example, in testing for differences in lengths, should it matter if the original data were collected in meters or in feet? One scale is not better than the other; we transform data simply so that it is easier for our audience to interpret. Some scales, such as pH levels,^[pH is a measure of how acidic or how basic (alkaline) a solution is. It is measured as the negative logarithm (base 10) of the molar concentration of dissolved hydronium ions.] are always presented using a logarithmic scale.
 
-For testing for differences between groups, the $p$-values of transformed data are reliable as long as model assumptions are satisfied. However, other statistical results, such as confidence intervals or the slope coefficient, are typically best understood in the original units. Thus, it is often desirable to back transform the results. **Back transformations** do the opposite of the mathematical function used in the original data transformation. For example, if the natural log transformation was used, a back transformation is conducted by taking the exponent of the number. Unfortunately, it can be very difficult to interpret some statistical results in either the transformed or the back-transformed scale.
+For testing for differences between groups, the $\scriptstyle p$-values of transformed data are reliable as long as model assumptions are satisfied. However, other statistical results, such as confidence intervals or the slope coefficient, are typically best understood in the original units. Thus, it is often desirable to back transform the results. **Back transformations** do the opposite of the mathematical function used in the original data transformation. For example, if the natural log transformation was used, a back transformation is conducted by taking the exponent of the number. Unfortunately, it can be very difficult to interpret some statistical results in either the transformed or the back-transformed scale.
 
-Consider conducting a t-test for the difference between the mean car emissions for the pre-63 and the 70–71 groups in Question 31. The standard deviation of the pre-63 group, 592, is more than double that of the 70–71 subgroup, 287.9. We will again assume equal variances in our t-test, but even if a different t-test were chosen, there would be clear evidence of nonnormality. Taking the natural log of Emission addresses the nonnormality problem and also makes the standard deviations very similar. The standard deviation is 0.57 for the transformed pre-63 group and is 0.678 for the transformed 70–71 group. The two-sided hypothesis test gives a $p$-value of 0.001, which provides strong evidence that there is a difference between group means. This test is valid since the model assumptions are met.
+Consider conducting a t-test for the difference between the mean car emissions for the pre-63 and the 70–71 groups in Question 31. The standard deviation of the pre-63 group, 592, is more than double that of the 70–71 subgroup, 287.9. We will again assume equal variances in our t-test, but even if a different t-test were chosen, there would be clear evidence of nonnormality. Taking the natural log of Emission addresses the nonnormality problem and also makes the standard deviations very similar. The standard deviation is 0.57 for the transformed pre-63 group and is 0.678 for the transformed 70–71 group. The two-sided hypothesis test gives a $\scriptstyle p$-value of 0.001, which provides strong evidence that there is a difference between group means. This test is valid since the model assumptions are met.
 
-The 95% confidence interval for the transformed data is ($-1.434$, $-0.411$). However, this transformed confidence interval is not easy to interpret in terms of actual car emissions. The back-transformed confidence interval is
-$$(e^{-1.434}, e^{-0.411}) = (0.238, 0.663)$$
+The 95% confidence interval for the transformed data is ($\scriptstyle -1.434$, $\scriptstyle -0.411$). However, this transformed confidence interval is not easy to interpret in terms of actual car emissions. The back-transformed confidence interval is
+$\scriptstyle (e^{-1.434},\  e^{-0.411}) \ =\  (0.238,\  0.663)$
 
 Note that the confidence limits are no longer symmetrical. In addition, this confidence interval no longer is interpreted as the difference between two means, but now represents the confidence interval for the ratio between the two means. The end-of-chapter exercises provide additional examples of interpreting results on the transformed scale (and back-transformed scale).
 
->**CAUTION**  The back-transformed data do not have the same meaning as the original raw data. For two log-transformed means, $\ln(\bar{y}_1) - \ln(\bar{y}_2) = \ln(\bar{y}_1/\bar{y}_2)$. Thus, back transforming the data ($e^{\ln(\bar{y}_1/\bar{y}_2)} = \bar{y}_1/\bar{y}_2$) results in the ratio of the two means. Results of back transformations based on the square-root, reciprocal, and arcsine transformations often have no practical interpretation.
+>**CAUTION**  The back-transformed data do not have the same meaning as the original raw data. For two log-transformed means, $\scriptstyle \ln(\bar{y}_1) - \ln(\bar{y}_2) = \ln(\bar{y}_1/\bar{y}_2)$. Thus, back transforming the data ($\scriptstyle e^{\ln(\bar{y}_1/\bar{y}_2)} = \bar{y}_1/\bar{y}_2$) results in the ratio of the two means. Results of back transformations based on the square-root, reciprocal, and arcsine transformations often have no practical interpretation.
 
 \textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{It can be difficult to properly interpret slope coefficients or confidence intervals using either transformed or back-transformed data. Hypothesis tests for differences between groups do not need to be back transformed.}
 
@@ -662,15 +660,15 @@ Note that the confidence limits are no longer symmetrical. In addition, this con
 
 As with ANOVA, there are many situations in regression in which data are skewed, outliers exist, or the variability of the residuals tends to depend on the explanatory variable. Graphing the residuals is often the best way to identify the appropriate transformations. If the statistical model is correct, then no clear patterns (such as a strong curve or fan shape) should be seen in the plots. When there is no clear pattern in the residual plots, it is safe to assume that no statistical model based on the same explanatory variable will be a better fit for the data.
 
-### Activity: Transforming Brain and Body Weight Data {-}
+### \textcolor{blue}{Practice:} Transforming Brain and Body Weight Data {-}
 
 Data set: `Weight`
 
-32. The Weight data set contains the brain weights ($y$) and body weights ($x$) of 32 species.  
+32. The Weight data set contains the brain weights ($\scriptstyle y$) and body weights ($\scriptstyle x$) of 32 species.  
 
-a. Create a scatterplot of $y$ versus $x$ with a regression line ($\hat{y} = b_0 + b_1x$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\hat{y}$), and either a normal probability plot or a histogram of the residuals.  
+a. Create a scatterplot of $\scriptstyle y$ versus $\scriptstyle x$ with a regression line ($\scriptstyle \hat{y} = b_0 + b_1x$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\scriptstyle \hat{y}$), and either a normal probability plot or a histogram of the residuals.  
 
-b. Try various transformations of the explanatory and response variables to create a better linear regression model. Hint: Notice that since both the $x$ and the $y$ variable are right skewed and have outliers, both may need a transformation.
+b. Try various transformations of the explanatory and response variables to create a better linear regression model. Hint: Notice that since both the $\scriptstyle x$ and the $\scriptstyle y$ variable are right skewed and have outliers, both may need a transformation.
 
 ### Choosing the Right Transformation {-}
 
@@ -683,9 +681,9 @@ Mosteller and Tukey introduced the ladder of powers and the bulging rule as a wa
 \cdots, y^{-2}, y^{-1}, y^{-1/2}, \log(y), y^{1/2}, y, y^2, \cdots
 \]
 
-Notice that $\log(y)$ replaces the transformation $y^0 = 1$, since setting everything to a constant value is not useful. Exponents greater than one will cause the function to increase at a faster rate. Exponents less than one (and the log) will cause the function to bend downward. The curves become progressively steeper (sharper) as the exponent moves away from one.
+Notice that $\scriptstyle \log(y)$ replaces the transformation $\scriptstyle y^0 = 1$, since setting everything to a constant value is not useful. Exponents greater than one will cause the function to increase at a faster rate. Exponents less than one (and the log) will cause the function to bend downward. The curves become progressively steeper (sharper) as the exponent moves away from one.
 
-The bulging rule provides a visual method for determining appropriate transformations. Figure 2.6 shows four different curves (bulges) and indicates which powers of $y$ and $x$ would likely straighten the line. For example, the upper left quadrant of Figure 2.6 shows a curve that tends to become more linear if $y$ is transformed to a power greater than one (such as $y^2$ or $y^3$) and $x$ is transformed to a power less than one (such as $\sqrt{x}$, $\log(x)$, or $x^{-1}$).
+The bulging rule provides a visual method for determining appropriate transformations. Figure 2.6 shows four different curves (bulges) and indicates which powers of $\scriptstyle y$ and $\scriptstyle x$ would likely straighten the line. For example, the upper left quadrant of Figure 2.6 shows a curve that tends to become more linear if $\scriptstyle y$ is transformed to a power greater than one (such as $\scriptstyle y^2$ or $\scriptstyle y^3$) and $\scriptstyle x$ is transformed to a power less than one (such as $\scriptstyle \sqrt{x}$, $\scriptstyle \log(x)$, or $\scriptstyle x^{-1}$).
 
 ```{r fig6, echo=FALSE, out.height = "3.5in", fig.align="center", fig.cap="Bulge rule showing appropriate transformations to linearize curved data."}
 knitr::include_graphics("docs/Fig2_6.png")
@@ -700,27 +698,27 @@ Performing a transformation to control problems with unequal variances can incre
 
 Often there are no appropriate transformations that will satisfy all the model assumptions. Future chapters discuss more advanced techniques that can be used to allow for nonnormal residuals and for nonlinear relationships.
 
-### Activity: Comparing Four $(x, y)$ Data Sets {-}
+### \textcolor{blue}{Practice:} Comparing Four $\scriptstyle (x, y)$ Data Sets {-}
 
 Data set: `RegrTrans`
 
 33. Do the following for each of the four data sets:  
 
-a. Create a scatterplot of $y$ versus $x$ with a regression line ($\hat{y} = b_0 + b_1 x$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\hat{y}$), and either a normal probability plot or a histogram of the residuals.  
+a. Create a scatterplot of $\scriptstyle y$ versus $\scriptstyle x$ with a regression line ($\scriptstyle \hat{y} = b_0 + b_1 x$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\scriptstyle \hat{y}$), and either a normal probability plot or a histogram of the residuals.  
 
-b. By hand, sketch on the scatterplot a curve that would fit the data better than the regression line. Notice that the plot of residuals versus the explanatory variable emphasizes the patterns in the residuals much better than does the scatterplot of $y$ versus $x$.  
+b. By hand, sketch on the scatterplot a curve that would fit the data better than the regression line. Notice that the plot of residuals versus the explanatory variable emphasizes the patterns in the residuals much better than does the scatterplot of $\scriptstyle y$ versus $\scriptstyle x$.  
 
 c. Try various transformations of the explanatory and response variables to create a better linear regression model (as validated by graphical analysis of the residuals).
 
-## Calculating Test Statistics
+## \textcolor{blue}{ Calculating Test Statistics}
 
 This section is a rather terse description of the mathematical calculations behind the hypothesis tests and confidence intervals described in this chapter. Most introductory textbooks will dedicate an entire chapter to each of these techniques. The logic behind the calculations for regression and ANOVA will be described in more detail in later chapters of this text.
 
-### The Two-Sample $t$-Test with the Equal Variance Assumption {-}
+### The Two-Sample $\scriptstyle t$-Test with the Equal Variance Assumption {-}
 
-The two-sample $t$-test can be used to test whether two population means are equal. The null hypothesis about the population means ($H_0: \mu_1 = \mu_2$) is rejected if the difference between the sample means, $\bar{y}_1$ and $\bar{y}_2$, is so large that it doesn’t appear reasonable to assume that the groups have the same mean.
+The two-sample $\scriptstyle t$-test can be used to test whether two population means are equal. The null hypothesis about the population means ($\scriptstyle H_0\ mu_1 \ =\  \mu_2$) is rejected if the difference between the sample means, $\scriptstyle \bar{y}_1$ and $\scriptstyle \bar{y}_2$, is so large that it doesn’t appear reasonable to assume that the groups have the same mean.
 
-The test statistic for the two-sample $t$-test is
+The test statistic for the two-sample $\scriptstyle t$-test is
 
 \begin{align} 
 \label{2.7}
@@ -742,21 +740,21 @@ s_2 &= \sqrt{\frac{1}{n_2 - 1}\sum_{j=1}^{n_2}(y_{2,j} - \bar{y}_{2.})^2}
 \notag
 \end{align}
 
-The difference in population means $(\mu_1 - \mu_2)$ is not known, but comes from the statement of the null hypothesis: $\mu_1 - \mu_2 = 0$ (or, equivalently, $\mu_1 = \mu_2$). Thus, the test statistic is simply a ratio of the distance between the two sample means to a measure of variation.
+The difference in population means $\scriptstyle (\mu_1 - \mu_2)$ is not known, but comes from the statement of the null hypothesis: $\scriptstyle \mu_1 - \mu_2 = 0$ (or, equivalently, $\scriptstyle \mu_1 = \mu_2$). Thus, the test statistic is simply a ratio of the distance between the two sample means to a measure of variation.
 
-The **pooled standard deviation** (denoted $s_p$) uses a weighted average of the two sample variances in order to estimate the size of the variation in a typical random error term (i.e., $\sigma$, the common standard deviation for the two populations).
+The **pooled standard deviation** (denoted $\scriptstyle s_p$) uses a weighted average of the two sample variances in order to estimate the size of the variation in a typical random error term (i.e., $\scriptstyle \sigma$, the common standard deviation for the two populations).
 
-Probability theory can be used to prove that if the model assumptions are true, the $t$-statistic in Equation 2.7 follows a $t$-distribution with $(n_1 + n_2 - 2)$ degrees of freedom. If the $t$-statistic is large, the difference between the two means is large compared to the pooled standard deviation. We will reject the null hypothesis that the two means are equal ($H_0$: $\mu_1 = \mu_2$) in favor of $H_a$: $\mu_1 \ne \mu_2$ if the $t$-statistic is so large that it is unlikely to occur when $\mu_1 = \mu_2$. A large $t$-statistic corresponds to a small enough $p$-value, which is found with software or in a $t$-table.
+Probability theory can be used to prove that if the model assumptions are true, the $\scriptstyle t$-statistic in Equation 2.7 follows a $\scriptstyle t$-distribution with $\scriptstyle (n_1 + n_2 - 2)$ degrees of freedom. If the $\scriptstyle t$-statistic is large, the difference between the two means is large compared to the pooled standard deviation. We will reject the null hypothesis that the two means are equal ($\scriptstyle H_0$:\  $\mu_1 \ =\  \mu_2$) in favor of $\scriptstyle H_a$:\  $\mu_1 \ \ne\  \mu_2$ if the $\scriptstyle t$-statistic is so large that it is unlikely to occur when $\scriptstyle \mu_1 = \mu_2$. A large $\scriptstyle t$-statistic corresponds to a small enough $\scriptstyle p$-value, which is found with software or in a $\scriptstyle t$-table.
 
-### Activity: Calculating the Two-Sample t-Test {-}
+### \textcolor{blue}{Practice:} Calculating the Two-Sample t-Test {-}
 
 Data set: `Games1`
 
-34. Use Equation 2.7 to calculate the test statistic ($t$) by hand (i.e., without statistical software) for the computer game study. Use software or a $t$-table with $(n_1 + n_2 - 2)$ degrees of freedom to find the $p$-value.
+34. Use Equation 2.7 to calculate the test statistic ($\scriptstyle t$) by hand (i.e., without statistical software) for the computer game study. Use software or a $\scriptstyle t$-table with $\scriptstyle (n_1 + n_2 - 2)$ degrees of freedom to find the $\scriptstyle p$-value.
 
 ### Regression {-}
 
-Introductory statistics textbooks describe how least squares techniques can be used to calculate the following statistics to estimate $\beta_0$ and $\beta_1$:
+Introductory statistics textbooks describe how least squares techniques can be used to calculate the following statistics to estimate $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$:
 
 \begin{align} 
 \label{2.8}
@@ -765,7 +763,7 @@ b_0 = \hat{\beta}_0 = \frac{\sum y_i - b_1 \sum x_i}{n}
 \tag{2.8}
 \end{align}
 
-where $n = n_1 + n_2$. In most introductory statistics texts, Equations 2.8 for the slope and intercept are simplified to
+where $\scriptstyle n = n_1 + n_2$. In most introductory statistics texts, Equations 2.8 for the slope and intercept are simplified to
 
 \begin{align}
 b_1 = r \frac{s_y}{s_x}
@@ -780,7 +778,7 @@ where the sample correlation coefficient is
 r = \frac{1}{n - 1} \sum_{i=1}^{n} \left(\frac{y_i - \bar{y}}{s_y}\right) \left(\frac{x_i - \bar{x}}{s_x}\right)
 \]
 
-To test the null hypothesis $H_0\!:\! \beta_1 = 0$ versus $H_a\!:\! \beta_1 \ne 0$, it can be shown that the $t$-statistic for the slope coefficient is
+To test the null hypothesis $\scriptstyle H_0\:\  \beta_1 \ = \ 0$ versus $\scriptstyle H_a:\ \ \beta_1 \ \ne \ 0$, it can be shown that the $\scriptstyle t$-statistic for the slope coefficient is
 
 \begin{align} 
 \label{2.9}
@@ -788,27 +786,27 @@ t = \frac{b_1 - \beta_1}{\hat{\sigma} \sqrt{1 / \sum_{i=1}^{n}(x_i - \bar{x})^2}
 \tag{2.9}
 \end{align}
 
-Notice that $\hat{\sigma}$ is an estimate of the standard deviation of the random errors. If the sample statistic $b_1$ is far away from $\beta_1 = 0$ relative to the size of the estimated standard deviation, $\hat{\sigma}$, then the $t$-statistic will be large and the corresponding $p$-value will be small.
+Notice that $\scriptstyle \hat{\sigma}$ is an estimate of the standard deviation of the random errors. If the sample statistic $\scriptstyle b_1$ is far away from $\scriptstyle \beta_1 = 0$ relative to the size of the estimated standard deviation, $\scriptstyle \hat{\sigma}$, then the $\scriptstyle t$-statistic will be large and the corresponding $\scriptstyle p$-value will be small.
 
-Probability theory can be used to prove that if the regression model assumptions are true, the $t$-statistic in Equation 2.9 follows a $t$-distribution with $n - 2 = n_1 + n_2 - 2$ degrees of freedom.
+Probability theory can be used to prove that if the regression model assumptions are true, the $\scriptstyle t$-statistic in Equation 2.9 follows a $\scriptstyle t$-distribution with $\scriptstyle n - 2 = n_1 + n_2 - 2$ degrees of freedom.
 
-### Activity: Testing the Slope Coefficient {-}
+### \textcolor{blue}{Practice:} Testing the Slope Coefficient {-}
 
 Data set: `Games1`
 
-35. Without statistical software, use summary statistics and Equation 2.9 to calculate the test statistic under the null hypothesis that $\beta_1 = 0$. Use software or a $t$-table with $n - 2 = n_1 + n_2 - 2$ degrees of freedom to find the $p$-value.
+35. Without statistical software, use summary statistics and Equation 2.9 to calculate the test statistic under the null hypothesis that $\scriptstyle \beta_1 = 0$. Use software or a $\scriptstyle t$-table with $\scriptstyle n - 2 = n_1 + n_2 - 2$ degrees of freedom to find the $\scriptstyle p$-value.
 
-36. Compare the test statistic and $p$-values in Questions 34 and 35.
+36. Compare the test statistic and $\scriptstyle p$-values in Questions 34 and 35.
 
 ### Analysis of Variance (ANOVA) {-}
 
-Several calculations will be made to test the hypothesis $H_0\!:\! \mu_1 = \mu_2$ in ANOVA, but again the test statistic is a ratio of the spread between group sample means to the variability in the residuals.
+Several calculations will be made to test the hypothesis $\scriptstyle H_0:\  \mu_1 \ =\  \mu_2$ in ANOVA, but again the test statistic is a ratio of the spread between group sample means to the variability in the residuals.
 
-If indeed $\mu_1 = \mu_2$ (i.e., $H_0\!:\! \alpha_1 = \alpha_2 = 0$ is true), then we would expect the variation between the level means to be relatively small compared to the variability in the error terms. If the group means are relatively far apart, the $F$-statistic will be large and we will reject $H_0\!:\! \mu_1 = \mu_2$ in favor of $H_a\!:\! \mu_1 \ne \mu_2$. While the logic is similar to that for the other tests described in this chapter, the test statistic for ANOVA, the $F$-statistic, requires many more calculations, as shown below.
+If indeed $\scriptstyle \mu_1 = \mu_2$ (i.e., $\scriptstyle H_0\:\  \alpha_1 \ =\  \alpha_2 = 0$ is true), then we would expect the variation between the level means to be relatively small compared to the variability in the error terms. If the group means are relatively far apart, the $\scriptstyle F$-statistic will be large and we will reject $\scriptstyle H_0:\  \mu_1 \   \mu_2$ in favor of $\scriptstyle H_a:\ mu_1 \ \ne \ \mu_2$. While the logic is similar to that for the other tests described in this chapter, the test statistic for ANOVA, the $\scriptstyle F$-statistic, requires many more calculations, as shown below.
 
-**Sums of squares (SS)** are measures of spread, calculated in an ANOVA table like the one you saw in the software output for Questions 23 through 25. The three sums of squares calculated for the ANOVA table for the computer game study are described below.
+**Sums of squares ($\scriptstyle SS$)** are measures of spread, calculated in an ANOVA table like the one you saw in the software output for Questions 23 through 25. The three sums of squares calculated for the ANOVA table for the computer game study are described below.
 
-**Group sum of squares ($SS_{\text{Group}}$)** measures the difference between group means (also called level means). Group sum of squares represents the variability we want in the model. For the computer game, $SS_{\text{Group}}$ measures the spread between the two game type means, but ANOVA can be extended to more than just two groups.
+**Group sum of squares ($\scriptstyle SS_{\text{Group}}$)** measures the difference between group means (also called level means). Group sum of squares represents the variability we want in the model. For the computer game, $SS_{\text{Group}}$ measures the spread between the two game type means, but ANOVA can be extended to more than just two groups.
 
 
 \begin{equation}
@@ -825,10 +823,10 @@ SS_{\text{Group}} & = \sum (\text{each level effect})^2
 \tag{2.10}
 \end{equation}
 
-Recall that $I$ is the number of groups, the $i$th level mean is denoted as $\bar{y}_{i.}$, the grand mean is denoted as $\bar{y}_{..}$, and the corresponding level effect is $\hat{\alpha}_i = \bar{y}_{i.} - \bar{y}_{..}$.
+Recall that $\scriptstyle I$ is the number of groups, the $\scriptstyle i$th level mean is denoted as $\scriptstyle \bar{y}_{i.}$, the grand mean is denoted as $\scriptstyle \bar{y}_{..}$, and the corresponding level effect is $\scriptstyle \hat{\alpha}_i = \bar{y}_{i.} - \bar{y}_{..}$.
 
 
-**Error sum of squares ($SS_{\text{Error}}$)** measures the spread of the observed residuals. Recall that each residual is defined as an observed value minus the estimated mean response: $\hat{e}_{i,j} = y_{i,j} - \bar{y}_{i.}$. In any ANOVA model with one explanatory variable, the mean response is the level average.
+**Error sum of squares ($\scriptstyle SS_{\text{Error}}$)** measures the spread of the observed residuals. Recall that each residual is defined as an observed value minus the estimated mean response: $\scriptstyle \hat{e}_{i,j} = y_{i,j} - \bar{y}_{i.}$. In any ANOVA model with one explanatory variable, the mean response is the level average.
 
 \begin{equation}
 \label{2_11}
@@ -844,7 +842,7 @@ SS_{\text{Error}} & = \sum (\text{each residual effect})^2
 \tag{2.11}
 \end{equation}
 
-**Total sum of squares ($SS_{\text{Total}}$)** measures the overall spread of the responses in the full data set.
+**Total sum of squares ($\scriptstyle SS_{\text{Total}}$)** measures the overall spread of the responses in the full data set.
 
 \begin{equation}
 \label{2_12}
@@ -857,11 +855,11 @@ SS_{\text{Total}} &= \sum (\text{distance between each observation and the grand
 \tag{2.12}
 \end{equation}
 
-Here, $s^2$ is the overall sample variance and $n = \sum_{i=1}^{I} n_i =$ total sample size.
+Here, $\scriptstyle s^2$ is the overall sample variance and $\scriptstyle n = \sum_{i=1}^{I} n_i =$ total sample size.
 
-It can be shown that $SS_{\text{Total}} = SS_{\text{Group}} + SS_{\text{Error}}$. While the specific formula for $SS_{\text{Error}}$ is provided above, it is most easily calculated by subtracting $SS_{\text{Group}}$ from $SS_{\text{Total}}$.
+It can be shown that $\scriptstyle SS_{\text{Total}} = SS_{\text{Group}} + SS_{\text{Error}}$. While the specific formula for $\scriptstyle SS_{\text{Error}}$ is provided above, it is most easily calculated by subtracting $\scriptstyle SS_{\text{Group}}$ from $\scriptstyle SS_{\text{Total}}$.
 
-**Degrees of freedom (df)** for each sum of squares are calculated based on how many "free" pieces of information are summed. In this example, there are two levels of the game type factor. We can show that the weighted Type effects must sum to 0 ($n_1 \hat{\alpha}_1 + n_2 \hat{\alpha}_2 = 0$). This implies that knowing the color distracter game effect automatically forces a known effect for the standard game. Thus, $SS_{\text{Group}}$ has only $I - 1 = 2 - 1 = 1$ df. $SS_{\text{Total}}$, like the usual one-sample variance, has $n - 1 = 40 - 1 = 39$ df. It can also be shown that 
+**Degrees of freedom (df)** for each sum of squares are calculated based on how many "free" pieces of information are summed. In this example, there are two levels of the game type factor. We can show that the weighted Type effects must sum to 0 ($\scriptstyle n_1 \hat{\alpha}_1 + n_2 \hat{\alpha}_2 = 0$). This implies that knowing the color distracter game effect automatically forces a known effect for the standard game. Thus, $\scriptstyle SS_{\text{Group}}$ has only $\scriptstyle I - 1 = 2 - 1 = 1$ df. $\scriptstyle SS_{\text{Total}}$, like the usual one-sample variance, has $\scriptstyle n - 1 = 40 - 1 = 39$ df. It can also be shown that 
 
 \begin{equation}
 df_{\text{Total}} = df_{\text{Type}} + df_{\text{Error}}.
@@ -879,16 +877,16 @@ df_{\text{Error}}
 &= 38.
 \end{align*}
 
-**Mean squares** (MS) are measures of “average” spread and are calculated by dividing a sum of squares
+**Mean squares** ($\scriptstyle MS$) are measures of “average” spread and are calculated by dividing a sum of squares
 (SS) by its associated degrees of freedom (df).
 
-**Group Mean squares ($MS_{\text{Group}}$)** equals $SS_{\text{Group}}/df_{\text{Group}}$. $MS_{\text{Group}}$ is a measure of variability between the levels of each factor and is often called **between-level variability**. It is actually just the variance of the level means.
+**Group Mean squares ($\scriptstyle MS_{\text{Group}}$)** equals $SS_{\text{Group}}/df_{\text{Group}}$. $\scriptstyle MS_{\text{Group}}$ is a measure of variability between the levels of each factor and is often called **between-level variability**. It is actually just the variance of the level means.
 
-**Mean square error (MSE)** equals $SS_{\text{Error}}/df_{\text{Error}}$. MSE is a pooled measure of the variability within each level, or the **within-level variability**. Remember that the variance is assumed to be the same for the responses within each level of the factor: $\sigma_1^2 = \sigma_2^2 = \sigma^2$. When $I = 2$, MSE is identical to the pooled variance ($s_p^2$) used in the two-sample $t$-statistic in Equation 2.7.
+**Mean square error (MSE)** equals $\scriptstyle SS_{\text{Error}}/df_{\text{Error}}$. MSE is a pooled measure of the variability within each level, or the **within-level variability**. Remember that the variance is assumed to be the same for the responses within each level of the factor: $\scriptstyle \sigma_1^2 = \sigma_2^2 = \sigma^2$. When $\scriptstyle I = 2$, MSE is identical to the pooled variance ($\scriptstyle s_p^2$) used in the two-sample $\scriptstyle t$-statistic in Equation 2.7.
 
-If $MS_{\text{Group}}$ is much larger than MSE, it is reasonable to conclude that there truly is a difference between level means and the difference we observed in our study was not simply due to chance variation (random error).
+If $\scriptstyle MS_{\text{Group}}$ is much larger than MSE, it is reasonable to conclude that there truly is a difference between level means and the difference we observed in our study was not simply due to chance variation (random error).
 
-The $F$-statistic ($MS_{\text{Group}}$/MSE) is a ratio of the between-level variability to the within-level variability. If indeed $\mu_1 = \mu_2$ (i.e., $H_0\!:\! \alpha_1 = \alpha_2 = 0$ is true), then we would expect the variation between the level means in our sample data to be about the same as the typical variation within levels and the $F$-statistic would be close to one. Larger values of the $F$-statistic would imply that the level means were farther apart than chance error alone could explain. These calculations are often summarized in an **ANOVA table**, as shown in Table 2.1.
+The $\scriptstyle F$-statistic ($\scriptstyle MS_{\text{Group}}$/MSE) is a ratio of the between-level variability to the within-level variability. If indeed $\scriptstyle \mu_1 = \mu_2$ (i.e., $\scriptstyle H_0:\  \alpha_1 \ =\  \alpha_2 \ =\  0$ is true), then we would expect the variation between the level means in our sample data to be about the same as the typical variation within levels and the $\scriptstyle F$-statistic would be close to one. Larger values of the $\scriptstyle F$-statistic would imply that the level means were farther apart than chance error alone could explain. These calculations are often summarized in an **ANOVA table**, as shown in Table 2.1.
 
 
 ```{r tab2, echo=FALSE, results='asis'}
@@ -926,37 +924,37 @@ cat(
 )
 ```
 
-Probability theory can be used to prove that if the model assumptions are true, the $F$-statistic follows an $F$-distribution with $df_{\text{Group}}$ and $df_{\text{Error}}$ degrees of freedom. The $p$-value gives the likelihood of observing an $F$-statistic at least this extreme (at least this large), assuming that the population means of the two game types are equal. Thus, when the $p$-value is small (e.g., less than 0.05 or 0.01), the effect size of the type of game is conventionally determined to be statistically significant.
+Probability theory can be used to prove that if the model assumptions are true, the $\scriptstyle F$-statistic follows an $\scriptstyle F$-distribution with $\scriptstyle df_{\text{Group}}$ and $\scriptstyle df_{\text{Error}}$ degrees of freedom. The $\scriptstyle p$-value gives the likelihood of observing an $\scriptstyle F$-statistic at least this extreme (at least this large), assuming that the population means of the two game types are equal. Thus, when the $\scriptstyle p$-value is small (e.g., less than 0.05 or 0.01), the effect size of the type of game is conventionally determined to be statistically significant.
 
-### Activity: Calculating an ANOVA Table {-}
+### \textcolor{blue}{Practice:} Calculating an ANOVA Table {-}
 
 Data set: `Games1`
 
-37. Use $n_1$, $n_2$, $\bar{y}_1$, $\bar{y}_2$, $\bar{y}_{..}$, $s_1$, and $s_2$ to calculate $SS_{\text{Type}}$ (i.e., $SS_{\text{Group}}$), $SS_{\text{Error}}$, $MS_{\text{Type}}$, and MSE for the computer game study.   Since the group for the computer game study is game type (the Type variable in the data set), we will use the more descriptive labels $MS_{\text{Type}}$, $SS_{\text{Type}}$, and $df_{\text{Type}}$ instead of $MS_{\text{Group}}$, $SS_{\text{Group}}$, and $df_{\text{Group}}$. This is common practice and is similar to how statistical software reports results based on variable names.
+37. Use $\scriptstyle n_1$, $\scriptstyle n_2$, $\scriptstyle \bar{y}_1$, $\scriptstyle \bar{y}_2$, $\scriptstyle \bar{y}_{..}$, $\scriptstyle s_1$, and $\scriptstyle s_2$ to calculate $\scriptstyle SS_{\text{Type}}$ (i.e., $\scriptstyle SS_{\text{Group}}$), $\scriptstyle SS_{\text{Error}}$, $\scriptstyle MS_{\text{Type}}$, and MSE for the computer game study.   Since the group for the computer game study is game type (the Type variable in the data set), we will use the more descriptive labels $\scriptstyle MS_{\text{Type}}$, $\scriptstyle SS_{\text{Type}}$, and $\scriptstyle df_{\text{Type}}$ instead of $\scriptstyle MS_{\text{Group}}$, $\scriptstyle SS_{\text{Group}}$, and $\scriptstyle df_{\text{Group}}$. This is common practice and is similar to how statistical software reports results based on variable names.
 
-38. Calculate the overall variance of the completion times in the entire data set and use it to find the total sum of squares ($SS_{\text{Total}}$) for the computer game study. Confirm that $SS_{\text{Total}} = SS_{\text{Type}} + SS_{\text{Error}}$ for the computer game study.
+38. Calculate the overall variance of the completion times in the entire data set and use it to find the total sum of squares ($\scriptstyle SS_{\text{Total}}$) for the computer game study. Confirm that $\scriptstyle SS_{\text{Total}} = SS_{\text{Type}} + SS_{\text{Error}}$ for the computer game study.
 
-39. Calculate the $F$-statistic and use software or an $F$-distribution table with $df_{\text{Type}}$ and $df_{\text{Error}}$ degrees of freedom to find the $p$-value.
+39. Calculate the $\scriptstyle F$-statistic and use software or an $\scriptstyle F$-distribution table with $\scriptstyle df_{\text{Type}}$ and $\scriptstyle df_{\text{Error}}$ degrees of freedom to find the $\scriptstyle p$-value.
 
-## Confidence Intervals
+## \textcolor{blue}{ Confidence Intervals}
 
 In previous sections, hypothesis tests were used with sample data to assess the evidence for a claim about a population. They were used to determine if there was evidence to support the claim that the two population means were different. An alternative approach is to use confidence intervals to create an interval estimate of a population parameter (such as the difference between two population means) and provide a level of confidence in the interval estimate.
 
 Each confidence interval discussed in this chapter has the following form:
 
-estimate $\pm$ critical value $\times$ standard error of the estimate
+estimate $\scriptstyle \pm$ critical value $\scriptstyle \times$ standard error of the estimate
 
-**The estimate** is a sample statistic used to estimate the population parameter. In the computer game study, a confidence interval for the population mean $\mu_1$ would have an estimate of $\bar{y}_1$. A confidence interval for $\mu_1 - \mu_2$ is estimated by $\bar{y}_1 - \bar{y}_2$.
+**The estimate** is a sample statistic used to estimate the population parameter. In the computer game study, a confidence interval for the population mean $\scriptstyle \mu_1$ would have an estimate of $\scriptstyle \bar{y}_1$. A confidence interval for $\scriptstyle \mu_1 - \mu_2$ is estimated by $\scriptstyle \bar{y}_1 - \bar{y}_2$.
 
 A **confidence level** is the probability that the true parameter value will be captured by the confidence interval. In other words, a 95% confidence level ensures that the method used to calculate the confidence interval will successfully contain the true parameter value 95% of the time.
 
-The **critical value** is a value from a distribution that is used to provide a confidence level for the interval. The critical values used for the two-sample $t$-test and regression are based on the $t$-distribution. The same model assumptions are used in both hypothesis tests and confidence intervals. Thus, the same distribution and degrees of freedom are used in the hypothesis test and confidence interval.
+The **critical value** is a value from a distribution that is used to provide a confidence level for the interval. The critical values used for the two-sample $\scriptstyle t$-test and regression are based on the $\scriptstyle t$-distribution. The same model assumptions are used in both hypothesis tests and confidence intervals. Thus, the same distribution and degrees of freedom are used in the hypothesis test and confidence interval.
 
-For the game study, a $t$-distribution with 38 degrees of freedom is used. The critical value $t^*_{38}$ for a particular confidence level $C$ is chosen so that $C$\% of the area under the $t$-distribution is between $-t^*_{38}$ and $t^*_{38}$. For example, for a 95% confidence level ($C = 95$), $t^*_{38} = 2.02$, since 95% of the area under a $t$-distribution with 38 df is between $-2.02$ and $2.02$.
+For the game study, a $\scriptstyle t$-distribution with 38 degrees of freedom is used. The critical value $\scriptstyle t^*_{38}$ for a particular confidence level $\scriptstyle C$ is chosen so that $\scriptstyle C$\% of the area under the $\scriptstyle t$-distribution is between $\scriptstyle -t^*_{38}$ and $\scriptstyle t^*_{38}$. For example, for a 95% confidence level ($\scriptstyle C = 95$), $\scriptstyle t^*_{38} = 2.02$, since 95% of the area under a $\scriptstyle t$-distribution with 38 df is between $\scriptstyle -2.02$ and $\scriptstyle 2.02$.
 
-If the confidence level were chosen to be 99% ($C = 99$), the confidence interval would be wider than before. A wider interval would have a higher probability of capturing the true mean. The critical value for a 99% confidence interval for the game study is $t^*_{38} = 2.71$.
+If the confidence level were chosen to be 99% ($\scriptstyle C = 99$), the confidence interval would be wider than before. A wider interval would have a higher probability of capturing the true mean. The critical value for a 99% confidence interval for the game study is $\scriptstyle t^*_{38} = 2.71$.
 
-The **standard error of the estimate** is a measure of the variability of the statistic. For example, a 95% confidence interval for $\mu_1$ is
+The **standard error of the estimate** is a measure of the variability of the statistic. For example, a 95% confidence interval for $\scriptstyle \mu_1$ is
 
 \[
 \bar{y}_1 \pm t^*_{19} \times \hat{\sigma}_{\bar{y}_1}
@@ -970,7 +968,7 @@ The **standard error of the estimate** is a measure of the variability of the st
 (36.39, 39.81)
 \]
 
-A 95% confidence interval for $\mu_1 - \mu_2$ is
+A 95% confidence interval for $\scriptstyle \mu_1 - \mu_2$ is
 
 \[
 \bar{y}_1 - \bar{y}_2 \pm t^*_{38} \times \hat{\sigma}_{\bar{y}_1 - \bar{y}_2}
@@ -984,26 +982,26 @@ A 95% confidence interval for $\mu_1 - \mu_2$ is
 
 Note that the “standard error of the estimate” in the confidence interval is identical to the denominator in the test statistic for the corresponding hypothesis test.
 
-### Activity: Calculating a Confidence Interval for the Regression Coefficient {-}
+### \textcolor{blue}{Practice:} Calculating a Confidence Interval for the Regression Coefficient {-}
 
 Data set: `Games1`
 
-40. Note that the “standard error of the estimate” in the confidence interval is identical to the denominator in the test statistic for the corresponding hypothesis test. Use this information to *write out the formula* for a 95% confidence interval for $\beta_1$. Use the output from the corresponding $t$-test to find the estimate, the critical value, and the standard error of the regression coefficient. Use this information to calculate a 95% confidence interval for $\beta_1$.
+40. Note that the “standard error of the estimate” in the confidence interval is identical to the denominator in the test statistic for the corresponding hypothesis test. Use this information to *write out the formula* for a 95% confidence interval for $\scriptstyle \beta_1$. Use the output from the corresponding $\scriptstyle t$-test to find the estimate, the critical value, and the standard error of the regression coefficient. Use this information to calculate a 95% confidence interval for $\scriptstyle \beta_1$.
 
->**MATHEMATICAL NOTE**  The $F$-distribution used in ANOVA is not a symmetric distribution and all values are positive. Confidence intervals for the difference between two means are not calculated with an $F$-distribution. Note that the MSE in ANOVA $= s_p$ from the two-sample $t$-test and the square root of the critical value $\sqrt{F_{1,38}} = t^*_{38}$.
+>**MATHEMATICAL NOTE**  The $\scriptstyle F$-distribution used in ANOVA is not a symmetric distribution and all values are positive. Confidence intervals for the difference between two means are not calculated with an $\scriptstyle F$-distribution. Note that the MSE in ANOVA $\scriptstyle = s_p$ from the two-sample $\scriptstyle t$-test and the square root of the critical value $\scriptstyle \sqrt{F_{1,38}} = t^*_{38}$.
 
-\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{Statistics based on sample data are estimates of population parameters. A confidence interval allows us to calculate an interval that has probability $C$ (often $C=95\%$) of containing the true population parameter.}
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{Statistics based on sample data are estimates of population parameters. A confidence interval allows us to calculate an interval that has probability $\scriptstyle C$ (often $\scriptstyle C=95\%$) of containing the true population parameter.}
 
 
-## Chapter Summary
+## \textcolor{blue}{ Chapter Summary}
 
-When there is only one explanatory variable (factor) with two levels, a $t$-test is typically used to analyze the data. While this chapter has shown that ANOVA or regression analysis techniques provide equivalent results in this setting, they are typically used with different study designs.
+When there is only one explanatory variable (factor) with two levels, a $\scriptstyle t$-test is typically used to analyze the data. While this chapter has shown that ANOVA or regression analysis techniques provide equivalent results in this setting, they are typically used with different study designs.
 
-The tests used in ANOVA and regression are developed under the assumption that the variances of each group are equal, while a two-sample $t$-test could be used without this assumption. Two-sample $t$-tests are limited to comparing two groups, while ANOVA and regression techniques are often used to analyze data sets with multiple explanatory variables, each having many levels. All three techniques are used when the response variable is quantitative.
+The tests used in ANOVA and regression are developed under the assumption that the variances of each group are equal, while a two-sample $\scriptstyle t$-test could be used without this assumption. Two-sample $\scriptstyle t$-tests are limited to comparing two groups, while ANOVA and regression techniques are often used to analyze data sets with multiple explanatory variables, each having many levels. All three techniques are used when the response variable is quantitative.
 
-While the $t$-test for $\beta_1$ is appropriate, the scatterplot and regression line created in Question 15 show that a regression model does not accurately describe the data. For example, it would be meaningless to predict the expected completion time when $x = 0.5$. Simple linear regression models are typically used when the explanatory variables are quantitative.
+While the $\scriptstyle t$-test for $\scriptstyle \beta_1$ is appropriate, the scatterplot and regression line created in Question 15 show that a regression model does not accurately describe the data. For example, it would be meaningless to predict the expected completion time when $\scriptstyle x = 0.5$. Simple linear regression models are typically used when the explanatory variables are quantitative.
 
-Throughout this chapter, you were asked to evaluate **residual plots** to determine whether the model assumptions were met. When model assumptions are not met, the test statistics do not follow the corresponding $t$-distribution or $F$-distribution. Thus, the $p$-values may not be correct. No conclusions should be drawn from any statistical test without checking the appropriate assumptions.
+Throughout this chapter, you were asked to evaluate **residual plots** to determine whether the model assumptions were met. When model assumptions are not met, the test statistics do not follow the corresponding $\scriptstyle t$-distribution or $\scriptstyle F$-distribution. Thus, the $\scriptstyle p$-values may not be correct. No conclusions should be drawn from any statistical test without checking the appropriate assumptions.
 
 The statistical model and corresponding hypothesis tests assume there are **no extraneous variables** that are biasing the study. Since it is typically impossible to identify all possible sources of bias during a study, **random sampling** and **random allocation** should be used.
 
@@ -1051,15 +1049,15 @@ If the model assumptions are violated, **transformations** can often be used to 
 
 \begin{enumerate}
   \setcounter{enumi}{40}
-  \item Assume you are conducting a $t$-test to determine if there is a difference between two means. You have the following summary statistics: $\bar{x}_1 = 10$, $\bar{x}_2 = 20$, and $s_1 = s_2 = 10$. Without completing the hypothesis tests, explain why $n_1 = n_2 = 100$ would result in a smaller $p$-value than $n_1 = n_2 = 16$.
+  \item Assume you are conducting a $\scriptstyle t$-test to determine if there is a difference between two means. You have the following summary statistics: $\scriptstyle \bar{x}_1 = 10$, $\scriptstyle \bar{x}_2 = 20$, and $\scriptstyle s_1 = s_2 = 10$. Without completing the hypothesis tests, explain why $\scriptstyle n_1 = n_2 = 100$ would result in a smaller $\scriptstyle p$-value than $\scriptstyle n_1 = n_2 = 16$.
 
-  \item If the test $H_0\colon \beta_1 = 0$ versus $H_a\colon \beta_1 \ne 0$ results in a small $p$-value, can we be confident that the regression model provides a good estimate of the response value for a given value of $x_i$? Provide an explanation for your answer.
+  \item If the test $\scriptstyle H_0:\  \beta_1 = 0$ versus $\scriptstyle H_a:\  \beta_1 \ne 0$ results in a small $\scriptstyle p$-value, can we be confident that the regression model provides a good estimate of the response value for a given value of $\scriptstyle x_i$? Provide an explanation for your answer.
 
-  \item What model assumptions (if any) need to be satisfied in order to calculate $b_0$ and $b_1$ in a simple linear regression model?
+  \item What model assumptions (if any) need to be satisfied in order to calculate $\scriptstyle b_0$ and $\scriptstyle b_1$ in a simple linear regression model?
 
-  \item Explain why the model $y_i = \beta_0 + \beta_1 x_i$ is not appropriate, but $\hat{y}_i = b_0 + b_1 x_i$ is appropriate.
+  \item Explain why the model $\scriptstyle y_i = \beta_0 + \beta_1 x_i$ is not appropriate, but $\scriptstyle \hat{y}_i = b_0 + b_1 x_i$ is appropriate.
 
-  \item When there are only two levels (with equal sample sizes) being compared in an $F$-test, explain why $\alpha_1 = -\alpha_2$.
+  \item When there are only two levels (with equal sample sizes) being compared in an $\scriptstyle F$-test, explain why $\scriptstyle \alpha_1 = -\alpha_2$.
 
   \item \textbf{Computer Games Again: Extending One-Way ANOVA to More Than Two Levels}
 
@@ -1069,7 +1067,8 @@ Assume that in the computer game study researchers were also interested in testi
 
  \begin{enumerate}
       \item Graph the data and compare the center and spread of the completion times for each of the four groups listed under Type2. Does any group have outliers or skewed data?
-      \item Conduct an ANOVA with one explanatory variable that has the four levels listed under Type2. Notice that this data set has $I = 4$ groups instead of 2 groups. However, the model and calculations are identical except that now $i = 1, 2, 3, 4$ instead of $i = 1, 2$ and now each group has a sample size of $n_i = 10$. The null hypothesis is $H_0\colon \mu_1 = \mu_2 = \mu_3 = \mu_4$ versus the alternative $H_a\colon$ at least one mean is different from another. Does the ANOVA show that a significant difference exists between group means?
+      \item Conduct an ANOVA with one explanatory variable that has the four levels listed under Type2. Notice that this data set has $\scriptstyle I = 4$ groups instead of 2 groups. However, the model and calculations are identical except that now $\scriptstyle i = 1, 2, 3, 4$ instead of $\scriptstyle i = 1, 2$ and now each group has a sample size of $\scriptstyle n_i = 10$. The null hypothesis is $\scriptstyle H_0:\  \mu_1 
+       =\  \mu_2 \ =\  \mu_3 \ = \ \mu_4$ versus the alternative $\scriptstyle H_a:$ at least one mean is different from another. Does the ANOVA show that a significant difference exists between group means?
       \item Create residual plots. Are the model assumptions satisfied?
       \item Are there any extraneous variables that might bias the results?
       \item Assuming that the data for this game were collected in the same way as the \texttt{Game1} data, state your conclusions. Be sure to address random sampling and random allocation.
@@ -1098,9 +1097,9 @@ The file \texttt{PaperTowel} shows the breaking \texttt{Strength} of each towel.
   \begin{enumerate}
     \item For this paper towel study, identify the explanatory variable, the observational units (experimental units or subjects), and the response variable. Write out (in words and symbols) appropriate null and alternative hypotheses.
       \item Graph the data and compare the center and spread of the breaking strength of each of the three brands. Does any group have outliers or skewed data?
-      \item Conduct an ANOVA. The null hypothesis is $H_0\colon \mu_1 = \mu_2 = \mu_3$ versus the alternative $H_a\colon$ at least one mean is different from another. Does the ANOVA show that a significant difference exists between brands?
-      \item Show that the equal variance assumption is violated in this study. Instead of using Strength as the response variable, use the natural log of Strength to conduct an ANOVA. The null hypothesis is still stated as $H_0\colon \mu_1 = \mu_2 = \mu_3$ versus the alternative $H_a\colon$ at least one mean is different from another. Does the ANOVA show that a significant difference exists between brands?
-      \item Compare residual plots and the group standard deviations from the Strength and ln(Strength) $F$-tests. Which test should be used to state your conclusions? Explain.
+      \item Conduct an ANOVA. The null hypothesis is $\scriptstyle H_0:\  \mu_1 \ =\  \mu_2 = \mu_3$ versus the alternative $\scriptstyle H_a\colon$ at least one mean is different from another. Does the ANOVA show that a significant difference exists between brands?
+      \item Show that the equal variance assumption is violated in this study. Instead of using Strength as the response variable, use the natural log of Strength to conduct an ANOVA. The null hypothesis is still stated as $\scriptstyle H_0:\  \mu_1 \ =\  \mu_2 \ =\  \mu_3$ versus the alternative $\scriptstyle H_a:$ at least one mean is different from another. Does the ANOVA show that a significant difference exists between brands?
+      \item Compare residual plots and the group standard deviations from the Strength and ln(Strength) $\scriptstyle F$-tests. Which test should be used to state your conclusions? Explain.
       \item Assume the students purchased one roll of Bounty paper towels and randomly selected 26 sheets from that one roll. The same holds true for other brands. What is the population for which the results of this study can hold?
       \item Assume the students randomly purchased 26 rolls of Bounty paper towels from various stores and randomly selected one sheet from each roll. The same holds true for other brands. What is the population for which the results of this study can hold?
     \end{enumerate}
@@ -1115,7 +1114,7 @@ Dr. Spock’s defense counsel collected data on the percentages of women in veni
 
   \begin{enumerate}
     \item Graph the data and compare the center and spread of the percentages of women in the venires of each group (Judge). Does any group have outliers or skewed data?
-      \item Conduct an ANOVA with one explanatory variable and seven levels (judge). Notice that this data set now has groups with different sample sizes (i.e., $n_1 \ne n_2 \ne n_3$, etc.). The null hypothesis is $H_0\colon \mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5 = \mu_6 = \mu_7$ versus the alternative $H_a\colon$ at least one mean is different from another. Does the ANOVA show that a significant difference exists between group means?
+      \item Conduct an ANOVA with one explanatory variable and seven levels (judge). Notice that this data set now has groups with different sample sizes (i.e., $\scriptstyle n_1 \ne n_2 \ne n_3$, etc.). The null hypothesis is $\scriptstyle H_0\colon \mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5 = \mu_6 = \mu_7$ versus the alternative $\scriptstyle H_a\colon$ at least one mean is different from another. Does the ANOVA show that a significant difference exists between group means?
       \item Dr. Spock’s defense counsel collected the data. What questions would you ask the defense about the data collection process before you were convinced that the data could be used in court?
       \item Assuming the data were properly collected, prepare a short statement advising the defense attorney whether the results of this study should be presented in court. If you suggest that the defense should use these results, provide an explanation of how these results are helpful. If you suggest that the defense should not use these results, provide an explanation of how these results are detrimental to the defense. It will be helpful to include a graph with a clear interpretation.
     \end{enumerate}
@@ -1139,17 +1138,17 @@ Data set: \texttt{Games1}
 
   \begin{enumerate}
     \item Create a normal probability plot and histogram of the residuals from the \texttt{Games1} data (Question 26) and comment on the normality assumption for the random error term.
-      \item Create a normal probability plot or a histogram of the observed responses (completion times $y_i$, where $i = 1, 2, \ldots, n$) from the computer game study.
+      \item Create a normal probability plot or a histogram of the observed responses (completion times $\scriptstyle y_i$, where $\scriptstyle i = 1, 2, \ldots, n$) from the computer game study.
       \item Explain why residuals should be used instead of the observed responses to test the normality assumption.
     \end{enumerate}
 
   \item \textbf{Comparing Normal Probability Plots}
 
   \begin{enumerate}
-    \item Use software to draw five random samples, each of size $n = 25$, from an actual normal probability distribution with mean 0 and standard deviation 1. Create a normal probability plot and histogram for each “sample.”
-      \item Use software to draw five random samples, each of size $n = 50$, from an actual normal probability distribution with mean 0 and standard deviation 1. Create a normal probability plot and histogram for each “sample.”
+    \item Use software to draw five random samples, each of size $\scriptstyle n = 25$, from an actual normal probability distribution with mean 0 and standard deviation 1. Create a normal probability plot and histogram for each “sample.”
+      \item Use software to draw five random samples, each of size $\scriptstyle n = 50$, from an actual normal probability distribution with mean 0 and standard deviation 1. Create a normal probability plot and histogram for each “sample.”
       \item Describe how changing sample size impacts our ability to determine if a sample is truly from a normal distribution.
-      \item Use software to draw six random samples, each of size $n = 50$, from an actual normal probability distribution. Use means of $-20$ and $15$ and standard deviations of $0.1$, $3$, and $300$. Create a normal probability plot and histogram for each “sample.” Explain why the mean and standard deviation of a population do not impact the normal probability plots.
+      \item Use software to draw six random samples, each of size $\scriptstyle n = 50$, from an actual normal probability distribution. Use means of $\scriptstyle -20$ and $\scriptstyle 15$ and standard deviations of $\scriptstyle 0.1$, $\scriptstyle 3$, and $\scriptstyle 300$. Create a normal probability plot and histogram for each “sample.” Explain why the mean and standard deviation of a population do not impact the normal probability plots.
     \end{enumerate}
 
   \item \textbf{Transforming ANOVA Data}
@@ -1163,7 +1162,7 @@ The data set \texttt{Hodgkins} contains plasma bradykininogen levels (in microgr
       \item Calculate the ANOVA model estimates in order to create a normal probability plot of the residuals. Do the error terms look consistent with data from a normal population?
       \item Transform the data by taking the log of the response. Create individual value plots or side-by-side boxplots of the transformed responses. Compare the mean and standard deviation of each group. Do the transformed data within each group look consistent with data from a normal population?
       \item Calculate the ANOVA model estimates using the transformed data in order to create a normal probability plot of the residuals. Do the error terms look consistent with data from a normal population? You may have to try out more than one transformation before you are satisfied with your answer to this part and Part C.
-      \item Using the transformed data, calculate an ANOVA table, $F$-test, and $p$-value to determine if the three patient types differed in their mean bradykininogen levels.
+      \item Using the transformed data, calculate an ANOVA table, $\scriptstyle F$-test, and $\scriptstyle p$-value to determine if the three patient types differed in their mean bradykininogen levels.
     \end{enumerate}
 
   \item \textbf{Transformations in Regression}
@@ -1173,7 +1172,7 @@ Data set: \texttt{Weight}
 In addition to brain weights and body weights, the \texttt{Weight} data set contains information on lifespan, gestation, and hours of sleep per day.
 
   \begin{enumerate}
-    \item Create a scatterplot of lifespan versus body weight with a regression line ($\hat{y}_i = b_0 + b_1 x_i$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\hat{y}_i$), and either a normal probability plot or a histogram of the residuals.
+    \item Create a scatterplot of lifespan versus body weight with a regression line ($\scriptstyle \hat{y}_i = b_0 + b_1 x_i$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\scriptstyle \hat{y}_i$), and either a normal probability plot or a histogram of the residuals.
       \item Try various transformations of the explanatory and response variables to create a better linear regression model.
       \item Repeat Parts A and B using gestation as the response variable.
       \item Repeat Parts A and B using sleep per day as the response variable.
@@ -1184,12 +1183,12 @@ In addition to brain weights and body weights, the \texttt{Weight} data set cont
 Data set: \texttt{Games2}
 
   \begin{enumerate}
-    \item Conduct a $t$-test to determine if there is a difference in mean completion time between ColorLeft and StandardLeft. Report the $p$-value and your conclusions based on an individual $\alpha$-level = 0.05.
-      \item Conduct a $t$-test to determine if there is a difference in mean completion time between ColorLeft and ColorRight. Report the $p$-value and your conclusions based on an individual $\alpha$-level = 0.05.
-      \item Conduct a $t$-test to determine if there is a difference in mean completion time between ColorRight and StandardLeft. Report the $p$-value and your conclusions based on an individual $\alpha$-level = 0.05.
-      \item List three other $t$-tests that could test for differences in mean completion time for different levels of Type2. In other words, what combinations of ColorRight, StandardRight, ColorLeft, and StandardLeft have not yet been tested?
-      \item Assume all six hypothesis tests were compared. If each of these tests are independent and each of the tests used an $\alpha$-level = 0.05, what is the true probability that at least one of the tests would inappropriately reject the null hypothesis?
-      \item What is the individual critical value if you use the Bonferroni method with an overall (familywise) $\alpha$-level = 0.10. Do any of your previous conclusions in Parts A through C change if you test for an overall (familywise) comparison? Explain.
+    \item Conduct a $\scriptstyle t$-test to determine if there is a difference in mean completion time between ColorLeft and StandardLeft. Report the $\scriptstyle p$-value and your conclusions based on an individual $\scriptstyle \alpha$-level = 0.05.
+      \item Conduct a $\scriptstyle t$-test to determine if there is a difference in mean completion time between ColorLeft and ColorRight. Report the $\scriptstyle p$-value and your conclusions based on an individual $\scriptstyle \alpha$-level = 0.05.
+      \item Conduct a $\scriptstyle t$-test to determine if there is a difference in mean completion time between ColorRight and StandardLeft. Report the $\scriptstyle p$-value and your conclusions based on an individual $\scriptstyle \alpha$-level = 0.05.
+      \item List three other $\scriptstyle t$-tests that could test for differences in mean completion time for different levels of Type2. In other words, what combinations of ColorRight, StandardRight, ColorLeft, and StandardLeft have not yet been tested?
+      \item Assume all six hypothesis tests were compared. If each of these tests are independent and each of the tests used an $\scriptstyle \alpha$-level = 0.05, what is the true probability that at least one of the tests would inappropriately reject the null hypothesis?
+      \item What is the individual critical value if you use the Bonferroni method with an overall (familywise) $\scriptstyle \alpha$-level = 0.10. Do any of your previous conclusions in Parts A through C change if you test for an overall (familywise) comparison? Explain.
     \end{enumerate}
 
   \item \textbf{Interpreting Back Transformations}
@@ -1199,13 +1198,13 @@ Data set: \texttt{Skinfold}\textsuperscript{7}
 Celiac disease results in an inability to absorb carbohydrates and fats. Crohn’s disease is another chronic intestinal disease in which the body’s immune system attacks the intestines. Both Crohn’s disease and celiac disease often result in malnutrition or impaired growth in children. A skinfold thickness measurement is a simple technique assessing body fat percentages by pinching the skin near the biceps and then using a calipers to measure the skin thickness.
 
   \begin{enumerate}
-    \item Transform the original data into $\sqrt{\text{Thickness}}$, $\ln(\text{Thickness})$, $\log_{10}(\text{Thickness})$, and the reciprocal ($1/\text{Thickness}$). For each transformation, conduct two-sample $t$-tests for differences between the mean of the Crohn’s disease and celiac disease groups. Create a table with $p$-values and confidence intervals for the difference between the two means.
-      \item Back transform the confidence intervals in Part A. For example, square the upper and lower bounds of the confidence interval created from the $\sqrt{\text{Thickness}}$ data. Conduct the appropriate back transformation on the other three confidence intervals as well. Create a table of the four back-transformed confidence intervals. What do these back-transformed confidence intervals tell you?
+    \item Transform the original data into $\scriptstyle \sqrt{\text{Thickness}}$, $\scriptstyle \ln(\text{Thickness})$, $\scriptstyle \log_{10}(\text{Thickness})$, and the reciprocal ($\scriptstyle 1/\text{Thickness}$). For each transformation, conduct two-sample $\scriptstyle t$-tests for differences between the mean of the Crohn’s disease and celiac disease groups. Create a table with $\scriptstyle p$-values and confidence intervals for the difference between the two means.
+      \item Back transform the confidence intervals in Part A. For example, square the upper and lower bounds of the confidence interval created from the $\scriptstyle \sqrt{\text{Thickness}}$ data. Conduct the appropriate back transformation on the other three confidence intervals as well. Create a table of the four back-transformed confidence intervals. What do these back-transformed confidence intervals tell you?
     \end{enumerate}
 
-Confidence limits for the difference between means often cannot be transformed back to the original scale. When reciprocal transformations have very small bounds, the back transformation provides unreasonably large bounds. For example, a skinfold transformation of $1/0.022 = 45.5$ mm is not realistic. In addition, if the lower bound of a confidence interval is negative when the square-root transformation is used, back transforming the results (by squaring the bounds) will result in a confidence interval that does not contain zero. Thus, there are not reasonable practical interpretations of the back-transformed scales.
+Confidence limits for the difference between means often cannot be transformed back to the original scale. When reciprocal transformations have very small bounds, the back transformation provides unreasonably large bounds. For example, a skinfold transformation of $\scriptstyle 1/0.022 = 45.5$ mm is not realistic. In addition, if the lower bound of a confidence interval is negative when the square-root transformation is used, back transforming the results (by squaring the bounds) will result in a confidence interval that does not contain zero. Thus, there are not reasonable practical interpretations of the back-transformed scales.
 
-The log (this includes the natural log and $\log_{10}$) is often preferable over other transformations because the back transformation has a practical interpretation. The $\log_{10}$ back-transformed confidence interval (0.89, 2.03) provides results that can be interpreted, but not in the original units (millimeters). Notice that the confidence interval does not contain zero, but the results are not significant. Recall from your introductory statistics class that if a two-sided confidence interval contains zero, we fail to reject the null hypothesis for the corresponding two-sided hypothesis test. This is a 95\% confidence interval for the ratio of the means. Thus, a value of one represents no difference between group means.
+The log (this includes the natural log and $\scriptstyle \log_{10}$) is often preferable over other transformations because the back transformation has a practical interpretation. The $\scriptstyle \log_{10}$ back-transformed confidence interval (0.89, 2.03) provides results that can be interpreted, but not in the original units (millimeters). Notice that the confidence interval does not contain zero, but the results are not significant. Recall from your introductory statistics class that if a two-sided confidence interval contains zero, we fail to reject the null hypothesis for the corresponding two-sided hypothesis test. This is a 95\% confidence interval for the ratio of the means. Thus, a value of one represents no difference between group means.
 
   \item \textbf{Helicopters Again: Building Polynomial Regression Models}
 
@@ -1225,14 +1224,14 @@ knitr::include_graphics("docs/Fig2_8.png")
 
   \begin{enumerate}
     \item Using the \texttt{WingLength2} data set, try several transformations of either the response or the explanatory variable to see if you can alleviate the problem of nonlinearity.
-      \item It is likely that you cannot successfully find a transformation to solve the nonlinearity problem. A closer look at the residuals (Figure 2.8) helps to explain why. The residuals from the regression follow a somewhat sinusoidal pattern: down, then up, then down again. This is a pattern that is seen in a typical third-degree polynomial ($y = a x^3 + b x^2 + c x + d$). To create the appropriate regression model, we will introduce a new method called \textit{polynomial regression} (instead of simple linear regression). In polynomial regression, we can fit the model
+      \item It is likely that you cannot successfully find a transformation to solve the nonlinearity problem. A closer look at the residuals (Figure 2.8) helps to explain why. The residuals from the regression follow a somewhat sinusoidal pattern: down, then up, then down again. This is a pattern that is seen in a typical third-degree polynomial ($\scriptstyle y = a x^3 + b x^2 + c x + d$). To create the appropriate regression model, we will introduce a new method called \textit{polynomial regression} (instead of simple linear regression). In polynomial regression, we can fit the model
       \[ \label{2.10}
         y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \beta_3 x_i^3 + \varepsilon_i \qquad \text{for } i = 1, 2, \ldots, n \text{ where } \varepsilon_i \sim N(0, \sigma^2)
         \tag{2.10}
       \]
-      Using statistical computing software, fit the model in Equation 2.10 and report estimates for $\beta_0, \beta_1, \beta_2,$ and $\beta_3$.
-      \item Look at a plot of the residuals from the polynomial regression versus the predicted values ($\hat{y}_i = b_0 + b_1 x_i + b_2 x_i^2 + b_3 x_i^3$) and a normal probability plot of the residuals and comment on the validity of the regression model assumptions for these data.
-      \item Given your answer to Part B and the fact that estimated flight times are considered to be a smooth (polynomial) function of wing length according to the relationship $\hat{y}_i = b_0 + b_1 x_i + b_2 x_i^2 + b_3 x_i^3$, estimate the optimal wing length that will lead to maximum flight time. \textit{Note:} Use calculus or visual inspection to identify a maximum that occurs within a reasonable range of wing lengths.
+      Using statistical computing software, fit the model in Equation 2.10 and report estimates for $\scriptstyle \beta_0, \beta_1, \beta_2,$ and $\scriptstyle \beta_3$.
+      \item Look at a plot of the residuals from the polynomial regression versus the predicted values ($\scriptstyle \hat{y}_i = b_0 + b_1 x_i + b_2 x_i^2 + b_3 x_i^3$) and a normal probability plot of the residuals and comment on the validity of the regression model assumptions for these data.
+      \item Given your answer to Part B and the fact that estimated flight times are considered to be a smooth (polynomial) function of wing length according to the relationship $\scriptstyle \hat{y}_i = b_0 + b_1 x_i + b_2 x_i^2 + b_3 x_i^3$, estimate the optimal wing length that will lead to maximum flight time. \textit{Note:} Use calculus or visual inspection to identify a maximum that occurs within a reasonable range of wing lengths.
     \end{enumerate}
 
 Polynomial regression allows us to create a function relating the explanatory and response variables, and this can be useful for predicting responses for levels of the explanatory variable that were not actually measured as a part of the experiment. Of course, we should take care not to predict responses for levels of the explanatory variable that are quite far from those used in the experiment. The regression model may not extend past the domain we were able to analyze.
