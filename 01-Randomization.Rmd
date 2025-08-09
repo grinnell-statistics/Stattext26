@@ -27,6 +27,8 @@ library(plotly)
 \end{flushright}
 
 
+
+
 Randomization tests, permutation tests, and bootstrap methods are quickly gaining in popularity as methods for conduct statistical inference. Why? These nonparametric methods require fewer assumptions and provide results that are often more accurate than those from traditional techniques using well-known distributions (such as the normal, t, or F distribution). These methods are based on computer simulations instead of distributional assumptions and thus are particularly useful when the sample data are skewed or if the sample size is small. In addition, nonparametric methods can be extended to other parameters of interest, such as the median or  standard deviation, while the well known parametric methods described in introductory statistics courses are often restricted to just inference for the population mean. 
 
 We begin this chapter by comparing two treatments for a potentially deadly disease called Schistosomiasis (shis-tuh-soh-mahy-uh-sis). We illustrate the basic concepts behind nonparametric methods by using randomization tests to:
@@ -107,7 +109,8 @@ ggplot(long_data, aes(x = Gender, y = Number, fill = Type, shape = Type)) +
     stackdir = "center",
     stackgroups = TRUE,
     binpositions = "all",
-    position = position_dodge(width = 0.8),
+    position = position_dodge(width = 0.6),
+    dotsize = 1.5,
     binwidth = 1
   ) +
   labs(
@@ -140,7 +143,7 @@ The descriptive analysis in Questions 1 and 2 points to a positive treatment eff
 Most introductory statistics courses focus on hypothesis tests that involve using a normal, t-, chi-square or F-distribution to calculate the $p$-value. These tests are often based on the central limit theorem. In the schistosomiasis study, there are only five observations in each group. This is a much smaller sample size than is recommended for the central limit theorem, especially given that Figure 1.1 indicates that the data may not be normally distributed. Since we cannot be confident that the sample averages are normally distributed, we will use a distribution-free test, also called a nonparametric test. Such tests do not require
 the distribution of our sample statistic to have any specific form and are often useful in studies with very small sample sizes.
 
->**MATHMATICAL NOTE**  For any population with mean $\mu$ and finite standard deviation $\sigma$, the **central limit theorem** states that the sample mean $\bar{x}$ from an independent and identically distributed sample tends to follow the normal distribution if the sample size is large enough. The mean of \(\small \bar{x}\) is the same as the population mean, \(\small \mu\), while the standard deviation of x is \(\small \sigma / \sqrt{n}\), where {\small $n$} is the sample size.
+>**MATHMATICAL NOTE**  For any population with mean $\scriptstyle \mu$ and finite standard deviation $\scriptstyle \sigma$, the **central limit theorem** states that the sample mean $\scriptstyle \bar{x}$ from an independent and identically distributed sample tends to follow the normal distribution if the sample size is large enough. The mean of $\scriptstyle \bar{x}$ is the same as the population mean, $\scriptstyle \mu$, while the standard deviation of x is $\scriptstyle \sigma / \sqrt{n}$, where $n$ is the sample size.
 
 We will use a form of nonparametric statistical inference known as a randomization hypothesis test to analyze the data from the schistosomiasis study. **Randomization hypothesis tests** are significance tests that simulate the random allocation of units to treatments many times in order to determine the likelihood of observing an outcome at least as extreme as the one found in the actual study.
 
@@ -148,7 +151,7 @@ We will use a form of nonparametric statistical inference known as a randomizati
 
 \textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{\textbf{Parametric tests} (such as $z$-tests, $t$-tests, or $F$-tests) assume that data come from a population that follows a probability distribution or use the central limit theorem to make inferences about a population. \textbf{Nonparametric tests} (such as randomization tests) do not require assumptions about the distribution of the population or large sample sizes in order to make inferences about a population.}
 
-We will introduce the basic concepts of randomization tests in a setting where units (mice in this example) are randomly allocated to a treatment or control group. Using a significance test, we will decide if an observed treatment effect (the observed difference between the mean responses in the treatment and control) is “real” or if “random chance alone” could plausibly explain the observed effect. The null hypothesis states that “random chance alone” is the reason for the observed effect. In this initial discussion, the alternative hypothesis will be onesided because we want to show that the true treatment mean ($\mu_{treatment}$) is less than the true control mean ($\mu_{control}$). Later, we will expand the discussion to consider modifications needed to deal with two-sided alternatives.
+We will introduce the basic concepts of randomization tests in a setting where units (mice in this example) are randomly allocated to a treatment or control group. Using a significance test, we will decide if an observed treatment effect (the observed difference between the mean responses in the treatment and control) is “real” or if “random chance alone” could plausibly explain the observed effect. The null hypothesis states that “random chance alone” is the reason for the observed effect. In this initial discussion, the alternative hypothesis will be onesided because we want to show that the true treatment mean ($\scriptstyle \mu_{treatment}$) is less than the true control mean ($\scriptstyle \mu_{control}$). Later, we will expand the discussion to consider modifications needed to deal with two-sided alternatives.
 
 
 
@@ -167,25 +170,25 @@ smaller numbers of worms in the treatment group.
 In this study, the **null hypothesis** is that the treatment has no effect on the average worm count, and it is denoted as
 
 \begin{center}
-$H_0$: $\mu_{control}$ = $\mu_{treatment}$
+$\scriptstyle H_0$: $\scriptstyle \mu_{control}$ = $\scriptstyle \mu_{treatment}$
 \end{center}
 
 Another way to write this null hypothesis is
 
 \begin{center}
-$H_0$: the treatment has no effect on average worm count
+$\scriptstyle H_0$: the treatment has no effect on average worm count
 \end{center}
 
-The research hypothesis (the treatment causes a reduction in the average worm count) is called the **alternative hypothesis** and is denoted $H_a$ (or $H_1$). For example,
+The research hypothesis (the treatment causes a reduction in the average worm count) is called the **alternative hypothesis** and is denoted $\scriptstyle H_a$ (or \(\small H_1\)). For example,
 
 \begin{center}
-$H_a$: $\mu_{\text{control}}$ > $\mu_{\text{treatment}}$
+$\scriptstyle H_a$: $\mu_{\text{control}}$ > $\mu_{\text{treatment}}$
 \end{center}
 
 Another way to write this alternative hypothesis is
 
 \begin{center}
-$H_a$: the treatment reduces the average worm count
+$\scriptstyle H_a$: the treatment reduces the average worm count
 \end{center}
 
 Alternative hypotheses can be “one-sided, greater than” (as in this investigation), “one-sided, less-than” (the treatment causes an increase in worm count), or “two-sided” (the treatment mean is different, in one direction or the other, from the control mean). We chose to test a one-sided hypothesis because there is a clear research interest in one direction. In other words, we will take action (start using the drug) only if we can show that K11777 reduces the worm count.
@@ -670,11 +673,11 @@ Focusing on ranks instead of the actual observed values allows us to remove assu
 
 The following example examines whether pitchers and first basemen who play for National League baseball teams have the same salary distribution. The null and alternative hypotheses are written as,
 
-\begin{center}$H_0$: the distribution of the salaries is the same for pitchers and first basemen
+\begin{center}{\small $\scriptstyle H_0$}: the distribution of the salaries is the same for pitchers and first basemen
 \end{center}
 
 \begin{center}
-$H_a$: the distribution of the salaries is different for pitchers and first basemen
+{\small $\scriptstyle H_a$}: the distribution of the salaries is different for pitchers and first basemen
 \end{center}
 
 Table 1.2 shows the salaries of five pitchers and five first basemen who were randomly selected from all National League baseball players. Table 1.3 ranks each of the players based on 2005 salaries. If two players had exactly the same salary, standard practice is to average the ranks of the tied values.
@@ -748,7 +751,7 @@ and standard deviation$^9$
 
 
 
-If W is far from $\mu_W$, then the Wilcoxon rank sum test rejects the hypothesis that the two populations have identical distributions—that is, rejects $H_0$ (no difference in distribution of salaries) in favor of $H_a$ (salary distributions are different based on position). The $p$-value is the probability of observing a sample statistic, W, at least as extreme as the one in our sample. Since 18 is less than the hypothesized mean, 27.5, the $p$-value for the two-sided test in this example is found by calculating 2 * P(W $\leq$ 18).
+If W is far from $\mu_W$, then the Wilcoxon rank sum test rejects the hypothesis that the two populations have identical distributions—that is, rejects {\small $\scriptstyle H_0$} (no difference in distribution of salaries) in favor of $\scriptstyle H_a$ (salary distributions are different based on position). The $p$-value is the probability of observing a sample statistic, W, at least as extreme as the one in our sample. Since 18 is less than the hypothesized mean, 27.5, the $p$-value for the two-sided test in this example is found by calculating 2 * P(W $\leq$ 18).
 
 
 
@@ -777,8 +780,8 @@ At first it may seem somewhat surprising that first basemen tend to make more th
 The ***Kruskal-Wallis* test** is another popular nonparametric test that is often used to compare two or more independent samples. Like ANOVA, a more common parametric test that will be discussed in later chapters, the Kruskal-Wallis test requires independent random samples from each population. When the data clearly deviate from the normal distribution, the Kruskal-Wallis test will be more likely than a one-way ANOVA to identify true differences in the population. The null and alternative hypotheses for the Kruskal-Wallis test are:
 
 \begin{center}
-$H_0$: the distribution of the response variable is the same for all groups\\
-$H_a$: some responses are systematically higher in some groups than in others
+$\scriptstyle H_0$: the distribution of the response variable is the same for all groups\\
+$\scriptstyle H_a$: some responses are systematically higher in some groups than in others
 \end{center}
 
 ```{r table4}
@@ -840,7 +843,7 @@ Nonparametric tests based on rank are usually less powerful (less likely to reje
 
 In introductory texts, statistical inference is often described in terms of drawing one random sample, performing one significance test, and then stating appropriate conclusions—analysis done, case closed. However, there are many situations where inference is not that simple. Performing multiple statistical tests on the same data set can create several problems.
 
-Using a significance level of $\alpha$ = 0.05 (i.e., rejecting $H_0$ in favor of the alternative when the $p$-value is less than or equal to 0.05) helps to ensure that we won’t make a wrong decision. In other words, one time out of 20 we expect to incorrectly reject the null hypothesis. But what if we want to do 20 or more tests on the same data set? Does this mean that we’re sure to be wrong at least once? And if so, how can we tell which findings are incorrect? The following activities explore how researchers can protect themselves from drawing conclusions from statistical findings that could be the result of random chance.
+Using a significance level of $\alpha$ = 0.05 (i.e., rejecting $\scriptstyle H_0$ in favor of the alternative when the $p$-value is less than or equal to 0.05) helps to ensure that we won’t make a wrong decision. In other words, one time out of 20 we expect to incorrectly reject the null hypothesis. But what if we want to do 20 or more tests on the same data set? Does this mean that we’re sure to be wrong at least once? And if so, how can we tell which findings are incorrect? The following activities explore how researchers can protect themselves from drawing conclusions from statistical findings that could be the result of random chance.
 
 
 
@@ -890,12 +893,12 @@ One technique that is commonly used to address the problem with multiple compari
   \setcounter{enumi}{32}
   \item Repeat Question 30 using the Bonferroni cutoff value of 0.05/3 = 0.016667 instead of $\alpha$ = 0.05. Find the probability that at least one of the tests rejects.
   \item Using all four groups of cars and $\alpha$ = 0.05 (cutoff of 0.05/6), do any of the six tests reject the null hypothesis with the Bonferroni method?
-  \item If there were seven groups, 21 hypothesis tests would be needed to compare all possible pairs. Using $\alpha$ = 0.05 and the Bonferroni’s method (reject $H_0$ if the $p$-value is less than 0.05/21 = 0.00238) what is the probability that at least one of the tests would reject?
+  \item If there were seven groups, 21 hypothesis tests would be needed to compare all possible pairs. Using $\alpha$ = 0.05 and the Bonferroni’s method (reject $\scriptstyle H_0$ if the $p$-value is less than 0.05/21 = 0.00238) what is the probability that at least one of the tests would reject?
 \end{enumerate}
 
 
 
->**MATHMATICAL NOTE** Other terms that are commonly discussed with multiple comparisons are **familywise type I error** and ***comparisonwise type I error**. Bonferroni’s method is an example of a technique that maintains the familywise type I error. With the familywise type I error 0.05, assuming that there really is no difference between any of the K pairs, there is only a 5% chance that any test will reject $H_0$. The least-significant differences method is used to maintain a comparisonwise type I error rate: Assuming that a particular null hypothesis test is true, there is a 5% chance we will (incorrectly) reject that particular hypothesis. Montgomery’s Design and Analysis of Experiments text provides more information on multiple comparisons.[[[$^{11}$]]]
+>**MATHMATICAL NOTE** Other terms that are commonly discussed with multiple comparisons are **familywise type I error** and ***comparisonwise type I error**. Bonferroni’s method is an example of a technique that maintains the familywise type I error. With the familywise type I error 0.05, assuming that there really is no difference between any of the K pairs, there is only a 5% chance that any test will reject $\scriptstyle H_0$. The least-significant differences method is used to maintain a comparisonwise type I error rate: Assuming that a particular null hypothesis test is true, there is a 5% chance we will (incorrectly) reject that particular hypothesis. Montgomery’s Design and Analysis of Experiments text provides more information on multiple comparisons.[[[$^{11}$]]]
 
 
 
@@ -912,7 +915,7 @@ Neither the least-significant differences nor the Bonferroni method is ideal. Ca
 ## Chapter Summary
 This chapter described the basic concepts behind randomization tests, permutation tests, bootstrap methods, and rank-based nonparametric tests. **Parametric tests** (such as z-tests, t-tests or F-tests) assume that data follow a known a probability distribution or use the central limit theorem to make inferences about a population. **Nonparametric tests** do not require assumptions about the distribution of the population or the central limit theorem in order to make inferences about a population.
 
-The **null hypothesis**, denoted $H_0$, states that in a study nothing is creating group differences except the random allocation process. The research hypothesis is called the **alternative hypothesis** and is denoted $H_a$ (or $H_1$). The $p$-value is the likelihood of observing a statistic at least as extreme as the one observed from the sample data when the null hypothesis is true. A threshold value, called a **significance level**, is denoted by the Greek letter alpha ($\alpha$). When a study’s $p$-value is less than or equal to this significance level, we state that the results are **statistically significant at level $\alpha$**. Exact $p$-values are often difficult to calculate, but ***empirical $p$-values** can often be simulated through a randomization or permutation test. The empirical $p$-value will become more precise as the number of randomizations within a simulation study
+The **null hypothesis**, denoted $\scriptstyle H_0$, states that in a study nothing is creating group differences except the random allocation process. The research hypothesis is called the **alternative hypothesis** and is denoted $\scriptstyle H_a$ (or $H_1$). The $p$-value is the likelihood of observing a statistic at least as extreme as the one observed from the sample data when the null hypothesis is true. A threshold value, called a **significance level**, is denoted by the Greek letter alpha ($\alpha$). When a study’s $p$-value is less than or equal to this significance level, we state that the results are **statistically significant at level $\alpha$**. Exact $p$-values are often difficult to calculate, but ***empirical $p$-values** can often be simulated through a randomization or permutation test. The empirical $p$-value will become more precise as the number of randomizations within a simulation study
 increases.
 
 The steps in a **randomization test** are as follows:
