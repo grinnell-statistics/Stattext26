@@ -23,10 +23,10 @@ theme_set(
 
 # Categorical Data Analysis: Is a Tumor Malignant or Benign?
 
-\color{blue}
+
 <span style="float:right;"> *It is commonly believed that anyone who tabulates numbers is a statistician. This is like believing that anyone who owns a scalpel is a surgeon.*</span>  
 <span style="float:right;"> —Robert Hooke1</span>
-\color{black}
+
 
 
 
