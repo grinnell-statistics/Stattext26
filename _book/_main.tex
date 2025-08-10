@@ -78,6 +78,20 @@
 \usepackage[table]{xcolor} 
 
 \usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -5529,8 +5543,11 @@ adapted from p. 2.
 \hypertarget{categorical-data-analysis-is-a-tumor-malignant-or-benign}{%
 \chapter{Categorical Data Analysis: Is a Tumor Malignant or Benign?}\label{categorical-data-analysis-is-a-tumor-malignant-or-benign}}
 
+\color{blue}
+
 { \emph{It is commonly believed that anyone who tabulates numbers is a statistician. This is like believing that anyone who owns a scalpel is a surgeon.}}\\
 { ---Robert Hooke1}
+\color{black}
 
 This chapter introduces inference techniques for data in which both the explanatory and
 response variables are categorical. The term categorical data analysis often refers to
@@ -5554,8 +5571,8 @@ cells. In this chapter, we will discuss how to do the following:
   Determine which test to use based on various sampling schemes and questions of interest
 \end{itemize}
 
-\hypertarget{investigation-is-cell-shape-associated-with-malignancy}{%
-\section{Investigation: Is Cell Shape Associated with Malignancy?}\label{investigation-is-cell-shape-associated-with-malignancy}}
+\hypertarget{section-47}{%
+\section{\texorpdfstring{\textcolor{blue}{Investigation: Is Cell Shape Associated with Malignancy?}}{}}\label{section-47}}
 
 Cancer is a disease that occurs when abnormal cells grow in the body. When DNA (a substance in every
 cell) is damaged, normal cells will often repair the damaged DNA. Cancer cells are cells in which the
@@ -5563,18 +5580,13 @@ DNA is not repaired. DNA can be damaged by many things, including viruses, tobac
 
 is important to note that not all tumors are cancerous. If a lump is detected, part of it can be removed surgically and a biopsy conducted to determine if the mass is benign or malignant. Benign tumors are scar tissue or abnormal growths that do not spread and are typically harmless. Malignant (or invasive) cancer cells are cells that can travel, typically through the bloodstream or lymph nodes, and begin to replace normal cells in other parts of the body. If a tumor is malignant, it is essential to remove or destroy all cancerous cells in order to keep them from spreading. If a tumor is benign, surgery is typically not needed and the harmless tumor can remain.
 
-A biopsy requires surgery to remove a section (or all) of the tumor and will leave a scar. Fine needle
-aspiration (FNA) is a technique in which a small sample of the tumor is taken using a needle and visually inspected through a microscope. Since many tumors are benign, it is often preferable to have an FNA, which is less invasive and less traumatic than a biopsy.
+A biopsy requires surgery to remove a section (or all) of the tumor and will leave a scar. Fine needle aspiration (FNA) is a technique in which a small sample of the tumor is taken using a needle and visually inspected through a microscope. Since many tumors are benign, it is often preferable to have an FNA, which is less invasive and less traumatic than a biopsy.
 
-Breast cancer is the second leading cause of cancer death among women in the United States. The
-American Cancer Society estimated that, in the United States in 2010, 39,840 women and 390 men died from
-breast cancer and 207,090 women were diagnosed with breast cancer.2 This type of cancer is often detected by finding a lump (or mass) in the breast.
+Breast cancer is the second leading cause of cancer death among women in the United States. The American Cancer Society estimated that, in the United States in 2010, 39,840 women and 390 men died from breast cancer and 207,090 women were diagnosed with breast cancer.2 This type of cancer is often detected by finding a lump (or mass) in the breast.
 
-Wolberg and Mangasarian developed a technique to accurately diagnose breast masses using only visual
-characteristics of the cells within the tumor.3 This system is used at University of Wisconsin hospitals to assist doctors in diagnosis of breast cancer.4 Each FNA sample is placed on a slide, and characteristics of the cellular nuclei within the tumor are examined under a microscope. Several measurements, such as size, shape, and texture, are collected for each of the nuclei visible on the slide, and then an algorithm is used to determine the likelihood that a mass is benign or malignant.
+Wolberg and Mangasarian developed a technique to accurately diagnose breast masses using only visual characteristics of the cells within the tumor.3 This system is used at University of Wisconsin hospitals to assist doctors in diagnosis of breast cancer.4 Each FNA sample is placed on a slide, and characteristics of the cellular nuclei within the tumor are examined under a microscope. Several measurements, such as size, shape, and texture, are collected for each of the nuclei visible on the slide, and then an algorithm is used to determine the likelihood that a mass is benign or malignant.
 
-In this chapter, we will focus on just a few characteristics from a relatively small data set that was collected at University of Wisconsin hospitals in Madison. We will start by determining if the shape of a cell nucleus can help us to determine whether a tumor is malignant or benign.
-Typically, healthy cell nuclei have round or ellipsoid shapes.Figure 5.1 shows a sample of malignant cells that appear to have grown such that the perimeters of the cell nuclei have somewhat concave points.
+In this chapter, we will focus on just a few characteristics from a relatively small data set that was collected at University of Wisconsin hospitals in Madison. We will start by determining if the shape of a cell nucleus can help us to determine whether a tumor is malignant or benign. Typically, healthy cell nuclei have round or ellipsoid shapes.Figure 5.1 shows a sample of malignant cells that appear to have grown such that the perimeters of the cell nuclei have somewhat concave points.
 
 \begin{figure}
 
@@ -5587,8 +5599,8 @@ Typically, healthy cell nuclei have round or ellipsoid shapes.Figure 5.1 shows a
 
 Figure 5.1 An image of malignant cells where nuclei are outlined with a curve-fitting program. Reprinted by permission. Mangasarian, Street \& Wolberg, ``Breast Cancer Diagnosis and Prognosis via Linear Programming,'' INFORMS Journal Operations Research, 43.4, 1995. © 1995, Institute for Operations Research and the Management Sciences (INFORMS).
 
-\hypertarget{summarizing-categorical-data}{%
-\section{Summarizing Categorical Data}\label{summarizing-categorical-data}}
+\hypertarget{section-48}{%
+\section{\texorpdfstring{\textcolor{blue}{Summarizing Categorical Data}}{}}\label{section-48}}
 
 Table 5.1 shows data from 37 FNA slide samples. Slides with smooth ellipsoid-shaped nuclei were classified as round, and slides with poorly shaped cell nuclei were classified as concave. A biopsy was also conducted on each of these samples to determine if each was malignant or benign.
 
@@ -5611,11 +5623,9 @@ Total & 13 & 24 & 37\\
 
 In Table 5.1, both the variables are categorical. A \textbf{categorical variable} is one for which the measurement consists of categories, such as college major, political affiliation, personality type, gender, or pass/fail grade. When a variable is categorical, each subject or unit must fit in one and only one category. A \textbf{binary variable} is a special type of categorical variable that has just two possible categories.
 
-Summarizing quantitative data such as age, weight, and income often includes calculating the mean value.
-However, Table 5.1 cannot be used to calculate the mean Shape or mean Type value. Since these categorical variables have no ordinal or interval meaning, it is not appropriate to focus on the mean response; rather, we focus on the proportion (or percent) of responses that fall into each category.
+Summarizing quantitative data such as age, weight, and income often includes calculating the mean value. However, Table 5.1 cannot be used to calculate the mean Shape or mean Type value. Since these categorical variables have no ordinal or interval meaning, it is not appropriate to focus on the mean response; rather, we focus on the proportion (or percent) of responses that fall into each category.
 
-A table that counts the number of observations in each group, such as Table 5.1, is called a \textbf{contingency table} (or cross-tabulation table). A contingency table with two variables is called a \textbf{two-way contingency table}. Table 5.1 is also called a \textbf{2 x 2 table}, since there are two row groups and two column groups. In Table
-5.1, the Shape of the cell is called the \textbf{row variable}, since each horizontal row represents one shape group.
+A table that counts the number of observations in each group, such as Table 5.1, is called a \textbf{contingency table} (or cross-tabulation table). A contingency table with two variables is called a \textbf{two-way contingency table}. Table 5.1 is also called a \textbf{2 x 2 table}, since there are two row groups and two column groups. In Table 5.1, the Shape of the cell is called the \textbf{row variable}, since each horizontal row represents one shape group.
 Similarly, the Type of the cell is called the \textbf{column variable}.
 
 \begin{quote}
@@ -5625,22 +5635,18 @@ Similarly, the Type of the cell is called the \textbf{column variable}.
 \textbf{\textcolor{blue}{Key Concept:}}
 \textcolor{blue}{Analysis of categorical response variables requires calculating the proportion of responses in each category rather than calculating means.}
 
-\hypertarget{activity-descriptive-statistics-and-graphs}{%
-\subsection*{Activity: Descriptive Statistics and Graphs}\label{activity-descriptive-statistics-and-graphs}}
-\addcontentsline{toc}{subsection}{Activity: Descriptive Statistics and Graphs}
+\hypertarget{descriptive-statistics-and-graphs}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Descriptive Statistics and Graphs}{ Descriptive Statistics and Graphs}}\label{descriptive-statistics-and-graphs}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Descriptive Statistics and Graphs}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Identify the observational units, the explanatory variable, and the response variable in the cancer cell data in Table 5.1.
 \item
-  Calculate the proportion of round cell samples that are malignant and the proportion of concave cell
-  samples that are malignant.
+  Calculate the proportion of round cell samples that are malignant and the proportion of concave cell samples that are malignant.
 \item
-  Create a segmented bar graph using Table 5.1. Typically, the explanatory variable should be along the
-  horizontal axis. Assuming this is a random sample from a larger population, does the graph show evi-
-  dence that nucleus shape is related to the likelihood of a cell being malignant? Explain.
+  Create a segmented bar graph using Table 5.1. Typically, the explanatory variable should be along the horizontal axis. Assuming this is a random sample from a larger population, does the graph show evidence that nucleus shape is related to the likelihood of a cell being malignant? Explain.
 \end{enumerate}
 
 Bar graphs are often useful in comparing two categorical variables. Figure 5.1 shows a \textbf{segmented bar graph} (also called a stacked bar graph) for the cancer cell data. This graph shows the conditional percentages for each nucleus shape. About 80\% of the concave nuclei are malignant, whereas about 45\% of the round nuclei are malignant.
@@ -5651,8 +5657,8 @@ Bar graphs are often useful in comparing two categorical variables. Figure 5.1 s
 \caption{\label{fig:fig52}Segmented bar graph of nucleus shape and malignancy.}
 \end{figure}
 
-\hypertarget{a-simulation-study-how-likely-is-it-that-the-observed-sample-would-occur-by-chance}{%
-\section{A Simulation Study: How Likely Is It That the Observed Sample Would Occur by Chance?}\label{a-simulation-study-how-likely-is-it-that-the-observed-sample-would-occur-by-chance}}
+\hypertarget{section-49}{%
+\section{\texorpdfstring{\textcolor{blue}{A Simulation Study: How Likely Is It That the Observed Sample Would Occur by Chance?}}{}}\label{section-49}}
 
 Figure 5.2 shows that our sample of 37 slides indicates a relationship between the shape of the cell nuclei and malignancy. However, statistical inference is needed to draw conclusions about the entire population from which these samples were selected. In this section, we will conduct a hypothesis test to determine if the sample data provide evidence that the proportion of malignant cells is greater for concave nuclei than for round nuclei.
 
@@ -5663,21 +5669,21 @@ H_0: p_C = p_R \quad\text{vs.}\quad H_a: p_C > p_R
 \tag{5.1}
 \end{align}
 
-where \(p_C\) is the true proportion of concave nuclei that are malignant and \(p_R\) is the true proportion of round nuclei that are malignant.
+where \(\scriptstyle p_C\) is the true proportion of concave nuclei that are malignant and \(\scriptstyle p_R\) is the true proportion of round nuclei that are malignant.
 
-If the null hypothesis, \(H_0\), is true, the two populations (of concave and round cells) have the same proportion of malignant cells and the observed difference between round and concave cells in our sample is due simply to the random sampling process. In other words, the samples just randomly happened to have more malignant cells in the concave nucleus population than in the round nucleus group.
+If the null hypothesis, \(\scriptstyle H_0\), is true, the two populations (of concave and round cells) have the same proportion of malignant cells and the observed difference between round and concave cells in our sample is due simply to the random sampling process. In other words, the samples just randomly happened to have more malignant cells in the concave nucleus population than in the round nucleus group.
 
-The \textbf{\(p\)-value} for this test is the probability of obtaining a difference in sample proportions (\(\hat p_C - \hat p_R\)) as large as or larger than the one observed in this sample when the null hypothesis is true. If the \(p\)-value is small, it is unlikely that the null hypothesis is true and we conclude that the alternative hypothesis (\(p_C > p_R\)) is true.
+The \textbf{\(\scriptstyle p\)-value} for this test is the probability of obtaining a difference in sample proportions (\(\scriptstyle \hat p_C \ -\  \hat p_R\)) as large as or larger than the one observed in this sample when the null hypothesis is true. If the \(\scriptstyle p\)-value is small, it is unlikely that the null hypothesis is true and we conclude that the alternative hypothesis (\(\scriptstyle p_C \ >\  p_R\)) is true.
 
-One way to estimate this \(p\)-value is to simulate taking samples many times under the following three conditions:
+One way to estimate this \(\scriptstyle p\)-value is to simulate taking samples many times under the following three conditions:
 
 • Assume that malignancy is unrelated to cell nucleus shape (i.e., assume that both cell nucleus shapes have the same proportion of malignant cells).\\
 • A total of 13 benign and 24 malignant cells were observed.\\
 • A total of 16 round cell nuclei and 21 concave cell nuclei were observed.
 
-\hypertarget{activity-conducting-a-simulation-study-with-cards}{%
-\subsection*{Activity: Conducting a Simulation Study with Cards}\label{activity-conducting-a-simulation-study-with-cards}}
-\addcontentsline{toc}{subsection}{Activity: Conducting a Simulation Study with Cards}
+\hypertarget{conducting-a-simulation-study-with-cards}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Conducting a Simulation Study with Cards}{ Conducting a Simulation Study with Cards}}\label{conducting-a-simulation-study-with-cards}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Conducting a Simulation Study with Cards}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5689,9 +5695,9 @@ One way to estimate this \(p\)-value is to simulate taking samples many times un
   Repeat the simulation process in Question 4 nine more times. Does it seem likely that 17 or more malignant cells would occur in the concave group by chance alone? While simulations can be done by hand with cards, this process is very time consuming, as a large number of simulations are needed to get a true feel for the likelihood of an outcome (many statisticians suggest 10,000 simulations). Instead of repeating the above process 10,000 times by hand, we will use a computer program to conduct a simulation.
 \end{enumerate}
 
-\hypertarget{activity-computer-simulation}{%
-\subsection*{Activity: Computer Simulation}\label{activity-computer-simulation}}
-\addcontentsline{toc}{subsection}{Activity: Computer Simulation}
+\hypertarget{computer-simulation}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Computer Simulation}{ Computer Simulation}}\label{computer-simulation}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Computer Simulation}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5704,7 +5710,7 @@ One way to estimate this \(p\)-value is to simulate taking samples many times un
   your index card simulation? Would you expect to get exactly the same number of samples with 17 or more malignant cells? Why or why not?
 \item
   Use the software instructions to repeat the computer-simulated randomization process a total of 10,000 times. Create a histogram of the 10,000 simulated counts in the concave malignant group. Estimate the
-  p-value by dividing the number of counts greater than or equal to 17 by 10,000.
+  \(\scriptstyle p\)-value by dividing the number of counts greater than or equal to 17 by 10,000.
 \end{enumerate}
 
 \begin{table}
@@ -5720,11 +5726,11 @@ Observed Number of Trials & 0 & ... & 0 & 1 & 8 & 118 & 551 & 1508 & 2483 & 2655
 \end{tabular}
 \end{table}
 
-Table 5.2 shows 10,000 simulated trials, based on Question 8. This simulation had 220 observations greater than or equal to 17, providing a p-value of \(P(X \geq 17)= 0.022\), where X is the number of concave
-malignant cells. Thus, we can conclude that if the null hypothesis were true (the proportion of malignant cells was the same for cells with round and concave nuclei), the likelihood of finding 17 or more malignant cells out of the 21 cells with concave nuclei would be approximately 220 out of 10,000. This small p-value shows
+Table 5.2 shows 10,000 simulated trials, based on Question 8. This simulation had 220 observations greater than or equal to 17, providing a \(\scriptstyle p\)-value of \(P(X \geq 17)= 0.022\), where X is the number of concave
+malignant cells. Thus, we can conclude that if the null hypothesis were true (the proportion of malignant cells was the same for cells with round and concave nuclei), the likelihood of finding 17 or more malignant cells out of the 21 cells with concave nuclei would be approximately 220 out of 10,000. This small \(\scriptstyle p\)-value shows
 that the difference in our sample proportions is so large that it is unlikely to have occurred by chance. Thus, we reject the null hypothesis and conclude that cells with concave nuclei are more likely to be malignant than cells with round nuclei.
 
-Using simulations to approximate p-values has many advantages. Often simple programs or macros can be written to quickly simulate thousands of samples. Computer programs can be modified to fit a variety of situations, while parametric tests with theoretical assumptions can be somewhat rigid and require large sample sizes. Simulations only provide approximate p-values. However, increasing the number of simulations improves the precision of the p-value; 10,000 simulations usually provides precise p-values.
+Using simulations to approximate \(\scriptstyle p\)-values has many advantages. Often simple programs or macros can be written to quickly simulate thousands of samples. Computer programs can be modified to fit a variety of situations, while parametric tests with theoretical assumptions can be somewhat rigid and require large sample sizes. Simulations only provide approximate \(\scriptstyle p\)-values. However, increasing the number of simulations improves the precision of the \(\scriptstyle p\)-value; 10,000 simulations usually provides precise \(\scriptstyle p\)-values.
 
 \begin{quote}
 \textbf{NOTE}This simulation study is an example of a permutation test. Chapter 1 describes that permutation hypothesis
@@ -5732,16 +5738,16 @@ tests are significance tests that simulate the act of randomly rearranging units
 \end{quote}
 
 \textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{Simulation studies are gaining in popularity because computer simulations can quickly and easily find accurate p-values. In addition, unlike most tests that have distributional assumptions, simulation studies do not have minimum sample size requirements and are often more accurate than distribution-based tests for studies with small sample sizes.}
+\textcolor{blue}{Simulation studies are gaining in popularity because computer simulations can quickly and easily find accurate $\scriptstyle p$-values. In addition, unlike most tests that have distributional assumptions, simulation studies do not have minimum sample size requirements and are often more accurate than distribution-based tests for studies with small sample sizes.}
 
-\hypertarget{fishers-exact-test}{%
-\section{Fisher's Exact Test}\label{fishers-exact-test}}
+\hypertarget{section-50}{%
+\section{\texorpdfstring{\textcolor{blue}{Fisher’s Exact Test}}{}}\label{section-50}}
 
-While the use of simulations to determine \(p\)-values is quickly gaining in popularity, sometimes the exact \(p\)-value can be calculated based on an appropriate probability model. \textbf{Fisher's exact test} uses the \textbf{hypergeometric distribution} to calculate exact probabilities.
+While the use of simulations to determine \(\scriptstyle p\)-values is quickly gaining in popularity, sometimes the exact \(\scriptstyle p\)-value can be calculated based on an appropriate probability model. \textbf{Fisher's exact test} uses the \textbf{hypergeometric distribution} to calculate exact probabilities.
 
-Just as in the simulation study, we are interested in testing \(H_0: p_C = p_R\) vs.~\(H_a: p_C > p_R\). In addition, we use the same three assumptions to find the \(p\)-value, the probability that 17 or more of the malignant cells occur in the concave nucleus group when \(H_0\) is true. Table 5.3 provides the same data as Table 5.1, but notation has been included to extend this test to any 2 × 2 table.
+Just as in the simulation study, we are interested in testing \(\scriptstyle H_0:\  p_C \ =\  p_R\) vs.~\(\scriptstyle H_a: \ p_C \ >\  p_R\). In addition, we use the same three assumptions to find the \(\scriptstyle p\)-value, the probability that 17 or more of the malignant cells occur in the concave nucleus group when \(\scriptstyle H_0\) is true. Table 5.3 provides the same data as Table 5.1, but notation has been included to extend this test to any 2 × 2 table.
 
-In any 2 × 2 table, there are a total of \(N\) observations that can be classified as either a success or a failure. \(M\) represents the number of success, and thus \(N - M\) is the number of failures. We are interesting in finding the probability of observing \(x\) successes in a random selection of \(n\) observations. For the cancer cell data in
+In any 2 × 2 table, there are a total of \(\scriptstyle N\) observations that can be classified as either a success or a failure. \(\scriptstyle M\) represents the number of success, and thus \(\scriptstyle N \ -\  M\) is the number of failures. We are interesting in finding the probability of observing \(\scriptstyle x\) successes in a random selection of \(\scriptstyle n\) observations. For the cancer cell data in
 
 \begin{table}[H]
 \centering
@@ -5760,10 +5766,10 @@ Total & 13 & $24 = M$ & $37 = N$\\
 \end{tabular}
 \end{table}
 
-Table 5.3, \(x\) represents the event of interest (observing 17 concave malignant cells), \(N = 37\) represents the total number of observations, \(M = 24\) is the total number of malignant cells (number of successes), and \(n\) is the total number of observations in the concave group.
+Table 5.3, \(\scriptstyle x\) represents the event of interest (observing 17 concave malignant cells), \(\scriptstyle N\) = 37 represents the total number of observations, \(\scriptstyle M\) = 24 is the total number of malignant cells (number of successes), and \(\scriptstyle n\) is the total number of observations in the concave group.
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(p\)-values. For any 2 × 2 contingency table when there are \(N\) total observations with \(M\) total successes, the probability of observing \(x\) successes, \(P(X = x)\), in a sample of size \(n\){[}{[}{[} is{]}{]}{]}
+\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(\scriptstyle p\)-values. For any 2 × 2 contingency table when there are \(\scriptstyle N\) total observations with \(\scriptstyle M\) total successes, the probability of observing \(\scriptstyle x\) successes, \(\scriptstyle P(X \ = \ x)\), in a sample of size \(\scriptstyle n\){[}{[}{[} is{]}{]}{]}
 \end{quote}
 
 \begin{align}
@@ -5771,42 +5777,41 @@ Table 5.3, \(x\) represents the event of interest (observing 17 concave malignan
  &= \frac{\binom{M}{x}\,\binom{N - M}{n - x}}{\binom{N}{n}} \notag
 \end{align}
 
-where \(\binom{M}{x} = M \text{“choose”} x = \frac{M!}{x!(M - x)!}\).\footnote{For any positive integer, the notation n! is read ``n factorial'' and is defined as \(n!= n(n- 1)(n- 2) \cdot\cdot\cdot (3)(2)(1)\). For example, ``3 factorial'' is \(3 \times 2 \times 1= 6\) and ``four factorial'' is \(4!= 4 \times 3 \times 2 \times 1= 24\). In addition, \(0!= 1\).} Similar calculations hold for \(\binom{N - M}{n - x}\) and \(\binom{N}{n}\).''
+where \(\binom{M}{x} \ =\  M \text{“choose”} x \ =\  \frac{M!}{x!(M - x)!}\).\footnote{For any positive integer, the notation n! is read ``n factorial'' and is defined as \(\scriptstyle n!= n(n- 1)(n- 2) \cdot\cdot\cdot (3)(2)(1)\). For example, ``3 factorial'' is 3 \(\times\) 2 \(\times\) 1 = 6 and ``four factorial'' is \(\scriptstyle 4!\) = 4 \(\times\) 3 \(\times\) 2 \(\times\) 1 = 24. In addition, \(\scriptstyle 0!= 1\).} Similar calculations hold for \(\scriptstyle \binom{N - M}{n - x}\) and \(\scriptstyle \binom{N}{n}\).''
 
-\hypertarget{activity-calculating-fishers-exact-test}{%
-\subsection*{Activity: Calculating Fisher's Exact Test}\label{activity-calculating-fishers-exact-test}}
-\addcontentsline{toc}{subsection}{Activity: Calculating Fisher's Exact Test}
+\hypertarget{calculating-fishers-exact-test}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Calculating Fisher's Exact Test}{ Calculating Fisher's Exact Test}}\label{calculating-fishers-exact-test}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Calculating Fisher's Exact Test}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{8}
 \item
-  In this cancer study, assume N= 37 observations with M = 24 successes. If n = 21 observations are selected, use the technology instructions provided on the CD to calculate the exact probabilities
-  P(X = 17), P(X = 18), P(X = 19), P(X = 20), and P(X= 21).
+  In this cancer study, assume N = 37 observations with M = 24 successes. If n = 21 observations are selected, use the technology instructions provided on the CD to calculate the exact probabilities P(X = 17), P(X = 18), P(X = 19), P(X = 20), and P(X= 21).
 \item
-  Assuming N= 37, M= 24 successes, and n = 21, create a histogram of the probabilities for x. Compare the probabilities in Question 9 to the probabilities in Question 8. Since Question 8 was a simulation of the hypergeometric distribution, these histograms should look very similar.
+  Assuming N = 37, M = 24 successes, and n = 21, create a histogram of the probabilities for x. Compare the probabilities in Question 9 to the probabilities in Question 8. Since Question 8 was a simulation of the hypergeometric distribution, these histograms should look very similar.
 \item
-  What is the exact p-value P(X \(\geq\) 17)? How does this exact p-value compare to the simulated p-value?
+  What is the exact \(\scriptstyle p\)-value P(X \(\scriptstyle \geq\) 17)? How does this exact \(\scriptstyle p\)-value compare to the simulated \(\scriptstyle p\)-value?
 \item
-  There is nothing special about how a success or failure is defined. Assume we have a table of N = 37 observations with M = 13 successes (here a benign cell is considered a success). For a sample of size 16 (round nuclei), find P(X \(\geq\) 9). How does this answer compare to your answer in
+  There is nothing special about how a success or failure is defined. Assume we have a table of N = 37 observations with M = 13 successes (here a benign cell is considered a success). For a sample of size 16 (round nuclei), find P(X \(\scriptstyle \geq\) 9). How does this answer compare to your answer in
   Question 11?
 \item
-  Assume we have a table of N = 37 observations with M = 13 successes (here a benign cell is considered a success). For a sample of size 21 (concave nuclei), find P(X \(\geq\) 4). How does this answer compare to your answer in Question 11?
+  Assume we have a table of N = 37 observations with M = 13 successes (here a benign cell is considered a success). For a sample of size 21 (concave nuclei), find P(X \(\scriptstyle \geq\) 4). How does this answer compare to your answer in Question 11?
 \end{enumerate}
 
-Both the simulation in Section 5.3 and Fisher's exact test can be considered permutation tests. The simulation study provides an approximation to Fisher's exact test. Fisher's exact test provides a \(p\)-value for this problem of \(P(X \geq 17)= 0.0225\). If there truly were no difference between the likelihood of malignancy for the two nucleus shapes (which would mean the null hypothesis \(H_0\) was true), random sampling would produce this outcome (17 or more malignant cells in the concave group) 2.25\% of the time. This small probability provides evidence that \(H_0\) should be rejected.
+Both the simulation in Section 5.3 and Fisher's exact test can be considered permutation tests. The simulation study provides an approximation to Fisher's exact test. Fisher's exact test provides a \(\scriptstyle p\)-value for this problem of P(X \(\scriptstyle \geq\) 17)= 0.0225. If there truly were no difference between the likelihood of malignancy for the two nucleus shapes (which would mean the null hypothesis \(\scriptstyle H_0\) was true), random sampling would produce this outcome (17 or more malignant cells in the concave group) 2.25\% of the time. This small probability provides evidence that \(\scriptstyle H_0\) should be rejected.
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(p\)-values. For any 2 × 2 contingency table when there are \(N\) total observations with \(M\) total successes, the probability of observing \(x\) successes, \(P(X = x)\), in a sample of size \(n\) is Fisher's exact test and the corresponding simulation study were derived here using a rather strong assumption about the null hypothesis. Both tests were completed under the assumption that we had observed 13 benign and 24 malignant cells and that these totals would be the same in every randomization. Statisticians call this a \textbf{conditional test of independence}. In other words, both the row and the column totals are known (fixed) before the study is conducted. However, the extended activities will show that Fisher's exact test can be used for any 2 \(\times\) 2 table, even when the margin totals are not fixed.\(^5\)
+\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(\scriptstyle p\)-values. For any 2 × 2 contingency table when there are \(\scriptstyle N\) total observations with \(\scriptstyle M\) total successes, the probability of observing \(\scriptstyle x\) successes, P(X = x), in a sample of size \(\scriptstyle n\) is Fisher's exact test and the corresponding simulation study were derived here using a rather strong assumption about the null hypothesis. Both tests were completed under the assumption that we had observed 13 benign and 24 malignant cells and that these totals would be the same in every randomization. Statisticians call this a \textbf{conditional test of independence}. In other words, both the row and the column totals are known (fixed) before the study is conducted. However, the extended activities will show that Fisher's exact test can be used for any 2 \(\scriptstyle \times\) 2 table, even when the margin totals are not fixed.\(^5\)
 \end{quote}
 
 \textbf{\textcolor{blue}{Key Concept:}}
-\textbackslash textcolor\{blue\}\{Fisher's exact test uses the hypergeometric distribution to provide exact p-values even for small sample sizes and succes/failure proportions near 0\% or 100\%\}
+\textbackslash textcolor\{blue\}\{Fisher's exact test uses the hypergeometric distribution to provide exact \(\scriptstyle p\)-values even for small sample sizes and succes/failure proportions near 0\% or 100\%\}
 
-\hypertarget{two-sided-hypothesis-tests}{%
-\section{Two-Sided Hypothesis Tests}\label{two-sided-hypothesis-tests}}
+\hypertarget{section-51}{%
+\section{\texorpdfstring{\textcolor{blue}{Two-Sided Hypothesis Tests}}{}}\label{section-51}}
 
-In Fisher's exact test and the simulation study, 17 or more concave malignant cells corresponded to a difference in sample proportions of \(\hat p_C - \hat p_R = 0.8095 - 0.4375 = 0.372\) or more. The \(p\)-value was the probability of calculating a sample statistic \emph{greater than or equal to} \(\hat p_C - \hat p_R = 0.372\) given that \(p_C = p_R\).
+In Fisher's exact test and the simulation study, 17 or more concave malignant cells corresponded to a difference in sample proportions of \(\scriptstyle \hat p_C \ -\  \hat p_R\) = 0.8095 - 0.4375 = 0.372 or more. The \(\scriptstyle p\)-value was the probability of calculating a sample statistic \emph{greater than or equal to} \(\scriptstyle \hat p_C \ -\  \hat p_R\) = 0.372 given that \(\scriptstyle p_C \ =\  p_R\).
 
 Before this sample was collected, the researchers had medical reasons to believe that the cells with concave nuclei (i.e., the malformed nuclei) might be more likely to be malignant. If there had been no specific reasoning to justify a one-sided hypothesis, a two-sided hypothesis test would have been more appropriate:
 
@@ -5815,9 +5820,9 @@ H_0: p_C = p_R \quad\text{vs.}\quad H_a: p_C \neq p_R
 \tag{5.2}
 \end{align}
 
-The \(p\)-value for a two-sided hypothesis is the probability of calculating a sample statistic \emph{at least as extreme as} \(\hat p_C - \hat p_R = 0.372\) given that \(p_C = p_R\). That is, if the null hypothesis is true, what is the probability that \(\hat p_C - \hat p_R \ge 0.372\) or \(\hat p_C - \hat p_R \le -0.372\).
+The \(\scriptstyle p\)-value for a two-sided hypothesis is the probability of calculating a sample statistic \emph{at least as extreme as} \(\scriptstyle \hat p_C \ -\  \hat p_R\) = 0.372 given that \(\scriptstyle p_C \ =\  p_R\). That is, if the null hypothesis is true, what is the probability that \(\scriptstyle \hat p_C \ -\  \hat p_R \ \ge\) = 0.372 or \(\scriptstyle \hat p_C \ -\  \hat p_R \le\) -0.372.
 
-Question 14 helps to show that the difference in proportions, \(\hat p_C - \hat p_R \le -0.372\), corresponds to 10 or fewer concave malignant cells. Table 5.2 can then be used to calculate the approximate \(p\)-value for the two-sided hypothesis test:
+Question 14 helps to show that the difference in proportions, \(\scriptstyle \hat p_C \ -\  \hat p_R \le\) -0.372, corresponds to 10 or fewer concave malignant cells. Table 5.2 can then be used to calculate the approximate \(\scriptstyle p\)-value for the two-sided hypothesis test:
 
 \begin{align}
 \text{p-value}
@@ -5827,52 +5832,54 @@ Question 14 helps to show that the difference in proportions, \(\hat p_C - \hat 
 &= 0.0347 \notag
 \end{align}
 
-Based on this simulation, the two-sided hypothesis test should reject the null hypothesis and conclude that \(p_C \neq p_R\).
+Based on this simulation, the two-sided hypothesis test should reject the null hypothesis and conclude that \(\scriptstyle p_C \ \neq \  p_R\).
 
-\hypertarget{activity-calculating-a-two-sided-hypothesis-test}{%
-\subsection*{Activity: Calculating a Two-Sided Hypothesis Test}\label{activity-calculating-a-two-sided-hypothesis-test}}
-\addcontentsline{toc}{subsection}{Activity: Calculating a Two-Sided Hypothesis Test}
+\hypertarget{calculating-a-two-sided-hypothesis-test}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Calculating a Two-Sided Hypothesis Test}{ Calculating a Two-Sided Hypothesis Test}}\label{calculating-a-two-sided-hypothesis-test}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Calculating a Two-Sided Hypothesis Test}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{13}
 \tightlist
 \item
-  The three conditions in Section 5.3 stay the same for both the one-sided and the two-sided tests. The total number of malignant cells must be 24, the number of concave cells is 21, and the number of round cells is 16. Thus, when \(Y =\) the number of concave malignant cells, \(\hat p_C - \hat p_R = Y/21 - (24 - Y)/16\).\\
+  The three conditions in Section 5.3 stay the same for both the one-sided and the two-sided tests. The total number of malignant cells must be 24, the number of concave cells is 21, and the number of round cells is 16. Thus, when Y = the number of concave malignant cells, \(\scriptstyle \hat p_C \ -\  \hat p_R = Y/21 \ -\  (24 \ -\  Y)/16\).
 \end{enumerate}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
+\def\labelenumi{(\alph{enumi})}
 \item
-  Find \(\hat p_C - \hat p_R\) when \(Y = 17\).\\
+  Find \(\scriptstyle \hat p_C \ -\  \hat p_R\) when Y = 17.
 \item
-  Find \(\hat p_C - \hat p_R\) when \(Y = 9, Y = 10,\) and \(Y = 11\).\\
-  Notice that the two-sided test is not completely balanced; there is no count, \(Y\), that exactly corresponds to \(\hat p_C - \hat p_R = -0.372\). However, any \(Y \le 10\) will satisfy \(\hat p_C - \hat p_R \le -0.372\).
+  Find \(\scriptstyle \hat p_C \ -\  \hat p_R\) when Y = 9, Y = 10, and Y = 11.
 \end{enumerate}
+
+\begin{quote}
+Notice that the two-sided test is not completely balanced; there is no count, Y, that exactly corresponds to \(\scriptstyle \hat p_C \ -\  \hat p_R = -0.372\). However, any \(\scriptstyle Y\  \le \ 10\) will satisfy \(\scriptstyle \hat p_C \ -\  \hat p_R \le\) -0.372.
+\end{quote}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{14}
 \item
-  Repeat Question 8 to estimate the \(p\)-value for the two-sided hypothesis test.
+  Repeat Question 8 to estimate the \(\scriptstyle p\)-value for the two-sided hypothesis test.
 \item
-  Use the hypergeometric distribution to find the \(p\)-value for the two-sided hypothesis test.
+  Use the hypergeometric distribution to find the \(\scriptstyle p\)-value for the two-sided hypothesis test.
 \end{enumerate}
 
 \begin{quote}
-\textbf{NOTE}Two-sided tests can be somewhat cumbersome. Many statisticians suggest simply approximating a two-sided \(p\)-value by doubling the one-sided \(p\)-value. For example, the \(p\)-value for \(H_0: p_C = p_R\) vs.~\(H_a: p_C \neq p_R\) is \(2 \times P(X \ge 17) = 2(0.0225) = 0.045\).
+\textbf{NOTE}Two-sided tests can be somewhat cumbersome. Many statisticians suggest simply approximating a two-sided \(\scriptstyle p\)-value by doubling the one-sided \(\scriptstyle p\)-value. For example, the \(\scriptstyle p\)-value for \(\scriptstyle H_0:\  p_C \ =\  p_R\) vs.~\(\scriptstyle H_a:\  p_C \ \neq \ p_R\) is 2 \(\times\) P(X \(\ge\) 17) = 2(0.0225) = 0.045.
 \end{quote}
 
-\hypertarget{chi-square-test}{%
-\section{Chi-Square Test}\label{chi-square-test}}
+\hypertarget{section-52}{%
+\section{\texorpdfstring{\textcolor{blue}{Chi-Square Test}}{}}\label{section-52}}
 
-Fisher's exact test has the advantage of providing exact p-values. Before technology was available to provide quick and easy ways to conduct Fisher's exact test and simulation studies, the chi-square test was typically used.
+Fisher's exact test has the advantage of providing exact \(\scriptstyle p\)-values. Before technology was available to provide quick and easy ways to conduct Fisher's exact test and simulation studies, the chi-square test was typically used.
 
 You may recall from previous statistics courses that the chi-square test requires that certain assumptions be met before any analysis is done. For example, large sample sizes are needed, especially if the proportion of successes in either group is close to 0\% or 100\%. If the sample size is large enough, the distribution of the chi-square test statistic will resemble the chi-square distribution.
 
 \textbf{\textcolor{blue}{Key Concept:}}
-The steps to conduct a chi-square test are similar to those for the hypothesis tests discussed in most introductory statistics classes.\footnote{For 2 × 2 tables, the chi-square test statistic is identical to the square of the Z-statistic when testing for equal population proportions. In addition, the p-values for the two tests will be identical.} To conduct a chi-square test you will need to do the following:
+The steps to conduct a chi-square test are similar to those for the hypothesis tests discussed in most introductory statistics classes.\footnote{For 2 × 2 tables, the chi-square test statistic is identical to the square of the Z-statistic when testing for equal population proportions. In addition, the \(\scriptstyle p\)-values for the two tests will be identical.} To conduct a chi-square test you will need to do the following:
 
 \begin{itemize}
 \item
@@ -5880,7 +5887,7 @@ The steps to conduct a chi-square test are similar to those for the hypothesis t
 \item
   Calculate the test statistic.
 \item
-  Calculate the p-value.
+  Calculate the \(\scriptstyle p\)-value.
 \item
   Check model assumptions.
 \item
@@ -5889,42 +5896,36 @@ The steps to conduct a chi-square test are similar to those for the hypothesis t
 
 \textbf{Step 1: State the null and alternative hypotheses:}
 
-The null and alternative hypotheses can be written in exactly the same terms as for the two-sided per-
-mutation test:
+The null and alternative hypotheses can be written in exactly the same terms as for the two-sided permutation test:
 
 \begin{align}
 H_0: p_C &= p_R \quad\text{vs.}\quad H_a: p_C \neq p_R 
 \notag
 \end{align}
 
-The null hypothesis is equivalent to stating that the distributions (of malignant cells) are the same
-across all groups of nucleus shapes. This test is often called a test of homogeneity.
+The null hypothesis is equivalent to stating that the distributions (of malignant cells) are the same across all groups of nucleus shapes. This test is often called a test of homogeneity.
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(p\)-values. For any 2 × 2 contingency table when there are \(N\) total observations with \(M\) total successes, the probability of observing \(x\) successes, \(P(X = x)\), in a sample of size \(n\) {[}{[}{[}is Some{]}{]}{]} texts suggest using the chi-square test for homogeneity if separate samples are selected from more than one population and using the chi-square test for independence when data are collected from a single sample. Even though this study is based on one sample of 37 slides, the extended activities will show that both the test of homogeneity and the test of independence are appropriate. The calculations for both tests are identical; however, the hypotheses and conclusions are different. We choose to present the test of homogeneity in this section so that the hypotheses and conclusions coincide with those for the
+\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(p\)-values. For any 2 × 2 contingency table when there are N total observations with \(M\) total successes, the probability of observing \(\scriptstyle x\) successes, P(X = x), in a sample of size \(\scriptstyle n\) {[}{[}{[}is Some{]}{]}{]} texts suggest using the chi-square test for homogeneity if separate samples are selected from more than one population and using the chi-square test for independence when data are collected from a single sample. Even though this study is based on one sample of 37 slides, the extended activities will show that both the test of homogeneity and the test of independence are appropriate. The calculations for both tests are identical; however, the hypotheses and conclusions are different. We choose to present the test of homogeneity in this section so that the hypotheses and conclusions coincide with those for the
 two-sided permutation tests.
 \end{quote}
 
 \textbf{Step 2: Calculate the test statistic:}
 
-The chi-square test statistic is a measure of the difference between the observed counts in Table 5.1
-and the expected counts that are calculated under the assumption that the null hypothesis is true (shown
-in Table 5.4).
+The chi-square test statistic is a measure of the difference between the observed counts in Table 5.1 and the expected counts that are calculated under the assumption that the null hypothesis is true (shown in Table 5.4).
 
-In this study, 7 out of the 16 round nuclei were malignant (\(\hat p_R = 7/16= 0.4375\)) and 17 out of the
-21 concave nuclei were malignant (\(\hat p_C = 17/21= 0.8095\)). Assuming that the proportion of malignant
-cells is the same for both nucleus shapes, the best estimate of the overall proportion of cells that are
-malignant is \((7 + 17)/(16 + 21)= 24/37= 0.64865\).
+In this study, 7 out of the 16 round nuclei were malignant (\(\scriptstyle \hat p_R\) = 7/16= 0.4375) and 17 out of the 21 concave nuclei were malignant (\(\scriptstyle \hat p_C\) = 17/21= 0.8095). Assuming that the proportion of malignant cells is the same for both nucleus shapes, the best estimate of the overall proportion of cells that are malignant is (7 + 17)/(16 + 21)= 24/37= 0.64865.
 
 Each expected cell count is calculated by multiplying the estimated proportion times the
-­appropriate sample size (the total number of concave nuclei or total number of round nuclei).
-There are 16 round nuclei in our study, so the expected count of round malignant cell nuclei is
-\(16(24/37)= 10.38\). In general, the expected counts are calculated as row total \(\times\) column total/
-overall total.
+­appropriate sample size (the total number of concave nuclei or total number of round nuclei). There are 16 round nuclei in our study, so the expected count of round malignant cell nuclei is 16(24/37)= 10.38. In general, the expected counts are calculated as
 
-\hypertarget{activity-calculating-expected-counts}{%
-\subsection*{Activity: Calculating Expected Counts}\label{activity-calculating-expected-counts}}
-\addcontentsline{toc}{subsection}{Activity: Calculating Expected Counts}
+\begin{center}
+row total $\times$ column total/overall total.
+\end{center}
+
+\hypertarget{calculating-expected-counts}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Calculating Expected Counts}{ Calculating Expected Counts}}\label{calculating-expected-counts}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Calculating Expected Counts}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5970,16 +5971,14 @@ Total & 13.00 & 24.00 & 37\\
 \normalsize
 \end{quote}
 
-The chi-square test statistic is calculated to measure if the observed data are consistent with the null
-hypothesis. The chi-square statistic is
+The chi-square test statistic is calculated to measure if the observed data are consistent with the null hypothesis. The chi-square statistic is
 
 \begin{align} \label{5.3}
 \chi^2 = \sum \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}} 
 \tag{5.3}
 \end{align}
 
-This statistic is the sum of each squared difference between the observed count and the expected count,
-weighted by the expected count. The \emph{observed count} represents the observed cell count from Table 5.1, and the \emph{expected count} represents the expected cell count from Table 5.4.
+This statistic is the sum of each squared difference between the observed count and the expected count, weighted by the expected count. The \emph{observed count} represents the observed cell count from Table 5.1, and the \emph{expected count} represents the expected cell count from Table 5.4.
 
 The chi-square statistic for the cancer cell study is
 
@@ -5989,19 +5988,18 @@ The chi-square statistic for the cancer cell study is
 &= 2.03 + 1.10 + 1.55 + 0.84 = 5.52 \notag
 \end{align}
 
-The chi-square test statistic is always positive. If the observed and expected counts are identical, then the test statistic \(\chi^2 = 0\). If the observed data are far from the expected data, the test statistic will be large and the null hypothesis will be rejected. The chi-square test is not used to show that one proportion is greater or less than another proportion, but to show that the proportions are not equal. Thus, the chi-square test is a two-sided test.
+The chi-square test statistic is always positive. If the observed and expected counts are identical, then the test statistic \(\scriptstyle \chi^2\) = 0. If the observed data are far from the expected data, the test statistic will be large and the null hypothesis will be rejected. The chi-square test is not used to show that one proportion is greater or less than another proportion, but to show that the proportions are not equal. Thus, the chi-square test is a two-sided test.
 
 \begin{quote}
-\textbf{NOTE} The chi-square test can be extended to categorical data with more than two rows and more than two col-
-umns. Notice that the table of expected values and the chi-square test statistic in Equation (5.3) can be calculated with additional rows and columns
+\textbf{NOTE} The chi-square test can be extended to categorical data with more than two rows and more than two columns. Notice that the table of expected values and the chi-square test statistic in Equation (5.3) can be calculated with additional rows and columns
 \end{quote}
 
 \textbf{Step 3: Calculate the \emph{p}-value:}
-The p-value will help us determine if a test statistic of \(\chi^2 = 5.52\) or larger is likely to occur by chance. If the null hypothesis is true, the \(\chi^2\) test statistic will follow a chi-square distribution where the degrees of freedom are calculated as (number of rows - 1) \(\times\) (number of columns - 1). In the cancer cell study, there are two rows of data (round and concave) and two columns of data (benign and malignant); thus, the test statistic has \((2- 1) \times (2- 1) = 1\) degree of freedom.
+The \(\scriptstyle p\)-value will help us determine if a test statistic of \(\scriptstyle \chi^2\) = 5.52 or larger is likely to occur by chance. If the null hypothesis is true, the \(\scriptstyle \chi^2\) test statistic will follow a chi-square distribution where the degrees of freedom are calculated as (number of rows - 1) \(\times\) (number of columns - 1). In the cancer cell study, there are two rows of data (round and concave) and two columns of data (benign and malignant); thus, the test statistic has (2- 1) \(\times\) (2- 1) = 1 degree of freedom.
 
-\hypertarget{activity-conducting-a-chi-square-test}{%
-\subsection*{Activity: Conducting a Chi-Square Test}\label{activity-conducting-a-chi-square-test}}
-\addcontentsline{toc}{subsection}{Activity: Conducting a Chi-Square Test}
+\hypertarget{conducting-a-chi-square-test}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Conducting a Chi-Square Test}{ Conducting a Chi-Square Test}}\label{conducting-a-chi-square-test}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Conducting a Chi-Square Test}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -6012,16 +6010,13 @@ The p-value will help us determine if a test statistic of \(\chi^2 = 5.52\) or l
 \end{enumerate}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{(\alph{enumi})}
 \item
-  Submit the computer output showing the observed and expected tables, the test statistic, and the
-  p-value.
+  Submit the computer output showing the observed and expected tables, the test statistic, and the \(\scriptstyle p\)-value.
 \item
-  Assuming the data were a simple random sample from a larger population, what conclusions can
-  you draw about the population?
+  Assuming the data were a simple random sample from a larger population, what conclusions can you draw about the population?
 \item
-  Can you conclude that the shape of the cell nucleus causes a change in the likelihood that a cancer
-  cell is malignant? Why or why not?
+  Can you conclude that the shape of the cell nucleus causes a change in the likelihood that a cancer cell is malignant? Why or why not?
 \end{enumerate}
 
 \textbf{Step 4: Check model assumptions:}
@@ -6038,18 +6033,18 @@ Just like most hypothesis tests, the chi-square test requires that each observat
 In the cancer cell study, all the expected counts are greater than 5, so it is appropriate to use the chi-square test.
 
 \begin{quote}
-\textbf{NOTE} In this example, some of the expected counts are just slightly greater than 5. In this case, some texts might suggest using a chi-square test with a continuity correction. However, simulation studies and Fisher's exact test can now be easily calculated with computers and provide more accurate p-values. Thus, there really is no longer a need to use a chi-square continuity correction to estimate the p-value.
+\textbf{NOTE} In this example, some of the expected counts are just slightly greater than 5. In this case, some texts might suggest using a chi-square test with a continuity correction. However, simulation studies and Fisher's exact test can now be easily calculated with computers and provide more accurate \(\scriptstyle p\)-values. Thus, there really is no longer a need to use a chi-square continuity correction to estimate the \(\scriptstyle p\)-value.
 \end{quote}
 
 \textbf{Step 5: Draw conclusions within the context of the study:}
 
-The chi-square test provides a p-value of 0.019 for the cancer cell study. This indicates that we should reject the null hypothesis in favor of the alternative. Thus, the chi-square test leads to the same conclusion as the two-sided simulated permutation test and the two-sided Fisher's exact test: Each nucleus shape has a different proportion of malignant cells.
+The chi-square test provides a \(\scriptstyle p\)-value of 0.019 for the cancer cell study. This indicates that we should reject the null hypothesis in favor of the alternative. Thus, the chi-square test leads to the same conclusion as the two-sided simulated permutation test and the two-sided Fisher's exact test: Each nucleus shape has a different proportion of malignant cells.
 
-The p-value of 0.019 for the chi-square test is somewhat close to the result of the simulation study conducted in Section 5.3, where we found a two-sided p-value of 0.0347. Every person conducting a chi-square test on the data in Table 5.1 should get the same p-value, while each simulation study will provide a slightly different p-value. Many students mistakenly assume that the variation in the p-value for the simulation study indicates that it is less accurate than the p-value for the chi-square test. But, in fact, the simulation study is more accurate than the chi-square test. Fisher's exact test shows that the two-sided hypothesis test for the cancer cell study has an exact p-value of 0.0357. With larger sample sizes, the p-values for chi-square tests will be closer to the exact p-values.
+The \(\scriptstyle p\)-value of 0.019 for the chi-square test is somewhat close to the result of the simulation study conducted in Section 5.3, where we found a two-sided \(\scriptstyle p\)-value of 0.0347. Every person conducting a chi-square test on the data in Table 5.1 should get the same \(\scriptstyle p\)-value, while each simulation study will provide a slightly different \(\scriptstyle p\)-value. Many students mistakenly assume that the variation in the \(\scriptstyle p\)-value for the simulation study indicates that it is less accurate than the \(\scriptstyle p\)-value for the chi-square test. But, in fact, the simulation study is more accurate than the chi-square test. Fisher's exact test shows that the two-sided hypothesis test for the cancer cell study has an exact \(\scriptstyle p\)-value of 0.0357. With larger sample sizes, the \(\scriptstyle p\)-values for chi-square tests will be closer to the exact \(\scriptstyle p\)-values.
 
-\hypertarget{activity-simulating-the-chi-square-test-statistic}{%
-\subsection*{Activity: Simulating the Chi-Square Test Statistic}\label{activity-simulating-the-chi-square-test-statistic}}
-\addcontentsline{toc}{subsection}{Activity: Simulating the Chi-Square Test Statistic}
+\hypertarget{simulating-the-chi-square-test-statistic}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Simulating the Chi-Square Test Statistic}{ Simulating the Chi-Square Test Statistic}}\label{simulating-the-chi-square-test-statistic}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Simulating the Chi-Square Test Statistic}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -6060,8 +6055,8 @@ The p-value of 0.019 for the chi-square test is somewhat close to the result of 
   \textbf{Degrees of Freedom} Create a 3 × 2 contingency table with row totals of 25, 30, and 25 and column totals of 30 and 50. How many table cell counts are truly free (i.e., what is the smallest number of table cell counts that, when filled in, will completely specify the rest of the cells)? Describe how the formula (number of rows - 1) × (number of columns - 1) relates to the number of free cells in a two-way contingency table of any size. It may be helpful to create a 3 × 3 table or a 3 × 4 table to convince yourself that this rule continues to hold.
 \end{enumerate}
 
-\hypertarget{what-can-we-conclude-from-the-cancer-study}{%
-\section{What Can We Conclude from the Cancer Study?}\label{what-can-we-conclude-from-the-cancer-study}}
+\hypertarget{section-53}{%
+\section{\texorpdfstring{\textcolor{blue}{What Can We Conclude from the Cancer Study?}}{}}\label{section-53}}
 
 The cancer cell data in Table 5.1 were analyzed with a simulation study (more specifically, a permutation test), a chi-square test, and Fisher's exact test. All tests suggested that the null hypothesis should be rejected, and thus we conclude that concave and round cell nuclei are associated with different proportions of malignant cells.
 
@@ -6069,8 +6064,8 @@ This study was not an experiment, since there was no random allocation of units 
 
 The individuals who provided these 37 slide samples were not a true random sample of all North Americans, but a sample of patients who volunteered to be part of the study at the University of Wisconsin hospitals. Subjects in medical studies are rarely true random samples from the general population. We cannot be certain that these results hold for a larger population of people. However, it seems reasonable for researchers to believe that cancer cells from patients in Wisconsin are similar to cancer cells from other patients in other hospitals. Thus, we can cautiously conclude that this study provides some evidence that the different nucleus shapes are associated with different proportions of malignant cells.
 
-\hypertarget{relative-risk-and-the-odds-ratio}{%
-\section{Relative Risk and the Odds Ratio}\label{relative-risk-and-the-odds-ratio}}
+\hypertarget{section-54}{%
+\section{\texorpdfstring{\textcolor{blue}{Relative Risk and the Odds Ratio}}{}}\label{section-54}}
 
 The \textbf{proportion} of malignant nuclei in this study is 24/37 = 0.6486. This overall proportion of malignancy is often called the \textbf{risk} (or baseline risk) of malignancy. The \textbf{conditional proportion} is the proportion of malignant cells calculated for each cell shape. Thus, the round nuclei have a conditional proportion (of malignancy) = 7/16 = 0.4375, and the concave cells have a conditional proportion (of malignancy) = 17/21 = 0.8095.
 
@@ -6088,7 +6083,7 @@ In the second study,
 \notag
 \end{align}
 
-Both studies could test whether an observed difference in proportions of 0.04 is significant. However, in the second study \emph{\(\hat p_1\)} is five times larger than \emph{\(\hat p_2\)}.
+Both studies could test whether an observed difference in proportions of 0.04 is significant. However, in the second study \(\scriptstyle \hat p_1\) is five times larger than \(\scriptstyle \hat p_2\).
 
 An alternative calculation that is commonly used for data with categorical response and explanatory variables is the relative risk. In the following calculations, we arbitrarily decided to define a malignant cell as a success.
 
@@ -6116,12 +6111,11 @@ The odds ratio in the cancer cell study is \(\frac{17/4}{7/9} = 5.5.\). Thus, th
 \textbf{NOTE} In relative risk and odds ratio calculations, the group that has the lower proportion (or lower odds) is typically considered group 2 (in the denominator). That way, the relative risk and odds ratio are always numbers larger than one and easier to interpret.
 \end{quote}
 
-\textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{In studies where the proportions are far away from 0.5, the hypothesis test for the difference in proportions may not best represent your question of interest. When both conditional proportions are small, the relative risk and odds ratio are preferable, since they take the base line rate (overall proportion of successes) into account.}
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{In studies where the proportions are far away from 0.5, the hypothesis test for the difference in proportions may not best represent your question of interest. When both conditional proportions are small, the relative risk and odds ratio are preferable, since they take the base line rate (overall proportion of successes) into account.}
 
-\hypertarget{activity-calculating-additional-summary-statistics}{%
-\subsection*{Activity: Calculating Additional Summary Statistics}\label{activity-calculating-additional-summary-statistics}}
-\addcontentsline{toc}{subsection}{Activity: Calculating Additional Summary Statistics}
+\hypertarget{calculating-additional-summary-statistics}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Calculating Additional Summary Statistics}{ Calculating Additional Summary Statistics}}\label{calculating-additional-summary-statistics}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Calculating Additional Summary Statistics}
 
 Data set: \texttt{Table\ 5.1}
 
@@ -6131,7 +6125,7 @@ Data set: \texttt{Table\ 5.1}
 \item
   Use the data from Table 5.1 and define a benign cell as a success and round cells to be group 1. Calculate and interpret the relative risk and the odds ratio.
 \item
-  Show that the null hypothesis \(H_0: p_1 = p_2\) is mathematically equivalent to the null hypothesis \(H_0: \theta_1/\theta_2 = 1\), where \(p\) represents the proportion successful and \(\theta\) represents the odds of success for any two groups (labeled 1 and 2).
+  Show that the null hypothesis \(\scriptstyle H_0: \ p_1 \ =\  p_2\) is mathematically equivalent to the null hypothesis \(\scriptstyle H_0: \ \theta_1/\theta_2 \ =\  1\), where \(\scriptstyle p\) represents the proportion successful and \(\scriptstyle \theta\) represents the odds of success for any two groups (labeled 1 and 2).
 \item
   \textbf{Shortcut for Calculating the Odds Ratio} Use the counts in Table 5.1 to calculate the following:
 \end{enumerate}
@@ -6153,9 +6147,9 @@ Does this calculation match any statistic in Question 22? This product of diagon
 
 Zocor is a drug used to lower cholesterol in order to reduce the chances of a heart attack. A five-year study was conducted to investigate the effectiveness of Zocor, using 4444 people.\(^6\) People in this study were aged 35-70 and had a high risk of heart attack. In addition, all the subjects were Caucasian and 81\% were males. Based on this study, television and print advertisements stated, ``A clinical study among people with high cholesterol and heart disease found 41\% fewer deaths from heart attack among those taking Zocor.\(^7\)
 
-\hypertarget{activity-comparing-relative-and-absolute-risk-reduction}{%
-\subsection*{Activity: Comparing Relative and Absolute Risk Reduction}\label{activity-comparing-relative-and-absolute-risk-reduction}}
-\addcontentsline{toc}{subsection}{Activity: Comparing Relative and Absolute Risk Reduction}
+\hypertarget{comparing-relative-and-absolute-risk-reduction}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Comparing Relative and Absolute Risk Reduction}{ Comparing Relative and Absolute Risk Reduction}}\label{comparing-relative-and-absolute-risk-reduction}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Comparing Relative and Absolute Risk Reduction}
 
 Data set: \texttt{Table\ 5.1}
 
@@ -6169,7 +6163,7 @@ Data set: \texttt{Table\ 5.1}
 \end{enumerate}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{(\alph{enumi})}
 \tightlist
 \item
   2222 died from heart attacks in the placebo group, and 41\% fewer (1289 out of 2222) died from heart attacks in the treatment group.\\
@@ -6190,7 +6184,7 @@ Data set: \texttt{Table\ 5.1}
 \end{enumerate}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{(\alph{enumi})}
 \tightlist
 \item
   Use the Zocor study data to create a two-way table. Use Placebo and Treatment (Zocor) as the row variables. Use Death and Survival as the column variables.\\
@@ -6211,8 +6205,8 @@ The difference between the two percentages calculated in Question 27b, 8.5\% - 5
 
 The statistic 41\% is called the \textbf{relative risk reduction}. While both statistics, 3.5\% and 41\%, are appropriate, it is important to recognize how easily these numbers can be misunderstood. The advertisement states things so as to make the reduction in deaths due to heart attacks appear greater than it is in absolute terms: a reduction of 8.5\% to 5\% for the risk of death from heart attack for the next five years for a restricted sample of people with heart disease.
 
-\hypertarget{sampling-designs}{%
-\section{Sampling Designs}\label{sampling-designs}}
+\hypertarget{section-55}{%
+\section{\texorpdfstring{\textcolor{blue}{Sampling Designs}}{}}\label{section-55}}
 
 Contingency tables are widely used and easy to interpret. However, it is important to recognize that the appropriate statistical analysis cannot be determined simply by looking at a table of data; it is determined by how the data were collected. While there are numerous ways to collect data, this section will focus on three key sampling designs often used in observational studies.
 
@@ -6228,9 +6222,9 @@ Contingency tables are widely used and easy to interpret. However, it is importa
 
 Prospective studies typically provide stronger evidence of a relationship between the explanatory variable and the response variable. However, they tend to be expensive, to require a long time to gather data, and to be sensitive to attrition. When responses can be rare, such as getting lung cancer, case‑control studies are preferred over cohort studies because case‑control studies can ensure a large enough sample size within each group of responses. However, when data are selected based on the response variable, such as in case‑control studies, studies can be particularly susceptible to difficulties with confounding.
 
-\hypertarget{activity-retrospective-studies-and-the-odds-ratio}{%
-\subsection*{Activity: Retrospective Studies and the Odds Ratio}\label{activity-retrospective-studies-and-the-odds-ratio}}
-\addcontentsline{toc}{subsection}{Activity: Retrospective Studies and the Odds Ratio}
+\hypertarget{retrospective-studies-and-the-odds-ratio}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Retrospective Studies and the Odds Ratio}{ Retrospective Studies and the Odds Ratio}}\label{retrospective-studies-and-the-odds-ratio}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Retrospective Studies and the Odds Ratio}
 
 In a retrospective study of lung cancer patients in 20 London hospitals, Richard Doll identified a relationship between smoking and lung cancer.\footnote{Retrospective cohort studies also exist. In these designs, past (medical) records are often used to collect data. As with prospective cohort studies, the objective is to first establish groups based on an explanatory variable. However, since these are past records data on the response variable can be collected at the same time.} Table 5.5 shows a partial set of data from his study. The data were collected on 60 female patients with lung cancer and 60 control females.
 
@@ -6312,7 +6306,7 @@ S_{LO}
 \notag
 \end{align}
 
-where \(n_S\) and \(n_N\) are the total number of smokers and the total number of nonsmokers in the study, respectively, and \(\hat p\) is the overall proportion of people with lung cancer in the study. Also recall that testing whether \(\theta_S/\theta_N = 1\) is equivalent to testing whether \(\ln(\theta_S/\theta_N) = 0\).
+where \(\scriptstyle n_S\) and \(\scriptstyle n_N\) are the total number of smokers and the total number of nonsmokers in the study, respectively, and \(\scriptstyle \hat p\) is the overall proportion of people with lung cancer in the study. Also recall that testing whether \(\scriptstyle \theta_S/\theta_N = 1\) is equivalent to testing whether \(\scriptstyle \ln(\theta_S/\theta_N) = 0\).
 
 Thus, a test statistic is calculated as
 
@@ -6322,7 +6316,7 @@ Z
 = \frac{0.90266}{0.3693} = 2.44 \notag
 \end{align}
 
-\textbf{Step~3: Calculate the p-value:}
+\textbf{Step~3: Calculate the \(\scriptstyle p\)-value:}
 
 \begin{align}
 P(Z > 2.44) = 0.0073 
@@ -6335,10 +6329,10 @@ It is reasonable to assume that each patient in the study is independent of the 
 
 \textbf{Step~5: Draw conclusions within the context of the study:}
 
-In this study, the small p-value leads us to reject the null hypothesis and conclude that the odds ratio is greater than one. In other words, if the population odds of cancer were identical for both smokers and nonsmokers, a sample odds ratio as large or larger than 2.466 was very unlikely to occur by random chance. This study is not an experiment; thus, it is inappropriate to conclude that smoking causes larger odds of cancer. This is not a true random sample of patients in the 20 London hospitals. However, it is reasonable to cautiously expect that these patients are representative of all hospital patients in the 20 London hospitals.
+In this study, the small \(\scriptstyle p\)-value leads us to reject the null hypothesis and conclude that the odds ratio is greater than one. In other words, if the population odds of cancer were identical for both smokers and nonsmokers, a sample odds ratio as large or larger than 2.466 was very unlikely to occur by random chance. This study is not an experiment; thus, it is inappropriate to conclude that smoking causes larger odds of cancer. This is not a true random sample of patients in the 20 London hospitals. However, it is reasonable to cautiously expect that these patients are representative of all hospital patients in the 20 London hospitals.
 
-\hypertarget{comparing-tests-of-homogeneity-and-independence}{%
-\section{Comparing Tests of Homogeneity and Independence}\label{comparing-tests-of-homogeneity-and-independence}}
+\hypertarget{section-56}{%
+\section{\texorpdfstring{\textcolor{blue}{Comparing Tests of Homogeneity and Independence}}{}}\label{section-56}}
 
 The calculations involved in the tests of homogeneity and independence are identical; however the type of question asked will impact the conclusions that can be drawn.
 
@@ -6391,15 +6385,15 @@ Fisher's Exact Test & Yes & Yes & Yes & Yes & Yes\\
 \end{table}
 
 In the cancer cells study, we concluded that different cell nucleus shapes are associated with different
-proportions of malignant cells. In this study, the researchers had a clear explanatory variable (\(Shape\)) and response variable (\(Type\)). Thus, the test of homogeneity is appropriate. However, a test of independence is also appropriate, since each subject was selected from one larger population: patients with suspicious tumors at the University of Wisconsin hospitals. After the patients were selected, the biopsy and FNA were conducted and each observed slide was classified as either malignant or benign and either round or concave.
+proportions of malignant cells. In this study, the researchers had a clear explanatory variable (\texttt{Shape}) and response variable (\texttt{Type}). Thus, the test of homogeneity is appropriate. However, a test of independence is also appropriate, since each subject was selected from one larger population: patients with suspicious tumors at the University of Wisconsin hospitals. After the patients were selected, the biopsy and FNA were conducted and each observed slide was classified as either malignant or benign and either round or concave.
 
 \textbf{\textcolor{blue}{Key Concept:}}
 \textcolor{blue}{Although chi-square tests homogeneity and independence involve exactly the same mathematical calculations, the conclusions can be different. The choice of test is based on (1) how the sampling was conducted and (2) whether there are clearly defined explanatory and response variables. A test of homogeneity is appropriate whenever the response variable is clearly defined from the beginning of the study. If one sample is selected from one population and each observation is grouped into categories for both variables (i.e., neither explanatory nor response totals are known in advance), the test of independence is appropriate.}
 
 While the chi-square test of independence is frequently used, the conclusions from this test are not very informative. The test does not prove that two variables are independent, but only identifies that we have significant evidence that two variables are dependent. No measurement of the degree of independence (or indication of whether this level of dependence is of practical importance) is given.
 
-\hypertarget{chi-square-goodness-of-fit-tests}{%
-\section{Chi-Square Goodness-of-Fit Tests}\label{chi-square-goodness-of-fit-tests}}
+\hypertarget{section-57}{%
+\section{\texorpdfstring{\textcolor{blue}{Chi-Square Goodness-of-Fit Tests}}{}}\label{section-57}}
 
 Many statistical techniques are based on specific model assumptions. For example, many procedures discussed throughout this text for calculating hypothesis tests and confidence intervals assume that the error terms follow a normal distribution. If the model assumptions are violated, the tests should not be considered reliable.
 
@@ -6408,17 +6402,17 @@ Goodness-of-fit tests are used to determine how well our observed data ``fit'' t
 Before a goodness-of-fit test can be used, we need some prior knowledge (or benchmark values) about a theoretical model. The chi-square goodness-of-fit test is applied to data that are placed into groups. Sample data are placed into classes (observed groups), and a theoretical model is used to calculate the expected number of observations in each group. In this section, we will use goodness-of-fit tests to determine if the observed counts (or proportions) are consistent with hypothetical counts (or proportions).
 
 \textbf{\textcolor{blue}{Key Concept:}}
-\textbackslash textcolor\{blue\}\{\{In a chi-square goodness-of-fit test with \(n\) observations:\}
+\textbackslash textcolor\{blue\}\{\{In a chi-square goodness-of-fit test with \(\scriptstyle n\) observations:\}
 
-\textcolor{blue}{$\bullet$ Each of the $n$ observations fits into exactly one of $G$ categories.}\\
-\textcolor{blue}{$\bullet$ The null hypothesis specifies the expected probability ($p_i$) for each cell.}\\
-\textcolor{blue}{$\bullet$ Expected counts are calculated as $n$ × $p_i$.}\\
-\textcolor{blue}{$\bullet$ The test statistic is $\chi^2 = \sum \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}$.}\\
-\textcolor{blue}{$\bullet$ If each of the expected cell counts is at least 5, the $p$-value is calculated from the chi-square distribution with $G$ – 1 degrees of freedom.}
+\textcolor{blue}{$\bullet$ Each of the $\scriptstyle n$ observations fits into exactly one of $\scriptstyle G$ categories.}\\
+\textcolor{blue}{$\bullet$ The null hypothesis specifies the expected probability ($\scriptstyle p_i$) for each cell.}\\
+\textcolor{blue}{$\bullet$ Expected counts are calculated as $\scriptstyle n$ × $\scriptstyle p_i$.}\\
+\textcolor{blue}{$\bullet$ The test statistic is $\scriptstyle \chi^2 \ =\  \sum \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}$.}\\
+\textcolor{blue}{$\bullet$ If each of the expected cell counts is at least 5, the $\scriptstyle p$-value is calculated from the chi-square distribution with $\scriptstyle G$ – 1 degrees of freedom.}
 
-\hypertarget{activity-playing-a-dice-game}{%
-\subsection*{Activity: Playing a Dice Game}\label{activity-playing-a-dice-game}}
-\addcontentsline{toc}{subsection}{Activity: Playing a Dice Game}
+\hypertarget{playing-a-dice-game}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Playing a Dice Game}{ Playing a Dice Game}}\label{playing-a-dice-game}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Playing a Dice Game}
 
 Your friend offers to play a simple game with you. He has a six‑sided die and will roll it 30 times. Each time he rolls a 5 or 6, you will pay him \$5. Each time he rolls a 1, 2, 3, or 4, he will pay you \$5. The results of your friend's 30 rolls for this game are shown in Table 5.7.
 
@@ -6443,10 +6437,10 @@ If you had agreed to play this game, you would have owed your friend some money.
 \item
   From visual inspection of the results, do you have any reason to suspect the die wasn't fair? Explain.
 \item
-  In this example, there are \emph{G} = 6 groups (cells). Assuming the die is fair, the probability that a roll results in a 1 is \(p_1 = 1/6\), the probability that a roll results in a 2 is \(p_2 = 1/6\), etc. In goodness-of-fit tests, the expected values are found from some hypothesized distribution that determines the probability for each of the \emph{G} groups.
+  In this example, there are \emph{G} = 6 groups (cells). Assuming the die is fair, the probability that a roll results in a 1 is \(p_1 = 1/6\), the probability that a roll results in a 2 is \(\scriptstyle p_2\) = 1/6, etc. In goodness-of-fit tests, the expected values are found from some hypothesized distribution that determines the probability for each of the \emph{G} groups.
 \end{enumerate}
 
-In this case, we assume \(p_1 = p_2 = p_3 = p_4 = p_5 = p_6 = 1/6\). The expected count for each of the 6 groups can be found from \emph{n} × \emph{p}i. Assuming all outcomes are equally likely, fill out the expected counts in Table 5.8.
+In this case, we assume \(\scriptstyle p_1 \ =\  p_2 \ =\  p_3 \ =\  p_4 \ =\  p_5 \ =\  p_6 \ =\  1/6\). The expected count for each of the 6 groups can be found from \(\scriptstyle n \ \times \ p_i\). Assuming all outcomes are equally likely, fill out the expected counts in Table 5.8.
 
 \begin{table}[!h]
 \centering
@@ -6471,7 +6465,7 @@ Expected &  &  &  &  &  & \\
 \end{enumerate}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{(\alph{enumi})}
 \tightlist
 \item
   State the null and alternative hypotheses in words.\\
@@ -6490,8 +6484,8 @@ Expected &  &  &  &  &  & \\
 The chi-square goodness-of-fit test is applied to grouped data (i.e., data put into classes). Continuous data can easily be placed into groups. However, it is important to recognize that the value of the chi-square test statistic depends on how the data are grouped.
 \end{quote}
 
-\hypertarget{chapter-summary}{%
-\section{Chapter Summary}\label{chapter-summary}}
+\hypertarget{section-58}{%
+\section{\texorpdfstring{\textcolor{blue}{Chapter Summary}}{}}\label{section-58}}
 
 This chapter focused on analyzing and drawing conclusions from categorical data. Fisher's exact test, simulation studies, and chi-square tests were used to analyze various data sets. Like most hypothesis tests, each of these tests is valid only if care is taken to ensure that the appropriate assumptions are met. All tests assume that the observations are independent.
 
@@ -6523,7 +6517,7 @@ Three key sampling designs were described in this chapter.
   In \textbf{case-control studies}, the totals corresponding to the response variable are known before data are collected on the explanatory variable.
 \end{itemize}
 
-Testing the \textbf{equivalence of two proportions} (\(H_0: p_1 = p_2\)) is mathematically equivalent to testing whether the \textbf{odds ratio} is equal to 1 (\(H_0: \theta_1/\theta_2 = 1\)), where \(p\) represents the proportion successful and \(\theta\) represents the odds of success for any two groups (labeled 1 and 2). However, when the proportions of interest are very small, it may be more appropriate to look at the odds ratio than at the proportions. Tests for equal proportions are not appropriate for case-control studies, because the fixed response totals cause the sample proportions to not accurately represent the population.
+Testing the \textbf{equivalence of two proportions} (\(\scriptstyle H_0:\  p_1 \ =\  p_2\)) is mathematically equivalent to testing whether the \textbf{odds ratio} is equal to 1 (\(\scriptstyle H_0:\  \theta_1/\theta_2 \ = \ 1\)), where \(\scriptstyle p\) represents the proportion successful and \(\scriptstyle \theta\) represents the odds of success for any two groups (labeled 1 and 2). However, when the proportions of interest are very small, it may be more appropriate to look at the odds ratio than at the proportions. Tests for equal proportions are not appropriate for case-control studies, because the fixed response totals cause the sample proportions to not accurately represent the population.
 
 Chi-square tests for homogeneity and independence involve exactly the same mathematical calculations; however, the hypotheses and conclusions are different. A \textbf{test of homogeneity of proportions} is appropriate whenever the explanatory and response variables are clearly defined from the beginning of the study. While the explanatory totals may be known in advance, the response totals cannot be fixed before the data are collected. \textbf{Tests of independence} are appropriate if one sample is selected from one population, and thus neither explanatory nor response totals are known in advance (i.e., both explanatory and response totals can be considered random).
 
@@ -6703,7 +6697,7 @@ Total & 24 & 48 & 72\\
 \end{tabular}
 \end{table}
 
-  where $p_D$, $p_L$, and $p_C$ represent the true proportions of successes in the D, L, and C groups,
+  where $\scriptstyle p_D$, $\scriptstyle p_L$, and $\scriptstyle p_C$ represent the true proportions of successes in the D, L, and C groups,
 respectively.
   \begin{enumerate}
     \item Was either the explanatory (row) or the response (column) variable fixed before the study was conducted?
@@ -6916,6 +6910,12 @@ constructed null model, we can infer that the biological mechanism is not operat
 with the null model, “this provides some positive evidence in favor of the mechanism” (p. 6).
 
 \end{enumerate}
+
+\begin{verbatim}
+## WARNING: Rtools is required to build R packages, but no version of Rtools compatible with R 4.5.0 was found. (Only the following incompatible version(s) of Rtools were found: 4.2)
+## 
+## Please download and install Rtools 4.5 from https://cran.r-project.org/bin/windows/Rtools/.
+\end{verbatim}
 
 \begin{verbatim}
 ## Using GitHub PAT from the git credential store.
@@ -8312,8 +8312,8 @@ To find the maximum likelihood estimates of \(\beta_0\) and \(\beta_1\), take th
 \textbf{MATHEMATICAL NOTE:}Finding estimates for \(\beta_0\) and \(\beta_1\) that maximize the log-likelihood function is an iterative technique that quickly becomes complex even for small data sets and is not typically done by hand. Iterative techniques start with initial estimates of \(\beta_0\) and \(\beta_1\). An iterative technique such as the Newton--Raphson method repeatedly provides new estimates for \(\beta_0\) or \(\beta_1\) that increase the log-likelihood until the log-likelihood does not notably change.\(^{15}\)
 \end{quote}
 
-\hypertarget{chapter-summary-1}{%
-\section{Chapter Summary}\label{chapter-summary-1}}
+\hypertarget{chapter-summary}{%
+\section{Chapter Summary}\label{chapter-summary}}
 
 Throughout this chapter, we have discussed how to conduct logistic regression for binary response data. When the observed response variable is binary, \(y_i = 1\) typically represents a success (or outcome of interest) and \(y_i = 0\) represents a failure. In the logistic regression model, the estimated response is typically defined as the log-odds of the probability of a success:
 \begin{align}
@@ -8570,6 +8570,12 @@ Adolescent\_Risk/Tobacco/risk\_report.pdf, accessed 11/30/07.
 \item Ibid, p. 5.
 
 \end{enumerate}
+
+\begin{verbatim}
+## WARNING: Rtools is required to build R packages, but no version of Rtools compatible with R 4.5.0 was found. (Only the following incompatible version(s) of Rtools were found: 4.2)
+## 
+## Please download and install Rtools 4.5 from https://cran.r-project.org/bin/windows/Rtools/.
+\end{verbatim}
 
 \begin{verbatim}
 ## Using GitHub PAT from the git credential store.
@@ -9983,8 +9989,8 @@ Subject 2 is rather interesting. Subject 2 experienced the event prior to the be
 \textcolor{blue}{
 Left and interval censoring are two additional mechanisms that lead to incomplete observations. Left censoring occurs when the exact time an event occurred is unknown; it is known only that the event occurred prior to a particular time $t$. Interval censoring occurs when the event time is known only to have occurred between two time points.}
 
-\hypertarget{chapter-summary-2}{%
-\subsection{Chapter Summary}\label{chapter-summary-2}}
+\hypertarget{chapter-summary-1}{%
+\subsection{Chapter Summary}\label{chapter-summary-1}}
 
 The goal of this chapter was to provide an overview of time-to-event data and expose you to some introductory techniques for exploring survival data. A sample of event times can be summarized using the Kaplan--Meier curve, in conjunction with descriptive measures such as the mean and median.
 

@@ -153,33 +153,33 @@
 \contentsline {section}{\numberline {4.10}Exercises}{119}{section.4.10}%
 \contentsline {subsection}{Endnotes}{124}{section*.167}%
 \contentsline {chapter}{\numberline {5}Categorical Data Analysis: Is a Tumor Malignant or Benign?}{125}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Investigation: Is Cell Shape Associated with Malignancy?}{125}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Summarizing Categorical Data}{126}{section.5.2}%
-\contentsline {subsection}{Activity: Descriptive Statistics and Graphs}{127}{section*.168}%
-\contentsline {section}{\numberline {5.3}A Simulation Study: How Likely Is It That the Observed Sample Would Occur by Chance?}{127}{section.5.3}%
-\contentsline {subsection}{Activity: Conducting a Simulation Study with Cards}{128}{section*.171}%
-\contentsline {subsection}{Activity: Computer Simulation}{129}{section*.172}%
-\contentsline {section}{\numberline {5.4}Fisher's Exact Test}{129}{section.5.4}%
-\contentsline {subsection}{Activity: Calculating Fisher's Exact Test}{130}{section*.173}%
-\contentsline {section}{\numberline {5.5}Two-Sided Hypothesis Tests}{131}{section.5.5}%
-\contentsline {subsection}{Activity: Calculating a Two-Sided Hypothesis Test}{132}{section*.176}%
-\contentsline {section}{\numberline {5.6}Chi-Square Test}{132}{section.5.6}%
-\contentsline {subsection}{Activity: Calculating Expected Counts}{133}{section*.177}%
-\contentsline {subsection}{Activity: Conducting a Chi-Square Test}{134}{section*.180}%
-\contentsline {subsection}{Activity: Simulating the Chi-Square Test Statistic}{135}{section*.181}%
-\contentsline {section}{\numberline {5.7}What Can We Conclude from the Cancer Study?}{135}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Relative Risk and the Odds Ratio}{136}{section.5.8}%
-\contentsline {subsection}{Activity: Calculating Additional Summary Statistics}{137}{section*.188}%
+\contentsline {section}{\numberline {5.1}\textcolor {blue}{Investigation: Is Cell Shape Associated with Malignancy?}}{125}{section.5.1}%
+\contentsline {section}{\numberline {5.2}\textcolor {blue}{Summarizing Categorical Data}}{126}{section.5.2}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Descriptive Statistics and Graphs}{127}{section*.168}%
+\contentsline {section}{\numberline {5.3}\textcolor {blue}{A Simulation Study: How Likely Is It That the Observed Sample Would Occur by Chance?}}{127}{section.5.3}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Conducting a Simulation Study with Cards}{128}{section*.171}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Computer Simulation}{129}{section*.172}%
+\contentsline {section}{\numberline {5.4}\textcolor {blue}{Fisher’s Exact Test}}{129}{section.5.4}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Fisher's Exact Test}{130}{section*.173}%
+\contentsline {section}{\numberline {5.5}\textcolor {blue}{Two-Sided Hypothesis Tests}}{131}{section.5.5}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating a Two-Sided Hypothesis Test}{131}{section*.176}%
+\contentsline {section}{\numberline {5.6}\textcolor {blue}{Chi-Square Test}}{132}{section.5.6}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Expected Counts}{133}{section*.177}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Conducting a Chi-Square Test}{134}{section*.180}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Simulating the Chi-Square Test Statistic}{135}{section*.181}%
+\contentsline {section}{\numberline {5.7}\textcolor {blue}{What Can We Conclude from the Cancer Study?}}{135}{section.5.7}%
+\contentsline {section}{\numberline {5.8}\textcolor {blue}{Relative Risk and the Odds Ratio}}{136}{section.5.8}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Additional Summary Statistics}{137}{section*.188}%
 \contentsline {subsection}{Cautions About Relative Risk Reduction in Medical Studies}{137}{section*.189}%
-\contentsline {subsection}{Activity: Comparing Relative and Absolute Risk Reduction}{137}{section*.190}%
-\contentsline {section}{\numberline {5.9}Sampling Designs}{138}{section.5.9}%
-\contentsline {subsection}{Activity: Retrospective Studies and the Odds Ratio}{139}{section*.191}%
-\contentsline {subsection}{Tests for the Homogeneity of Odds}{140}{section*.192}%
-\contentsline {section}{\numberline {5.10}Comparing Tests of Homogeneity and Independence}{141}{section.5.10}%
-\contentsline {section}{\numberline {5.11}Chi-Square Goodness-of-Fit Tests}{142}{section.5.11}%
-\contentsline {subsection}{Activity: Playing a Dice Game}{143}{section*.193}%
-\contentsline {section}{\numberline {5.12}Chapter Summary}{144}{section.5.12}%
-\contentsline {section}{\numberline {5.13}Exercises}{145}{section.5.13}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Comparing Relative and Absolute Risk Reduction}{137}{section*.190}%
+\contentsline {section}{\numberline {5.9}\textcolor {blue}{Sampling Designs}}{138}{section.5.9}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Retrospective Studies and the Odds Ratio}{139}{section*.191}%
+\contentsline {subsection}{Tests for the Homogeneity of Odds}{139}{section*.192}%
+\contentsline {section}{\numberline {5.10}\textcolor {blue}{Comparing Tests of Homogeneity and Independence}}{141}{section.5.10}%
+\contentsline {section}{\numberline {5.11}\textcolor {blue}{Chi-Square Goodness-of-Fit Tests}}{142}{section.5.11}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Playing a Dice Game}{142}{section*.193}%
+\contentsline {section}{\numberline {5.12}\textcolor {blue}{Chapter Summary}}{143}{section.5.12}%
+\contentsline {section}{\numberline {5.13}Exercises}{144}{section.5.13}%
 \contentsline {subsection}{Endnotes}{151}{section*.194}%
 \contentsline {chapter}{\numberline {6}Logistic Regression: The Space Shuttle Challenger}{153}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Investigation: Did Temperature Influence the Likelihood of an O-Ring Failure?}{153}{section.6.1}%
