@@ -13,7 +13,7 @@ library(plotly)
 ```
 
 
-# \textcolor{blue}{Nonparametric Methods: Schistosomiasis}
+# Nonparametric Methods: Schistosomiasis
 
 \begin{flushright}
 \emph{Using statistics is no substitute for thinking about the problem} \\

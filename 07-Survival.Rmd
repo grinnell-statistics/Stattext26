@@ -720,11 +720,7 @@ number of individuals in group 1 who are at risk at time $t_i$.
 >**MATHEMATICAL NOTE**  Equation \ref{9.10} is based on the assumption that the number of occurrences for group 1 at time $t_i$ follows a hypergeometric distribution.$^6$
 
 
-Next, we need to compare the observed and expected counts at time $t_i$, which can be done by taking the
-difference between the counts and dividing by an appropriate scaling factor. This scaling quantity is the vari-
-ance of the number of event occurrences at time ti. Again, based on the assumption that the number of event
-occurrences at time $t_i$ for group 1 follows a hypergeometric distribution, the variance for the number of event
-occurrences for group 1 at time $t_i$, denoted $V_{1i}$, is given by
+Next, we need to compare the observed and expected counts at time $t_i$, which can be done by taking the difference between the counts and dividing by an appropriate scaling factor. This scaling quantity is the variance of the number of event occurrences at time ti. Again, based on the assumption that the number of event occurrences at time $t_i$ for group 1 follows a hypergeometric distribution, the variance for the number of event occurrences for group 1 at time $t_i$, denoted $V_{1i}$, is given by
 
 \begin{align}
 V_{1i} &= \frac{n_{1i}\,n_{2i}\,d_i\,(n_i - d_i)}{n_i^2\,(n_i - 1)}

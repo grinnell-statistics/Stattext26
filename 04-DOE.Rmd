@@ -13,7 +13,7 @@ library(tidyverse)
 library(devtools)
 library(dplyr)
 library(ggplot2)
-library(myfirstpackage)
+# library(myfirstpackage)
 # switch ggplot text to Latin Modern Roman
 theme_set(
   theme_minimal(base_family = "Latin Modern Roman") +

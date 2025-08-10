@@ -9,8 +9,8 @@ library(ggplot2)
 library(tidyverse)
 library(devtools)
 library(plotly)
-install_github("Tanvi-Jindal/myfirstpackage")
-library(myfirstpackage)
+#install_github("Tanvi-Jindal/myfirstpackage")
+#library(myfirstpackage)
 theme_set(
   theme_minimal(base_family = "Latin Modern Roman") +
     theme(
@@ -689,6 +689,7 @@ Note that tests for equal proportions are not appropriate if the response totals
 
 
 30. Calculate the odds of lung cancer for smokers. Calculate the odds of lung cancer for nonsmokers. Calculate and interpret the odds ratio of lung cancer. Does the odds ratio indicate a relationship between smoking and lung cancer?  
+
 31. Calculate and interpret the odds ratio of being a smoker. Does the odds ratio depend on what variable is considered the response?
 
 \textbf{\textcolor{blue}{Key Concept:}}
