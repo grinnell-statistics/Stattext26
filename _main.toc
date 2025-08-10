@@ -1,0 +1,279 @@
+\contentsline {chapter}{\numberline {1}Nonparametric Methods: Schistosomiasis}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}\textcolor {blue}{Investigation: Can a New Drug Reduce the Spread of Schistosomiasis?}}{7}{section.1.1}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Describing the Data}{8}{section*.2}%
+\contentsline {section}{\numberline {1.2}\textcolor {blue}{Statistical Inference Through a Randomization Test}}{8}{section.1.2}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Conducting a Randomization Test by Hand}{9}{section*.3}%
+\contentsline {section}{\numberline {1.3}\textcolor {blue}{ Performing a Randomization Test Using a Computer Simulation}}{10}{section.1.3}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Using Computer Simulations to Conduct a Hypothesis Test}{10}{section*.4}%
+\contentsline {section}{\numberline {1.4}\textcolor {blue}{Two-Sided Tests}}{12}{section.1.4}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} A Two-Sided Hypothesis Test}{12}{section*.5}%
+\contentsline {section}{\numberline {1.5}\textcolor {blue}{What Can We Conclude from the Schistosomiasis Study?}}{13}{section.1.5}%
+\contentsline {section}{\numberline {1.6}\textcolor {blue}{Permutation Tests versus Randomization Tests}}{13}{section.1.6}%
+\contentsline {subsection}{Age Discrimination Study}{14}{section*.6}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Is There Evidence of Age Discrimination?}{14}{section*.7}%
+\contentsline {section}{\numberline {1.7}\textcolor {blue}{Permutation and Randomization Tests for Matched Pairs Designs}}{15}{section.1.7}%
+\contentsline {subsection}{Music and Relaxation}{15}{section*.8}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Testing the Effect of Music on Relaxation}{15}{section*.9}%
+\contentsline {section}{\numberline {1.8}\textcolor {blue}{The Bootstrap Distribution}}{16}{section.1.8}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Creating a Sampling Distribution and a Bootstrap Distribution}{16}{section*.10}%
+\contentsline {section}{\numberline {1.9}\textcolor {blue}{Using Bootstrap Methods to Create Confidence Intervals}}{18}{section.1.9}%
+\contentsline {subsection}{Bootstrap t Confidence Intervals}{18}{section*.11}%
+\contentsline {subsection}{Bootstrap Percentile Confidence Intervals}{19}{section*.15}%
+\contentsline {subsection}{When to Use Bootstrap Confidence Intervals}{19}{section*.16}%
+\contentsline {subsection}{\textcolor {blue}{Practice:}Estimating Salaries of Medical Faculty}{20}{section*.17}%
+\contentsline {section}{\numberline {1.10}\textcolor {blue}{Relationship Between the Randomization Test and the Two-Sample t-Test}}{20}{section.1.10}%
+\contentsline {section}{\numberline {1.11}\textcolor {blue}{Wilcoxon Rank Sum Tests for Two Independent Samples}}{20}{section.1.11}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} \emph {Wilcoxon Rank Sum Tests}}{22}{section*.20}%
+\contentsline {section}{\numberline {1.12}\textcolor {blue}{Kruskal-Wallis Test for Two or More Independent Samples}}{22}{section.1.12}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Kruskal-Wallis Test}{23}{section*.22}%
+\contentsline {section}{\numberline {1.13}\textcolor {blue}{Multiple Comparisons}}{24}{section.1.13}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Comparing Car Prices}{24}{section*.23}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} The Least-Significant Differences Method and the Bonferroni Method}{24}{section*.24}%
+\contentsline {subsection}{Choosing a Critical Value}{25}{section*.25}%
+\contentsline {section}{\numberline {1.14}\textcolor {blue}{Chapter Summary}}{25}{section.1.14}%
+\contentsline {section}{Exercises}{27}{section*.26}%
+\contentsline {subsection}{Endnotes}{30}{section*.27}%
+\contentsline {chapter}{\numberline {2}Making Connections: The Two-Sample t-Test, Regression, and ANOVA}{31}{chapter.2}%
+\contentsline {section}{\numberline {2.1}\textcolor {blue}{ Investigation: Do Distracting Colors Influence the Time to Complete a Game?}}{32}{section.2.1}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Understanding the Study Design}{33}{section*.28}%
+\contentsline {section}{\numberline {2.2}\textcolor {blue}{ The Two-Sample t-Test to Compare Population Means}}{33}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}The Statistical Model}{33}{subsection.2.2.1}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Statistical Models for the Two-Sample t-Test}{34}{section*.31}%
+\contentsline {subsection}{Model Assumptions for the Two-Sample t-Test}{35}{section*.32}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Checking Assumptions for the t-Test}{36}{section*.33}%
+\contentsline {section}{\numberline {2.3}\textcolor {blue}{ The Regression Model to Compare Population Means}}{36}{section.2.3}%
+\contentsline {subsection}{The Linear Regression Model}{36}{section*.34}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating a Regression Model and Hypothesis Test for the Slope}{37}{section*.36}%
+\contentsline {subsection}{Model Assumptions for Regression}{38}{section*.40}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Checking Model Assumptions}{38}{section*.41}%
+\contentsline {section}{\numberline {2.4}\textcolor {blue}{ ANOVA to Compare Population Means}}{39}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}The ANOVA Model}{39}{subsection.2.4.1}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} The ANOVA Model}{40}{section*.43}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Estimating the Model Values}{40}{section*.44}%
+\contentsline {subsection}{Model Assumptions for ANOVA}{41}{section*.45}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Checking Assumptions}{41}{section*.46}%
+\contentsline {section}{\numberline {2.5}\textcolor {blue}{ Comparing Planned Variability to Random Variability}}{41}{section.2.5}%
+\contentsline {section}{\numberline {2.6}\textcolor {blue}{ Random Sampling and Random Allocation}}{42}{section.2.6}%
+\contentsline {section}{\numberline {2.7}\textcolor {blue}{ What Can We Conclude from the Game Study?}}{43}{section.2.7}%
+\contentsline {section}{\numberline {2.8}\textcolor {blue}{ Normal Probability Plots to Assess Normality}}{43}{section.2.8}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Creating Probability Plots}{44}{section*.47}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Understanding Variability in Random Samples}{45}{section*.48}%
+\contentsline {section}{\numberline {2.9}\textcolor {blue}{ Transformations}}{45}{section.2.9}%
+\contentsline {subsection}{Transformations for ANOVA}{45}{section*.49}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Transforming Emissions Data}{46}{section*.50}%
+\contentsline {subsection}{Back Transformations}{47}{section*.51}%
+\contentsline {subsection}{Transformations for Regression}{48}{section*.52}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Transforming Brain and Body Weight Data}{48}{section*.53}%
+\contentsline {subsection}{Choosing the Right Transformation}{48}{section*.54}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Comparing Four \(\scriptstyle (x, y)\) Data Sets}{49}{section*.55}%
+\contentsline {section}{\numberline {2.10}\textcolor {blue}{ Calculating Test Statistics}}{49}{section.2.10}%
+\contentsline {subsection}{The Two-Sample \(\scriptstyle t\)-Test with the Equal Variance Assumption}{50}{section*.56}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating the Two-Sample t-Test}{50}{section*.59}%
+\contentsline {subsection}{Regression}{50}{section*.60}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Testing the Slope Coefficient}{51}{section*.65}%
+\contentsline {subsection}{Analysis of Variance (ANOVA)}{51}{section*.66}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating an ANOVA Table}{54}{section*.70}%
+\contentsline {section}{\numberline {2.11}\textcolor {blue}{ Confidence Intervals}}{54}{section.2.11}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating a Confidence Interval for the Regression Coefficient}{55}{section*.71}%
+\contentsline {section}{\numberline {2.12}\textcolor {blue}{ Chapter Summary}}{55}{section.2.12}%
+\contentsline {section}{Exercises}{56}{section*.72}%
+\contentsline {chapter}{\numberline {3}Multiple Regression: How Much Is Your Car Worth?}{63}{chapter.3}%
+\contentsline {section}{\numberline {3.1}\textcolor {blue}{Investigation: How Can We Build a Model to Estimate Used Car Prices?}}{64}{section.3.1}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} A Simple Linear Regression Model}{64}{section*.74}%
+\contentsline {section}{\numberline {3.2}\textcolor {blue}{Goals of Multiple Regression}}{65}{section.3.2}%
+\contentsline {section}{\numberline {3.3}\textcolor {blue}{Variable Selection Techniques to Describe or Predict a Response}}{66}{section.3.3}%
+\contentsline {subsection}{Stepwise Regression}{66}{section*.76}%
+\contentsline {subsection}{Selecting the ``Best Subset'' of Predictors}{67}{section*.77}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Comparing Variable Selection Techniques}{68}{section*.81}%
+\contentsline {section}{\numberline {3.4}\textcolor {blue}{Checking Model Assumptions}}{68}{section.3.4}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Heteroskedasticity}{69}{section*.84}%
+\contentsline {subsection}{\textcolor {blue}{Practice:}Examining Residual Plots Across Time/Order}{70}{section*.85}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Outliers and Influential Observations}{71}{section*.86}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Normally Distributed Residuals}{73}{section*.87}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Correlation Between Explanatory Variables}{74}{section*.88}%
+\contentsline {section}{\numberline {3.5}\textcolor {blue}{Interpreting Model Coefficients}}{75}{section.3.5}%
+\contentsline {section}{\numberline {3.6}\textcolor {blue}{Categorical Explanatory Variables}}{76}{section.3.6}%
+\contentsline {subsection}{Creating Indicator Variables}{76}{section*.89}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Building Regression Models with Indicator Variables}{77}{section*.90}%
+\contentsline {section}{\numberline {3.7}\textcolor {blue}{What Can We Conclude from the 2005 GM Car Study?}}{77}{section.3.7}%
+\contentsline {section}{\numberline {3.8}\textcolor {blue}{F-Tests for Multiple Regression}}{78}{section.3.8}%
+\contentsline {subsection}{Decomposition of Sum of Squares}{78}{section*.91}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} A Closer Look at Least Squares Regression Equations}{79}{section*.94}%
+\contentsline {subsection}{The Analysis of Variance Table}{80}{section*.95}%
+\contentsline {subsection}{Testing the Significance of a Regression Model}{81}{section*.97}%
+\contentsline {subsection}{The Extra Sum of Squares \(\scriptstyle F\)-Test}{81}{section*.99}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Testing Multiple Coefficients}{81}{section*.101}%
+\contentsline {section}{\numberline {3.9}\textcolor {blue}{Developing a Model to Confirm a Theory}}{82}{section.3.9}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Testing a Theory on Cars}{82}{section*.102}%
+\contentsline {section}{\numberline {3.10}\textcolor {blue}{Interaction and Terms for Curvature}}{83}{section.3.10}%
+\contentsline {subsection}{Interaction Terms}{83}{section*.103}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Understanding Interaction Terms}{84}{section*.104}%
+\contentsline {subsection}{Quadratic and Cubic Terms}{85}{section*.105}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Understanding Quadratic Terms}{85}{section*.106}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Creating New Terms to Predict the Retail Price of Cars}{86}{section*.107}%
+\contentsline {section}{\numberline {3.11}\textcolor {blue}{A Closer Look at Variable Selection Criteria}}{86}{section.3.11}%
+\contentsline {subsection}{Adjusted \(\scriptstyle {R}^2\)}{87}{section*.108}%
+\contentsline {subsection}{Mallows' \(\scriptstyle C_p\)}{87}{section*.110}%
+\contentsline {subsection}{Akaike's Information Criterion (AIC) and Bayes' Information Criterion (BIC)}{87}{section*.112}%
+\contentsline {subsection}{Model Validation}{88}{section*.115}%
+\contentsline {section}{\numberline {3.12}\textcolor {blue}{Chapter Summary}}{88}{section.3.12}%
+\contentsline {section}{\numberline {3.13}Exercises}{90}{section.3.13}%
+\contentsline {subsection}{Endnotes}{93}{section*.116}%
+\contentsline {chapter}{\numberline {4}The Design and Analysis of Factorial Experiments: Popcorn and Paper Towels}{94}{chapter.4}%
+\contentsline {section}{\numberline {4.1}\textcolor {blue}{Investigation: Which Microwave Popcorn Is the Best?}}{95}{section.4.1}%
+\contentsline {section}{\numberline {4.2}\textcolor {blue}{Elements of a Well-Designed Experiment}}{95}{section.4.2}%
+\contentsline {subsection}{Identifying a Response Variable}{96}{section*.117}%
+\contentsline {subsection}{Identifying the Factors and Levels}{96}{section*.118}%
+\contentsline {subsection}{Choosing a Design}{97}{section*.119}%
+\contentsline {subsection}{Determining Sample Sizes for Completely Randomized Designs}{98}{section*.120}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Determining the Number of Treatment Combinations}{98}{section*.121}%
+\contentsline {section}{\numberline {4.3}\textcolor {blue}{Analyzing a Two-Way Factorial Design}}{99}{section.4.3}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Visualizing the Data}{99}{section*.122}%
+\contentsline {subsection}{Notation for Multiple Explanatory Variables}{99}{section*.123}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Understanding Notation}{101}{section*.124}%
+\contentsline {subsection}{\numberline {4.3.1}Comparing Variances \{-\} }{101}{subsection.4.3.1}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating F-Statistics}{103}{section*.133}%
+\contentsline {subsection}{Interpreting Interaction Terms}{104}{section*.134}%
+\contentsline {section}{\numberline {4.4}\textcolor {blue}{Analyzing a Three-Way Factorial Design}}{104}{section.4.4}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Conducting a Three-Way ANOVA}{106}{section*.135}%
+\contentsline {section}{\numberline {4.5}\textcolor {blue}{What Can We Conclude from the Popcorn Study?}}{107}{section.4.5}%
+\contentsline {section}{\numberline {4.6}\textcolor {blue}{Paper Towels: Developing a Statistical Model for a Two-Way Factorial Design}}{107}{section.4.6}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Algebraic Notation}{108}{section*.136}%
+\contentsline {subsection}{Calculating Effects}{108}{section*.137}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Estimating Main Effects}{110}{section*.142}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Interaction Effects}{111}{section*.145}%
+\contentsline {section}{\numberline {4.7}\textcolor {blue}{Paper Towels: The Relationship Between Effects and ANOVA}}{111}{section.4.7}%
+\contentsline {subsection}{Degrees of Freedom}{113}{section*.158}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Degrees of Freedom for Interaction Terms}{113}{section*.159}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Analyzing the Paper Towel Data}{115}{section*.162}%
+\contentsline {section}{\numberline {4.8}\textcolor {blue}{Contrasts and Multiple Comparisons}}{116}{section.4.8}%
+\contentsline {subsection}{\textcolor {blue}{Practice:}Comparing One-Way and Two-Way ANOVA}{116}{section*.163}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Contrasts}{118}{section*.166}%
+\contentsline {section}{\numberline {4.9}\textcolor {blue}{Chapter Summary}}{118}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Exercises}{119}{section.4.10}%
+\contentsline {subsection}{Endnotes}{124}{section*.167}%
+\contentsline {chapter}{\numberline {5}Categorical Data Analysis: Is a Tumor Malignant or Benign?}{125}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Investigation: Is Cell Shape Associated with Malignancy?}{125}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Summarizing Categorical Data}{126}{section.5.2}%
+\contentsline {subsection}{Activity: Descriptive Statistics and Graphs}{127}{section*.168}%
+\contentsline {section}{\numberline {5.3}A Simulation Study: How Likely Is It That the Observed Sample Would Occur by Chance?}{127}{section.5.3}%
+\contentsline {subsection}{Activity: Conducting a Simulation Study with Cards}{128}{section*.171}%
+\contentsline {subsection}{Activity: Computer Simulation}{129}{section*.172}%
+\contentsline {section}{\numberline {5.4}Fisher's Exact Test}{129}{section.5.4}%
+\contentsline {subsection}{Activity: Calculating Fisher's Exact Test}{130}{section*.173}%
+\contentsline {section}{\numberline {5.5}Two-Sided Hypothesis Tests}{131}{section.5.5}%
+\contentsline {subsection}{Activity: Calculating a Two-Sided Hypothesis Test}{132}{section*.176}%
+\contentsline {section}{\numberline {5.6}Chi-Square Test}{132}{section.5.6}%
+\contentsline {subsection}{Activity: Calculating Expected Counts}{133}{section*.177}%
+\contentsline {subsection}{Activity: Conducting a Chi-Square Test}{134}{section*.180}%
+\contentsline {subsection}{Activity: Simulating the Chi-Square Test Statistic}{135}{section*.181}%
+\contentsline {section}{\numberline {5.7}What Can We Conclude from the Cancer Study?}{135}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Relative Risk and the Odds Ratio}{136}{section.5.8}%
+\contentsline {subsection}{Activity: Calculating Additional Summary Statistics}{137}{section*.188}%
+\contentsline {subsection}{Cautions About Relative Risk Reduction in Medical Studies}{137}{section*.189}%
+\contentsline {subsection}{Activity: Comparing Relative and Absolute Risk Reduction}{137}{section*.190}%
+\contentsline {section}{\numberline {5.9}Sampling Designs}{138}{section.5.9}%
+\contentsline {subsection}{Activity: Retrospective Studies and the Odds Ratio}{139}{section*.191}%
+\contentsline {subsection}{Tests for the Homogeneity of Odds}{140}{section*.192}%
+\contentsline {section}{\numberline {5.10}Comparing Tests of Homogeneity and Independence}{141}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Chi-Square Goodness-of-Fit Tests}{142}{section.5.11}%
+\contentsline {subsection}{Activity: Playing a Dice Game}{143}{section*.193}%
+\contentsline {section}{\numberline {5.12}Chapter Summary}{144}{section.5.12}%
+\contentsline {section}{\numberline {5.13}Exercises}{145}{section.5.13}%
+\contentsline {subsection}{Endnotes}{151}{section*.194}%
+\contentsline {chapter}{\numberline {6}Logistic Regression: The Space Shuttle Challenger}{153}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Investigation: Did Temperature Influence the Likelihood of an O-Ring Failure?}{153}{section.6.1}%
+\contentsline {subsection}{Activity: Describing the Data}{155}{section*.195}%
+\contentsline {section}{\numberline {6.2}Review of the Least Squares Regression Model}{156}{section.6.2}%
+\contentsline {subsection}{Activity: Building a Least Squares Regression Model}{157}{section*.202}%
+\contentsline {section}{\numberline {6.3}The Logistic Regression Model}{157}{section.6.3}%
+\contentsline {section}{\numberline {6.4}The Logistic Regression Model Using Maximum Likelihood Estimates}{159}{section.6.4}%
+\contentsline {subsection}{Activity: Using Software to Calculate Maximum Likelihood Estimates}{160}{section*.213}%
+\contentsline {subsection}{Activity: Estimating the Probability of Success with Maximum Likelihood Estimates}{161}{section*.216}%
+\contentsline {section}{\numberline {6.5}Interpreting the Logistic Regression Model}{161}{section.6.5}%
+\contentsline {subsection}{Activity: Interpreting a Logistic Regression Model}{162}{section*.223}%
+\contentsline {section}{\numberline {6.6}Inference for the Logistic Regression Model}{162}{section.6.6}%
+\contentsline {subsection}{Assumptions for Logistic Regression Models}{162}{section*.224}%
+\contentsline {subsection}{The Wald Statistic}{162}{section*.225}%
+\contentsline {subsection}{Activity: Wald Confidence Intervals and Hypothesis Tests}{163}{section*.230}%
+\contentsline {subsection}{The Likelihood Ratio Test}{164}{section*.231}%
+\contentsline {subsection}{Activity: The Likelihood Ratio Test}{165}{section*.234}%
+\contentsline {section}{\numberline {6.7}What Can We Conclude from the Space Shuttle Study?}{165}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Logistic Regression with Multiple Explanatory Variables}{165}{section.6.8}%
+\contentsline {subsection}{Activity: Estimating the Probability of Malignancy in Cancer Cells}{166}{section*.235}%
+\contentsline {section}{\numberline {6.9}The Drop-in-Deviance Test}{166}{section.6.9}%
+\contentsline {section}{\numberline {6.10}Measures of Association}{169}{section.6.10}%
+\contentsline {subsection}{Activity: Measures of Association}{169}{section*.238}%
+\contentsline {section}{\numberline {6.11}Review of Means and Variances of Binary and Binomial Data}{170}{section.6.11}%
+\contentsline {subsection}{Activity: Understanding the Binomial Distribution}{171}{section*.251}%
+\contentsline {section}{\numberline {6.12}Calculating Logistic Regression Models for Binomial Counts}{172}{section.6.12}%
+\contentsline {subsection}{Activity: Binomial Logistic Regression}{172}{section*.252}%
+\contentsline {section}{\numberline {6.13}Calculating Residuals for Logistic Models with Binomial Counts}{172}{section.6.13}%
+\contentsline {subsection}{Activity: Evaluating Residuals in Binomial Logistic Regression}{173}{section*.255}%
+\contentsline {section}{\numberline {6.14}Assessing the Fit of a Logistic Regression Model with Binomial Counts}{173}{section.6.14}%
+\contentsline {subsection}{Activity: Calculating Residuals by Hand}{174}{section*.258}%
+\contentsline {subsection}{Activity: Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{176}{section*.263}%
+\contentsline {subsection}{Activity: Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{177}{section*.264}%
+\contentsline {section}{\numberline {6.15}Diagnostic Plots}{177}{section.6.15}%
+\contentsline {subsection}{Activity: Identifying Outliers and Influential Observations}{179}{section*.265}%
+\contentsline {section}{\numberline {6.16}Maximum Likelihood Estimation in Logistic Regression}{179}{section.6.16}%
+\contentsline {subsection}{Maximum Likelihood Estimator for Binary Data}{179}{section*.266}%
+\contentsline {subsection}{Activity: Calculating Maximum Likelihood Estimates}{180}{section*.277}%
+\contentsline {subsection}{Maximum Likelihood Estimator for Logistic Regression Models}{181}{section*.280}%
+\contentsline {section}{\numberline {6.17}Chapter Summary}{181}{section.6.17}%
+\contentsline {section}{\numberline {6.18}Exercises}{182}{section.6.18}%
+\contentsline {subsection}{Endnotes}{187}{section*.283}%
+\contentsline {chapter}{\numberline {7}Survival Analysis: Melting Chocolate Chips}{189}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Investigation: How Long Does It Take for Chocolate Chips to Melt?}{189}{section.7.1}%
+\contentsline {subsection}{Activity: Melting Chocolate Chips}{190}{section*.284}%
+\contentsline {section}{\numberline {7.2}Overview of Survival Analysis Studies and Data}{191}{section.7.2}%
+\contentsline {subsection}{Incomplete Event Times: Censoring}{191}{section*.285}%
+\contentsline {subsection}{Activity: Melting Chocolate Chips}{192}{section*.286}%
+\contentsline {section}{\numberline {7.3}The Survival Function}{192}{section.7.3}%
+\contentsline {subsection}{The Empirical Survival Function}{193}{section*.287}%
+\contentsline {subsection}{Activity: Empirical Survival Function}{194}{section*.290}%
+\contentsline {subsection}{The Kaplan--Meier Estimator}{194}{section*.291}%
+\contentsline {subsection}{Activity: Time Intervals for the Chip Melting Times}{195}{section*.292}%
+\contentsline {subsection}{Activity: Estimated Conditional Melting Probabilities}{196}{section*.293}%
+\contentsline {subsection}{Activity: Kaplan--Meier Estimates}{197}{section*.296}%
+\contentsline {subsection}{Graphing the Kaplan--Meier Curve}{197}{section*.297}%
+\contentsline {subsection}{Activity: Kaplan--Meier Curves}{197}{section*.298}%
+\contentsline {subsection}{Additional Chip Melting Experiences}{198}{section*.299}%
+\contentsline {subsection}{Activity: Chip Melting Experiences}{198}{section*.300}%
+\contentsline {section}{\numberline {7.4}Descriptive Statistics for Survival Data}{199}{section.7.4}%
+\contentsline {subsection}{Estimating the Mean Survival Time}{199}{section*.301}%
+\contentsline {subsection}{Activity: Estimated Mean Chip Melting Time}{200}{section*.306}%
+\contentsline {subsection}{Estimating Percentiles of the Survival Time Distribution}{201}{section*.307}%
+\contentsline {subsection}{Activity: Estimated Median Chip Melting Time}{201}{section*.310}%
+\contentsline {section}{\numberline {7.5}Confidence Intervals for Survival Probabilities}{201}{section.7.5}%
+\contentsline {subsection}{The Standard Error of the Kaplan--Meier Estimator}{203}{section*.315}%
+\contentsline {subsection}{Activity: Standard Errors and Confidence Intervals for Survival Probabilities}{204}{section*.320}%
+\contentsline {section}{\numberline {7.6}Comparing Survival Functions}{205}{section.7.6}%
+\contentsline {subsection}{The Log-Rank Test}{205}{section*.321}%
+\contentsline {subsection}{Activity: Calculating the Expected Number and Variance of Melted Chips}{207}{section*.324}%
+\contentsline {subsection}{Activity: Log-Rank Test Statistic}{208}{section*.329}%
+\contentsline {subsection}{Activity: Log-Rank Test for Chip Melting Activity}{208}{section*.330}%
+\contentsline {subsection}{The Wilcoxon Test}{208}{section*.331}%
+\contentsline {subsection}{Beyond Different Survival Experiences: Regression Models for Survival Data}{209}{section*.332}%
+\contentsline {section}{\numberline {7.7}What Can We Conclude About Melting Chocolate Chips?}{209}{section.7.7}%
+\contentsline {section}{\numberline {7.8}The Hazard Function}{210}{section.7.8}%
+\contentsline {subsection}{The Population Hazard Function}{210}{section*.333}%
+\contentsline {subsection}{The Estimated Hazard Function}{212}{section*.338}%
+\contentsline {subsection}{Activity: Chip Melting Hazard Rates}{212}{section*.341}%
+\contentsline {subsection}{Activity: Estimated Hazard Rates}{213}{section*.342}%
+\contentsline {subsection}{Age at First Alcoholic Drink}{214}{section*.343}%
+\contentsline {subsection}{Activity: Age at First Alcoholic Drink}{214}{section*.344}%
+\contentsline {subsection}{College Graduation}{214}{section*.345}%
+\contentsline {subsection}{Activity: College Graduation}{215}{section*.346}%
+\contentsline {section}{\numberline {7.9}The Cumulative Hazard Function}{215}{section.7.9}%
+\contentsline {subsection}{Motorist Reaction Times}{216}{section*.347}%
+\contentsline {subsection}{Estimator of the Cumulative Hazard Function}{217}{section*.350}%
+\contentsline {subsection}{Activity: Estimated Cumulative Hazard Function}{218}{section*.353}%
+\contentsline {subsection}{Time to Rearrest for Former Inmates}{220}{section*.354}%
+\contentsline {subsection}{Extended Activity: Estimated Cumulative Hazard Function}{220}{section*.355}%
+\contentsline {section}{\numberline {7.10}Additional Types of Incomplete Data}{220}{section.7.10}%
+\contentsline {subsection}{Left Censoring and Interval Censoring}{221}{section*.356}%
+\contentsline {subsection}{Activity: Left Censoring and Interval Censoring}{221}{section*.357}%
+\contentsline {subsection}{\numberline {7.10.1}Chapter Summary}{222}{subsection.7.10.1}%
+\contentsline {section}{\numberline {7.11}Exercises}{223}{section.7.11}%
+\contentsline {subsection}{Endnotes}{228}{section*.358}%

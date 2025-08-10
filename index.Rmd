@@ -3,15 +3,17 @@ title: "Making Decisions with Data"
 author: "Shonda Kuiper"
 output:
   bookdown::pdf_book:
-    documentclass: book
+    latex_engine: xelatex
+    number_sections: true
+    toc: true
+    toc_depth: 2
+    keep_tex: true
+documentclass: report
 bibliography:
-- book.bib
-- packages.bib
-description: |
-  This is a first version of an applied statistics textbook.
-  The HTML output format for this example is bookdown::gitbook,
-link-citations: true
-github-repo: "rstudio/bookdown-demo"
+  - book.bib
+  - packages.bib
+biblio-style: apalike
+csl: "chicago-fullnote-bibliography.csl"
 site: bookdown::bookdown_site
 ---
 
