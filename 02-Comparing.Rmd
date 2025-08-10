@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 
 
 ```{r}
@@ -183,7 +188,7 @@ y_{i, j} = \mu_i + \epsilon_{i, j} ~~\text{ for }~ j = 1, 2 \text{ and } j = 1, 
 \tag{2.1}
 \end{align}
 
->**MATHMATICAL NOTE**
+>**MATHEMATICAL NOTE**
 You may recall from your introductory statistics course that adding a constant to each random variable in a population does not change the shape or spread of the population. Since each mean response ($\scriptstyle \mu_i$) is fixed (i.e., a constant value), Equation 2.1 can be used to show that $\scriptstyle y_{i, j} \sim N(\mu_i,\sigma^2)$.
 
 
@@ -222,7 +227,7 @@ $\scriptstyle y_{i, j} = \mu_i * \epsilon_{i, j}$ .
 
 The first assumption tells us about the mean response. The parameter estimate ($\scriptstyle \bar{y}_i$) would not be meaningful if the true parameter value ($\scriptstyle \mu_i$) were not constant throughout the study. The second assumption simply states the types of models we are building. In later chapters with more complex models, we will discuss how to use residual plots to determine if the model is appropriate. In this chapter, we will focus on the assumptions about the error terms
 
->**MATHMATICAL NOTE**
+>**MATHEMATICAL NOTE**
 In later chapters, we will show that a curved pattern in a residual versus fit plot suggests that an additive model may not be appropriate. In this example, there are only two fitted values (i.e., expected values), so we cannot see any curved patterns. When the additive assumption is violated, residual plots may also indicate different standard deviations, a nonnormal distribution, or lack of independence. Transforming the data to a new scale can often make the additivity assumption (and several of the other assumptions) more appropriate.
 
 The statistical model described in Equation 2.1 assumes that $\scriptstyle \epsilon_{i, j}$ are modeled as **independent and identically distributed** (iid) random variables. The independent error term assumption states that there is no relationship between one observation and the next. For example, knowing that the 8th subject in a group played the game more quickly than average does not provide any information about whether the 7th or 9th person in the group will be above or below the average.
@@ -258,8 +263,8 @@ Several key observations should be made about the individual value plot shown in
 - Neither group appears to have clear outliers, skewness, or large gaps.
 - The spread (variance) of the two groups appears to be similar.
 
->**Key Concept**
-Every statistical hypothesis test has basic underlying conditions that need to be checked before any valid conclusions can be drawn.
+\textbf{\textcolor{blue}{Key Concept:}}
+\textcolor{blue}{Every statistical hypothesis test has basic underlying conditions that need to be checked before any valid conclusions can be drawn.}
 
 ```{r fig2, echo=FALSE, out.height = "3in", fig.align="center", fig.cap="Individual value plot of the data from the color distracter and standard games."}
 knitr::include_graphics("docs/Fig2_2.png")
@@ -274,8 +279,7 @@ knitr::include_graphics("docs/Fig2_2.png")
 9. The variable StudentID represents the order in which the games were played. Plot the residuals versus the order of the data to determine if any patterns exist that may indicate that the observations are
 not independent.
 
-10. Use statistical software to conduct a two-sample t-test (assuming equal variances) and find the $\scriptstyle p$-value corresponding to this statistic. In addition, use software to calculate a 95% confidence interval for
-the difference between the two means ($\scriptstyle \mu_1$ - $\scriptstyle \mu_2$ ). Equation 2.7 and the later activities provide details on conducting these calculations by hand. If H0 : $\scriptstyle \mu_1$ = $\scriptstyle \mu_2$ is true, the **$\scriptstyle p$-value** states how likely it is that random chance alone would create a difference between two sample means ($\scriptstyle \bar{y}_1 - \bar{y}_2$) at least as large as the one observed. Based on the $\scriptstyle p$, what can you conclude about these two types of
+10. Use statistical software to conduct a two-sample t-test (assuming equal variances) and find the $\scriptstyle p$-value corresponding to this statistic. In addition, calculate a 95% confidence interval for the difference between the two means ($\scriptstyle \mu_1 \ -\  \mu_2$). Equation 2.7 and the later activities provide details on conducting these calculations by hand. If H0 : $\scriptstyle \mu_1$ = $\scriptstyle \mu_2$ is true, the **$\scriptstyle p$-value** states how likely it is that random chance alone would create a difference between two sample means ($\scriptstyle \bar{y}_1 - \bar{y}_2$) at least as large as the one observed. Based on the $\scriptstyle p$, what can you conclude about these two types of
 games?
 
 
@@ -300,8 +304,8 @@ A procedure commonly used to incorporate categorical explanatory variables, such
 >**NOTE**
 Typically an indicator variable is created for each category. Thus, there would be an indicator variable called Color equal to 1 for the color distracter game and 0 otherwise and another indicator variable called Standard equal to 1 for the standard game and 0 for all other categories. Notice that there is complete redundancy between the two indicator variables: Knowing the value of the Color variable automatically tells us the value of the Standard variable for each subject. Thus, only one of the indicator variables is needed in this model. Although this study has only two categories of games (color and standard), it is common for a categorical explanatory variable to have more than two categories. Chapter 3 provides the opportunity to use indicator variables when there are multiple categories.
 
->**Key Concept**
-Indicator variables can be created to incorporate categorical explanatory variables into a regression model.
+\textbf{\textcolor{blue}{Key Concept:}}
+\textcolor{blue}{Indicator variables can be created to incorporate categorical explanatory variables into a regression model.}
 
 
 
@@ -343,7 +347,8 @@ Equations 2.3 and 2.4 can be combined to show the relationship between the two-s
 
 Thus, stating that $\scriptstyle \mu_1 - \mu_2 = 0$ is equivalent to stating that $\scriptstyle \beta_1 = 0$
 
->**Key Concept** In testing the difference in two population means, testing the null hypothesis $\scriptstyle H_0 : \beta_1 = 0$ for a regression model is equivalent to testing the two-sample t-test hypothesis $\scriptstyle H_0 : \mu_1 - \mu_2 = 0$ *when using the equal variance assumption*.
+\textbf{\textcolor{blue}{Key Concept:}}
+\textcolor{blue}{In testing the difference in two population means, testing the null hypothesis $\scriptstyle H_0 : \beta_1 = 0$ for a regression model is equivalent to testing the two-sample t-test hypothesis $\scriptstyle H_0 : \mu_1 - \mu_2 = 0$ *when using the equal variance assumption*.}
 
 
 ### Model Assumptions for Regression{-}
@@ -365,7 +370,8 @@ Figure 2.3 shows a histogram of the residuals and a plot of the residuals by typ
 knitr::include_graphics("docs/Fig2_3.png")
 ```
 
->**Key Concept** No assumptions are needed about the error terms to calculate estimates ($\scriptstyle b_1 = \hat{\beta}_1$ and $\scriptstyle b_0 = \hat{\beta}_0$) of the slope and intercept of the regression line. These estimates are simply well-known mathematical calculations. However, all the model assumptions should be satisfied in order to properly conduct a hypothesis test or create a confidence interval for $\scriptstyle \beta_1$.
+\textbf{\textcolor{blue}{Key Concept:}}
+\textcolor{blue}{No assumptions are needed about the error terms to calculate estimates ($\scriptstyle b_1 = \hat{\beta}_1$ and $\scriptstyle b_0 = \hat{\beta}_0$) of the slope and intercept of the regression line. These estimates are simply well-known mathematical calculations. However, all the model assumptions should be satisfied in order to properly conduct a hypothesis test or create a confidence interval for $\scriptstyle \beta_1$.}
 
 ### \textcolor{blue}{Practice:} Checking Model Assumptions {-}
 
@@ -388,7 +394,8 @@ this study is the type of game; the two conditions, the two levels of the factor
 The ANOVA model for the game study can be written as
 
 \begin{equation}
-\label{2.6} y_{i,j} = \mu + \alpha_i + \epsilon_{i,j} for i = 1, 2 and j = 1, 2, ... , n where \epsilon_{i,j} \sim N(0,\sigma^2) \tag{2.6}
+\label{2.6} 
+y_{i,j} = \mu + \alpha_i + \epsilon_{i,j} \qquad \text{for i = 1, 2 and j = 1, 2, ... , n where} \epsilon_{i,j} \sim N(0,\sigma^2) \tag{2.6}
 \end{equation}
 
 The mean response in the ANOVA model is $\scriptstyle \mu + \alpha_1$ for the color distracter group and $\scriptstyle \mu + \alpha_2$ for the standard group, where $\scriptstyle \mu$ is the mean of all the completion times in the study. This overall mean is often called the grand mean or the benchmark value; $\scriptstyle \alpha_1$ is the **effect**, or **main effect**, of the color distracter group. **Effects** are a measure of differences between group means. The effect $\scriptstyle \alpha_1$ represents the change in the response from the grand mean to the color distracter group mean.^[In this text m is always considered the overall mean of the data. Also throughout this chapter, we are always assuming balanced data.]
@@ -412,7 +419,7 @@ Although the notation varies, the mean response for the ANOVA model is mathemati
 16. Explain (or use equations to show) why the ANOVA hypothesis $\scriptstyle H_0:$ $\scriptstyle \alpha_1$ = $\scriptstyle \alpha_2$ is equivalent to the two- sample t-test hypothesis H0 : $\scriptstyle \mu_1$ = $\scriptstyle \mu_2$ .
 *In this text m is always considered the overall mean of the data. Also throughout this chapter, we are always assuming balanced data.
 
->**MATHMATICAL NOTE** In the ANOVA model, there is the appearance that we are describing two means ($\scriptstyle \mu_1$ and $\scriptstyle \mu_2$) using three parameters ($\scriptstyle \mu$, $\scriptstyle \alpha_1$ , and $\scriptstyle \alpha_2$). Since it can be shown that $\scriptstyle \alpha_2 = -\alpha_1$, there are actually just two parameters ($\scriptstyle \mu$ and $\scriptstyle alpha_1$) that are estimated. Thus, the null hypothesis stating no effect size can also be written as $\scriptstyle H_0: \alpha_1 = \alpha_2 = 0$ or $\scriptstyle H_0: \mu_1 = \mu_2 = \mu$.
+>**MATHEMATICAL NOTE** In the ANOVA model, there is the appearance that we are describing two means ($\scriptstyle \mu_1$ and $\scriptstyle \mu_2$) using three parameters ($\scriptstyle \mu$, $\scriptstyle \alpha_1$ , and $\scriptstyle \alpha_2$). Since it can be shown that $\scriptstyle \alpha_2 = -\alpha_1$, there are actually just two parameters ($\scriptstyle \mu$ and $\scriptstyle alpha_1$) that are estimated. Thus, the null hypothesis stating no effect size can also be written as $\scriptstyle H_0:\  \alpha_1 \ =\  \alpha_2 = 0$ or $\scriptstyle H_0:\  \mu_1 \ =\  \mu_2 \ =\  \mu$.
 
 17. Write the proper ANOVA model [provide the appropriate ij subscripts as in Equation 2.6] for the observation representing the 3rd subject from the color distracter group. Also give the notation for the observation representing the 20th subject from the standard group.
 
@@ -558,31 +565,31 @@ Data set: `Normal`
 The following questions ask you to work through the process of calculating and interpreting probability plots.
 
 28. **Calculating a Normal Probability Plot by Hand**  Consider the following sample data set of $\scriptstyle n = 5$ observations: 14, 11, 17, 15, 13. Complete the following steps to create a normal probability plot.  
+ (a) Sort the data from smallest to largest. Use a subscript in parentheses, $\scriptstyle (i)$, to represent the ordered data. For example $\scriptstyle y_{(1)} = 11$ is the smallest observation and $\scriptstyle y_{(5)} = 17$ is the largest observed value.  
 
-a. Sort the data from smallest to largest. Use a subscript in parentheses, $\scriptstyle (i)$, to represent the ordered data. For example $\scriptstyle y_{(1)} = 11$ is the smallest observation and $\scriptstyle y_{(5)} = 17$ is the largest observed value.  
+(b) For each $\scriptstyle (i)$, calculate the $\scriptstyle (i - 0.5)/n$ percentile of the standard normal distribution. For example, corresponding to $\scriptstyle (i) = (1)$, the $\scriptstyle (1 - 0.5)/5 = 10$th percentile of the standard normal distribution is $\scriptstyle -1.28$, since $\scriptstyle P(Z \leq -1.28) = 0.10$ when $\scriptstyle Z \sim N(0, 1)$. For $\scriptstyle (i) = (3)$, the $\scriptstyle (3 - 0.5)/5 = 50$th percentile (i.e., the median) of the standard normal distribution is $\scriptstyle 0$. Repeat this process for the other ordered values, $\scriptstyle y_{(2)}, y_{(4)}$, and $\scriptstyle y_{(5)}$. 
 
-b. For each $\scriptstyle (i)$, calculate the $\scriptstyle (i - 0.5)/n$ percentile of the standard normal distribution. For example, corresponding to $\scriptstyle (i) = (1)$, the $\scriptstyle (1 - 0.5)/5 = 10$th percentile of the standard normal distribution is $\scriptstyle -1.28$, since $\scriptstyle P(Z \leq -1.28) = 0.10$ when $\scriptstyle Z \sim N(0, 1)$. For $\scriptstyle (i) = (3)$, the $\scriptstyle (3 - 0.5)/5 = 50$th percentile (i.e., the median) of the standard normal distribution is $\scriptstyle 0$. Repeat this process for the other ordered values, $\scriptstyle y_{(2)}, y_{(4)}$, and $\scriptstyle y_{(5)}$. 
+(c) Make a normal probability plot by creating a scatterplot with the percentiles of the observed data along the $\scriptstyle x$-axis and the percentiles of the standard normal distribution along the $\scriptstyle y$-axis. If the data fall along a straight line, then the data are consistent with the hypothesis that they are a random sample from a population that is normally distributed. The data in this question are a little “heavier” toward the tails (the normal distribution has more observations in the center and fewer observations toward the tails than does this data set), so the probability plot has an S-shaped curve. With only five data points, the shape is not as clear as it would be for a data set with a larger sample size from a “heavy-tailed” population.  
 
-c. Make a normal probability plot by creating a scatterplot with the percentiles of the observed data along the $\scriptstyle x$-axis and the percentiles of the standard normal distribution along the $\scriptstyle y$-axis. If the data fall along a straight line, then the data are consistent with the hypothesis that they are a random sample from a population that is normally distributed. The data in this question are a little “heavier” toward the tails (the normal distribution has more observations in the center and fewer observations toward the tails than does this data set), so the probability plot has an S-shaped curve. With only five data points, the shape is not as clear as it would be for a data set with a larger sample size from a “heavy-tailed” population.  
+(d) If you standardized the data (subtracted the sample mean and then divided by the sample standard deviation), would you expect the shape of the normal probability plot to change?  
 
-d. If you standardized the data (subtracted the sample mean and then divided by the sample standard deviation), would you expect the shape of the normal probability plot to change?  
+(e) Does the shape of the normal probability plot change if you multiply each observation in the sample data set by 5?  
 
-e. Does the shape of the normal probability plot change if you multiply each observation in the sample data set by 5?  
+(f) Does the shape of the normal probability plot change if you divide each observation in the sample data set by 3?  
 
-f. Does the shape of the normal probability plot change if you divide each observation in the sample data set by 3?  
 
 
 29. **Plotting Normal Data**  For this problem, use the Normal data set. The first column of data actually is a random sample from a normal distribution.  
 
-a. Use software to create a histogram and normal probability plot of the first column of the Normal data set.  
+ (a) Use software to create a histogram and normal probability plot of the first column of the Normal data set.  
 
-b. Double the five largest observed values in the Normal data set. Create a histogram and normal probability plot of the “Largest 5 Doubled” data. Describe how the normal probability plot and the histogram change.  
+ (b) Double the five largest observed values in the Normal data set. Create a histogram and normal probability plot of the “Largest 5 Doubled” data. Describe how the normal probability plot and the histogram change.  
 
-c. Now, double the five smallest observed values in the original Normal data set. Create a histogram and normal probability plot of the “Smallest 5 Doubled” data. Describe how the normal probability plot and the histogram change.  
+ (c) Now, double the five smallest observed values in the original Normal data set. Create a histogram and normal probability plot of the “Smallest 5 Doubled” data. Describe how the normal probability plot and the histogram change.  
 
-d. Draw (by hand) a picture of what a normal probability plot might look like for a data set with *fewer* observations in both tails than you would expect from a normal distribution.  
+ (d) Draw (by hand) a picture of what a normal probability plot might look like for a data set with *fewer* observations in both tails than you would expect from a normal distribution.  
 
-e. Draw (by hand) a picture of what a normal probability plot might look like for a data set with *more* observations in both tails than you would expect from a normal distribution.  
+ (e) Draw (by hand) a picture of what a normal probability plot might look like for a data set with *more* observations in both tails than you would expect from a normal distribution.  
 
 >**NOTE** As with any other hypothesis test, when we fail to reject $\scriptstyle H_0$ we do not prove $\scriptstyle H_0$ is true. Normal probability plots cannot be used to prove that the data came from a normal distribution ($\scriptstyle H_0$), but they can be used to show that the data are consistent with data from a normal population.
 
@@ -594,11 +601,12 @@ Data set: `Games1`
 
 30. If you have no experience with probability plots, it can be helpful to look at several sample data sets that actually do come from a normal distribution. Use software to draw several random samples of the same size from an actual normal population and create normal probability plots. These plots can be compared to the normal probability plot from the actual data. If the real data plot looks similar to the plots where you know that the population is normal, then your data are consistent with the null hypothesis (i.e., the data came from a normal population). If the real data plot is “extreme” (quite different from the plots coming from a normal population), then the differences are not likely due to chance and you can reject the hypothesis that the data came from a normal population.  
 
- a. Create a normal probability plot of the residuals of the Games1 data from Question 26.  
+ (a) Create a normal probability plot of the residuals of the Games1 data from Question 26.  
 
- b. Use software to draw a random sample of $\scriptstyle n = 40$ from an actual normal probability distribution with mean 0 and standard deviation 1. Create a normal probability plot of the sample data.  
+ (b) Use software to draw a random sample of $\scriptstyle n = 40$ from an actual normal probability distribution with mean 0 and standard deviation 1. Create a normal probability plot of the sample data.  
 
- c. Repeat the previous question eight more times, for a total of nine normal probability plots of “data” from an actual normal probability distribution. Does the plot in Part A resemble the nine plots with data sampled from a normal distribution? If you can’t distinguish the Games1 residuals from the other plots, it would seem reasonable to assume that the Games1 residuals are normally distributed.
+ (c) Repeat the previous question eight more times, for a total of nine normal probability plots of “data” from an actual normal probability distribution. Does the plot in Part A resemble the nine plots with data sampled from a normal distribution? If you can’t distinguish the Games1 residuals from the other plots, it would seem reasonable to assume that the Games1 residuals are normally distributed.
+
 
 ## \textcolor{blue}{ Transformations}
 
@@ -626,13 +634,14 @@ Data set: `Emission`
 
 31. The data set Emission provides hydrocarbon emission in parts per million (ppm) at idling speed for cars, based on the year each car was manufactured. These data were randomly sampled from a much larger study on pollution control in Albuquerque, New Mexico.  
 
-a. Create individual value plots or side-by-side boxplots of Emission versus Year. Compare the mean and standard deviation of each group. Do the data within each group look consistent with data from a normal population?  
+ (a) Create individual value plots or side-by-side boxplots of Emission versus Year. Compare the mean and standard deviation of each group. Do the data within each group look consistent with data from a normal population?  
 
-b. Transform the response by taking the log of Emission. Create individual value plots or side-by-side boxplots of $\scriptstyle \log(\text{Emission})$ versus Year. Compare the plot of the transformed data to the plot in Part A. Which plot shows data that better fit the model assumptions?  
+  (b) Transform the response by taking the log of Emission. Create individual value plots or side-by-side boxplots of $\scriptstyle \log(\text{Emission})$ versus Year. Compare the plot of the transformed data to the plot in Part A. Which plot shows data that better fit the model assumptions?  
 
-c. Calculate an ANOVA table, F-test, and $\scriptstyle p$-value to determine if the average log(Emission) varies based on Year. Note that the end-of-chapter exercises and Section 2.9 show that ANOVA can compare more than two groups. In this question, $\scriptstyle I = 5$ groups instead of 2 groups. However, the model and calculations are identical except that now $\scriptstyle i = 1, 2, 3, 4, 5$ instead of $\scriptstyle i = 1, 2$. The null hypothesis is $\scriptstyle H_0\!:\! \mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5$ versus the alternative $\scriptstyle H_a\!:\!$ at least one group mean is different from another.  
+  (c) Calculate an ANOVA table, F-test, and $\scriptstyle p$-value to determine if the average log(Emission) varies based on Year. Note that the end-of-chapter exercises and Section 2.9 show that ANOVA can compare more than two groups. In this question, $\scriptstyle I = 5$ groups instead of 2 groups. However, the model and calculations are identical except that now $\scriptstyle i = 1, 2, 3, 4, 5$ instead of $\scriptstyle i = 1, 2$. The null hypothesis is $\scriptstyle H_0\!:\! \mu_1 = \mu_2 = \mu_3 = \mu_4 = \mu_5$ versus the alternative $\scriptstyle H_a\!:\!$ at least one group mean is different from another.  
 
-d. Create residual plots to evaluate whether the model assumptions for the F-test are violated. 
+  (d) Create residual plots to evaluate whether the model assumptions for the F-test are violated. 
+
 
 Notice that although the log transformation was helpful, the data still have outliers. In addition, the equal variance and normality assumptions are still slightly violated. Some statisticians would consider the log-transformed data appropriate for the standard ANOVA. Others would try another transformation, such as taking the log of the transformed data again; this is called a log log transformation. Still others would suggest using a nonparametric test. (Nonparametric tests, such as the Kruskal-Wallis test, are described in Chapter 1.) Nonparametric tests do not require error terms to follow the normal distribution. While any of these analyses would be appropriate, it would not be appropriate to conduct several analyses on the same data and then report only the conclusions corresponding to the test that gave the smallest $\scriptstyle p$-value. For example, if we tried three or four hypothesis tests each with an $\scriptstyle \alpha$-level = 0.10 and then simply picked the test with the smallest $\scriptstyle p$-value, our chances of incorrectly rejecting the null hypothesis would actually be greater than 10%.
 
@@ -666,9 +675,11 @@ Data set: `Weight`
 
 32. The Weight data set contains the brain weights ($\scriptstyle y$) and body weights ($\scriptstyle x$) of 32 species.  
 
-a. Create a scatterplot of $\scriptstyle y$ versus $\scriptstyle x$ with a regression line ($\scriptstyle \hat{y} = b_0 + b_1x$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\scriptstyle \hat{y}$), and either a normal probability plot or a histogram of the residuals.  
+ (a)  Create a scatterplot of $\scriptstyle y$ versus $\scriptstyle x$ with a regression line ($\scriptstyle \hat{y} = b_0 + b_1x$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\scriptstyle \hat{y}$), and either a normal probability plot or a histogram of the residuals.  
 
-b. Try various transformations of the explanatory and response variables to create a better linear regression model. Hint: Notice that since both the $\scriptstyle x$ and the $\scriptstyle y$ variable are right skewed and have outliers, both may need a transformation.
+ (b) Try various transformations of the explanatory and response variables to create a better linear regression model. Hint: Notice that since both the $\scriptstyle x$ and the $\scriptstyle y$ variable are right skewed and have outliers, both may need a transformation.
+
+
 
 ### Choosing the Right Transformation {-}
 
@@ -704,11 +715,13 @@ Data set: `RegrTrans`
 
 33. Do the following for each of the four data sets:  
 
-a. Create a scatterplot of $\scriptstyle y$ versus $\scriptstyle x$ with a regression line ($\scriptstyle \hat{y} = b_0 + b_1 x$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\scriptstyle \hat{y}$), and either a normal probability plot or a histogram of the residuals.  
+ (a) Create a scatterplot of $\scriptstyle y$ versus $\scriptstyle x$ with a regression line ($\scriptstyle \hat{y} = b_0 + b_1 x$), a plot of residuals versus the explanatory variable, a plot of residuals versus predicted (or “fitted”) values ($\scriptstyle \hat{y}$), and either a normal probability plot or a histogram of the residuals.  
 
-b. By hand, sketch on the scatterplot a curve that would fit the data better than the regression line. Notice that the plot of residuals versus the explanatory variable emphasizes the patterns in the residuals much better than does the scatterplot of $\scriptstyle y$ versus $\scriptstyle x$.  
+  (b) By hand, sketch on the scatterplot a curve that would fit the data better than the regression line. Notice that the plot of residuals versus the explanatory variable emphasizes the patterns in the residuals much better than does the scatterplot of $\scriptstyle y$ versus $\scriptstyle x$.  
 
-c. Try various transformations of the explanatory and response variables to create a better linear regression model (as validated by graphical analysis of the residuals).
+  (c) Try various transformations of the explanatory and response variables to create a better linear regression model (as validated by graphical analysis of the residuals).
+
+
 
 ## \textcolor{blue}{ Calculating Test Statistics}
 
@@ -942,7 +955,9 @@ In previous sections, hypothesis tests were used with sample data to assess the 
 
 Each confidence interval discussed in this chapter has the following form:
 
-estimate $\scriptstyle \pm$ critical value $\scriptstyle \times$ standard error of the estimate
+\begin(center)
+estimate $\pm$ critical value $\times$ standard error of the estimate
+\end(center)
 
 **The estimate** is a sample statistic used to estimate the population parameter. In the computer game study, a confidence interval for the population mean $\scriptstyle \mu_1$ would have an estimate of $\scriptstyle \bar{y}_1$. A confidence interval for $\scriptstyle \mu_1 - \mu_2$ is estimated by $\scriptstyle \bar{y}_1 - \bar{y}_2$.
 
