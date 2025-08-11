@@ -33,29 +33,26 @@ theme_set(
 
 
 
-This chapter introduces inference techniques for data in which both the explanatory and
-response variables are categorical. The term categorical data analysis often refers to
-analysis of data in which the response variable is categorical. However, in this chapter
-we will restrict our focus to cases where both the explanatory and the response variables are
-categorical and where there is no natural ordering to the categories.
+This chapter introduces inference techniques for data in which both the explanatory and response variables are categorical. The term categorical data analysis often refers to analysis of data in which the response variable is categorical. However, in this chapter we will restrict our focus to cases where both the explanatory and the response variables are categorical and where there is no natural ordering to the categories.
 
-Most of the hypothesis tests discussed in previous chapters use the normal distribution to
-model the mean response. In this chapter, proportions, odds ratios, and relative risk will be
-used to summarize categorical data. We will start by looking at cancer cell data to determine
-if there is a relationship between the shape of the cell nuclei and the proportion of malignant
-cells. In this chapter, we will discuss how to do the following:
+Most of the hypothesis tests discussed in previous chapters use the normal distribution to model the mean response. In this chapter, proportions, odds ratios, and relative risk will be used to summarize categorical data. We will start by looking at cancer cell data to determine if there is a relationship between the shape of the cell nuclei and the proportion of malignant cells. In this chapter, we will discuss how to do the following:
 
-* Conduct a simulation study, chi-square test, and Fisher’s exact test
-* Calculate and properly interpret summary statistics such as relative risk and the odds ratio
-* Determine which test to use based on various sampling schemes and questions of interest
+\vspace{-1em}
+\begin{itemize}
+\item Conduct a simulation study, chi-square test, and Fisher’s exact test
+\item Calculate and properly interpret summary statistics such as relative risk and the odds ratio
+\item Determine which test to use based on various sampling schemes and questions of interest
+\end{itemize}
+
+\newpage
 
 ## \textcolor{blue}{Investigation: Is Cell Shape Associated with Malignancy?}
 
 Cancer is a disease that occurs when abnormal cells grow in the body. When DNA (a substance in every
 cell) is damaged, normal cells will often repair the damaged DNA. Cancer cells are cells in which the
-DNA is not repaired. DNA can be damaged by many things, including viruses, tobacco smoke, alcohol, and too much sunlight. Cells with damaged DNA can also be inherited. Cancer cells can continue to grow and divide and usually form tumors (a lump or mass) somewhere in the body. Cancer cells can also [[[outlive It]]
+DNA is not repaired. DNA can be damaged by many things, including viruses, tobacco smoke, alcohol, and too much sunlight. Cells with damaged DNA can also be inherited. Cancer cells can continue to grow and divide and usually form tumors (a lump or mass) somewhere in the body. Cancer cells can also outlive normal cells
 
-is important to note that not all tumors are cancerous. If a lump is detected, part of it can be removed surgically and a biopsy conducted to determine if the mass is benign or malignant. Benign tumors are scar tissue or abnormal growths that do not spread and are typically harmless. Malignant (or invasive) cancer cells are cells that can travel, typically through the bloodstream or lymph nodes, and begin to replace normal cells in other parts of the body. If a tumor is malignant, it is essential to remove or destroy all cancerous cells in order to keep them from spreading. If a tumor is benign, surgery is typically not needed and the harmless tumor can remain.
+It is important to note that not all tumors are cancerous. If a lump is detected, part of it can be removed surgically and a biopsy conducted to determine if the mass is benign or malignant. Benign tumors are scar tissue or abnormal growths that do not spread and are typically harmless. Malignant (or invasive) cancer cells are cells that can travel, typically through the bloodstream or lymph nodes, and begin to replace normal cells in other parts of the body. If a tumor is malignant, it is essential to remove or destroy all cancerous cells in order to keep them from spreading. If a tumor is benign, surgery is typically not needed and the harmless tumor can remain.
 
 A biopsy requires surgery to remove a section (or all) of the tumor and will leave a scar. Fine needle aspiration (FNA) is a technique in which a small sample of the tumor is taken using a needle and visually inspected through a microscope. Since many tumors are benign, it is often preferable to have an FNA, which is less invasive and less traumatic than a biopsy.
 
@@ -65,11 +62,11 @@ Wolberg and Mangasarian developed a technique to accurately diagnose breast mass
 
 In this chapter, we will focus on just a few characteristics from a relatively small data set that was collected at University of Wisconsin hospitals in Madison. We will start by determining if the shape of a cell nucleus can help us to determine whether a tumor is malignant or benign. Typically, healthy cell nuclei have round or ellipsoid shapes.Figure 5.1 shows a sample of malignant cells that appear to have grown such that the perimeters of the cell nuclei have somewhat concave points.
 
-```{r fig51, echo=FALSE, out.width="80%", fig.align="center", fig.cap="Segmented bar graph of nucleus shape and malignancy."}
+```{r fig51, echo=FALSE, out.width="80%", fig.align="center",  fig.cap="An image of malignant cells where nuclei are outlined with a curve-fitting program.  Reprinted by permission. Mangasarian et.al, Breast Cancer Diagnosis and Prognosis via Linear Programming, INFORMS Journal Operations Research, 43.4, 1995. © 1995, Institute for Operations Research and the Management Sciences (INFORMS)."}
 knitr::include_graphics("docs/Fig6_1Cells.png")
 ```
 
-Figure 5.1 An image of malignant cells where nuclei are outlined with a curve-fitting program.  Reprinted by permission. Mangasarian, Street & Wolberg, “Breast Cancer Diagnosis and Prognosis via Linear Programming,” INFORMS Journal Operations Research, 43.4, 1995. © 1995, Institute for Operations Research and the Management Sciences (INFORMS).
+
 
 ## \textcolor{blue}{Summarizing Categorical Data}
 
@@ -106,7 +103,7 @@ Summarizing quantitative data such as age, weight, and income often includes cal
 A table that counts the number of observations in each group, such as Table 5.1, is called a **contingency table** (or cross-tabulation table). A contingency table with two variables is called a **two-way contingency table**. Table 5.1 is also called a **2 x 2 table**, since there are two row groups and two column groups. In Table 5.1, the Shape of the cell is called the **row variable**, since each horizontal row represents one shape group.
 Similarly, the Type of the cell is called the **column variable**.
 
->**NOTE**Categorical data that have a natural ordering, such as level of agreement (strongly disagree, disagree indifferent, agree, strongly agree) or evaluation of a product (poor, fair, good, or excellent), are called **ordinal data**. Categorical data that do not have a natural ordering, such as gender or major, are called **nominal data**. Techniques for nominal data will give identical results for any ordering of the categories, whereas results based on techniques for ordinal data do depend on the ordering of the data. This chapter is restricted to examples of nominal data analysis techniques.
+>**NOTE:** Categorical data that have a natural ordering, such as level of agreement (strongly disagree, disagree indifferent, agree, strongly agree) or evaluation of a product (poor, fair, good, or excellent), are called **ordinal data**. Categorical data that do not have a natural ordering, such as gender or major, are called **nominal data**. Techniques for nominal data will give identical results for any ordering of the categories, whereas results based on techniques for ordinal data do depend on the ordering of the data. This chapter is restricted to examples of nominal data analysis techniques.
 
 
 
@@ -124,46 +121,10 @@ Similarly, the Type of the cell is called the **column variable**.
 
 Bar graphs are often useful in comparing two categorical variables. Figure 5.1 shows a **segmented bar graph** (also called a stacked bar graph) for the cancer cell data. This graph shows the conditional percentages for each nucleus shape. About 80% of the concave nuclei are malignant, whereas about 45% of the round nuclei are malignant.
 
-```{r fig52, echo=FALSE, fig.width=6, fig.height=4, message=FALSE, fig.cap="Segmented bar graph of nucleus shape and malignancy."}
-library(ggplot2)
-library(tidyr)
-library(scales)
-
-#df <- read.csv("Table5.1.csv", stringsAsFactors = FALSE)
-data("C6Table6.1")
-df<-C6Table6.1
-colnames(df)[1] <- "Shape"
-df_long <- pivot_longer(
-  df,
-  cols      = c("Benign", "Malignant"),
-  names_to  = "Diagnosis",
-  values_to = "Count"
-)
-df_long$Shape <- factor(df_long$Shape, levels = c("Round", "Concave"))
-
-ggplot(df_long, aes(x = Shape, y = Count, fill = Diagnosis)) +
-  geom_col(position = "fill", color = "black", width = 0.6) +
-  scale_y_continuous(labels = percent_format(accuracy = 1), expand = c(0, 0)) +
-  scale_fill_manual(
-    "",
-    values = c(
-      "Benign"    = "#00BFC4",
-      "Malignant" = "gray30"
-    )
-  ) +
-  labs(x = NULL, y = "Percent") +
-  theme_minimal(base_family = "serif") +
-  theme(
-    panel.background   = element_rect(fill = "white", colour = "black", linewidth = 1),
-    panel.border       = element_rect(fill = NA,       colour = "black", linewidth = 1),
-    plot.background    = element_rect(fill = "grey90", colour = "black", linewidth = 1),
-    legend.background  = element_rect(fill = "white",  colour = "black"),
-    legend.position    = "inside",                             # new
-    legend.position.inside = c(0.85, 0.8),                     # new
-    plot.margin        = margin(20, 20, 20, 20)
-  )
-
+```{r fig52, echo=FALSE, out.width="80%", fig.align="center",  fig.cap="Segmented bar graph of nucleus shape and malignancy."}
+knitr::include_graphics("docs/Fig6_2.png")
 ```
+
 
 ## \textcolor{blue}{A Simulation Study: How Likely Is It That the Observed Sample Would Occur by Chance?}
 
@@ -183,17 +144,21 @@ If the null hypothesis, $\scriptstyle H_0$, is true, the two populations (of con
 The **$\scriptstyle p$-value** for this test is the probability of obtaining a difference in sample proportions ($\scriptstyle \hat p_C \ -\  \hat p_R$) as large as or larger than the one observed in this sample when the null hypothesis is true. If the $\scriptstyle p$-value is small, it is unlikely that the null hypothesis is true and we conclude that the alternative hypothesis ($\scriptstyle p_C \ >\  p_R$) is true.
 
 One way to estimate this $\scriptstyle p$-value is to simulate taking samples many times under the following three conditions:
-
-• Assume that malignancy is unrelated to cell nucleus shape (i.e., assume that both cell nucleus shapes have the same proportion of malignant cells).  
-• A total of 13 benign and 24 malignant cells were observed.  
-• A total of 16 round cell nuclei and 21 concave cell nuclei were observed.
+\vspace{-1em}
+\begin{itemize}
+\item Assume that malignancy is unrelated to cell nucleus shape (i.e., assume that both cell nucleus shapes have the same proportion of malignant cells).  
+\item A total of 13 benign and 24 malignant cells were observed.  
+\item A total of 16 round cell nuclei and 21 concave cell nuclei were observed.
+\end{itemize}
 
 ### \textcolor{blue}{Practice:} Conducting a Simulation Study with Cards {-}
 
 4. Use 37 index cards to represent this sample of 37 cancer cells. On 24 of the cards write M for “malignant,” and on 13 of the cards write B for “benign.” Shuffle the cards and randomly select 21 cards. These
 21 cards can represent the concave nucleus group. How many of the 21 concave cards are also malignant?
 
-5. Repeat the simulation process in Question 4 nine more times. Does it seem likely that 17 or more malignant cells would occur in the concave group by chance alone? While simulations can be done by hand with cards, this process is very time consuming, as a large number of simulations are needed to get a true feel for the likelihood of an outcome (many statisticians suggest 10,000 simulations). Instead of repeating the above process 10,000 times by hand, we will use a computer program to conduct a simulation.
+5. Repeat the simulation process in Question 4 nine more times. Does it seem likely that 17 or more malignant cells would occur in the concave group by chance alone? 
+
+While simulations can be done by hand with cards, this process is very time consuming, as a large number of simulations are needed to get a true feel for the likelihood of an outcome (many statisticians suggest 10,000 simulations). Instead of repeating the above process 10,000 times by hand, we will use a computer program to conduct a simulation.
 
 ### \textcolor{blue}{Practice:} Computer Simulation {-}
 
@@ -241,7 +206,7 @@ that the difference in our sample proportions is so large that it is unlikely to
 
 Using simulations to approximate $\scriptstyle p$-values has many advantages. Often simple programs or macros can be written to quickly simulate thousands of samples. Computer programs can be modified to fit a variety of situations, while parametric tests with theoretical assumptions can be somewhat rigid and require large sample sizes. Simulations only provide approximate $\scriptstyle p$-values. However, increasing the number of simulations improves the precision of the $\scriptstyle p$-value; 10,000 simulations usually provides precise $\scriptstyle p$-values.
 
->**NOTE**This simulation study is an example of a permutation test. Chapter 1 describes that permutation hypothesis
+>**NOTE:** This simulation study is an example of a permutation test. Chapter 1 describes that permutation hypothesis
 tests are significance tests that simulate the act of randomly rearranging units into groups.
 
 
@@ -283,15 +248,19 @@ cat(
 
 Table 5.3, $\scriptstyle x$ represents the event of interest (observing 17 concave malignant cells), $\scriptstyle N$ = 37 represents the total number of observations, $\scriptstyle M$ = 24 is the total number of malignant cells (number of successes), and $\scriptstyle n$ is the total number of observations in the concave group.
 
->**MATHEMATICAL NOTE** In this section, we simply discuss how to conduct Fisher’s exact test with statistical software. The extended activities shows that Fisher’s exact test uses the hypergeometric distribution to calculate exact $\scriptstyle p$-values. For any 2 × 2 contingency table when there are $\scriptstyle N$ total observations with $\scriptstyle M$ total successes, the probability of observing $\scriptstyle x$ successes, $\scriptstyle P(X \ = \ x)$, in a sample of size $\scriptstyle n$[[[ is]]]
+In this section, we simply discuss how to conduct Fisher’s exact test with statistical software. Fisher’s exact test uses the hypergeometric distribution to calculate exact $\scriptstyle p$-values. For any 2 × 2 contingency table when there are $\scriptstyle N$ total observations with $\scriptstyle M$ total successes, the probability of observing $\scriptstyle x$ successes, $\scriptstyle P(X \ = \ x)$, in a sample of size $\scriptstyle n$ is:
 
 
-\begin{align}
+\begin{align*}
 \frac{\text{number of ways to select $x$ successes and $n - x$ failures}}{\text{number of ways to select $n$ subjects}}
- &= \frac{\binom{M}{x}\,\binom{N - M}{n - x}}{\binom{N}{n}} \notag
-\end{align}
+ = \frac{\binom{M}{x}\,\binom{N - M}{n - x}}{\binom{N}{n}} 
+\end{align*}
 
-where $\binom{M}{x} \ =\  M \text{“choose”} x \ =\  \frac{M!}{x!(M - x)!}$.^[For any positive integer, the notation n! is read “n factorial” and is defined as $\scriptstyle n!= n(n- 1)(n- 2) \cdot\cdot\cdot (3)(2)(1)$. For example, “3 factorial” is 3 $\times$ 2 $\times$ 1 = 6 and “four factorial” is $\scriptstyle 4!$ = 4 $\times$ 3 $\times$ 2 $\times$ 1 = 24. In addition, $\scriptstyle 0!= 1$.] Similar calculations hold for $\scriptstyle \binom{N - M}{n - x}$ and $\scriptstyle \binom{N}{n}$."
+where $\binom{M}{x} \ =\  M \text{“choose”} x \ =\  \frac{M!}{x!(M - x)!}$.
+
+Similar calculations hold for $\scriptstyle \binom{N - M}{n - x}$ and $\scriptstyle \binom{N}{n}$. 
+
+For any positive integer, the notation n! is read “n factorial” and is defined as $\scriptstyle n!= n(n- 1)(n- 2) \cdot\cdot\cdot (3)(2)(1)$. For example, “3 factorial” is 3 $\times$ 2 $\times$ 1 = 6 and “four factorial” is $\scriptstyle 4!$ = 4 $\times$ 3 $\times$ 2 $\times$ 1 = 24. In addition, $\scriptstyle 0!= 1$.
 
 ### \textcolor{blue}{Practice:} Calculating Fisher’s Exact Test {-}
 
@@ -309,11 +278,10 @@ Question 11?
 
 Both the simulation in Section 5.3 and Fisher’s exact test can be considered permutation tests. The simulation study provides an approximation to Fisher’s exact test. Fisher’s exact test provides a $\scriptstyle p$-value for this problem of P(X $\scriptstyle \geq$ 17)= 0.0225. If there truly were no difference between the likelihood of malignancy for the two nucleus shapes (which would mean the null hypothesis $\scriptstyle H_0$ was true), random sampling would produce this outcome (17 or more malignant cells in the concave group) 2.25% of the time. This small probability provides evidence that $\scriptstyle H_0$ should be rejected.
 
->**MATHEMATICAL NOTE** In this section, we simply discuss how to conduct Fisher’s exact test with statistical software. The extended activities shows that Fisher’s exact test uses the hypergeometric distribution to calculate exact $\scriptstyle p$-values. For any 2 × 2 contingency table when there are $\scriptstyle N$ total observations with $\scriptstyle M$ total successes, the probability of observing $\scriptstyle x$ successes, P(X = x), in a sample of size $\scriptstyle n$ is Fisher’s exact test and the corresponding simulation study were derived here using a rather strong assumption about the null hypothesis. Both tests were completed under the assumption that we had observed 13 benign and 24 malignant cells and that these totals would be the same in every randomization. Statisticians call this a **conditional test of independence**. In other words, both the row and the column totals are known (fixed) before the study is conducted. However, the extended activities will show that Fisher’s exact test can be used for any 2 $\scriptstyle \times$ 2 table, even when the margin totals are not fixed.$^5$
+>**MATHEMATICAL NOTE:** In this section, we simply discuss how to conduct Fisher’s exact test with statistical software. Fisher’s exact test uses the hypergeometric distribution to calculate exact $\scriptstyle p$-values. For any 2 × 2 contingency table when there are $\scriptstyle N$ total observations with $\scriptstyle M$ total successes, the probability of observing $\scriptstyle x$ successes, P(X = x), in a sample of size $\scriptstyle n$ is Fisher’s exact test and the corresponding simulation study were derived here using a rather strong assumption about the null hypothesis. Both tests were completed under the assumption that we had observed 13 benign and 24 malignant cells and that these totals would be the same in every randomization. Statisticians call this a **conditional test of independence**. In other words, both the row and the column totals are known (fixed) before the study is conducted. However, Fisher’s exact test can be used for any 2 $\scriptstyle \times$ 2 table, even when the margin totals are not fixed.$^5$
 
 
-\textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{Fisher’s exact test uses the hypergeometric distribution to provide exact $\scriptstyle p$-values even for small sample sizes and succes/failure proportions near 0% or 100%}
+Fisher’s exact test uses the hypergeometric distribution to provide exact $\scriptstyle p$-values even when there are small sample sizes or when the success/failure proportions are near 0% or 100%.
 
 ## \textcolor{blue}{Two-Sided Hypothesis Tests}
 
@@ -342,19 +310,23 @@ Based on this simulation, the two-sided hypothesis test should reject the null h
 
 ### \textcolor{blue}{Practice:} Calculating a Two-Sided Hypothesis Test {-}
 
-14. The three conditions in Section 5.3 stay the same for both the one-sided and the two-sided tests. The total number of malignant cells must be 24, the number of concave cells is 21, and the number of round cells is 16. Thus, when Y = the number of concave malignant cells, $\scriptstyle \hat p_C \ -\  \hat p_R = Y/21 \ -\  (24 \ -\  Y)/16$. 
+\begin{enumerate}
+  \setcounter{enumi}{13}
 
- (a) Find $\scriptstyle \hat p_C \ -\  \hat p_R$ when Y = 17.  
+  \item The three conditions in Section 5.3 stay the same for both the one-sided and the two-sided tests. The total number of malignant cells must be 24, the number of concave cells is 21, and the number of round cells is 16. Thus, when Y = the number of concave malignant cells, $\scriptstyle \hat p_C \ -\  \hat p_R = Y/21 \ -\  (24 \ -\  Y)/16$. 
+
+\begin{enumerate}
+  \item Find $\scriptstyle \hat p_C \ -\  \hat p_R$ when Y = 17.  
  
- (b) Find $\scriptstyle \hat p_C \ -\  \hat p_R$ when Y = 9, Y = 10, and Y = 11.
- 
-> Notice that the two-sided test is not completely balanced; there is no count, Y, that exactly corresponds to $\scriptstyle \hat p_C \ -\  \hat p_R = -0.372$. However, any $\scriptstyle Y\  \le \ 10$ will satisfy $\scriptstyle \hat p_C \ -\  \hat p_R \le$ -0.372.  
+  \item Find $\scriptstyle \hat p_C \ -\  \hat p_R$ when Y = 9, Y = 10, and Y = 11. Notice that the two-sided test is not completely balanced; there is no count, Y, that exactly corresponds to $\scriptstyle \hat p_C \ -\  \hat p_R = -0.372$. However, any $\scriptstyle Y\  \le \ 10$ will satisfy $\scriptstyle \hat p_C \ -\  \hat p_R \le$ -0.372.  
+\end{enumerate}
 
-15. Repeat Question 8 to estimate the $\scriptstyle p$-value for the two-sided hypothesis test.  
+\item Repeat Question 8 to estimate the $\scriptstyle p$-value for the two-sided hypothesis test.  
 
-16. Use the hypergeometric distribution to find the $\scriptstyle p$-value for the two-sided hypothesis test.
+\item Use the hypergeometric distribution to find the $\scriptstyle p$-value for the two-sided hypothesis test.
+\end{enumerate}
 
->**NOTE**Two-sided tests can be somewhat cumbersome. Many statisticians suggest simply approximating a two-sided $\scriptstyle p$-value by doubling the one-sided $\scriptstyle p$-value. For example, the $\scriptstyle p$-value for $\scriptstyle H_0:\  p_C \ =\  p_R$ vs. $\scriptstyle H_a:\  p_C \ \neq \ p_R$ is 2 $\times$ P(X $\ge$ 17) = 2(0.0225) = 0.045.  
+>**NOTE:** Two-sided tests can be somewhat cumbersome. We can approximate a two-sided $\scriptstyle p$-value by doubling the one-sided $\scriptstyle p$-value (e.g. $\scriptstyle p$-value for $\scriptstyle H_0:\  p_C \ =\  p_R$ vs. $\scriptstyle H_a:\  p_C \ \neq \ p_R$ is 2 $\times$ P(X $\ge$ 17) = 2(0.0225) = 0.045).  
 
 ## \textcolor{blue}{Chi-Square Test}
 
@@ -362,19 +334,18 @@ Fisher’s exact test has the advantage of providing exact $\scriptstyle p$-valu
 
 You may recall from previous statistics courses that the chi-square test requires that certain assumptions be met before any analysis is done. For example, large sample sizes are needed, especially if the proportion of successes in either group is close to 0% or 100%. If the sample size is large enough, the distribution of the chi-square test statistic will resemble the chi-square distribution.
 
-\textbf{\textcolor{blue}{Key Concept:}}
-The steps to conduct a chi-square test are similar to those for the hypothesis tests discussed in most introductory statistics classes.^[For 2 × 2 tables, the chi-square test statistic is identical to the square of the Z-statistic when testing for equal population proportions. In addition, the $\scriptstyle p$-values for the two tests will be identical.] To conduct a chi-square test you will need to do the following:
 
--  State the null and alternative hypotheses.
+The steps to conduct a chi-square test are similar to those for the hypothesis tests discussed in most introductory statistics classes. For 2 × 2 tables, the chi-square test statistic is identical to the square of the Z-statistic when testing for equal population proportions. In addition, the $\scriptstyle p$-values for the two tests will be identical. 
 
-- Calculate the test statistic.
-
-- Calculate the $\scriptstyle p$-value.
-
-- Check model assumptions.
-
-- Draw conclusions within the context of the study.
-
+To conduct a chi-square test you will need to do the following:
+\vspace{-1em}
+\begin{itemize}
+\item  State the null and alternative hypotheses.
+\item Calculate the test statistic.
+\item Calculate the $\scriptstyle p$-value.
+\item Check model assumptions.
+\item Draw conclusions within the context of the study.
+\end{itemize}
 
 **Step 1: State the null and alternative hypotheses:**
 
@@ -388,7 +359,9 @@ H_0: p_C &= p_R \quad\text{vs.}\quad H_a: p_C \neq p_R
 
 The null hypothesis is equivalent to stating that the distributions (of malignant cells) are the same across all groups of nucleus shapes. This test is often called a test of homogeneity.
 
->**MATHEMATICAL NOTE** In this section, we simply discuss how to conduct Fisher’s exact test with statistical software. The extended activities shows that Fisher’s exact test uses the hypergeometric distribution to calculate exact $p$-values. For any 2 × 2 contingency table when there are N total observations with $M$ total successes, the probability of observing $\scriptstyle x$ successes, P(X = x), in a sample of size $\scriptstyle n$ [[[is Some]]] texts suggest using the chi-square test for homogeneity if separate samples are selected from more than one population and using the chi-square test for independence when data are collected from a single sample. Even though this study is based on one sample of 37 slides, the extended activities will show that both the test of homogeneity and the test of independence are appropriate. The calculations for both tests are identical; however, the hypotheses and conclusions are different. We choose to present the test of homogeneity in this section so that the hypotheses and conclusions coincide with those for the
+>**MATHEMATICAL NOTE:** Some texts suggest using the chi-square test for homogeneity if separate samples are selected from more than one population and using the chi-square test for independence when data are collected from
+a single sample. Even though this study is based on one sample of 37 slides, both the test of homogeneity and the test of independence are appropriate. The calculations
+for both tests are identical; however, the hypotheses and conclusions are different. We choose to present the test of homogeneity in this section so that the hypotheses and conclusions coincide with those for the
 two-sided permutation tests.
 
 
@@ -450,7 +423,7 @@ kable(
 ) 
 ```
 
->**NOTE**In a chi-square test, the expected counts are calculated from the totals of the observed data. Totals in the table of observed counts (like Table 5.1) and the table of expected values (like Table 5.4) are identical, except for possible round-off error.  
+>**NOTE:** In a chi-square test, the expected counts are calculated from the totals of the observed data. Totals in the table of observed counts (like Table 5.1) and the table of expected values (like Table 5.4) are identical, except for possible round-off error.  
 \normalsize
 
 The chi-square test statistic is calculated to measure if the observed data are consistent with the null hypothesis. The chi-square statistic is
@@ -472,7 +445,7 @@ The chi-square statistic for the cancer cell study is
 
 The chi-square test statistic is always positive. If the observed and expected counts are identical, then the test statistic $\scriptstyle \chi^2$ = 0. If the observed data are far from the expected data, the test statistic will be large and the null hypothesis will be rejected. The chi-square test is not used to show that one proportion is greater or less than another proportion, but to show that the proportions are not equal. Thus, the chi-square test is a two-sided test.
 
->**NOTE** The chi-square test can be extended to categorical data with more than two rows and more than two columns. Notice that the table of expected values and the chi-square test statistic in Equation (5.3) can be calculated with additional rows and columns
+>**NOTE:** The chi-square test can be extended to categorical data with more than two rows and more than two columns. Notice that the table of expected values and the chi-square test statistic in Equation (5.3) can be calculated with additional rows and columns
 
 
 **Step 3: Calculate the *p*-value:**
@@ -480,14 +453,16 @@ The $\scriptstyle p$-value will help us determine if a test statistic of $\scrip
 
 ### \textcolor{blue}{Practice:} Conducting a Chi-Square Test {-}
 
-19. Use a statistical software package to conduct a chi-square test for the cancer cell data.
+\begin{enumerate}
+  \setcounter{enumi}{18}
 
- (a) Submit the computer output showing the observed and expected tables, the test statistic, and the $\scriptstyle p$-value.
-
- (b) Assuming the data were a simple random sample from a larger population, what conclusions can you draw about the population?
-
- (c) Can you conclude that the shape of the cell nucleus causes a change in the likelihood that a cancer cell is malignant? Why or why not?
-
+  \item Use a statistical software package to conduct a chi-square test for the cancer cell data.
+\begin{enumerate}
+  \item Submit the computer output showing the observed and expected tables, the test statistic, and the $\scriptstyle p$-value.
+  \item Assuming the data were a simple random sample from a larger population, what conclusions can you draw about the population?
+  \item Can you conclude that the shape of the cell nucleus causes a change in the likelihood that a cancer cell is malignant? Why or why not?
+\end{enumerate}
+\end{enumerate}
 
 **Step 4: Check model assumptions:**
 Just like most hypothesis tests, the chi-square test requires that each observation be independent. In addition, the chi-square test requires a large enough sample size in each of the cells to ensure that the test statistic can be accurately represented by the chi-square distribution. Some statisticians have slightly different technical assumptions for the sample size needed, but here are two general rules:  
@@ -497,7 +472,7 @@ Just like most hypothesis tests, the chi-square test requires that each observat
 
 In the cancer cell study, all the expected counts are greater than 5, so it is appropriate to use the chi-square test.
 
->**NOTE** In this example, some of the expected counts are just slightly greater than 5. In this case, some texts might suggest using a chi-square test with a continuity correction. However, simulation studies and Fisher’s exact test can now be easily calculated with computers and provide more accurate $\scriptstyle p$-values. Thus, there really is no longer a need to use a chi-square continuity correction to estimate the $\scriptstyle p$-value.  
+>**NOTE:** In this example, some of the expected counts are just slightly greater than 5. In this case, some texts might suggest using a chi-square test with a continuity correction. However, simulation studies and Fisher’s exact test can now be easily calculated with computers and provide more accurate $\scriptstyle p$-values. Thus, there really is no longer a need to use a chi-square continuity correction to estimate the $\scriptstyle p$-value.  
 
 
 **Step 5: Draw conclusions within the context of the study:**
@@ -563,13 +538,14 @@ The odds of malignancy in the concave group are 17 to 4, meaning that we expect 
 
 The odds ratio in the cancer cell study is $\frac{17/4}{7/9} = 5.5.$. Thus, the odds of malignancy are 5.5 times greater for the concave group than for the round group. When the odds ratio = 1, the odds for both groups are equal.
 
->**NOTE** In relative risk and odds ratio calculations, the group that has the lower proportion (or lower odds) is typically considered group 2 (in the denominator). That way, the relative risk and odds ratio are always numbers larger than one and easier to interpret.  
+>**NOTE:** In relative risk and odds ratio calculations, the group that has the lower proportion (or lower odds) is typically considered group 2 (in the denominator). That way, the relative risk and odds ratio are always numbers larger than one and easier to interpret.  
 
 
 \textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{In studies where the proportions are far away from 0.5, the hypothesis test for the difference in proportions may not best represent your question of interest. When both conditional proportions are small, the relative risk and odds ratio are preferable, since they take the base line rate (overall proportion of successes) into account.} 
 
 
 ### \textcolor{blue}{Practice:} Calculating Additional Summary Statistics {-}
+\vspace{-1em}
 Data set: `Table 5.1`
 
 22. Use the data from Table 5.1 and define a benign cell as a success and round cells to be group 1. Calculate and interpret the relative risk and the odds ratio.  
@@ -583,9 +559,9 @@ Data set: `Table 5.1`
 \notag
 \end{align}
 
-   Does this calculation match any statistic in Question 22? This product of diagonals can always be used as a shortcut to calculate the odds ratio.
+> Does this calculation match any statistic in Question 22? This product of diagonals can always be used as a shortcut to calculate the odds ratio.
 
->**NOTE** The odds ratio does not depend on the choice of success or failure. In addition, the odds ratio provides identical results when the explanatory and response variables are switched.  
+>**NOTE:** The odds ratio does not depend on the choice of success or failure. In addition, the odds ratio provides identical results when the explanatory and response variables are switched.  
 
 
 
@@ -596,19 +572,27 @@ Zocor is a drug used to lower cholesterol in order to reduce the chances of a he
 ### \textcolor{blue}{Practice:} Comparing Relative and Absolute Risk Reduction {-}
 Data set: `Table 5.1`  
 
-25. Does the advertisement claim that the study shows a 41% reduction in heart attacks among all people that use Zocor? Explain.  
+\begin{enumerate}
+  \setcounter{enumi}{24}
 
-26. What does 41% fewer deaths mean in terms of the chances of having a heart attack? (Select one.)  
- (a) 2222 died from heart attacks in the placebo group, and 41% fewer (1289 out of 2222) died from heart attacks in the treatment group.  
- (b) 1000 died from heart attacks in the placebo group, and 41% fewer (580) died from heart attacks in the treatment group.  
- (c) 100 died from heart attacks in the placebo group, and 41% fewer (58) died from heart attacks in the treatment group.  
- (d) It is impossible to tell based on the quote from the advertisement.  
+  \item Does the advertisement claim that the study shows a 41% reduction in heart attacks among all people that use Zocor? Explain.  
 
-27. The actual study found that 189 out of 2223 in the placebo group died from heart attacks and 111 out of 2221 in the treatment (Zocor) group died from heart attacks.  
- (a) Use the Zocor study data to create a two-way table. Use Placebo and Treatment (Zocor) as the row variables. Use Death and Survival as the column variables.  
- (b) Calculate the percentage of deaths in the placebo group and the percentage of deaths in the treatment group.  
- (c) Calculate the difference between the two percentages calculated in Part b.  
- (d) Calculate and interpret the relative risk of death from a heart attack.
+\item What does 41% fewer deaths mean in terms of the chances of having a heart attack? (Select one.)  
+
+\begin{enumerate}
+  \item 2222 died from heart attacks in the placebo group, and 41 percent fewer (1289 out of 2222) died from heart attacks in the treatment group.  
+  \item 1000 died from heart attacks in the placebo group, and 41 percent fewer (580) died from heart attacks in the treatment group.  
+  \item 100 died from heart attacks in the placebo group, and 41 percent fewer (58) died from heart attacks in the treatment group.  
+  \item It is impossible to tell based on the quote from the advertisement. \end{enumerate} 
+
+\item The actual study found that 189 out of 2223 in the placebo group died from heart attacks and 111 out of 2221 in the treatment (Zocor) group died from heart attacks.  
+\begin{enumerate}
+  \item Use the Zocor study data to create a two-way table. Use Placebo and Treatment (Zocor) as the row variables. Use Death and Survival as the column variables.  
+  \item Calculate the percentage of deaths in the placebo group and the percentage of deaths in the treatment group.  
+  \item Calculate the difference between the two percentages calculated in Part b.  
+  \item Calculate and interpret the relative risk of death from a heart attack.
+\end{enumerate}
+\end{enumerate}
 
 The difference between the two percentages calculated in Question 27b, 8.5% - 5% = 3.5%, is called the **absolute risk reduction**. The 41% fewer deaths is actually calculated as
 
@@ -754,13 +738,12 @@ fits this situation. Tests of homogeneity are appropriate whenever one of the va
 
 The **test of independence** is used to determine if two random variables within a population are independent. It is not necessary to determine which variable is the explanatory variable and which is the response variable. If any of the marginal (i.e., row or column) totals are known (fixed) in advance, at least one of the variables is not random, and thus the test of independence is not appropriate. The null and alternative hypotheses can be written as
 
-\begin{flalign*}
-  &H_0:\;\text{the row and column variables are independent (more specifically, }H_0:\text{ nucleus shape and malign-} && \\
-  & \text{ancy are independent)} &&\\
-  &H_a:\;\text{the two variables are not independent} &&
-\end{flalign*}
+\begin{align*}
+  &H_0:\;\text{the row and column variables are independent (more specifically, }H_0:\text{ nucleus shape and malignancy are independent)} \\
+  &H_a:\;\text{the two variables are not independent} 
+\end{align*}
 
->**NOTE**Tests of homogeneity and independence are not restricted to chi-square tests. For example, the two-proportion z-test is also a test of homogeneity.
+>**NOTE:** Tests of homogeneity and independence are not restricted to chi-square tests. For example, the two-proportion z-test is also a test of homogeneity.
 
 In both tests, the null hypothesis is that there is no relationship between the row variable and the column variable. Tests of independence are essentially testing if the probability of a success for one variable depends on the value of a second variable. They are appropriate whenever both the row and the column variables are random (e.g., the column totals are not predetermined by the researcher), as in cross-classification studies.
 
@@ -817,12 +800,11 @@ Goodness-of-fit tests are used to determine how well our observed data “fit”
 Before a goodness-of-fit test can be used, we need some prior knowledge (or benchmark values) about a theoretical model. The chi-square goodness-of-fit test is applied to data that are placed into groups. Sample data are placed into classes (observed groups), and a theoretical model is used to calculate the expected number of observations in each group. In this section, we will use goodness-of-fit tests to determine if the observed counts (or proportions) are consistent with hypothetical counts (or proportions).
 
 \textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{{In a chi-square goodness-of-fit test with $\scriptstyle n$ observations:}
-
+\textcolor{blue}{In a chi-square goodness-of-fit test with $\scriptstyle n$ observations:}
 \textcolor{blue}{$\bullet$ Each of the $\scriptstyle n$ observations fits into exactly one of $\scriptstyle G$ categories.}   
 \textcolor{blue}{$\bullet$ The null hypothesis specifies the expected probability ($\scriptstyle p_i$) for each cell.}   
 \textcolor{blue}{$\bullet$ Expected counts are calculated as $\scriptstyle n$ × $\scriptstyle p_i$.}  
-\textcolor{blue}{$\bullet$ The test statistic is $\scriptstyle \chi^2 \ =\  \sum \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}$.}   
+\textcolor{blue}{$\bullet$ The test statistic is $\scriptstyle \chi^2 \ =\  \sum \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}$.} 
 \textcolor{blue}{$\bullet$ If each of the expected cell counts is at least 5, the $\scriptstyle p$-value is calculated from the chi-square distribution with $\scriptstyle G$ – 1 degrees of freedom.}
 
 
@@ -929,7 +911,7 @@ This chapter was limited to studies involving only one categorical explanatory v
 
   \item \textbf{Cancer and Smoking: Fisher’s Exact Test and Simulation Studies}    
 
-  Data set: `Table 5.5`    
+  Data set: \texttt{Table 5.5}    
 
   Answer the following questions for the data displayed in Table 5.5.  
   \begin{enumerate}
@@ -943,7 +925,7 @@ This chapter was limited to studies involving only one categorical explanatory v
 
   \item \textbf{Statistics Enrollment for Humanities and Science Majors}    
 
-  Data set: `Table 5.9`    
+  Data set: \texttt{Table 5.9}  
 
   A study was conducted by introductory statistics students to see whether majors in the sciences are as likely to take a statistics course as majors in the humanities. They sampled 50 seniors from among humanities majors and another 50 seniors from among science majors and asked if they had taken a statistics course or were scheduled to take one before they graduated. Their data are provided in Table 5.9.  
   
@@ -979,7 +961,7 @@ kable(
 
   \item \textbf{Statistics Enrollment for Humanities and Science Majors 2}    
 
-  Data set: `Table 5.9`    
+  Data set: \texttt{Table 5.9}   
   \begin{enumerate}
     \item Use Exercise E2 to determine if a chi-square test of homogeneity or a test of independence is appropriate for the data in Table 5.9. Give an explanation for your answer.
     \item Use the data in Table 5.9 to determine if the same proportion of humanities and science majors take a statistics course. Assuming that students took care to collect a simple random sample of seniors from each division, what conclusions can be drawn?
@@ -988,7 +970,7 @@ kable(
 
   \item \textbf{A Lady Tasting Tea}    
 
-  Data set: `Table 5.10`    
+  Data set: \texttt{Table 5.10}   
 
   At a summer tea party in the late 1920s, a lady claimed that she could determine by taste if tea had been poured into the milk or if milk had been poured into the tea. Sir Ronald Fisher discussed how to test this lady’s claim. The lady was asked to taste several cups in random order and identify each as tea first or milk first. Although the actual results were not published, rumor has it that the lady correctly identified every single cup. 
   
@@ -1028,7 +1010,7 @@ exactly seven tea first guesses and seven milk first guesses. Thus, the column t
 
   \item \textbf{Donner Party}    
 
-  Data set: `Table 5.11`    
+  Data set: \texttt{Table 5.11}    
 
   Members of the Donner party attempted a new route between Fort Bridger, Wyoming, and the Humboldt River, Nevada. This new route took much longer than expected, and the entire party was trapped in the Sierra Nevada in the winter of 1846–1847. By the time they were rescued in the spring, many members had died. Table 5.11 lists the gender and survival status of all adults who were trapped during this trip.  
   \begin{enumerate}
@@ -1064,7 +1046,7 @@ kable(
 
   \item \textbf{Statistics Enrollment: Testing for Homogeneity of Odds}    
 
-  Data set: `Table 5.9`    
+  Data set: \texttt{Table 5.9}   
   
   \begin{enumerate}
     \item Calculate and interpret the odds ratio for the data in Table 5.9.
@@ -1075,7 +1057,7 @@ kable(
 
   \item \textbf{Cancer Cells: Testing for Homogeneity of Odds}    
 
-  Data set: `Table 5.1`    
+  Data set: \texttt{Table 5.1}    
   
   Use the data from Table 5.1 and define a benign cell as a success. Conduct a hypothesis test for the homogeneity of odds.  
   \begin{enumerate}
@@ -1090,7 +1072,7 @@ kable(
 
   \item \textbf{Comparing Treatments for Drug Addiction: A 3 × 2 Contingency Table}    
 
-  Data set: `Table 5.12`    
+  Data set: \texttt{Table 5.12}    
   
   Many people with cocaine addictions also suffer from mood disorders like depression or a manic-depressive disorder. To aid in the process of trying to break a patient’s addiction to cocaine, a common antidepressant known as lithium is often given to patients in drug treatment centers. A randomized, comparative experiment was performed to determine whether another commonly prescribed antidepressant, desipramine, could be used to reduce the likelihood of patients’ using cocaine again or whether antidepressant therapy helped at all. The 72 patients selected for study over a 3-year period were randomly assigned to one of three treatments: desipramine, lithium, or a placebo. After the end of the 6-week treatment period, these patients were interviewed to determine if they had been successful in stopping their cocaine habit. A success was defined as having stopped using cocaine for 3 weeks or more during the 6-week treatment period. The data from the study are shown in Table 5.12.  
   
@@ -1147,7 +1129,7 @@ from cocaine, we would expect the success rates of all three groups to be the sa
 
   \item \textbf{Friday Night Collisions: Drawing Conclusions from a Goodness-of-Fit Test}    
 
-  Data set: `Table 5.13`    
+  Data set: \texttt{Table 5.13}    
   
   A local organization conducted a traffic study to determine if traffic collisions were more likely on Friday and Saturday nights than on other nights. The city council was considering a proposal that bars in a specific district be closed earlier in an effort to reduce late-night accidents in the area. The assumption was that a larger number of traffic accidents would correspond to the heaviest bar traffic (which occurred on the weekends). Table 5.13 shows data collected on traffic accidents that had occurred in that district over the past two years.  
   
@@ -1187,7 +1169,7 @@ this value has some similarities to calculating standardized residuals.
 
   \item \textbf{Zocor Again}    
 
-  Data set: `Table 5.14`    
+  Data set: \texttt{Table 5.14}   
   
   The extended activities in Section 5.7 discussed a clinical study on Zocor, a drug used in lowering cholesterol, to determine if there was a difference between the treatment (Zocor) and the placebo in reducing the number of deaths from heart attacks. Table 5.14 shows the original data from this study.  
   
@@ -1222,7 +1204,7 @@ cat(
 
   \item \textbf{The Pill Scare: Understanding Relative Risk Reduction}    
 
-  Data set: `Table 5.15` 
+  Data set: \texttt{Table 5.15}
   
   In October 1995, the United Kingdom Committee on Safety of Medicines (CSM) issued a warning to 190,000 general practitioners, pharmacists, and directors of public health about oral contraceptive pills containing gestodene or desogestrel. The warning, based on three unpublished epidemiological research studies, stated, “It is well known that the pill may rarely produce thrombosis (blood clots) involving veins of the legs. New evidence has become available indicating that the chance of thrombosis occurring in a vein increases about two-fold for some types of pills compared to others.”$^{12}$ Table 5.15 provides data from one of the studies.  
 
@@ -1314,7 +1296,7 @@ in this question. The steps in conducting a goodness-of-fit tests are as follows
 
   \item \textbf{Simulating the Chi-Square Distribution}    
 
-  Data set: `Table 5.1`    
+  Data set: \texttt{Table 5.1}    
   
   \begin{enumerate}
     \item Calculate the chi-square test statistic for the simulated table in Question 20. Since the table cell counts (at least for the concave malignant group) were assumed to be randomly generated, this test statistic can be thought of as one random sample drawn from a chi-square distribution with 1 degree of freedom.
@@ -1334,7 +1316,7 @@ that the cell counts in Part (b) are sufficient to be modeled by the chi-square 
 \end{enumerate}
 
 
-### Endnotes {-}
+### References {-}
 
 \begin{enumerate}
 
