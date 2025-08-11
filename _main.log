@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.5)  10 AUG 2025 16:30
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.5)  10 AUG 2025 20:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1067,13 +1067,13 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 
 ]
 
-[2])
+[2]
+
+[3])
 \tf@toc=\write3
 \openout3 = `_main.toc'.
 
 
-
-[3]
 
 [4]
 
@@ -1570,14 +1570,14 @@ File: _main_files/figure-latex/fig52-1.pdf Graphic file (type pdf)
 [131]
 
 [132]
-Underfull \hbox (badness 10000) in paragraph at lines 5970--5972
+Underfull \hbox (badness 10000) in paragraph at lines 5967--5969
 
  []
 
 
 
 [133]
-Underfull \hbox (badness 10000) in paragraph at lines 6028--6030
+Underfull \hbox (badness 10000) in paragraph at lines 6025--6027
 
  []
 
@@ -1588,44 +1588,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 6028--6030
 [135]
 
 [136]
-Underfull \hbox (badness 10000) in paragraph at lines 6162--6163
+Underfull \hbox (badness 10000) in paragraph at lines 6159--6160
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6169--6171
+Underfull \hbox (badness 10000) in paragraph at lines 6166--6168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6171--6173
+Underfull \hbox (badness 10000) in paragraph at lines 6168--6170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6173--6175
+Underfull \hbox (badness 10000) in paragraph at lines 6170--6172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6183--6184
+Underfull \hbox (badness 10000) in paragraph at lines 6180--6181
 
  []
 
 
 
 [137]
-Underfull \hbox (badness 10000) in paragraph at lines 6190--6192
+Underfull \hbox (badness 10000) in paragraph at lines 6187--6189
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6192--6194
+Underfull \hbox (badness 10000) in paragraph at lines 6189--6191
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6194--6196
+Underfull \hbox (badness 10000) in paragraph at lines 6191--6193
 
  []
 
@@ -1659,27 +1659,27 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [142]
-Underfull \hbox (badness 10000) in paragraph at lines 6464--6465
+Underfull \hbox (badness 10000) in paragraph at lines 6461--6462
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6471--6473
+Underfull \hbox (badness 10000) in paragraph at lines 6468--6470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6473--6475
+Underfull \hbox (badness 10000) in paragraph at lines 6470--6472
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6475--6477
+Underfull \hbox (badness 10000) in paragraph at lines 6472--6474
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6477--6479
+Underfull \hbox (badness 10000) in paragraph at lines 6474--6476
 
  []
 
@@ -1716,24 +1716,24 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [149]
 
 [150]
-Overfull \hbox (203.59404pt too wide) in paragraph at lines 6876--6878
+Overfull \hbox (203.59404pt too wide) in paragraph at lines 6873--6875
 []\TU/ArialNarrow(0)/m/n/10 American Cancer Society, \TU/ArialNarrow(0)/m/it/10 Cancer Facts and Figures 2008\TU/ArialNarrow(0)/m/n/10 , Atlanta, GA, http://www.cancer.org/acs/groups/con- tent/@epidemiologysurveilance/documents/document/acspc026210.pdf?
  []
 
 
-Overfull \hbox (474.18153pt too wide) in paragraph at lines 6918--6918
+Overfull \hbox (474.18153pt too wide) in paragraph at lines 6915--6915
 []\TU/lmtt/m/n/10 ## WARNING: Rtools is required to build R packages, but no version of Rtools compatible with R 4.5.0 was found. (Only the following incompatible version(s) of Rtools were found: 4.2)[] 
  []
 
 
 
 [151]
-Overfull \hbox (12.18153pt too wide) in paragraph at lines 6918--6918
+Overfull \hbox (12.18153pt too wide) in paragraph at lines 6915--6915
 []\TU/lmtt/m/n/10 ## Please download and install Rtools 4.5 from https://cran.r-project.org/bin/windows/Rtools/.[] 
  []
 
 
-Overfull \hbox (132.93153pt too wide) in paragraph at lines 6927--6927
+Overfull \hbox (132.93153pt too wide) in paragraph at lines 6924--6924
 []\TU/lmtt/m/n/10 ## Skipping install of 'myfirstpackage' from a github remote, the SHA1 (d1348fe2) has not changed since last install.[] 
  []
 
@@ -1742,32 +1742,32 @@ Overfull \hbox (132.93153pt too wide) in paragraph at lines 6927--6927
 [152]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6934--6934
+Underfull \hbox (badness 10000) in paragraph at lines 6931--6931
 [][][]\TU/ArialNarrow(0)/m/n/8 D. Leonhardt, “John Tukey, 85, Statistician, Coined the Word ‘Software’,” New York Times Archives on the Web, 7/28/2000, stat.bell-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6944--6946
+Underfull \hbox (badness 10000) in paragraph at lines 6941--6943
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6946--6948
+Underfull \hbox (badness 10000) in paragraph at lines 6943--6945
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6948--6950
+Underfull \hbox (badness 10000) in paragraph at lines 6945--6947
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6950--6952
+Underfull \hbox (badness 10000) in paragraph at lines 6947--6949
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6952--6954
+Underfull \hbox (badness 10000) in paragraph at lines 6949--6951
 
  []
 
@@ -1812,7 +1812,7 @@ File: _main_files/figure-latex/fig64-1.pdf Graphic file (type pdf)
 
 
 [159]
-Underfull \hbox (badness 10000) in paragraph at lines 7267--7269
+Underfull \hbox (badness 10000) in paragraph at lines 7268--7270
 
  []
 
@@ -1821,7 +1821,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7267--7269
 [160]
 
 [161]
-Underfull \hbox (badness 10000) in paragraph at lines 7349--7351
+Underfull \hbox (badness 10000) in paragraph at lines 7348--7350
 
  []
 
@@ -1837,22 +1837,22 @@ File: docs/Fig7_5Minitab.png Graphic file (type bmp)
 [164]
 
 [165]
-Underfull \hbox (badness 10000) in paragraph at lines 7530--7531
+Underfull \hbox (badness 10000) in paragraph at lines 7529--7530
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7549--7551
+Underfull \hbox (badness 10000) in paragraph at lines 7548--7550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7559--7560
+Underfull \hbox (badness 10000) in paragraph at lines 7558--7559
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7566--7568
+Underfull \hbox (badness 10000) in paragraph at lines 7565--7567
 
  []
 
@@ -1873,24 +1873,24 @@ File: docs/Fig7_8MinitabPairs.png Graphic file (type bmp)
 [169]
 
 [170]
-Underfull \hbox (badness 10000) in paragraph at lines 7820--7822
+Underfull \hbox (badness 10000) in paragraph at lines 7815--7817
 
  []
 
 
 
 [171]
-Underfull \hbox (badness 10000) in paragraph at lines 7865--7866
+Underfull \hbox (badness 10000) in paragraph at lines 7860--7861
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7872--7874
+Underfull \hbox (badness 10000) in paragraph at lines 7867--7869
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7874--7876
+Underfull \hbox (badness 10000) in paragraph at lines 7869--7871
 
  []
 
@@ -1899,12 +1899,12 @@ File: _main_files/figure-latex/fig68-1.pdf Graphic file (type pdf)
 
 
 [172]
-Underfull \hbox (badness 10000) in paragraph at lines 7924--7926
+Underfull \hbox (badness 10000) in paragraph at lines 7919--7921
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7926--7928
+Underfull \hbox (badness 10000) in paragraph at lines 7921--7923
 
  []
 
@@ -1951,12 +1951,12 @@ Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dfl
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 
-Underfull \hbox (badness 10000) in paragraph at lines 7984--7985
+Underfull \hbox (badness 10000) in paragraph at lines 7980--7981
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7991--7992
+Underfull \hbox (badness 10000) in paragraph at lines 7987--7988
 
  []
 
@@ -1964,33 +1964,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 7991--7992
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 8014--8015
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8018--8021
-
- []
-
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 8021--8023
-
- []
-
 
 
 [174]
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 8031--8032
-
- []
-
 File: docs/Fig7_10MinitabLog.png Graphic file (type bmp)
 <docs/Fig7_10MinitabLog.png>
 
@@ -2000,11 +1980,11 @@ Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:languag
 Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
 
 
 [176]
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
@@ -2038,40 +2018,30 @@ Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dfl
 [177]
 
 [178]
-Underfull \hbox (badness 10000) in paragraph at lines 8173--8174
+Underfull \hbox (badness 10000) in paragraph at lines 8164--8165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8180--8182
-
- []
-
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 8182--8184
+Underfull \hbox (badness 10000) in paragraph at lines 8171--8173
 
  []
 
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 
-Underfull \hbox (badness 10000) in paragraph at lines 8184--8186
+Underfull \hbox (badness 10000) in paragraph at lines 8173--8175
+
+ []
+
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+
+Underfull \hbox (badness 10000) in paragraph at lines 8175--8177
 
  []
 
 
 
 [179]
-Underfull \hbox (badness 10000) in paragraph at lines 8270--8271
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8284--8286
-
- []
-
-
 
 [180]
 
@@ -2086,24 +2056,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 8284--8286
 [185]
 
 [186]
-Underfull \hbox (badness 5050) in paragraph at lines 8542--8544
+Underfull \hbox (badness 5050) in paragraph at lines 8529--8531
 []\TU/ArialNarrow(0)/m/it/10 Report of the Presidential Commission on the Space Shuttle Challenger Accident\TU/ArialNarrow(0)/m/n/10 , http://history.nasa.gov/ roger-
  []
 
 
 
 [187]
-Overfull \hbox (474.18153pt too wide) in paragraph at lines 8578--8578
+Overfull \hbox (474.18153pt too wide) in paragraph at lines 8565--8565
 []\TU/lmtt/m/n/10 ## WARNING: Rtools is required to build R packages, but no version of Rtools compatible with R 4.5.0 was found. (Only the following incompatible version(s) of Rtools were found: 4.2)[] 
  []
 
 
-Overfull \hbox (12.18153pt too wide) in paragraph at lines 8578--8578
+Overfull \hbox (12.18153pt too wide) in paragraph at lines 8565--8565
 []\TU/lmtt/m/n/10 ## Please download and install Rtools 4.5 from https://cran.r-project.org/bin/windows/Rtools/.[] 
  []
 
 
-Overfull \hbox (132.93153pt too wide) in paragraph at lines 8587--8587
+Overfull \hbox (132.93153pt too wide) in paragraph at lines 8574--8574
 []\TU/lmtt/m/n/10 ## Skipping install of 'myfirstpackage' from a github remote, the SHA1 (d1348fe2) has not changed since last install.[] 
  []
 
@@ -2112,27 +2082,27 @@ Overfull \hbox (132.93153pt too wide) in paragraph at lines 8587--8587
 [188]
 Chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 8604--8606
+Underfull \hbox (badness 10000) in paragraph at lines 8591--8593
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8606--8608
+Underfull \hbox (badness 10000) in paragraph at lines 8593--8595
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8608--8610
+Underfull \hbox (badness 10000) in paragraph at lines 8595--8597
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8610--8612
+Underfull \hbox (badness 10000) in paragraph at lines 8597--8599
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8612--8614
+Underfull \hbox (badness 10000) in paragraph at lines 8599--8601
 
  []
 
@@ -2141,44 +2111,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 8612--8614
 [189
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 8637--8639
+Underfull \hbox (badness 10000) in paragraph at lines 8624--8626
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8639--8641
+Underfull \hbox (badness 10000) in paragraph at lines 8626--8628
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8641--8643
+Underfull \hbox (badness 10000) in paragraph at lines 8628--8630
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8665--8667
+Underfull \hbox (badness 10000) in paragraph at lines 8652--8654
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8667--8669
+Underfull \hbox (badness 10000) in paragraph at lines 8654--8656
 
  []
 
 
 
 [190]
-Underfull \hbox (badness 10000) in paragraph at lines 8692--8694
+Underfull \hbox (badness 10000) in paragraph at lines 8674--8676
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8694--8696
+Underfull \hbox (badness 10000) in paragraph at lines 8676--8678
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8696--8698
+Underfull \hbox (badness 10000) in paragraph at lines 8678--8680
 
  []
 
@@ -2193,7 +2163,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [193]
-Underfull \hbox (badness 10000) in paragraph at lines 8847--8849
+Underfull \hbox (badness 10000) in paragraph at lines 8818--8819
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8825--8827
 
  []
 
@@ -2202,17 +2177,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8847--8849
 [194]
 
 [195]
-Underfull \hbox (badness 10000) in paragraph at lines 8949--8951
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8951--8953
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8953--8955
+Underfull \hbox (badness 10000) in paragraph at lines 8921--8923
 
  []
 
@@ -2243,74 +2208,66 @@ File: docs/Fig9_4.png Graphic file (type bmp)
 [201]
 
 [202]
-
-[203]
 File: docs/Fig9_5.png Graphic file (type bmp)
 <docs/Fig9_5.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9311--9313
 
- []
-
-
+[203]
 
 [204]
 File: docs/Fig9_6.png Graphic file (type bmp)
 <docs/Fig9_6.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9359--9361
+Underfull \hbox (badness 10000) in paragraph at lines 9325--9327
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9327--9329
 
  []
 
 
 
 [205]
-Underfull \hbox (badness 10000) in paragraph at lines 9361--9363
+Underfull \hbox (badness 10000) in paragraph at lines 9329--9331
 
  []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9363--9365
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
 [206]
-
-[207]
-Underfull \hbox (badness 10000) in paragraph at lines 9469--9471
+Underfull \hbox (badness 10000) in paragraph at lines 9440--9442
 
  []
 
 
 
-[208]
+[207]
 File: docs/Fig9_7.png Graphic file (type bmp)
 <docs/Fig9_7.png>
 
 
-[209]
+[208]
 
-[210]
+[209]
 File: docs/Fig9_8.png Graphic file (type bmp)
 <docs/Fig9_8.png>
 
 
-[211]
+[210]
 
-[212]
+[211]
 File: docs/Fig9_9.png Graphic file (type bmp)
 <docs/Fig9_9.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9673--9675
+Underfull \hbox (badness 10000) in paragraph at lines 9640--9642
 
  []
 
 
+
+[212]
 
 [213]
 File: docs/Fig9_10.png Graphic file (type bmp)
@@ -2318,29 +2275,26 @@ File: docs/Fig9_10.png Graphic file (type bmp)
 
 
 [214]
-Underfull \hbox (badness 10000) in paragraph at lines 9746--9748
-
- []
-
+File: docs/Fig9_11.png Graphic file (type bmp)
+<docs/Fig9_11.png>
 
 
 [215]
-File: docs/Fig9_11.png Graphic file (type bmp)
-<docs/Fig9_11.png>
 File: docs/Fig9_12.png Graphic file (type bmp)
 <docs/Fig9_12.png>
 
+Underfull \hbox (badness 10000) in paragraph at lines 9768--9770
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9770--9772
+
+ []
+
+
 
 [216]
-Underfull \hbox (badness 10000) in paragraph at lines 9801--9803
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9803--9805
-
- []
-
 File: docs/Fig9_13.png Graphic file (type bmp)
 <docs/Fig9_13.png>
 
@@ -2349,19 +2303,17 @@ File: docs/Fig9_13.png Graphic file (type bmp)
 File: docs/Fig9_14.png Graphic file (type bmp)
 <docs/Fig9_14.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9882--9884
+Underfull \hbox (badness 10000) in paragraph at lines 9849--9851
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9884--9886
+Underfull \hbox (badness 10000) in paragraph at lines 9851--9853
 
  []
 
 
-
-[218]
-Underfull \hbox (badness 10000) in paragraph at lines 9886--9888
+Underfull \hbox (badness 10000) in paragraph at lines 9853--9855
 
  []
 
@@ -2369,12 +2321,14 @@ File: docs/Fig9_15.png Graphic file (type bmp)
 <docs/Fig9_15.png>
 
 
-[219]
+[218]
 
-[220]
+[219]
 File: docs/Fig9_16.png Graphic file (type bmp)
 <docs/Fig9_16.png>
 
+
+[220]
 
 [221]
 
@@ -2383,9 +2337,6 @@ File: docs/Fig9_16.png Graphic file (type bmp)
 [223]
 File: docs/Fig9_17.png Graphic file (type bmp)
 <docs/Fig9_17.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 
 
 [224]
@@ -2415,10 +2366,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 20560 strings out of 470457
- 381505 string characters out of 5489348
- 998764 words of memory out of 5000000
- 48516 multiletter control sequences out of 15000+600000
+ 20561 strings out of 470457
+ 380279 string characters out of 5489348
+ 999351 words of memory out of 5000000
+ 48517 multiletter control sequences out of 15000+600000
  633614 words of font info for 123 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,20n,116p,1355b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
