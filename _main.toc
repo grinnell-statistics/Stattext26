@@ -207,75 +207,75 @@
 \contentsline {section}{\numberline {6.10}\textcolor {blue}{ Measures of Association}}{168}{section.6.10}%
 \contentsline {subsection}{\textcolor {blue}{Practice:} Measures of Association}{168}{section*.236}%
 \contentsline {section}{\numberline {6.11}\textcolor {blue}{ Review of Means and Variances of Binary and Binomial Data}}{169}{section.6.11}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Understanding the Binomial Distribution}{171}{section*.249}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Understanding the Binomial Distribution}{170}{section*.249}%
 \contentsline {section}{\numberline {6.12}\textcolor {blue}{ Calculating Logistic Regression Models for Binomial Counts}}{171}{section.6.12}%
 \contentsline {subsection}{\textcolor {blue}{Practice:} Binomial Logistic Regression}{171}{section*.250}%
-\contentsline {section}{\numberline {6.13}\textcolor {blue}{ Calculating Residuals for Logistic Models with Binomial }}{172}{section.6.13}%
+\contentsline {section}{\numberline {6.13}\textcolor {blue}{ Calculating Residuals for Logistic Models with Binomial }}{171}{section.6.13}%
 \contentsline {subsection}{\textcolor {blue}{Practice:} Evaluating Residuals in Binomial Logistic Regression}{172}{section*.253}%
 \contentsline {section}{\numberline {6.14}\textcolor {blue}{ Assessing the Fit of a Logistic Regression Model with Binomial Counts}}{173}{section.6.14}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Residuals by Hand}{174}{section*.256}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{176}{section*.261}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Residuals by Hand}{173}{section*.256}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{175}{section*.261}%
 \contentsline {subsection}{\textcolor {blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{176}{section*.262}%
 \contentsline {section}{\numberline {6.15}\textcolor {blue}{ Diagnostic Plots}}{176}{section.6.15}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Identifying Outliers and Influential Observations}{177}{section*.263}%
-\contentsline {section}{\numberline {6.16}\textcolor {blue}{ Maximum Likelihood Estimation in Logistic Regression}}{179}{section.6.16}%
-\contentsline {subsection}{Maximum Likelihood Estimator for Binary Data}{179}{section*.264}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Maximum Likelihood Estimates}{180}{section*.275}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Identifying Outliers and Influential Observations}{178}{section*.263}%
+\contentsline {section}{\numberline {6.16}\textcolor {blue}{ Maximum Likelihood Estimation in Logistic Regression}}{178}{section.6.16}%
+\contentsline {subsection}{Maximum Likelihood Estimator for Binary Data}{178}{section*.264}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Maximum Likelihood Estimates}{179}{section*.275}%
 \contentsline {subsection}{Maximum Likelihood Estimator for Logistic Regression Models}{180}{section*.278}%
-\contentsline {section}{\numberline {6.17}\textcolor {blue}{ Chapter Summary}}{181}{section.6.17}%
-\contentsline {section}{\numberline {6.18}Exercises}{182}{section.6.18}%
+\contentsline {section}{\numberline {6.17}\textcolor {blue}{ Chapter Summary}}{180}{section.6.17}%
+\contentsline {section}{\numberline {6.18}Exercises}{181}{section.6.18}%
 \contentsline {subsection}{References}{186}{section*.281}%
-\contentsline {chapter}{\numberline {7}Survival Analysis: Melting Chocolate Chips}{189}{chapter.7}%
-\contentsline {section}{\numberline {7.1}\textcolor {blue}{Investigation: How Long Does It Take for Chocolate Chips to Melt?}}{190}{section.7.1}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Melting Chocolate Chips}{190}{section*.282}%
-\contentsline {section}{\numberline {7.2}\textcolor {blue}{Overview of Survival Analysis Studies and Data}}{191}{section.7.2}%
-\contentsline {subsection}{Incomplete Event Times: Censoring}{192}{section*.283}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Melting Chocolate Chips}{192}{section*.284}%
-\contentsline {section}{\numberline {7.3}\textcolor {blue}{The Survival Function}}{192}{section.7.3}%
-\contentsline {subsection}{The Empirical Survival Function}{193}{section*.285}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Empirical Survival Function}{194}{section*.288}%
-\contentsline {subsection}{The Kaplan--Meier Estimator}{194}{section*.289}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Time Intervals for the Chip Melting Times}{195}{section*.290}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Conditional Melting Probabilities}{196}{section*.291}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Kaplan--Meier Estimates}{197}{section*.294}%
-\contentsline {subsection}{Graphing the Kaplan--Meier Curve}{197}{section*.295}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Kaplan--Meier Curves}{198}{section*.296}%
-\contentsline {subsection}{Additional Chip Melting Experiences}{198}{section*.297}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Chip Melting Experiences}{199}{section*.298}%
-\contentsline {section}{\numberline {7.4}\textcolor {blue}{Descriptive Statistics for Survival Data}}{199}{section.7.4}%
-\contentsline {subsection}{Estimating the Mean Survival Time}{199}{section*.299}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Mean Chip Melting Time}{200}{section*.304}%
-\contentsline {subsection}{Estimating Percentiles of the Survival Time Distribution}{201}{section*.305}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Median Chip Melting Time}{201}{section*.308}%
-\contentsline {section}{\numberline {7.5}\textcolor {blue}{Confidence Intervals for Survival Probabilities}}{201}{section.7.5}%
-\contentsline {subsection}{The Standard Error of the Kaplan--Meier Estimator}{203}{section*.313}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Standard Errors and Confidence Intervals for Survival Probabilities}{204}{section*.318}%
-\contentsline {section}{\numberline {7.6}\textcolor {blue}{Comparing Survival Functions}}{205}{section.7.6}%
-\contentsline {subsection}{The Log-Rank Test}{206}{section*.319}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating the Expected Number and Variance of Melted Chips}{207}{section*.322}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Log-Rank Test Statistic}{208}{section*.327}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Log-Rank Test for Chip Melting Activity}{208}{section*.328}%
-\contentsline {subsection}{The Wilcoxon Test}{208}{section*.329}%
-\contentsline {subsection}{Beyond Different Survival Experiences: Regression Models for Survival Data}{209}{section*.330}%
-\contentsline {section}{\numberline {7.7}\textcolor {blue}{What Can We Conclude About Melting Chocolate Chips?}}{209}{section.7.7}%
-\contentsline {section}{\numberline {7.8}\textcolor {blue}{The Hazard Function}}{209}{section.7.8}%
-\contentsline {subsection}{The Population Hazard Function}{210}{section*.331}%
-\contentsline {subsection}{The Estimated Hazard Function}{211}{section*.336}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Chip Melting Hazard Rates}{212}{section*.339}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Hazard Rates}{213}{section*.340}%
-\contentsline {subsection}{Age at First Alcoholic Drink}{213}{section*.341}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Age at First Alcoholic Drink}{213}{section*.342}%
-\contentsline {subsection}{College Graduation}{215}{section*.343}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} College Graduation}{215}{section*.344}%
-\contentsline {section}{\numberline {7.9}\textcolor {blue}{The Cumulative Hazard}}{215}{section.7.9}%
-\contentsline {subsection}{Motorist Reaction Times}{215}{section*.345}%
+\contentsline {chapter}{\numberline {7}Survival Analysis: Melting Chocolate Chips}{188}{chapter.7}%
+\contentsline {section}{\numberline {7.1}\textcolor {blue}{Investigation: How Long Does It Take for Chocolate Chips to Melt?}}{189}{section.7.1}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Melting Chocolate Chips}{189}{section*.282}%
+\contentsline {section}{\numberline {7.2}\textcolor {blue}{Overview of Survival Analysis Studies and Data}}{190}{section.7.2}%
+\contentsline {subsection}{Incomplete Event Times: Censoring}{191}{section*.283}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Melting Chocolate Chips}{191}{section*.284}%
+\contentsline {section}{\numberline {7.3}\textcolor {blue}{The Survival Function}}{191}{section.7.3}%
+\contentsline {subsection}{The Empirical Survival Function}{192}{section*.285}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Empirical Survival Function}{193}{section*.288}%
+\contentsline {subsection}{The Kaplan--Meier Estimator}{193}{section*.289}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Time Intervals for the Chip Melting Times}{194}{section*.290}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Conditional Melting Probabilities}{195}{section*.291}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Kaplan--Meier Estimates}{196}{section*.294}%
+\contentsline {subsection}{Graphing the Kaplan--Meier Curve}{196}{section*.295}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Kaplan--Meier Curves}{197}{section*.296}%
+\contentsline {subsection}{Additional Chip Melting Experiences}{197}{section*.297}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Chip Melting Experiences}{198}{section*.298}%
+\contentsline {section}{\numberline {7.4}\textcolor {blue}{Descriptive Statistics for Survival Data}}{198}{section.7.4}%
+\contentsline {subsection}{Estimating the Mean Survival Time}{198}{section*.299}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Mean Chip Melting Time}{199}{section*.304}%
+\contentsline {subsection}{Estimating Percentiles of the Survival Time Distribution}{200}{section*.305}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Median Chip Melting Time}{200}{section*.308}%
+\contentsline {section}{\numberline {7.5}\textcolor {blue}{Confidence Intervals for Survival Probabilities}}{200}{section.7.5}%
+\contentsline {subsection}{The Standard Error of the Kaplan--Meier Estimator}{202}{section*.313}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Standard Errors and Confidence Intervals for Survival Probabilities}{203}{section*.318}%
+\contentsline {section}{\numberline {7.6}\textcolor {blue}{Comparing Survival Functions}}{204}{section.7.6}%
+\contentsline {subsection}{The Log-Rank Test}{205}{section*.319}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Calculating the Expected Number and Variance of Melted Chips}{206}{section*.322}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Log-Rank Test Statistic}{207}{section*.327}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Log-Rank Test for Chip Melting Activity}{207}{section*.328}%
+\contentsline {subsection}{The Wilcoxon Test}{207}{section*.329}%
+\contentsline {subsection}{Beyond Different Survival Experiences: Regression Models for Survival Data}{208}{section*.330}%
+\contentsline {section}{\numberline {7.7}\textcolor {blue}{What Can We Conclude About Melting Chocolate Chips?}}{208}{section.7.7}%
+\contentsline {section}{\numberline {7.8}\textcolor {blue}{The Hazard Function}}{208}{section.7.8}%
+\contentsline {subsection}{The Population Hazard Function}{209}{section*.331}%
+\contentsline {subsection}{The Estimated Hazard Function}{210}{section*.336}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Chip Melting Hazard Rates}{211}{section*.339}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Hazard Rates}{212}{section*.340}%
+\contentsline {subsection}{Age at First Alcoholic Drink}{212}{section*.341}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Age at First Alcoholic Drink}{212}{section*.342}%
+\contentsline {subsection}{College Graduation}{214}{section*.343}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} College Graduation}{214}{section*.344}%
+\contentsline {section}{\numberline {7.9}\textcolor {blue}{The Cumulative Hazard Function}}{214}{section.7.9}%
+\contentsline {subsection}{Motorist Reaction Times}{214}{section*.345}%
 \contentsline {subsection}{Estimator of the Cumulative Hazard Function}{217}{section*.348}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Cumulative Hazard Function}{218}{section*.351}%
-\contentsline {subsection}{Time to Rearrest for Former Inmates}{219}{section*.352}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Cumulative Hazard Function}{220}{section*.353}%
-\contentsline {section}{\numberline {7.10}\textcolor {blue}{Additional Types of Incomplete Data}}{220}{section.7.10}%
-\contentsline {subsection}{Left Censoring and Interval Censoring}{220}{section*.354}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Left Censoring and Interval Censoring}{221}{section*.355}%
-\contentsline {section}{\numberline {7.11}\textcolor {blue}{Chapter Summary}}{221}{section.7.11}%
-\contentsline {section}{\numberline {7.12}Exercises}{223}{section.7.12}%
-\contentsline {subsection}{Endnotes}{228}{section*.356}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Cumulative Hazard Function}{217}{section*.351}%
+\contentsline {subsection}{Time to Rearrest for Former Inmates}{218}{section*.352}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Estimated Cumulative Hazard Function}{219}{section*.353}%
+\contentsline {section}{\numberline {7.10}\textcolor {blue}{Additional Types of Incomplete Data}}{219}{section.7.10}%
+\contentsline {subsection}{Left Censoring and Interval Censoring}{219}{section*.354}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Left Censoring and Interval Censoring}{220}{section*.355}%
+\contentsline {section}{\numberline {7.11}\textcolor {blue}{Chapter Summary}}{220}{section.7.11}%
+\contentsline {section}{\numberline {7.12}Exercises}{222}{section.7.12}%
+\contentsline {subsection}{Endnotes}{227}{section*.356}%
