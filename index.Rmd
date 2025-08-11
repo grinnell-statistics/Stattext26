@@ -41,6 +41,12 @@ Each chapter features guided activities that lead students through the full proc
 
 The text can serve as a second course for undergraduate students who have completed a one-semester, algebra-based introductory statistics course or a high school Advanced Placement Statistics course.
 
+The intention of this text is to introduce students to a wide range of statistical methods early in their college careers and, through active learning, let them experience how statisticians think and practice. Each chapter provides exposure to a new set of topics that will give students a starting point for analyzing data in any discipline. 
+
+Through using these materials, students from any discipline can develop an understanding of the basic conditions under which studies should be conducted and when particular statistical techniques should and should not be used. By researching the literature, planning and carrying out experiments, and presenting their results, students using this text will experience data analysis as it is actually practiced.
+
+We have found that the use of guided activities and projects improves the overall quality of student work, yielding better results than a pure lecture setting. By taking an active learning approach, students are better able to develop research questions that are general enough to be interesting yet specific enough to be analyzed in the given time frame. They conduct more thorough analyses and better understand the importance of model checking. Finally, they tend to be much more enthusiastic about their work and are better able to communicate the key concepts to a diverse audience.
+
 
 **About the author**
 
@@ -50,6 +56,33 @@ Dr. Shonda Kuiper is a Professor of Statistics at Grinnell College. She teaches 
 All data sets are available at \textcolor{blue}{github.com/grinnell-statistics/STA310data}.
 
 
+
+Copyright © 2025 Stat2Labs Publishing
+
+All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without the prior written permission of the publisher. Printed in the United States of America. 
+
+**Acknowledgments**
+
+This project has been supported from the National Science Foundation Grant DUE-0510392. Any opinions, findings, and conclusions of recommendations expressed in this materials are those of the author and do not necessarily reflect the view of the National Science Foundation. 
+
+I would like to thank the following people for their significant contributions to this text:
+
+• Tom Moore 
+• Linda Collins 
+• Sam Rebelsky 
+• Henry Walker, 
+• Chris Olsen
+• Ankur Roy
+• Grinnell students: Andrew Applebaum, Alex Cohn, Nathan Levin, Jeffrey Thompson,
+Arunabh Singh, Sarah Marcum, Elizabeth Lorton, Raymond Chu.
+
+
+
+
+
+ISBN: 979-8-9997571-0-4
+
+Printed in the United States of America
 
 \newpage
 

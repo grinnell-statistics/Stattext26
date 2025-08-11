@@ -214,8 +214,8 @@
 \contentsline {subsection}{\textcolor {blue}{Practice:} Evaluating Residuals in Binomial Logistic Regression}{172}{section*.253}%
 \contentsline {section}{\numberline {6.14}\textcolor {blue}{ Assessing the Fit of a Logistic Regression Model with Binomial Counts}}{173}{section.6.14}%
 \contentsline {subsection}{\textcolor {blue}{Practice:} Calculating Residuals by Hand}{173}{section*.256}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{175}{section*.261}%
-\contentsline {subsection}{\textcolor {blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{176}{section*.262}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} Goodness-of-Fit Tests for Continuous Explanatory Variables}{175}{section*.261}%
+\contentsline {subsection}{\textcolor {blue}{Practice:} goodness-of-fit Tests for Continuous Explanatory Variables}{176}{section*.262}%
 \contentsline {section}{\numberline {6.15}\textcolor {blue}{ Diagnostic Plots}}{176}{section.6.15}%
 \contentsline {subsection}{\textcolor {blue}{Practice:} Identifying Outliers and Influential Observations}{178}{section*.263}%
 \contentsline {section}{\numberline {6.16}\textcolor {blue}{ Maximum Likelihood Estimation in Logistic Regression}}{178}{section.6.16}%

@@ -127,12 +127,41 @@ Each chapter features guided activities that lead students through the full proc
 
 The text can serve as a second course for undergraduate students who have completed a one-semester, algebra-based introductory statistics course or a high school Advanced Placement Statistics course.
 
+The intention of this text is to introduce students to a wide range of statistical methods early in their college careers and, through active learning, let them experience how statisticians think and practice. Each chapter provides exposure to a new set of topics that will give students a starting point for analyzing data in any discipline.
+
+Through using these materials, students from any discipline can develop an understanding of the basic conditions under which studies should be conducted and when particular statistical techniques should and should not be used. By researching the literature, planning and carrying out experiments, and presenting their results, students using this text will experience data analysis as it is actually practiced.
+
+We have found that the use of guided activities and projects improves the overall quality of student work, yielding better results than a pure lecture setting. By taking an active learning approach, students are better able to develop research questions that are general enough to be interesting yet specific enough to be analyzed in the given time frame. They conduct more thorough analyses and better understand the importance of model checking. Finally, they tend to be much more enthusiastic about their work and are better able to communicate the key concepts to a diverse audience.
+
 \textbf{About the author}
 
 Dr.~Shonda Kuiper is a Professor of Statistics at Grinnell College. She teaches a variety of statistics courses, with an emphasis on applying statistics across multiple disciplines. Dr.~Kuiper also serves as a statistical consultant for student and faculty research. She received her Bachelor of Arts and Sciences degree in mathematics from Wartburg College, and has an MS and a PhD in statistics from Iowa State University. Dr.~Kuiper is a Fellow of the American Statistical Association for her innovative work in statistics education and the recipient of multiple National Science Foundation grants to develop materials for undergraduate statistics courses. In addition to previously holding teaching positions, she served as a senior engineer and later as a consulting statistician for Hallmark Cards, Inc.
 
 \textbf{Data sets}
 All data sets are available at \textcolor{blue}{github.com/grinnell-statistics/STA310data}.
+
+Copyright © 2025 Stat2Labs Publishing
+
+All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without the prior written permission of the publisher. Printed in the United States of America.
+
+\textbf{Acknowledgments}
+
+This project has been supported from the National Science Foundation Grant DUE-0510392. Any opinions, findings, and conclusions of recommendations expressed in this materials are those of the author and do not necessarily reflect the view of the National Science Foundation.
+
+I would like to thank the following people for their significant contributions to this text:
+
+• Tom Moore
+• Linda Collins
+• Sam Rebelsky
+• Henry Walker,
+• Chris Olsen
+• Ankur Roy
+• Grinnell students: Andrew Applebaum, Alex Cohn, Nathan Levin, Jeffrey Thompson,
+Arunabh Singh, Sarah Marcum, Elizabeth Lorton, Raymond Chu.
+
+ISBN: 979-8-9997571-0-4
+
+Printed in the United States of America
 
 \newpage
 
@@ -7130,7 +7159,7 @@ The software output in Figure 6.5 shows Wald's test and the corresponding confid
 odds ratio. In the space shuttle example, the 95\% confidence interval does not include \(\scriptstyle e^{\beta_1}\) = 1; thus, we can reject the null hypotheses and conclude that the odds of a successful launch do depend on the temperature. Even though computer software provided a small p-value and a confidence interval that does not include 1, it is important to note that there are only 23 observations in this study. While Wald's test is reasonable with very large sample sizes, with smaller sample sizes it is known to have a tendency to result in a type II error---failing to reject the null hypothesis when it should be rejected. Recall that Z in Equation (6.13) is a statistic calculated from the sample data and Z* in Equation (6.11) is called a critical value. Z* represents a value based on a desired level of confidence. Z* is known before the data are collected, while Z is based on the sample data{]}
 
 We can also calculate the odds ratio of a successful launch between 60°F and 70°F. When \(\scriptstyle x_i\)
-increases by 10°F, the odds are multiplied by \(\scriptstyle (e^{b_1})10\) = \(\scriptstyle 1.2613^{10}\) = 10.19. Thus, we have approximately 10 times higher odds of a successful launch when the temperature is 70°F than when it is 60°F. A 95\% confidence interval for the odds ratio of a successful launch between 60°F and 70°F can be given by \(\scriptstyle (1.02^10, \ 1.56^10)\) = (1.22, 85.40). This 95\% confidence interval has a very wide range; the odds of success at 70°F could be just slightly larger than the odds at 60°F or 85 times as large as the odds at 60°F. This large range suggests that our estimate of the odds ratio, 10.19, is highly variable. More data are needed to better understand the true odds ratio.
+increases by 10°F, the odds are multiplied by \(\scriptstyle (e^{b_1})10\) = \(\scriptstyle 1.2613^{10}\) = 10.19. Thus, we have approximately 10 times higher odds of a successful launch when the temperature is 70°F than when it is 60°F. A 95\% confidence interval for the odds ratio of a successful launch between 60°F and 70°F can be given by \(\scriptstyle (1.02^{10}, \ 1.56^{10})\) = (1.22, 85.40). This 95\% confidence interval has a very wide range; the odds of success at 70°F could be just slightly larger than the odds at 60°F or 85 times as large as the odds at 60°F. This large range suggests that our estimate of the odds ratio, 10.19, is highly variable. More data are needed to better understand the true odds ratio.
 
 \hypertarget{wald-confidence-intervals-and-hypothesis-tests}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Wald Confidence Intervals and Hypothesis Tests}{ Wald Confidence Intervals and Hypothesis Tests}}\label{wald-confidence-intervals-and-hypothesis-tests}}
@@ -7153,7 +7182,7 @@ increases by 10°F, the odds are multiplied by \(\scriptstyle (e^{b_1})10\) = \(
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_5Minitab} 
+{\centering \includegraphics[width=1.15\linewidth]{docs/Fig7_5Minitab} 
 
 }
 
@@ -7206,7 +7235,7 @@ G &= 2 \times \text{log-likelihood(full model)} - 2 \times \text{log-likelihood(
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_6} 
+{\centering \includegraphics[width=1.15\linewidth]{docs/Fig7_6} 
 
 }
 
@@ -7308,7 +7337,7 @@ Figure 6.7 provides the expected probabilities for the model created in Question
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_7} 
+{\centering \includegraphics[width=0.9\linewidth]{docs/Fig7_7} 
 
 }
 
@@ -7430,7 +7459,7 @@ functions.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_8MinitabPairs} 
+{\centering \includegraphics[width=1.15\linewidth]{docs/Fig7_8MinitabPairs} 
 
 }
 
@@ -7588,7 +7617,7 @@ Figure 6.9 plots the observed percentages of malignant cells and the correspondi
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_9} 
+{\centering \includegraphics[width=0.9\linewidth]{docs/Fig7_9} 
 
 }
 
@@ -7647,7 +7676,7 @@ where the sign is positive if the observed $\scriptstyle y_i$ is higher than the
 \hypertarget{section-73}{%
 \section{\texorpdfstring{\textcolor{blue}{ Assessing the Fit of a Logistic Regression Model with Binomial Counts}}{}}\label{section-73}}
 
-A goodness‐of‐fit test measures how well a model fits the observed data. We will discuss three goodness‐of‐fit tests for logistic regression based on the chi‐square distribution. As discussed in Chapter 6, a chi‐square goodness‐of‐fit test is an asymptotic test that measures the accumulated distance between observed values and expected values (i.e., values predicted by our model). In each of the three tests, the null and alternative hypotheses are
+A goodness-of-fit test measures how well a model fits the observed data. We will discuss three goodness-of-fit tests for logistic regression based on the chi-square distribution. As discussed in Chapter 6, a chi-square goodness-of-fit test is an asymptotic test that measures the accumulated distance between observed values and expected values (i.e., values predicted by our model). In each of the three tests, the null and alternative hypotheses are
 
 \begin{align}
 H_0:\;&\text{the logistic regression model provides an adequate fit to the data} \notag \\
@@ -7657,18 +7686,18 @@ H_a:\;&\text{the model does not adequately fit the data} \notag
 If the predicted values in the model are relatively close to the observed data values (i.e., the model is a good fit for the data), then the test statistic will be small and the \(\scriptstyle p\)-value will be large. If the test statistic is large, it suggests ``lack of fit''; \(\scriptstyle H_0\) should be rejected and other models should be tried to better fit the data.
 
 \textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{Goodness‐of‐fit tests assess the overall fit of a logistic regression model. If $\scriptstyle H_0$ is rejected, the model is not a good fit. Failing to reject $\scriptstyle H_0$ does not guarantee that the model is a “best fit” or even a good fit, but rather that we simply don’t have enough evidence to prove that it’s a poor fit.}
+\textcolor{blue}{goodness-of-fit tests assess the overall fit of a logistic regression model. If $\scriptstyle H_0$ is rejected, the model is not a good fit. Failing to reject $\scriptstyle H_0$ does not guarantee that the model is a “best fit” or even a good fit, but rather that we simply don’t have enough evidence to prove that it’s a poor fit.}
 
-Test 1: The \textbf{Pearson chi‐square goodness‐of‐fit test} is the traditional chi‐square goodness‐of‐fit test seen in many introductory statistics courses. Degrees of freedom are calculated as the number of groups (classes) minus the number of parameters being estimated. In our case, groups are classified by median radius; we have five groups and are estimating two parameters (\(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\)), so there are 5 - 2 = 3 degrees of freedom.
+Test 1: The \textbf{Pearson chi-square goodness-of-fit test} is the traditional chi-square goodness-of-fit test seen in many introductory statistics courses. Degrees of freedom are calculated as the number of groups (classes) minus the number of parameters being estimated. In our case, groups are classified by median radius; we have five groups and are estimating two parameters (\(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\)), so there are 5 - 2 = 3 degrees of freedom.
 
-Test 2: The \textbf{deviance goodness‐of‐fit test} (also called the likelihood ratio chi‐square test) is based on the sum of squared deviance residuals. The test statistic follows a chi‐square probability distribution where the degrees of freedom are calculated as the number of groups minus the number of parameters being estimated. The Pearson test statistic and the deviance test statistic tend to be similar. For determining a model, the deviance goodness‐of‐fit test is preferred over the Pearson test.\(^9\)
+Test 2: The \textbf{deviance goodness-of-fit test} (also called the likelihood ratio chi-square test) is based on the sum of squared deviance residuals. The test statistic follows a chi-square probability distribution where the degrees of freedom are calculated as the number of groups minus the number of parameters being estimated. The Pearson test statistic and the deviance test statistic tend to be similar. For determining a model, the deviance goodness-of-fit test is preferred over the Pearson test.\(^9\)
 
 \begin{quote}
 \textbf{NOTE:}\\
-The sum of squared Pearson residuals is equal to the Pearson chi‐square test statistic. When there is one explanatory variable, the likelihood ratio test is equivalent to the deviance goodness‐of‐fit test. The residual deviance and the degrees of freedom given in R are identical to those given in the deviance goodness‐of‐fit test statistic in Minitab.
+The sum of squared Pearson residuals is equal to the Pearson chi-square test statistic. When there is one explanatory variable, the likelihood ratio test is equivalent to the deviance goodness-of-fit test. The residual deviance and the degrees of freedom given in R are identical to those given in the deviance goodness-of-fit test statistic in Minitab.
 \end{quote}
 
-Test 3: Hosmer and Lemeshow developed a test similar to the Pearson chi‐square goodness‐of‐fit test. The key distinction is that the groups are formed differently. While the Pearson test uses the \emph{explanatory variable} to form groups, the \textbf{Hosmer‐Lemeshow test} uses the \emph{predicted values} to sort the data and form groups (the default is 10 groups). In Table 6.3, we predetermined the five groups, so the Pearson and Hosmer‐Lemeshow tests are identical in this example. However, when the explanatory variable is continuous (not grouped), the Hosmer‐Lemeshow test is more reliable than the Pearson chi‐square goodness‐of‐fit test.
+Test 3: Hosmer and Lemeshow developed a test similar to the Pearson chi-square goodness-of-fit test. The key distinction is that the groups are formed differently. While the Pearson test uses the \emph{explanatory variable} to form groups, the \textbf{Hosmer-Lemeshow test} uses the \emph{predicted values} to sort the data and form groups (the default is 10 groups). In Table 6.3, we predetermined the five groups, so the Pearson and Hosmer-Lemeshow tests are identical in this example. However, when the explanatory variable is continuous (not grouped), the Hosmer-Lemeshow test is more reliable than the Pearson chi-square goodness-of-fit test.
 
 \hypertarget{calculating-residuals-by-hand}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Calculating Residuals by Hand}{ Calculating Residuals by Hand}}\label{calculating-residuals-by-hand}}
@@ -7681,7 +7710,7 @@ Data set: \texttt{Cancercells}
 \begin{enumerate}
   \setcounter{enumi}{28}
 
-\item  Calculate the Pearson chi‐square goodness‐of‐fit test by hand for the Cancercells data.
+\item  Calculate the Pearson chi-square goodness-of-fit test by hand for the Cancercells data.
 \begin{enumerate}
   \item Complete Table 6.4 by using the logistic regression model from Question 26 to calculate the expected (predicted) cell counts.  
 \begin{table}[!h]
@@ -7704,7 +7733,7 @@ i & Median radius & Benign & Malignant & Total & Benign & Malignant & Total\\
 \bottomrule
 \end{tabular}
 \end{table}
-  \item Calculate the Pearson chi‐square test statistic:  
+  \item Calculate the Pearson chi-square test statistic:  
  
  \begin{align}
  \chi^2 &= \sum \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}
@@ -7712,11 +7741,11 @@ i & Median radius & Benign & Malignant & Total & Benign & Malignant & Total\\
  \end{align}
  
    using the observed count and expected count from Table 6.4. Note that there are 10 observed and 10 expected cells.  
-  \item Find the $\scriptstyle p$-value by using software or looking up the statistic in a chi‐square probability distribution table.  
+  \item Find the $\scriptstyle p$-value by using software or looking up the statistic in a chi-square probability distribution table.  
   \item Interpret the results and clearly state how your conclusions are impacted by random sampling and random allocation to treatments in the original study design. Remember that a small $\scriptstyle p$-value provides evidence that the model is *not* a good fit.
   \end{enumerate}
 
-\item Calculate the deviance chi‐square goodness‐of‐fit test by hand for the Cancercells data given in Table 6.3. Expected counts, degrees of freedom, and $\scriptstyle p$-values are found the same way as in the Pearson test. The only difference is in the calculation of the test statistic:
+\item Calculate the deviance chi-square goodness-of-fit test by hand for the Cancercells data given in Table 6.3. Expected counts, degrees of freedom, and $\scriptstyle p$-values are found the same way as in the Pearson test. The only difference is in the calculation of the test statistic:
 
    \begin{align}
    \text{Deviance chi-square test statistic} = D^2 = 2 \times \sum \biggl[\text{observed count} \times \ln\bigl(\frac{\text{observed count}}{\text{expected count}}\bigr)\biggr]
@@ -7761,11 +7790,11 @@ the data are not considered a good fit:
 
 Since chi-square tests are based on asymptotic theory, the p-values are not reliable unless there is a large enough sample size. A general rule for analyzing a 2 \(\times\) 2 table of counts is that the expected count for each cell must be at least 5. For larger tables, the expected counts for all cells must be at least 1, and the average of expected cell counts should be greater than 5.
 
-When the data are sparse (the observed, and therefore the expected, cell counts are too small), chi-square tests may tend to fail to reject the null hypothesis which states that the model is a good fit for the data.\(^10\) In other words, these tests may not have good power for detecting particular types of lack of fit. The Hosmer-Lemeshow test is designed to correct for this problem (when there are continuous explanatory variables) by grouping the data. Hosmer and Lemeshow suggest that you have a sample size of at least 400 before using their test.\(^11\)
+When the data are sparse (the observed, and therefore the expected, cell counts are too small), chi-square tests may tend to fail to reject the null hypothesis which states that the model is a good fit for the data.\(^{10}\) In other words, these tests may not have good power for detecting particular types of lack of fit. The Hosmer-Lemeshow test is designed to correct for this problem (when there are continuous explanatory variables) by grouping the data. Hosmer and Lemeshow suggest that you have a sample size of at least 400 before using their test.\(^{11}\)
 
-\hypertarget{goodnessoffit-tests-for-continuous-explanatory-variables}{%
-\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{ Goodness‐of‐Fit Tests for Continuous Explanatory Variables}}\label{goodnessoffit-tests-for-continuous-explanatory-variables}}
-\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}
+\hypertarget{goodness-of-fit-tests-for-continuous-explanatory-variables}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Goodness-of-Fit Tests for Continuous Explanatory Variables}{ Goodness-of-Fit Tests for Continuous Explanatory Variables}}\label{goodness-of-fit-tests-for-continuous-explanatory-variables}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Goodness-of-Fit Tests for Continuous Explanatory Variables}
 
 \vspace{-1em}
 
@@ -7776,7 +7805,7 @@ Data set: \texttt{Cancer2}
 \setcounter{enumi}{30}
 \tightlist
 \item
-  Use computer software to create a logistic regression model to predict the probability of a malignant cell using the continuous variable \texttt{Radius} as the explanatory variable. Conduct the three goodness‐of‐fit tests for this model.
+  Use computer software to create a logistic regression model to predict the probability of a malignant cell using the continuous variable \texttt{Radius} as the explanatory variable. Conduct the three goodness-of-fit tests for this model.
 \end{enumerate}
 
 The goodness-of-fit tests in Question 31 look very different from those calculated with the grouped data in Figure 6.10. Remember that for goodness-of-fit tests, the degrees of freedom are calculated as the number of groups minus the number of parameters being estimated. There are two parameters estimated, and the stated 454 degrees of freedom for the Pearson and deviance tests indicate that 456 groups were formed (based on each distinct radius value given in the data). Since there are 569 observations in this data set, the Pearson and deviance goodness-of-fit tests do not meet the sample size requirements for a reliable test (most of the cells have only one observation).
@@ -7786,13 +7815,13 @@ In Question 31, the Pearson and deviance goodness-of-fit tests fail to reject \(
 The Hosmer-Lemeshow test in Question 31 has only 8 degrees of freedom, since the default is to form 10
 groups based on the fitted values. To form the groups, statistical software sorts the estimated probabilities and then attempts to create 10 groups of equal size. The observed and expected values are given in the software output. Notice that there are still two cells with expected values less than 1.
 
-Recent studies have shown that the Hosmer-Lemshow test is somewhat sensitive to the way groups are formed, and other more specific tests have been developed.\(^12\) However, since the p-value is much bigger than \(\scriptstyle \alpha\) = 0.05, there does not appear to be strong evidence that the model is not a good fit.
+Recent studies have shown that the Hosmer-Lemshow test is somewhat sensitive to the way groups are formed, and other more specific tests have been developed.\(^{12}\) However, since the p-value is much bigger than \(\scriptstyle \alpha\) = 0.05, there does not appear to be strong evidence that the model is not a good fit.
 
-Hosmer and Lemeshow state that slight violations of the sample size requirements are acceptable.\(^13\) They suggest that if there is a sample size concern, you simply group a few columns. For example, in Question 31, grouping columns 1 and 2 and grouping columns 9 and 10 would satisfy the sample size requirements.
+Hosmer and Lemeshow state that slight violations of the sample size requirements are acceptable.\(^{13}\) They suggest that if there is a sample size concern, you simply group a few columns. For example, in Question 31, grouping columns 1 and 2 and grouping columns 9 and 10 would satisfy the sample size requirements.
 
-\hypertarget{goodnessoffit-tests-for-continuous-explanatory-variables-1}{%
-\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}{ Goodness‐of‐Fit Tests for Continuous Explanatory Variables}}\label{goodnessoffit-tests-for-continuous-explanatory-variables-1}}
-\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Goodness‐of‐Fit Tests for Continuous Explanatory Variables}
+\hypertarget{goodness-of-fit-tests-for-continuous-explanatory-variables-1}{%
+\subsection*{\texorpdfstring{\textcolor{blue}{Practice:} goodness-of-fit Tests for Continuous Explanatory Variables}{ goodness-of-fit Tests for Continuous Explanatory Variables}}\label{goodness-of-fit-tests-for-continuous-explanatory-variables-1}}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} goodness-of-fit Tests for Continuous Explanatory Variables}
 
 \vspace{-1em}
 
@@ -7803,16 +7832,16 @@ Data set: \texttt{Cancer2}
 \setcounter{enumi}{31}
 \tightlist
 \item
-  Conduct the Hosmer‐Lemeshow goodness‐of‐fit test again, but this time adjust the group size (or number of groups) so that the sample size requirement is not violated. Did the \(\scriptstyle p\)-value of this new Hosmer‐Lemeshow test change your conclusions?
+  Conduct the Hosmer-Lemeshow goodness-of-fit test again, but this time adjust the group size (or number of groups) so that the sample size requirement is not violated. Did the \(\scriptstyle p\)-value of this new Hosmer-Lemeshow test change your conclusions?
 \end{enumerate}
 
 \textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{The Pearson, deviance, and Hosmer‐Lemeshow tests assess model fit with chi‐square tests. When one or more explanatory variables are continuous (which is often the case), the deviance and Pearson chi‐square tests are not useful because there are not enough observations in each observed and expected cell (the number of distinct values of the explanatory variable is nearly equal to the number of observations). The Hosmer‐Lemeshow test can be used with continuous explanatory variables because it uses the predicted values to group the data. }
+\textcolor{blue}{The Pearson, deviance, and Hosmer-Lemeshow tests assess model fit with chi-square tests. When one or more explanatory variables are continuous (which is often the case), the deviance and Pearson chi-square tests are not useful because there are not enough observations in each observed and expected cell (the number of distinct values of the explanatory variable is nearly equal to the number of observations). The Hosmer-Lemeshow test can be used with continuous explanatory variables because it uses the predicted values to group the data. }
 
 \hypertarget{section-74}{%
 \section{\texorpdfstring{\textcolor{blue}{ Diagnostic Plots}}{}}\label{section-74}}
 
-Just as in least squares regression, residual plots are useful in understanding logistic models. Goodness‐of‐fit tests are useful, but, as stated earlier, they tend to fail to reject the null hypothesis even when the model is not appropriate. When these chi‐square tests fail to conclude that a model is inappropriate, residual plots can be used to verify that the model fit is appropriate. In addition, if the goodness‐of‐fit tests do reject the null hypothesis (conclude that the model is not appropriate), residual plots can help identify where the issues of model fit occur.
+Just as in least squares regression, residual plots are useful in understanding logistic models. goodness-of-fit tests are useful, but, as stated earlier, they tend to fail to reject the null hypothesis even when the model is not appropriate. When these chi-square tests fail to conclude that a model is inappropriate, residual plots can be used to verify that the model fit is appropriate. In addition, if the goodness-of-fit tests do reject the null hypothesis (conclude that the model is not appropriate), residual plots can help identify where the issues of model fit occur.
 
 Large residual values are useful in identifying observations that are not explained well by the model. In addition to residuals, several scatterplots can be used to identify outliers and influential observations. Before creating these plots, we will need to define a few additional terms.
 
@@ -7820,15 +7849,15 @@ A \textbf{covariate pattern} is a set of all observations with identical explana
 
 \textbf{Delta chi-square} (\(\scriptstyle \Delta \chi^2\)) is a measure of the change in the Pearson goodness-of-fit statistic (x2) when a
 particular observation (or covariate pattern if there is more than one observation with the same explanatory
-values) is eliminated. In other words, for a particular xi value, delta chi-square is \(\scriptstyle \Delta \chi^2_i = \chi^2 \;-\;\chi^2_{(i)}\), where \(\scriptstyle \chi^2_{(i)}\) is the Pearson goodness‐of‐fit statistic with the \(\scriptstyle i\)th observation (or covariate pattern) eliminated.
+values) is eliminated. In other words, for a particular xi value, delta chi-square is \(\scriptstyle \Delta \chi^2_i = \chi^2 \;-\;\chi^2_{(i)}\), where \(\scriptstyle \chi^2_{(i)}\) is the Pearson goodness-of-fit statistic with the \(\scriptstyle i\)th observation (or covariate pattern) eliminated.
 
 \textbf{Delta deviance} (\(\scriptstyle \Delta D^2\)) is a measure of the change in the deviance goodness-of-fit statistic (D2) when a
 particular observation (or covariate pattern) is eliminated. In other words, for a particular \(\scriptstyle x_i\) value, delta chi-
-square is \(\scriptstyle \Delta D^2_i = D^2 \;-\; D^2_{(i)}\), where \(\scriptstyle D^2_{(i)}\) is the deviance goodness‐of‐fit statistic with the \(\scriptstyle i\)th observation (or covariate pattern) eliminated.
+square is \(\scriptstyle \Delta D^2_i = D^2 \;-\; D^2_{(i)}\), where \(\scriptstyle D^2_{(i)}\) is the deviance goodness-of-fit statistic with the \(\scriptstyle i\)th observation (or covariate pattern) eliminated.
 
 \textbf{Delta beta} measures the difference in the regression coefficient when a particular observation (or covariate pattern) is removed.
 
-Figure 6.11 shows the delta chi‐square, delta deviance, and delta beta values plotted against the expected probabilities (\(\scriptstyle \hat\pi_i\)). The determination as to whether or not an observation (covariate pattern) is an outlier or overly influential is somewhat subjective. Outliers typically appear as extreme values in the upper corners of the scatterplot. As a rough estimate, \(\scriptstyle \Delta\chi^2\) or \(\scriptstyle \Delta D^2\) greater than 4 and delta beta values greater than 1 may be considered unusual observations. With large sample sizes, \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) approximately follow the chi‐square distribution, and the 95th percentile of the chi‐square distribution with 1 degree of freedom equals 3.84. Figure 6.11 has one covariate pattern that has a fairly large \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) values. It corresponds to the two launches that occurred at 75°F. Notice in Figure 6.11 that a failure at 75°F appears to be somewhat unusual. In this example, the \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) values are not extreme enough to be of major concern (all values are close to or less than 4).
+Figure 6.11 shows the delta chi-square, delta deviance, and delta beta values plotted against the expected probabilities (\(\scriptstyle \hat\pi_i\)). The determination as to whether or not an observation (covariate pattern) is an outlier or overly influential is somewhat subjective. Outliers typically appear as extreme values in the upper corners of the scatterplot. As a rough estimate, \(\scriptstyle \Delta\chi^2\) or \(\scriptstyle \Delta D^2\) greater than 4 and delta beta values greater than 1 may be considered unusual observations. With large sample sizes, \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) approximately follow the chi-square distribution, and the 95th percentile of the chi-square distribution with 1 degree of freedom equals 3.84. Figure 6.11 has one covariate pattern that has a fairly large \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) values. It corresponds to the two launches that occurred at 75°F. Notice in Figure 6.11 that a failure at 75°F appears to be somewhat unusual. In this example, the \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) values are not extreme enough to be of major concern (all values are close to or less than 4).
 
 \begin{figure}
 
@@ -7839,11 +7868,11 @@ Figure 6.11 shows the delta chi‐square, delta deviance, and delta beta values 
 \caption{Scatterplots of delta deviance, delta chi-square, and delta beta values versus the expected probabilities from the space shuttle data. Circled values represent launches at 75°F.}\label{fig:fig611}
 \end{figure}
 
-Figure 6.12 shows the delta chi‐square and delta beta values plotted against the \textbf{leverage} values. Leverages are values between 0 and 1 that depend only on the explanatory variables (not the response). Large leverage values indicate that the observation (covariate pattern) has extreme explanatory values and may have a large influence on the regression coefficients.
+Figure 6.12 shows the delta chi-square and delta beta values plotted against the \textbf{leverage} values. Leverages are values between 0 and 1 that depend only on the explanatory variables (not the response). Large leverage values indicate that the observation (covariate pattern) has extreme explanatory values and may have a large influence on the regression coefficients.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{docs/Fig7_12} 
+{\centering \includegraphics[width=0.7\linewidth]{docs/Fig7_12} 
 
 }
 
@@ -7851,7 +7880,7 @@ Figure 6.12 shows the delta chi‐square and delta beta values plotted against t
 \end{figure}
 
 \textbf{\textcolor{blue}{Key Concept:}}
-\textcolor{blue}{The contribution of a single observation depends on both its residual and its leverage. The delta chi‐square and delta deviance values can be used to detect observations that have a strong influence on the goodness‐of‐fit statistics. A large delta beta value indicates a covariate pattern with large leverage and/or large residual values.}
+\textcolor{blue}{The contribution of a single observation depends on both its residual and its leverage. The delta chi-square and delta deviance values can be used to detect observations that have a strong influence on the goodness-of-fit statistics. A large delta beta value indicates a covariate pattern with large leverage and/or large residual values.}
 
 \hypertarget{identifying-outliers-and-influential-observations}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Identifying Outliers and Influential Observations}{ Identifying Outliers and Influential Observations}}\label{identifying-outliers-and-influential-observations}}
@@ -7867,8 +7896,8 @@ Data set: \texttt{Cancer2}
   \item Run a logistic regression model with both explanatory variables *Radius* and *Concave*. 
   \begin{enumerate}
    \item Create histograms of the standardized Pearson residuals and deviance residuals.  
-   \item Create scatterplots of delta deviance, delta chi‐square, and delta beta (standardized) versus the expected probabilities.  
-   \item Create scatterplots of delta deviance, delta chi‐square, and delta beta (standardized) versus the leverage.  
+   \item Create scatterplots of delta deviance, delta chi-square, and delta beta (standardized) versus the expected probabilities.  
+   \item Create scatterplots of delta deviance, delta chi-square, and delta beta (standardized) versus the leverage.  
    \item Identify any observations (covariate patterns) that appear to be outliers or influential observations.
 \end{enumerate}
 \end{enumerate}
@@ -9176,7 +9205,7 @@ The log-rank (and Wilcoxon) test can easily be applied to more than two groups. 
 
 The log-rank and Wilcoxon tests are useful procedures for determining whether the survival experiences of two or more independent groups are different. This is basically equivalent to testing whether there is a significant effect of a categorical explanatory variable on survival. However, the tests do not allow us to determine the extent to which the survival experiences differ or, equivalently, to estimate the effects of the categorical explanatory variables on survival. Furthermore, the tests cannot be used to appropriately assess the effects of quantitative variables on survival. Consider the chocolate chip activity, and suppose we had additional information on the age of the chip. Are older chips likely to melt earlier than newer chips? Can we predict how long a chip that is a month old will take to melt? How do we incorporate censored melting times? These are questions that need to be addressed using regression-type models that exploit the relationship between the survival time random variable, \texttt{T}, and the explanatory variables of interest.
 
-Regression models for survival data will not be discussed in this chapter; however, we will briefly mention two main approaches: regression models that explicitly model the log of the survival time variable, \texttt{T}, as a function of the explanatory variables, sometimes referred to as \textbf{parametric regression models} or \textbf{accelerated failure time models}, and those that model the hazard function (to be discussed) as a function of the explanatory variables, known in the literature as the \textbf{proportional hazards model} or the \textbf{Cox regression model}.\(^10\)
+Regression models for survival data will not be discussed in this chapter; however, we will briefly mention two main approaches: regression models that explicitly model the log of the survival time variable, \texttt{T}, as a function of the explanatory variables, sometimes referred to as \textbf{parametric regression models} or \textbf{accelerated failure time models}, and those that model the hazard function (to be discussed) as a function of the explanatory variables, known in the literature as the \textbf{proportional hazards model} or the \textbf{Cox regression model}.\(^{10}\)
 
 \hypertarget{section-83}{%
 \section{\texorpdfstring{\textcolor{blue}{What Can We Conclude About Melting Chocolate Chips?}}{}}\label{section-83}}
