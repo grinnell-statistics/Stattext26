@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.5)  10 AUG 2025 20:22
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.5)  11 AUG 2025 03:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1085,14 +1085,6 @@ LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/b/n' will be
 (Font)              scaled to size 20.74pt on input line 140.
 LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/it' will be
 (Font)              scaled to size 10.0pt on input line 143.
-LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 144.
-LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 144.
-LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 144.
-LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 144.
 
 
 [6
@@ -1112,6 +1104,8 @@ LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/b/n' will be
 
 [8]
 LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 274.
+LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/n' will be
 (Font)              scaled to size 5.0pt on input line 274.
 File: docs/Fig1_CT.png Graphic file (type bmp)
 <docs/Fig1_CT.png>
@@ -1125,6 +1119,11 @@ File: docs/Fig1_2.png Graphic file (type bmp)
 
 
 [11]
+LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 413.
+LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 413.
+
 
 [12]
 
@@ -1155,9 +1154,9 @@ File: docs/Fig1_5.png Graphic file (type bmp)
 
 [21]
 LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/b/it' will be
-(Font)              scaled to size 12.0pt on input line 817.
+(Font)              scaled to size 12.0pt on input line 824.
 LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/b/it' will be
-(Font)              scaled to size 10.0pt on input line 834.
+(Font)              scaled to size 10.0pt on input line 843.
 
 
 [22]
@@ -1189,19 +1188,15 @@ File: docs/Fig2_1Shapesplosion.jpg Graphic file (type bmp)
 
 [32]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
 [33]
 
 [34]
 LaTeX Font Info:    Font shape `TU/ArialNarrow(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1474.
+(Font)              scaled to size 10.0pt on input line 1445.
 LaTeX Font Info:    Font shape `TU/ArialNarrow(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1474.
+(Font)              scaled to size 7.0pt on input line 1445.
 LaTeX Font Info:    Font shape `TU/ArialNarrow(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1474.
+(Font)              scaled to size 5.0pt on input line 1445.
 
 
 [35]
@@ -1218,30 +1213,25 @@ File: docs/Fig2_3.png Graphic file (type bmp)
 
 [38]
 LaTeX Font Info:    Font shape `TU/ArialNarrow(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1664.
+(Font)              scaled to size 8.0pt on input line 1640.
 LaTeX Font Info:    Font shape `TU/ArialNarrow(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1664.
+(Font)              scaled to size 6.0pt on input line 1640.
 
 
 [39]
 
 [40]
+
+[41]
 File: docs/Fig2_4.png Graphic file (type bmp)
 <docs/Fig2_4.png>
 
-
-[41]
 
 [42]
 
 [43]
 File: docs/Fig2_5.png Graphic file (type bmp)
 <docs/Fig2_5.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 1902--1903
-
- []
-
 
 
 [44]
@@ -1251,35 +1241,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 1902--1903
 [46]
 
 [47]
+
+[48]
 File: docs/Fig2_6.png Graphic file (type bmp)
 <docs/Fig2_6.png>
 
 
-[48]
-LaTeX Font Info:    Font shape `TU/ArialNarrow(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 2119.
-
-
 [49]
+LaTeX Font Info:    Font shape `TU/ArialNarrow(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 2090.
+
 
 [50]
-LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/b/n' will be
-(Font)              scaled to size 7.0pt on input line 2260.
-LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/b/n' will be
-(Font)              scaled to size 5.0pt on input line 2260.
-
 
 [51]
+LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/b/n' will be
+(Font)              scaled to size 7.0pt on input line 2235.
+LaTeX Font Info:    Font shape `TU/ArialNarrow(0)/b/n' will be
+(Font)              scaled to size 5.0pt on input line 2235.
+
 
 [52]
 
 [53]
 
 [54]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 
 [55]
 
@@ -1325,11 +1311,10 @@ File: docs/Fig3_2.png Graphic file (type bmp)
 
 
 [69]
-File: docs/Fig3_3.png Graphic file (type bmp)
-<docs/Fig3_3.png>
-
 
 [70]
+File: docs/Fig3_3.png Graphic file (type bmp)
+<docs/Fig3_3.png>
 File: docs/Fig3_4.png Graphic file (type bmp)
 <docs/Fig3_4.png>
 
@@ -1343,13 +1328,16 @@ File: docs/Fig3_5.png Graphic file (type bmp)
 File: docs/Fig3_6.png Graphic file (type bmp)
 <docs/Fig3_6.png>
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 
 [73]
+
+[74]
 File: docs/Fig3_7.png Graphic file (type bmp)
 <docs/Fig3_7.png>
 
-
-[74]
 
 [75]
 
@@ -1359,14 +1347,10 @@ File: docs/Fig3_8.png Graphic file (type bmp)
 
 
 [77]
-File: docs/Fig3_9.png Graphic file (type bmp)
-<docs/Fig3_9.png>
-
 
 [78]
-
-LaTeX Warning: Reference `3.7' on page 79 undefined on input line 3392.
-
+File: docs/Fig3_9.png Graphic file (type bmp)
+<docs/Fig3_9.png>
 
 
 [79]
@@ -1378,11 +1362,12 @@ LaTeX Warning: Reference `3.7' on page 79 undefined on input line 3392.
 [82]
 File: docs/Fig3_10.png Graphic file (type bmp)
 <docs/Fig3_10.png>
-File: docs/Fig3_11.png Graphic file (type bmp)
-<docs/Fig3_11.png>
 
 
 [83]
+File: docs/Fig3_11.png Graphic file (type bmp)
+<docs/Fig3_11.png>
+
 
 [84]
 
@@ -1405,47 +1390,12 @@ File: docs/Fig3_11.png Graphic file (type bmp)
 [93]
 Chapter 4.
 Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 4152--4154
-
- []
-
 Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 4154--4156
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4156--4158
-
- []
-
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 4158--4160
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4160--4162
-
- []
-
 
 
 [94
 
 ]
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 
 
@@ -1475,38 +1425,33 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [102]
 
 [103]
-File: _main_files/figure-latex/fig42-1.pdf Graphic file (type pdf)
-<use _main_files/figure-latex/fig42-1.pdf>
+File: docs/Fig4_2.png Graphic file (type bmp)
+<docs/Fig4_2.png>
 
 
 [104]
-
-[105]
 File: docs/Fig4_3MainInteractionPlots.jpg Graphic file (type bmp)
 <docs/Fig4_3MainInteractionPlots.jpg>
 
 
+[105]
+
 [106]
 
-[107]
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-
-[108]
 File: docs/Fig4_4TwoWayDiagram.jpg Graphic file (type bmp)
 <docs/Fig4_4TwoWayDiagram.jpg>
 
 
+[107]
+
+[108]
+
 [109]
-
-LaTeX Warning: Reference `4.7' on page 110 undefined on input line 4890.
-
-
 
 [110]
 
@@ -1515,10 +1460,6 @@ LaTeX Warning: Reference `4.7' on page 110 undefined on input line 4890.
 [112]
 
 [113]
-
-LaTeX Warning: Reference `4.7' on page 114 undefined on input line 5110.
-
-
 
 [114]
 
@@ -1529,6 +1470,10 @@ LaTeX Warning: Reference `4.7' on page 114 undefined on input line 5110.
 [117]
 
 [118]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 
 [119]
 
@@ -1570,14 +1515,14 @@ File: _main_files/figure-latex/fig52-1.pdf Graphic file (type pdf)
 [131]
 
 [132]
-Underfull \hbox (badness 10000) in paragraph at lines 5967--5969
+Underfull \hbox (badness 10000) in paragraph at lines 5757--5759
 
  []
 
 
 
 [133]
-Underfull \hbox (badness 10000) in paragraph at lines 6025--6027
+Underfull \hbox (badness 10000) in paragraph at lines 5815--5817
 
  []
 
@@ -1588,44 +1533,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 6025--6027
 [135]
 
 [136]
-Underfull \hbox (badness 10000) in paragraph at lines 6159--6160
+Underfull \hbox (badness 10000) in paragraph at lines 5949--5950
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6166--6168
+Underfull \hbox (badness 10000) in paragraph at lines 5956--5958
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6168--6170
+Underfull \hbox (badness 10000) in paragraph at lines 5958--5960
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6170--6172
+Underfull \hbox (badness 10000) in paragraph at lines 5960--5962
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6180--6181
+Underfull \hbox (badness 10000) in paragraph at lines 5970--5971
 
  []
 
 
 
 [137]
-Underfull \hbox (badness 10000) in paragraph at lines 6187--6189
+Underfull \hbox (badness 10000) in paragraph at lines 5977--5979
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6189--6191
+Underfull \hbox (badness 10000) in paragraph at lines 5979--5981
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6191--6193
+Underfull \hbox (badness 10000) in paragraph at lines 5981--5983
 
  []
 
@@ -1659,27 +1604,27 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [142]
-Underfull \hbox (badness 10000) in paragraph at lines 6461--6462
+Underfull \hbox (badness 10000) in paragraph at lines 6251--6252
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6468--6470
+Underfull \hbox (badness 10000) in paragraph at lines 6258--6260
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6470--6472
+Underfull \hbox (badness 10000) in paragraph at lines 6260--6262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6472--6474
+Underfull \hbox (badness 10000) in paragraph at lines 6262--6264
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6474--6476
+Underfull \hbox (badness 10000) in paragraph at lines 6264--6266
 
  []
 
@@ -1716,64 +1661,47 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [149]
 
 [150]
-Overfull \hbox (203.59404pt too wide) in paragraph at lines 6873--6875
+Overfull \hbox (203.59404pt too wide) in paragraph at lines 6663--6665
 []\TU/ArialNarrow(0)/m/n/10 American Cancer Society, \TU/ArialNarrow(0)/m/it/10 Cancer Facts and Figures 2008\TU/ArialNarrow(0)/m/n/10 , Atlanta, GA, http://www.cancer.org/acs/groups/con- tent/@epidemiologysurveilance/documents/document/acspc026210.pdf?
- []
-
-
-Overfull \hbox (474.18153pt too wide) in paragraph at lines 6915--6915
-[]\TU/lmtt/m/n/10 ## WARNING: Rtools is required to build R packages, but no version of Rtools compatible with R 4.5.0 was found. (Only the following incompatible version(s) of Rtools were found: 4.2)[] 
  []
 
 
 
 [151]
-Overfull \hbox (12.18153pt too wide) in paragraph at lines 6915--6915
-[]\TU/lmtt/m/n/10 ## Please download and install Rtools 4.5 from https://cran.r-project.org/bin/windows/Rtools/.[] 
- []
-
-
-Overfull \hbox (132.93153pt too wide) in paragraph at lines 6924--6924
-[]\TU/lmtt/m/n/10 ## Skipping install of 'myfirstpackage' from a github remote, the SHA1 (d1348fe2) has not changed since last install.[] 
- []
-
-
-
-[152]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6931--6931
+Underfull \hbox (badness 10000) in paragraph at lines 6706--6706
 [][][]\TU/ArialNarrow(0)/m/n/8 D. Leonhardt, “John Tukey, 85, Statistician, Coined the Word ‘Software’,” New York Times Archives on the Web, 7/28/2000, stat.bell-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6941--6943
+Underfull \hbox (badness 10000) in paragraph at lines 6716--6718
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6943--6945
+Underfull \hbox (badness 10000) in paragraph at lines 6718--6720
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6945--6947
+Underfull \hbox (badness 10000) in paragraph at lines 6720--6722
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6947--6949
+Underfull \hbox (badness 10000) in paragraph at lines 6722--6724
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6949--6951
+Underfull \hbox (badness 10000) in paragraph at lines 6724--6726
 
  []
 
 
 
-[153
+[152
 
 ]
 File: docs/Fig7_1Rocket.png Graphic file (type bmp)
@@ -1782,7 +1710,7 @@ File: docs/Fig7_2Rocket2.png Graphic file (type bmp)
 <docs/Fig7_2Rocket2.png>
 
 
-[154]
+[153]
 Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1797,100 +1725,100 @@ Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dfl
 Missing character: There is no ‑ (U+2011) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 
 
+[154]
+
 [155]
 
 [156]
-
-[157]
 File: _main_files/figure-latex/fig63-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/fig63-1.pdf>
 
 
-[158]
+[157]
 File: _main_files/figure-latex/fig64-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/fig64-1.pdf>
 
 
-[159]
-Underfull \hbox (badness 10000) in paragraph at lines 7268--7270
+[158]
+Underfull \hbox (badness 10000) in paragraph at lines 7047--7049
 
  []
 
 
+
+[159]
 
 [160]
-
-[161]
-Underfull \hbox (badness 10000) in paragraph at lines 7348--7350
+Underfull \hbox (badness 10000) in paragraph at lines 7127--7129
 
  []
 
 
 
-[162]
+[161]
 File: docs/Fig7_5Minitab.png Graphic file (type bmp)
 <docs/Fig7_5Minitab.png>
 
 
+[162]
+
 [163]
 
 [164]
+Underfull \hbox (badness 10000) in paragraph at lines 7308--7309
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7327--7329
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7337--7338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7344--7346
+
+ []
+
+
 
 [165]
-Underfull \hbox (badness 10000) in paragraph at lines 7529--7530
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7548--7550
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7558--7559
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7565--7567
-
- []
-
-
-
-[166]
 File: _main_files/figure-latex/fig66-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/fig66-1.pdf>
 
 
-[167]
+[166]
 
-[168]
+[167]
 File: docs/Fig7_8MinitabPairs.png Graphic file (type bmp)
 <docs/Fig7_8MinitabPairs.png>
 
 
+[168]
+
 [169]
+Underfull \hbox (badness 10000) in paragraph at lines 7594--7596
+
+ []
+
+
 
 [170]
-Underfull \hbox (badness 10000) in paragraph at lines 7815--7817
+Underfull \hbox (badness 10000) in paragraph at lines 7639--7640
 
  []
 
 
-
-[171]
-Underfull \hbox (badness 10000) in paragraph at lines 7860--7861
+Underfull \hbox (badness 10000) in paragraph at lines 7646--7648
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7867--7869
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7869--7871
+Underfull \hbox (badness 10000) in paragraph at lines 7648--7650
 
  []
 
@@ -1898,65 +1826,65 @@ File: _main_files/figure-latex/fig68-1.pdf Graphic file (type pdf)
 <use _main_files/figure-latex/fig68-1.pdf>
 
 
+[171]
+Underfull \hbox (badness 10000) in paragraph at lines 7698--7700
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7700--7702
+
+ []
+
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+
+
 [172]
-Underfull \hbox (badness 10000) in paragraph at lines 7919--7921
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+
+Underfull \hbox (badness 10000) in paragraph at lines 7759--7760
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7921--7923
-
- []
-
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-
-[173]
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 7980--7981
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7987--7988
+Underfull \hbox (badness 10000) in paragraph at lines 7766--7767
 
  []
 
@@ -1967,7 +1895,7 @@ Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dfl
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 
 
-[174]
+[173]
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
@@ -1975,14 +1903,14 @@ File: docs/Fig7_10MinitabLog.png Graphic file (type bmp)
 <docs/Fig7_10MinitabLog.png>
 
 
+[174]
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+
+
 [175]
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-
-[176]
 Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow Bold/OT:language=dflt;mapping=tex-text;!
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
@@ -2015,31 +1943,33 @@ Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dfl
 Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
 
 
+[176]
+
 [177]
+Underfull \hbox (badness 10000) in paragraph at lines 7943--7944
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7950--7952
+
+ []
+
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+
+Underfull \hbox (badness 10000) in paragraph at lines 7952--7954
+
+ []
+
+Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
+
+Underfull \hbox (badness 10000) in paragraph at lines 7954--7956
+
+ []
+
+
 
 [178]
-Underfull \hbox (badness 10000) in paragraph at lines 8164--8165
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8171--8173
-
- []
-
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 8173--8175
-
- []
-
-Missing character: There is no ‐ (U+2010) in font Arial Narrow/OT:language=dflt;mapping=tex-text;!
-
-Underfull \hbox (badness 10000) in paragraph at lines 8175--8177
-
- []
-
-
 
 [179]
 
@@ -2054,156 +1984,137 @@ Underfull \hbox (badness 10000) in paragraph at lines 8175--8177
 [184]
 
 [185]
-
-[186]
-Underfull \hbox (badness 5050) in paragraph at lines 8529--8531
+Underfull \hbox (badness 5050) in paragraph at lines 8308--8310
 []\TU/ArialNarrow(0)/m/it/10 Report of the Presidential Commission on the Space Shuttle Challenger Accident\TU/ArialNarrow(0)/m/n/10 , http://history.nasa.gov/ roger-
  []
 
 
 
+[186]
+
 [187]
-Overfull \hbox (474.18153pt too wide) in paragraph at lines 8565--8565
-[]\TU/lmtt/m/n/10 ## WARNING: Rtools is required to build R packages, but no version of Rtools compatible with R 4.5.0 was found. (Only the following incompatible version(s) of Rtools were found: 4.2)[] 
- []
-
-
-Overfull \hbox (12.18153pt too wide) in paragraph at lines 8565--8565
-[]\TU/lmtt/m/n/10 ## Please download and install Rtools 4.5 from https://cran.r-project.org/bin/windows/Rtools/.[] 
- []
-
-
-Overfull \hbox (132.93153pt too wide) in paragraph at lines 8574--8574
-[]\TU/lmtt/m/n/10 ## Skipping install of 'myfirstpackage' from a github remote, the SHA1 (d1348fe2) has not changed since last install.[] 
- []
-
-
-
-[188]
 Chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 8591--8593
+Underfull \hbox (badness 10000) in paragraph at lines 8355--8357
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8593--8595
+Underfull \hbox (badness 10000) in paragraph at lines 8357--8359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8595--8597
+Underfull \hbox (badness 10000) in paragraph at lines 8359--8361
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8597--8599
+Underfull \hbox (badness 10000) in paragraph at lines 8361--8363
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8599--8601
+Underfull \hbox (badness 10000) in paragraph at lines 8363--8365
 
  []
 
 
 
-[189
+[188
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 8624--8626
+Underfull \hbox (badness 10000) in paragraph at lines 8390--8392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8626--8628
+Underfull \hbox (badness 10000) in paragraph at lines 8392--8394
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8628--8630
+Underfull \hbox (badness 10000) in paragraph at lines 8394--8396
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8652--8654
+Underfull \hbox (badness 10000) in paragraph at lines 8418--8420
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8654--8656
+Underfull \hbox (badness 10000) in paragraph at lines 8420--8422
+
+ []
+
+
+
+[189]
+Underfull \hbox (badness 10000) in paragraph at lines 8440--8442
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8442--8444
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8444--8446
 
  []
 
 
 
 [190]
-Underfull \hbox (badness 10000) in paragraph at lines 8674--8676
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8676--8678
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8678--8680
-
- []
-
-
 
 [191]
 
 [192]
+Underfull \hbox (badness 10000) in paragraph at lines 8584--8585
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8591--8593
+
+ []
 
 
 
 [193]
-Underfull \hbox (badness 10000) in paragraph at lines 8818--8819
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8825--8827
-
- []
-
-
 
 [194]
-
-[195]
-Underfull \hbox (badness 10000) in paragraph at lines 8921--8923
+Underfull \hbox (badness 10000) in paragraph at lines 8687--8689
 
  []
 
 
 
-[196]
+[195]
 File: docs/Fig9_1.png Graphic file (type bmp)
 <docs/Fig9_1.png>
 
 
-[197]
+[196]
 File: docs/Fig9_2.png Graphic file (type bmp)
 <docs/Fig9_2.png>
 
 
-[198]
+[197]
 
-[199]
+[198]
 File: docs/Fig9_3.png Graphic file (type bmp)
 <docs/Fig9_3.png>
 
 
-[200]
+[199]
 File: docs/Fig9_4.png Graphic file (type bmp)
 <docs/Fig9_4.png>
 
+
+[200]
 
 [201]
 
@@ -2213,40 +2124,39 @@ File: docs/Fig9_5.png Graphic file (type bmp)
 
 
 [203]
-
-[204]
 File: docs/Fig9_6.png Graphic file (type bmp)
 <docs/Fig9_6.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9325--9327
+
+[204]
+Underfull \hbox (badness 10000) in paragraph at lines 9091--9093
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9327--9329
+Underfull \hbox (badness 10000) in paragraph at lines 9093--9095
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9095--9097
 
  []
 
 
 
 [205]
-Underfull \hbox (badness 10000) in paragraph at lines 9329--9331
-
- []
-
-
 
 [206]
-Underfull \hbox (badness 10000) in paragraph at lines 9440--9442
+Underfull \hbox (badness 10000) in paragraph at lines 9206--9208
 
  []
 
-
-
-[207]
 File: docs/Fig9_7.png Graphic file (type bmp)
 <docs/Fig9_7.png>
 
+
+[207]
 
 [208]
 
@@ -2256,122 +2166,120 @@ File: docs/Fig9_8.png Graphic file (type bmp)
 
 
 [210]
-
-[211]
 File: docs/Fig9_9.png Graphic file (type bmp)
 <docs/Fig9_9.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9640--9642
+
+[211]
+Underfull \hbox (badness 10000) in paragraph at lines 9406--9408
 
  []
 
 
 
 [212]
-
-[213]
 File: docs/Fig9_10.png Graphic file (type bmp)
 <docs/Fig9_10.png>
 
 
-[214]
+[213]
 File: docs/Fig9_11.png Graphic file (type bmp)
 <docs/Fig9_11.png>
 
 
-[215]
+[214]
 File: docs/Fig9_12.png Graphic file (type bmp)
 <docs/Fig9_12.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9768--9770
+Underfull \hbox (badness 10000) in paragraph at lines 9534--9536
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9770--9772
+Underfull \hbox (badness 10000) in paragraph at lines 9536--9538
 
  []
 
 
 
-[216]
+[215]
 File: docs/Fig9_13.png Graphic file (type bmp)
 <docs/Fig9_13.png>
-
-
-[217]
 File: docs/Fig9_14.png Graphic file (type bmp)
 <docs/Fig9_14.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 9849--9851
+
+[216]
+Underfull \hbox (badness 10000) in paragraph at lines 9615--9617
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9851--9853
+Underfull \hbox (badness 10000) in paragraph at lines 9617--9619
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9853--9855
+Underfull \hbox (badness 10000) in paragraph at lines 9619--9621
 
  []
 
+
+
+[217]
 File: docs/Fig9_15.png Graphic file (type bmp)
 <docs/Fig9_15.png>
 
 
 [218]
-
-[219]
 File: docs/Fig9_16.png Graphic file (type bmp)
 <docs/Fig9_16.png>
 
+
+[219]
 
 [220]
 
 [221]
 
 [222]
-
-[223]
 File: docs/Fig9_17.png Graphic file (type bmp)
 <docs/Fig9_17.png>
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[224]
+
+
+[223]
 File: docs/Fig9_18.png Graphic file (type bmp)
 <docs/Fig9_18.png>
 File: docs/Fig9_19.png Graphic file (type bmp)
 <docs/Fig9_19.png>
 
 
+[224]
+
 [225]
 
 [226]
 
 [227]
-
-[228]
 No file _main.bbl.
 
 
-[229] (./_main.aux)
+[228] (./_main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-20>
  ***********
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 20561 strings out of 470457
- 380279 string characters out of 5489348
- 999351 words of memory out of 5000000
- 48517 multiletter control sequences out of 15000+600000
- 633614 words of font info for 123 fonts, out of 8000000 for 9000
+ 20574 strings out of 470457
+ 380270 string characters out of 5489348
+ 1000099 words of memory out of 5000000
+ 48531 multiletter control sequences out of 15000+600000
+ 633606 words of font info for 122 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,20n,116p,1355b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,20n,116p,1373b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on _main.pdf (230 pages).
+Output written on _main.pdf (229 pages).
