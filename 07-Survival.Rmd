@@ -43,6 +43,8 @@ In this chapter, you will have the opportunity to perform a simple experiment to
 
 The extended activities and research project provide opportunities to evaluate research articles discussing applications of survival analysis, hazard functions, and various types of incomplete data.  
 
+\newpage
+
 ## \textcolor{blue}{Investigation: How Long Does It Take for Chocolate Chips to Melt?}
 
 If you enjoy eating chocolate chips, then you can probably appreciate their sweet flavor and smooth texture as they melt in your mouth. Chocolatiers and food scientists are well aware that the material composition of chocolate affects the flavor, texture, and duration of the melting process, thereby resulting in a “good” or “bad” tasting experience. These individuals continually strive to improve the manufacturing process, as well as the properties of chocolate. By developing heat-resistant varieties that can withstand higher temperatures, they work to increase the time before the chocolate melts.2 For food scientists and chocolate confectioners, melting chocolate can be serious business.
