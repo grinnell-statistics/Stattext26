@@ -22,7 +22,7 @@ library(plotly)
 
 \begin{flushright}
 \emph{Using statistics is no substitute for thinking about the problem} \\
--- Douglas Montgomery\footnote{Douglas Montgomery, \emph{Design and Analysis of Experiments}, Fifth edition, Wiley, 2003, page 21.}
+- Douglas Montgomery$^1$
 \end{flushright}
 
 

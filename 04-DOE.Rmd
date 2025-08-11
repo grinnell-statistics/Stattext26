@@ -30,22 +30,24 @@ theme_set(
 
 \begin{flushright}
 \emph{However beautiful the strategy, you should occasionally look at the results.} \\
--- -- Winston Churchill\footnote{    }
+- Winston Churchill
 \end{flushright}
 
 
 
-Statistics ought to be viewed as a whole: understanding the process of formulating *questions*, properly designing a study, actively collecting meaningful data, and then deciding how to properly organize and draw conclusions from the data. Advancements in technology have made data collection and computationally intensive statistical techniques much more feasible. At one time, many statisticians had narrowly defined roles and were considered as primarily “number crunchers.” Today, statisticians characteristically work on interdisciplinary teams that emphasize scientific inference and understanding data in context.
+Statistics ought to be viewed as a whole: understanding the process of formulating questions, properly designing a study, actively collecting meaningful data, and then deciding how to properly organize and draw conclusions from the data. Advancements in technology have made data collection and computationally intensive statistical techniques much more feasible. At one time, many statisticians had narrowly defined roles and were considered as primarily “number crunchers.” Today, statisticians characteristically work on interdisciplinary teams that emphasize scientific inference and understanding data in context.
 
-Instead of emphasizing formulas, computation, and mathematical theory, this chapter uses a simple popcorn experiment to demonstrate the numerous challenges that can occur in designing experiments and collecting data.In this chapter, we will discuss the following:
-
-* Key features of a well‑designed experiment and proper data collection
-* Proper determination of response variables, experimental factors, and levels  
-* Building on the one‑way ANOVA discussed in Chapter 2 to describe multivariate factorial designs  
-* Evaluating multiple hypotheses based on main effects and interaction terms  
-* Calculating each of the between‑group and within‑group variances needed in ANOVA tables for balanced factorial designs  
-* Calculating effects and developing mathematical models  
-* Using multiple comparison tests with ANOVA tables  
+Instead of emphasizing formulas, computation, and mathematical theory, this chapter starts with a simple popcorn experiment to demonstrate the numerous challenges that can occur in designing experiments and collecting data. In this chapter, we will discuss the following:
+\vspace{-1em}
+\begin{itemize}
+\item  Key features of a well‑designed experiment and proper data collection
+\item  Proper determination of response variables, experimental factors, and levels  
+\item  Building on the one‑way ANOVA discussed in Chapter 2 to describe multivariate factorial designs  
+\item  Evaluating multiple hypotheses based on main effects and interaction terms  
+\item  Calculating each of the between-group and within-group variances needed in ANOVA tables for balanced factorial designs  
+\item  Calculating effects and developing mathematical models  
+\item  Using multiple comparison tests with ANOVA tables  
+\end{itemize}
 
 \newpage
 
@@ -53,12 +55,12 @@ Instead of emphasizing formulas, computation, and mathematical theory, this chap
 
 Popcorn is a staple for many college students. While many students like popcorn because it is inexpensive and easy to prepare, it is also a whole grain food that’s low in fat and calories. According to The Popcorn Institute, Americans consume an average of 54 quarts of popcorn a year per person.
 
-Two popcorn lovers, who also happened to be taking a statistics course, decided to test whether there is a difference in quality between microwave popcorn brands. Yvonne and Tue wanted to know if a cheaper brand of popcorn was just as good as more expensive popcorn. These students could have chosen to conduct a study that could be analyzed with a two‑sample *t*‑test if they had simply compared two brands of popcorn. However, if they did a two‑sample *t*‑test, they would need to hold many factors constant, such as the type of microwave, cooking time, and storage procedures. Since Yvonne and Tue believed that some of these factors could also impact the quality of the popcorn, they decided to include some of these additional factors in their study.
+Two popcorn lovers, who also happened to be taking a statistics course, decided to test whether there is a difference in quality between microwave popcorn brands. Yvonne and Tue wanted to know if a cheaper brand of popcorn was just as good as more expensive popcorn. These students could have chosen to conduct a study that could be analyzed with a two-sample `t`-test if they had simply compared two brands of popcorn. However, if they did a two-sample `t`-test, they would need to hold many factors constant, such as the type of microwave, cooking time, and storage procedures. Since Yvonne and Tue believed that some of these factors could also impact the quality of the popcorn, they decided to include some of these additional factors in their study.
 
-Modeling real‑world phenomena often requires more than just one factor to explain changes in the response. **Factorial designs** are any statistical designs that are structured to use factors (i.e., explanatory variables) to organize meaningful groups of treatment conditions. A two‑sample *t*‑test can be considered a special case of a factorial design that has just one factor (popcorn brand in this case) and two levels (Brand A and Brand B). Factorial designs are very powerful statistical tools because they allow a researcher to simultaneously test the effects of multiple factor‑level combinations on a response of interest.
+Modeling real-world phenomena often requires more than just one factor to explain changes in the response. **Factorial designs** are any statistical designs that are structured to use factors (i.e., explanatory variables) to organize meaningful groups of treatment conditions. A two-sample `t`-test can be considered a special case of a factorial design that has just one factor (popcorn brand in this case) and two levels (Brand A and Brand B). Factorial designs are very powerful statistical tools because they allow a researcher to simultaneously test the effects of multiple factor-level combinations on a response of interest.
 
 
-\textbf{\textcolor{blue}{Key Concept:}}  \textcolor{blue} {In factorial designs, each explanatory variable is called a **factor** and specific conditions within each factor are called **levels**. In any study, these factor‑level combinations are called **conditions**; in experiments, they are often called **treatments**. Factorial designs are often used to test the effects of multiple factors simultaneously, where each factor has two or more levels.}  
+\textbf{\textcolor{blue}{Key Concept:}}  \textcolor{blue} {In factorial designs, each explanatory variable is called a \textbf{factor} and specific conditions within each factor are called **levels**. In any study, these factor‑level combinations are called \textbf{conditions}; in experiments, they are often called \textbf{treatments}. Factorial designs are often used to test the effects of multiple factors simultaneously, where each factor has two or more levels.}  
 
 
 
@@ -79,7 +81,7 @@ An **experiment** is defined as a study in which purposeful changes are made to 
 
 
 
->**NOTE** Some texts state that only experiments can be used to show cause and effect relationships. However, poorly designed experiments should not be used to show causation. In addition, observational studies (such as those testing a relationship between smoking and lung cancer) can be used to show causation if (1) there is a strong association between the explanatory and response variables, (2) higher doses are associated with stronger responses (e.g., more cigarettes increase the likelihood of getting cancer), (3) there are consistent results across many studies, and (4) there are credible explanations for the cause and effect relationship.  
+>**NOTE:** Some texts state that only experiments can be used to show cause and effect relationships. However, poorly designed experiments should not be used to show causation. In addition, observational studies (such as those testing a relationship between smoking and lung cancer) can be used to show causation if (1) there is a strong association between the explanatory and response variables, (2) higher doses are associated with stronger responses (e.g., more cigarettes increase the likelihood of getting cancer), (3) there are consistent results across many studies, and (4) there are credible explanations for the cause and effect relationship.  
 
 
 **Experimental design** is the process of planning an experiment that collects the right amount and type of data to answer a question of interest. Several decisions need to be made about how an experiment is to be constructed and executed to ensure that the experimental results are valid. Taking the time to properly design an experiment will improve the precision of answers to research questions. In addition, well-designed experiments often are much more efficient and obtain stronger conclusions than other studies.
@@ -119,14 +121,14 @@ Factor 3: cooking Time at two levels, 105 seconds and 135 seconds
 
 It can sometimes be difficult to identify a reasonable range for each factor. Yvonne and Tue had noticed that some brands of popcorn tended to burn at around 150 seconds (2.5 minutes). Even though cooking popcorn longer than 135 seconds might increase the percentage of popped kernels, Yvonne and Tue decided to avoid cooking times likely to cause burning.
 
-Yvonne and Tue then listed suspected extraneous variables, other factors that need to be controlled during the experiment to eliminate potential biases. Yvonne and Tue decided to hold some extraneous variables constant. In particular, they used only the highest power setting on each microwave, they stored all the popcorn on a shelf in their room, and they used only the butter flavor of each brand. There were other variables they could not control, such as age of the popcorn, which manufacturing plant prepared each bag of popcorn, and how different retail stores had stored the popcorn. To account for the extraneous variables they could not control (or had not even thought of), it would be best to randomly select bags of popcorn from the entire population. Instead, Yvonne and Tue did their best to randomly select several bags of Fastco and Pop Secret butter popcorn from a variety of stores in town. This was not a true random sample, and Yvonne and Tue had to be careful in making any statements about how the results of their study extended to a larger population. In addition, when possible, each bag of popcorn in the study was randomly allocated to a factor-level combination. While bags of popcorn can be randomly assigned to a cooking time and microwave, they cannot be randomly assigned to a popcorn brand.
+Yvonne and Tue then listed suspected **extraneous variables**, other factors that need to be controlled during the experiment to eliminate potential biases. Yvonne and Tue decided to hold some extraneous variables constant. In particular, they used only the highest power setting on each microwave, they stored all the popcorn on a shelf in their room, and they used only the butter flavor of each brand. There were other variables they could not control, such as age of the popcorn, which manufacturing plant prepared each bag of popcorn, and how different retail stores had stored the popcorn. To account for the extraneous variables they could not control (or had not even thought of), it would be best to randomly select bags of popcorn from the entire population. Instead, Yvonne and Tue did their best to randomly select several bags of Fastco and Pop Secret butter popcorn from a variety of stores in town. This was not a true random sample, and Yvonne and Tue had to be careful in making any statements about how the results of their study extended to a larger population. In addition, when possible, each bag of popcorn in the study was randomly allocated to a factor-level combination. While bags of popcorn can be randomly assigned to a cooking time and microwave, they cannot be randomly assigned to a popcorn brand.
 
   
 \textbf{\textcolor{blue}{Key Concept:}}  \textcolor{blue}{A good design controls for known extraneous variables (often by holding them constant throughout the study) and then uses random sampling and random allocation to control for any other unknown or uncontrollable extraneous variables.}
 
 ### Choosing a Design {-}
 
-In addition to determining what conditions to test and what measurements to take, in order to create a good experimental design, a researcher must properly define units and determine how units are structured. An **experimental unit** is the smallest part of experimental material that is assigned (randomly, if possible) to a factor-level combination within a study. Since Yvonne and Tue counted every kernel of popcorn, some may incorrectly assume that each kernel is a unit. In an experiment, units are randomly assigned to treatments. In this study, each kernel was not randomly assigned to a condition, but each bag of popcorn was randomly assigned to be popped in a particular microwave for a particular length of time. Thus, bags of popcorn are considered the units for Yvonne and Tue’s study.
+In addition to determining what conditions to test and what measurements to take in order to create a good experimental design, a researcher must properly define units and determine how units are structured. An **experimental unit** is the smallest part of experimental material that is assigned (randomly, if possible) to a factor-level combination within a study. Since Yvonne and Tue counted every kernel of popcorn, some may incorrectly assume that each kernel is a unit. In an experiment, units are randomly assigned to treatments. In this study, each kernel was not randomly assigned to a condition, but each bag of popcorn was randomly assigned to be popped in a particular microwave for a particular length of time. Thus, bags of popcorn are considered the units for Yvonne and Tue’s study.
 
   
 \textbf{\textcolor{blue}{Key Concept:}}  \textcolor{blue}{If (1) units are as similar as possible, (2) units are randomly assigned to treatment combinations, and (3) large enough sample sizes are used, then we can conclude that statistically significant differences in the response can be explained by the different treatment combinations.}
@@ -146,7 +148,7 @@ This chapter will focus on **completely randomized factorial designs**. In compl
 
 When more units are tested, it is more likely that the statistical analysis will identify true differences between conditions. However, every unit tested has a cost, and it is important to carefully determine how many units are practical to test. Is it worth testing additional units to gain a better understanding of the unit-to-unit variability?
 
-Yvonne and Tue estimated that they could each count the kernels in one bag (popped and unpopped) in 10 to 15 minutes. They also thought that they could get a few close friends to count a few bags in exchange for free popcorn. Care should always be taken when measuring results. If the result is a subjective measurement (such as the taste of popcorn or the quality of artwork), very clear procedures should be written and, if possible, the same people should record each measurement. In this popcorn study, counting the percentage of popped kernels per bag is an objective measurement. As long as Yvonne and Tue have trustworthy friends, there should be no problem in having several people help count popcorn kernels.^[Ideally, they would have preferred to have at least two people count each bag to ensure against errors, but that would have doubled the time needed to conduct the experiment. Repeatability and reliability (often called gauge R&R) studies are a technique discussed in many quality control texts as a way to ensure that different people or processes provide similar results.] They estimated that they could conduct 32 tests in about four hours.
+Yvonne and Tue estimated that they could each count the kernels in one bag (popped and unpopped) in 10 to 15 minutes. They also thought that they could get a few close friends to count a few bags in exchange for free popcorn. Care should always be taken when measuring results. If the result is a subjective measurement (such as the taste of popcorn or the quality of artwork), very clear procedures should be written and, if possible, the same people should record each measurement. In this popcorn study, counting the percentage of popped kernels per bag is an objective measurement. As long as Yvonne and Tue have trustworthy friends, there should be no problem in having several people help count popcorn kernels. They estimated that they could conduct 32 tests in about four hours. Ideally, they would have preferred to have at least two people count each bag to ensure against errors, but that would have doubled the time needed to conduct the experiment. Repeatability and reliability (often called gauge R&R) studies are a technique discussed in many quality control texts as a way to ensure that different people or processes provide similar results. 
 
 The choice of 32 tests, instead of a round number like 30, is also related to a well-designed experiment. Yvonne and Tue found that, based on their choice of factors and levels, there were a total of eight treatment combinations. Table 4.1 lists the eight possible treatment conditions that can be "assigned" to each bag of popcorn. Yvonne and Tue wanted to have a balanced design, a design where the same number of units is assigned to (or randomly selected from) each condition. Balanced designs are often easier to analyze and more likely to identify true differences in the effects of different conditions.$^3$ If Yvonne and Tue wanted to conduct a balanced design, they needed to conduct tests in a multiple of 8 (16, 24, etc.).
 
@@ -196,7 +198,7 @@ cat(
 
 Since several factors are included in this experiment, there are also several hypotheses to be tested. Yvonne and Tue actually had six research questions, which will be discussed in Section 4.4. But to keep the calculations simple, in this section we will assume that only two factors were tested (*Brand* and *Time*). This leads to three hypotheses corresponding to the *Brand* and *Time* factors.
 
-1. $H_{0,1}: \mu_{\text{Fastco}} = \mu_{\text{PopSecret}}$; there is no difference in the mean response (*PopRate*) between the two *Brands*.$^*$^[$^*$This is often written as $H_{0,1}$: there is no *Brand* effect or $H_{0,1}: \alpha_{\text{Fastco}} = \alpha_{\text{PopSecret}} = 0$, where $\alpha$ is called the effect size. For example, $\alpha_{\text{Fastco}} = \mu_{\text{Fastco}} - \mu$, where $\mu$ is the overall grand mean of the responses.]  
+1. $H_{0,1}: \mu_{\text{Fastco}} = \mu_{\text{PopSecret}}$; there is no difference in the mean response (*PopRate*) between the two *Brands*. This is often written as $H_{0,1}$: there is no *Brand* effect or $H_{0,1}: \alpha_{\text{Fastco}} = \alpha_{\text{PopSecret}} = 0$, where $\alpha$ is called the effect size. For example, $\alpha_{\text{Fastco}} = \mu_{\text{Fastco}} - \mu$, where $\mu$ is the overall grand mean of the responses.
    $H_{a,1}: \mu_{\text{Fastco}} \ne \mu_{\text{PopSecret}}$; the two *Brand* means are different.
 
 2. $H_{0,2}: \mu_{105} = \mu_{135}$; there is no difference in the mean *PopRate* for the two *Times*.  
@@ -221,7 +223,7 @@ Factorial designs are efficient because much more information can be calculated,
 
 Table 4.2 shows the `Popcorn` data set organized by the *Brand* and *Time* factors. Each of the four treatment combinations has eight observations. The data are also provided in the file `Popcorn`.
 
-```{r fig41, warning=FALSE, echo=FALSE,out.width="80%", message=FALSE, fig.cap="Individual value plot of the PopRate (100 $\times$ count of popped kernels/total kernels) for each Brand and cooking Time factor-level combination. Points have jittering (small fluctuations) so that all values are visible."}
+```{r fig41, warning=FALSE, echo=FALSE, out.width="60%", message=FALSE, fig.cap="Individual value plot of the PopRate (100xcount of popped kernels/total kernels) for each Brand and cooking Time factor-level combination. Points have jittering (small fluctuations) so that all values are visible."}
 library(ggplot2)
 #pop <- read.csv("Popcorn2.csv")
 data("C4Popcorn")
@@ -332,7 +334,9 @@ cat(
 
 7. Explain the difference between $\scriptstyle \bar{y}_{21}$ and $\scriptstyle \bar{y}_{12}$.
 
-### Comparing Variances {-} ^[If you have studied ANOVA tables before, you may find it surprising that we focus on mean squares (MS) and do not discuss sums of squares (SS) or degrees of freedom (df). The focus of this section is the concepts and logic behind ANOVA. ANOVA is the process of comparing between group and within group variability. These types of variability are represented by the mean squares. Chapter 2 and later Chapter 4 activities discuss sums of squares and degrees of freedom.]
+### Comparing Variances {-} 
+
+If you have studied ANOVA tables before, you may find it surprising that we focus on mean squares (MS) and do not discuss sums of squares (SS) or degrees of freedom (df). The focus of this section is the concepts and logic behind ANOVA. ANOVA is the process of comparing between group and within group variability. These types of variability are represented by the mean squares. Sections 4.6 and 4.7 discuss these ideas in more detail.
 
 Figure 4.1 and Table 4.3 indicate that the difference between the *Time* means is much larger than the difference between the *Brand* means. In addition, the difference between *Time* means is much larger for the Pop Secret brand than for the Fastco brand. In this section, we will conduct an analysis, called analysis of variance, to find $\scriptstyle p$-values for testing each of the three hypotheses stated earlier about the underlying mean responses.
 
@@ -425,18 +429,21 @@ Equation \ref{4.4} is often called the **mean square error** (MSE) of the respon
 
 12. What do you think are the largest and smallest possible values of any $\scriptstyle F$-statistic?  
 
-13. Use the technology instructions provided on the CD to check your answers. Submit the software output. Note that a $\scriptstyle p$-value for each $\scriptstyle F$-statistic is provided. State your conclusions about each of the three hypotheses based on these $\scriptstyle p$-values.  
-Don’t be surprised if your hand calculations in Question 11 differ somewhat from the software output here. The data in Table 4.3 were rounded to one decimal place, so calculations in Questions 8 through 11 are not as accurate as statistical software.  
+13. Statistical software will provide a $\scriptstyle p$-value for each $\scriptstyle F$-statistic. State your conclusions about each of the three hypotheses based on these $\scriptstyle p$-values.  
+Don’t be surprised if your hand calculations in Question 11 differ somewhat from the software output. The data in Table 4.3 were rounded to one decimal place, so calculations in Questions 8 through 11 are not as accurate as statistical software.  
 
 14. Explain why a large $\scriptstyle F$-statistic corresponds to a small $\scriptstyle p$-value by referring to the definition of an $\scriptstyle F$-statistic: a ratio of between-group variability to within-group variability.  
 
 15. **Checking Assumptions** As described in Chapter 2, assumptions need to be checked to ensure that the $\scriptstyle p$-value for each ANOVA $\scriptstyle F$-test is reliable:
-- The observations within each group (each factor-level combination) are independent and identically distributed.
-- Each group has equal variances.
-- The residual values follow a normal distribution with a mean of zero.
-
+\vspace{-1em}
+\begin{itemize}
+\item The observations within each group (each factor-level combination) are independent and identically distributed.
+\item Each group has equal variances.
+\item The residual values follow a normal distribution with a mean of zero.
+\end{itemize}
  (a) Examine the individual value plot in Figure 4.1 and comment on the assumptions for these hypothesis tests. Is there evidence of any skewness or outliers that may cause us to doubt the normal assumption for the *PopRate* within each factor-level combination of *Brand* and *Time*?
  (b) Does Figure 4.1 indicate that the spread of each group appears roughly similar, so the equal variance assumption seems reasonable? Another informal check of the equal variance assumption can be done by calculating the ratio of the maximum sample standard deviation to the minimum sample standard deviation. If this ratio is less than two, we can generally assume that there is not strong evidence against the equal variance assumption. Compare the standard deviations of the four treatment level combinations to determine if
+ 
 \begin{align}
 \frac{\max(s_{ij})}{\min(s_{ij})} < 2
 \notag
@@ -453,81 +460,11 @@ Don’t be surprised if your hand calculations in Question 11 differ somewhat fr
 
 In Question 13, the $\scriptstyle p$-value corresponding to the third hypothesis test listed at the beginning of this section was 0.04. This demonstrates an interaction: the effect of one variable (*Time*) on the response depends on a second variable (*Brand*). Figure 4.2 provides a side-by-side boxplot and an interaction plot of the *Popcorn* data. **An interaction plot** is simply a plot of the four factor-level group means shown in Table 4.3. These plots show that for both brands, the average *PopRate* increases when the cooking time changes from 105 to 135 seconds. However, the change in means for the Fastco brand is very small compared to the change observed in the Pop Secret brand.
 
-```{r fig42, fig.cap="Side-by-side boxplots and an interaction plot of the PopRate for each Brand and cooking Time factor-level combination.", warning=FALSE, echo=FALSE, fig.width=5, message=FALSE}
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(patchwork)
 
-#df <- read_csv("Popcorn2.csv", show_col_types = FALSE)
-data("C4Popcorn")
-df<-C4Popcorn
-df <- df %>% mutate(Time = factor(Time))
-
-p1 <- ggplot(df, aes(x = Time, y = PopRate, fill = Brand)) +
-  geom_boxplot(
-    position = position_dodge(width = 0.7),
-    width    = 0.6,
-    color = "black"
-  ) +
-  scale_fill_manual(
-    "",
-    values = c("Fastco" = "#00BFC4", "Pop Secret" = "gray30")
-  ) +
-  labs(x = "Time", y = "PopRate") +
-  theme_minimal(base_family = "serif") +
-  theme(
-    panel.background = element_rect(fill = "white", colour = "black", linewidth = 1),
-    panel.border = element_rect(fill = NA,       colour = "black", linewidth = 1),
-    plot.background = element_rect(fill = "grey90",  colour = "black", linewidth = 1),
-    legend.background = element_rect(fill = "white",   colour = "black"),
-    legend.position = c(0.85, 0.85),
-    axis.title = element_text(face = "bold"),
-    plot.margin = margin(20, 20, 20, 20)
-  )
-
-means <- df %>%
-  group_by(Brand, Time) %>%
-  summarise(meanRate = mean(PopRate), .groups = "drop")
-
-p2 <- ggplot(means, aes(x = Time, y = meanRate,
-                        group   = Brand,
-                        color   = Brand,
-                        shape   = Brand,
-                        linetype= Brand,
-                        fill    = Brand)) +
-  geom_line(size = 1) +
-  geom_point(size = 3) +
-  scale_color_manual(
-    "",
-    values = c("Fastco" = "black", "Pop Secret" = "#00BFC4")
-  ) +
-  scale_linetype_manual(
-    "",
-    values = c("Fastco" = "solid", "Pop Secret" = "dashed")
-  ) +
-  scale_shape_manual(
-    "",
-    values = c("Fastco" = 21, "Pop Secret" = 22)
-  ) +
-  scale_fill_manual(  # for the point fills
-    "",
-    values = c("Fastco" = "black",      "Pop Secret" = "#00BFC4")
-  ) +
-  labs(x = "Time", y = "PopRate") +
-  theme_minimal(base_family = "serif") +
-  theme(
-    panel.background = element_rect(fill = "white", colour = "black", linewidth = 1),
-    panel.border = element_rect(fill = NA,  colour = "black", linewidth = 1),
-    plot.background = element_rect(fill = "grey90", colour = "black", linewidth = 1),
-    legend.background = element_rect(fill = "white", colour = "black"),
-    legend.position = c(0.75, 0.25),
-    axis.title = element_text(face = "bold"),
-    plot.margin = margin(20, 20, 20, 20)
-  )
-
-print(p1 | p2)
+```{r fig42, echo=FALSE, out.width="100%", fig.align="center", fig.cap="Side-by-side boxplots and and interaction plot of the PopRate for each Brand and cooking Time factor-level combination."}
+knitr::include_graphics("docs/Fig4_2.png")
 ```
+
 
 The interaction plot is helpful in visualizing how the effect of one factor can depend on another factor, especially when there are multiple factors in the study. When the lines in an interaction plot are essentially parallel, the effect of the first variable is not influenced by a second variable. Nonparallel lines indicate an interaction between main factors (e.g., the effect of *Time* depends on *Brand*). However, the interaction plot does not show the within group variability, so only the $\scriptstyle p$-value from the ANOVA can be used to determine if the interaction is significant. The $\scriptstyle p$-value of 0.04 shows that the observed interaction effect is so large that it is unlikely to have occurred just by chance. We conclude that $\scriptstyle H_{a,3}$ is true: *Brand* influences the effect of *Time* on *PopRate*.
 
@@ -566,21 +503,29 @@ Using only the 32 observations from the *Popcorn* data, a three-way ANOVA will a
 
 ### \textcolor{blue}{Practice:} Conducting a Three-Way ANOVA {-}
 
-16. Create individual value plots of the eight possible factor-level groups listed in Table 4.1.
+\begin{enumerate}
+  \setcounter{enumi}{15}
 
- (a) Do you see any patterns in the *PopRate* among these groups?
- (b) Does the spread of the responses within each group look roughly similar?
- (c) Are there any outliers or unusual observations for any group(s)?
+\item Create individual value plots of the eight possible factor-level groups listed in Table 4.1.
 
-17. Calculate the eight group standard deviations. If the largest standard deviation is no more than two times the smallest standard deviation, it is typically appropriate to assume equal variances for the population of responses within each group. Is it appropriate to assume equal variances in this *Popcorn* study?
+\begin{enumerate}
+   \item Do you see any patterns in the *PopRate* among these groups?
+   \item Does the spread of the responses within each group look roughly similar?
+   \item Are there any outliers or unusual observations for any group(s)?
+\end{enumerate}
 
-18. Use a statistical software package to simultaneously test all six hypotheses given at the beginning of this section.
- (a) Submit the appropriate software output.
- (b) Create a normal probability plot (described in Chapter 2) or a histogram of the residuals. Are the residuals consistent with the assumption of a normal distribution?
- (c) Use the $\scriptstyle p$-value corresponding to each hypothesis to state your conclusions.
- (d) Address how random sampling and random allocation influence your conclusions.
+\item Calculate the eight group standard deviations. If the largest standard deviation is no more than two times the smallest standard deviation, it is typically appropriate to assume equal variances for the population of responses within each group. Is it appropriate to assume equal variances in this *Popcorn* study?
 
-19. Determine whether $\scriptstyle MS_{\text{Brand}}$, $\scriptstyle MS_{\text{Time}}$, and $\scriptstyle MS_{\text{BrandTime}}$ are the same as in Question 13. Explain why the $\scriptstyle F$-statistics corresponding to these three hypotheses have changed.
+\item Use a statistical software package to simultaneously test all six hypotheses given at the beginning of this section.
+\begin{enumerate}
+ \item Submit the appropriate software output.
+ \item Create a normal probability plot (described in Chapter 2) or a histogram of the residuals. Are the residuals consistent with the assumption of a normal distribution?
+ \item Use the $\scriptstyle p$-value corresponding to each hypothesis to state your conclusions.
+ \item Address how random sampling and random allocation influence your conclusions.
+\end{enumerate}
+
+\item Determine whether $\scriptstyle MS_{\text{Brand}}$, $\scriptstyle MS_{\text{Time}}$, and $\scriptstyle MS_{\text{BrandTime}}$ are the same as in Question 13. Explain why the $\scriptstyle F$-statistics corresponding to these three hypotheses have changed.
+\end{enumerate}
 
 In completely randomized designs, all $\scriptstyle F$-statistics corresponding to the tests for each main factor and interaction use the same denominator. The mean square for each main factor ($\scriptstyle MS_{\text{Brand}}$, $\scriptstyle MS_{\text{Time}}$, and $\scriptstyle MS_{\text{Microwave}}$) is a measurement of the variability between level means. Since this is a balanced design, when the level means for a factor are farther apart, the corresponding mean square and $\scriptstyle F$-statistics are larger. Thus, the main effects plot shown in Figure 4.3 allows us to quickly see that the *Time* factor is the most significant (has the smallest $\scriptstyle p$-value) and the *Brand* factor is the least significant.
 
@@ -596,7 +541,7 @@ Yvonne and Tue’s study illustrated how essential it is to carefully plan out a
 
 The units in this study (*Bags*) were randomly assigned to *Time* and *Microwave* factor-level combinations. The ANOVA results allowed us to conclude that *Time* causes a difference in *PopRate*. In addition, we found evidence that there is a *Brand* and *Time* interaction.
 
-The bags of popcorn in this study were not a true random sample of all popcorn produced by these two brands. Thus, we need to be careful about making any conclusions that extend to a larger population. Because of the efforts the students made to properly collect random samples from various stores around their college town, the author of this chapter would feel fairly comfortable stating that the conclusions hold for these two brands of butter-flavored microwave popcorn in their town at the time of this study.
+The bags of popcorn in this study were not a true random sample of all popcorn produced by these two brands. Thus, we need to be careful about making any conclusions that extend to a larger population. Because of the efforts the students made to properly collect random samples from various stores around their college town, it would be reasonable to state that the conclusions hold for these two brands of butter-flavored microwave popcorn in their town at the time of this study.
 
 
 
@@ -607,19 +552,23 @@ As a final project in an introductory statistics class, several students decided
 >**NOTE:** Recall that random sampling is needed to extend the results to a larger population. If the students randomly sampled 26 towels from just one roll, the conclusions would hold only for that roll. Ideally they should have randomly purchased 26 rolls of each brand from multiple locations and then randomly selected one towel per roll.
 
 Before any data were collected, these students determined that the following conditions should be held as constant as possible throughout the study:
-
-- Paper towels were selected that had the same size.
-- The towels were held at all four corners by two people.
-- Weights (10, 25, 50, 100, or 250 grams) were slowly added to the center of each towel by a third person until it broke.
+\vspace{-1em}
+\begin{itemize}
+\item Paper towels were selected that had the same size.
+\item The towels were held at all four corners by two people.
+\item Weights (10, 25, 50, 100, or 250 grams) were slowly added to the center of each towel by a third person until it broke.
+\end{itemize}
 
 In this study, there are two factors. One has two levels, Comfort (Brand C) or Decorator (Brand D), and the other has three levels (0, 5, or 15 drops of water applied to the center of the paper towel). This leads to 2 $\times$ 3 = 6 conditions, called **factor-level combinations** or **factorial combinations**:
-
-- Brand C and 0 drops of water
-- Brand C and 5 drops of water
-- Brand C and 15 drops of water
-- Brand D and 0 drops of water
-- Brand D and 5 drops of water
-- Brand D and 15 drops of water
+\vspace{-1em}
+\begin{itemize}
+\item  Brand C and 0 drops of water
+\item  Brand C and 5 drops of water
+\item  Brand C and 15 drops of water
+\item  Brand D and 0 drops of water
+\item  Brand D and 5 drops of water
+\item  Brand D and 15 drops of water
+\end{itemize}
 
 Twenty-six sheets were tested at each of the six factor-level combinations. Thus, there are 156 experimental units used in this study. The response variable is the breaking strength of each paper towel in grams. Breaking strength is defined as the total weight that each towel successfully held. The next additional weight caused the towel to break.
 
@@ -634,22 +583,10 @@ The three null hypotheses corresponding to this two-factor design are as follows
 3. $H_{0,3}$: the amount of water has no influence on how brand affects strength\\
    or $H_{0,3}$: the effect of the amount of water on strength is the same for both brands\\
    or $H_{0,3}$: there is no interaction between brand and water\\
-   $H_{a,3}$: there is an interaction between brand and water
+   $H_{a,3}$: there is an interaction between brand and water.
 
 Table 4.4 represents some of the data for the paper towel study. Each of the six cells has 26 observations. The complete data set is in the file `PaperTowels`. While not all observations are shown, Table 4.4 helps us understand the data structure. After the data have been collected, the averages for all meaningful groups of the data can be calculated as shown in Table 4.5.
 
-
-### \textcolor{blue}{Practice:} Algebraic Notation {-}
-Data set: `PaperTowels`
-
-20. What values in Table 4.4 are represented by $\scriptstyle y_{213}$ and $\scriptstyle y_{122}$?
-
-21. Give the proper algebraic notation for the observation representing the 3rd paper towel with Brand D
-and 15 drops of water.
-
-22. What are the values of $\scriptstyle \bar{y}_{.3.}$ and $\scriptstyle \bar{y}_{21.}$?
-
-23. Complete Table 4.5 by calculating the three missing averages.
 
 ```{r tab44, echo=FALSE, results='asis'}
 df4.4 <- data.frame(
@@ -717,24 +654,44 @@ cat(
 ```
 
 
+
+### \textcolor{blue}{Practice:} Algebraic Notation 
+\vspace{-1em}
+Data set: `PaperTowels`
+
+20. What values in Table 4.4 are represented by $\scriptstyle y_{213}$ and $\scriptstyle y_{122}$?
+
+21. Give the proper algebraic notation for the observation representing the 3rd paper towel with Brand D
+and 15 drops of water.
+
+22. What are the values of $\scriptstyle \bar{y}_{.3.}$ and $\scriptstyle \bar{y}_{21.}$?
+
+23. Complete Table 4.5 by calculating the three missing averages.
+
+
 ### Calculating Effects {-}
 
 As the data structure becomes more complex, a statistical model becomes more useful for describing the population(s) from which the data may have come. Generally, statistical models consist of a mean response and a random error term (details are provided in Chapter 2). The mean response describes the expected (mean) breaking strength. Figure 4.4 is useful in visualizing the meaningful groups within this model that contribute to the mean response of the model: the grand mean, the two brand groups, the three water amount groups, and the six factor-level combination groups.
+
+
+```{r fig44, echo=FALSE, out.width="80%", fig.align="center", fig.cap="Two-way factorial diagram."}
+knitr::include_graphics("docs/Fig4_4TwoWayDiagram.jpg")
+```
+
 
 The random error term follows an overall pattern that can be modeled with a probability distribution (e.g., the normal distribution). The error term incorporates the reality that observations will vary within each factor-level combination. Even when the same weights are applied to the same brand of paper towel, using the same water amount, the observed breaking strength may not be the same.
 
 The labels (e.g., the grand mean, group effects, and random errors) and symbols in Figure 4.4 are described below:
 
- - $\scriptstyle y_{ijk}$: the $\scriptstyle k$th observed breaking strength ($\scriptstyle k = 1, 2, \ldots, 26$) for brand $\scriptstyle i$ and water amount $\scriptstyle j$
- - $\scriptstyle \mu$: overall mean breaking strength of the entire population of paper towels across brands and water amounts (also called the grand mean)
- - $\scriptstyle \alpha_i$: brand effect (i = 1, 2), where $\scriptstyle \alpha_1$ is the effect of Brand C and $\scriptstyle \alpha_2$ is the effect of Brand D
- - $\scriptstyle \beta_j$: amount of water effect (j = 1, 2, 3), where $\scriptstyle \beta_1$ represents the effect of 0 drops of water
- - $\scriptstyle (\alpha\beta)_{ij}$: interaction effect, where $\scriptstyle (\alpha\beta)_{23}$ represents the Brand D/15 drops of water interaction effect
- - $\scriptstyle \varepsilon_{ijk}$: the random error—the difference between the $\scriptstyle k$th observed value (k = 1, 2, $\ldots$, 26) and the population mean breaking strength for brand $\scriptstyle i$ and water amount $\scriptstyle j$
-
-```{r fig44, echo=FALSE, out.width="80%", fig.align="center", fig.cap="Two-way factorial diagram."}
-knitr::include_graphics("docs/Fig4_4TwoWayDiagram.jpg")
-```
+\vspace{-1em}
+\begin{itemize}
+\item $\scriptstyle y_{ijk}$: the $\scriptstyle k$th observed breaking strength ($\scriptstyle k = 1, 2, \ldots, 26$) for brand $\scriptstyle i$ and water amount $\scriptstyle j$
+\item $\scriptstyle \mu$: overall mean breaking strength of the entire population of paper towels across brands and water amounts (also called the grand mean)
+\item $\scriptstyle \alpha_i$: brand effect (i = 1, 2), where $\scriptstyle \alpha_1$ is the effect of Brand C and $\scriptstyle \alpha_2$ is the effect of Brand D
+\item $\scriptstyle \beta_j$: amount of water effect (j = 1, 2, 3), where $\scriptstyle \beta_1$ represents the effect of 0 drops of water
+\item $\scriptstyle (\alpha\beta)_{ij}$: interaction effect, where $\scriptstyle (\alpha\beta)_{23}$ represents the Brand D/15 drops of water interaction effect
+\item $\scriptstyle \varepsilon_{ijk}$: the random error—the difference between the $\scriptstyle k$th observed value (k = 1, 2, $\ldots$, 26) and the population mean breaking strength for brand $\scriptstyle i$ and water amount $\scriptstyle j$
+\end{itemize}
 
 Notice that each of the 2 $\times$ 3 $\times$ 26 = 156 observed strength measurements represents one of the 156 equations in Figure 4.4. The structure of the data is now used to write down a statistical model for the data:
 \begin{align}\label{4.5}
@@ -775,14 +732,19 @@ Data set: `PaperTowels`
 
 In addition to determining the main effects for each factor, it is often critical to identify how multiple factors interact in affecting the results. An interaction occurs when one factor affects the response variable differently depending on a second factor. To calculate the effect of the brand and water interaction, take the average for a particular factor combination minus the grand mean and the corresponding main effects.
 
+
 Interaction effect of Brand C and 15 drops of water interaction effect
 = average of Brand C, 15 drops group
 - (effect of Brand C + effect of 15 drops + grand mean)
+
 \begin{align}
-= \bar{y}_{13.} - [\hat{\alpha}_1 + \hat{\beta}_3 + \bar{y}_{..}] \notag \\
-= \bar{y}_{13.} - [(\bar{y}_{1.} - \bar{y}_{...}) + (\bar{y}_{.3} - \bar{y}_{...}) + \bar{y}_{...}] \notag \\
-= 401.0 - [324.7 + (-1024.5) + 1448.1] \notag \\
-= -347.3 \hspace{1cm} \tag{4.7}
+\label{4.7}
+\widehat{\alpha\beta}_{13}
+&= \bar{y}_{13.} - [\hat{\alpha}_1 + \hat{\beta}_3 + \bar{y}_{..}] \notag \\
+&= \bar{y}_{13.} - [(\bar{y}_{1.} - \bar{y}_{...}) + (\bar{y}_{.3} - \bar{y}_{...}) + \bar{y}_{...}] \notag \\
+&= 401.0 - [324.7 + (-1024.5) + 1448.1] \notag \\
+&= -347.3 \hspace{1cm} 
+\tag{4.7}
 \end{align}
 
 The estimate of the Brand C and 15 drops of water interaction effect in Equation \ref{4.7} tells us that the best estimate of any paper towel strength from this group should be reduced by an additional 347.3 after we take into account all other influencing factors (the grand mean and main effects).
@@ -827,7 +789,8 @@ The **sum of squares** (SS) for a main factor in the multi-factor ANOVA is ident
 
 This equation can be generalized. Instead of 78 elements in each *Brand* group, we can indicate $\scriptstyle n_i$ elements. Instead of 2 levels for *Brand*, we can indicate $\scriptstyle I$ levels. The first factor, *Brand*, can be labeled factor $\scriptstyle A$; the second factor, *Water*, can be labeled factor $\scriptstyle B$; etc. Then
 
-\begin{align}\label{4.9}
+\begin{align}
+\label{4.9}
 \text{SS}_{\text{Brand}} = \text{SS}_A = \sum_{i=1}^{I} n_i(\bar{y}_{i..} - \bar{y}_{...})^2 \qquad \text{for} \quad I=2 \text{ (number of Brand levels)}
 \tag{4.9}
 \end{align}
@@ -892,9 +855,13 @@ where N = 156 is the total sample size.
 
 
 ### \textcolor{blue}{Practice:} Calculating Degrees of Freedom for Interaction Terms {-}
+\vspace{-1em}
 Data set: `PaperTowels`
 
-31. Table 4.6 is a table with two rows and three columns, similar to the interaction effect term in the two-way factorial diagram in Figure 4.4. However, for this question we will assume that only two effects are known: $\scriptstyle \widehat{(\alpha\beta)}_{11} = 2$ and $\scriptstyle \widehat{(\alpha\beta)}_{12}$ = -5.
+\begin{enumerate}
+  \setcounter{enumi}{30}
+
+  \item Table 4.6 is a table with two rows and three columns, similar to the interaction effect term in the two-way factorial diagram in Figure 4.4. However, for this question we will assume that only two effects are known: $\scriptstyle \widehat{(\alpha\beta)}_{11} = 2$ and $\scriptstyle \widehat{(\alpha\beta)}_{12}$ = -5.
 
 ```{r tab6, echo=FALSE, results='asis'}
 df4.6 <- data.frame(
@@ -917,19 +884,18 @@ cat(
 )
 ```
 
- (a) Equation \ref{4.8} states that all the $\scriptstyle AB$ effects within Brand C add up to zero [$\scriptstyle \widehat{(\alpha\beta)}_{11} \ +\  \widehat{(\alpha\beta)}_{12} \ +\  (\widehat{(\alpha\beta)}_{13}$ = 0]. Use this rule to calculate $\scriptstyle \widehat{(\alpha\beta)}_{13}$.
+\begin{enumerate}
+   \item  Equation \ref{4.8} states that all the $\scriptstyle AB$ effects within Brand C add up to zero [$\scriptstyle \widehat{(\alpha\beta)}_{11} \ +\  \widehat{(\alpha\beta)}_{12} \ +\  (\widehat{(\alpha\beta)}_{13}$ = 0]. Use this rule to calculate $\scriptstyle \widehat{(\alpha\beta)}_{13}$.
+   \item Equation \ref{4.8} also states that all the $\scriptstyle AB$ effects within 0 water amount add up to zero (the same for 5 and 15 drops of water). Use this rule to calculate $\scriptstyle \widehat{(\alpha\beta)}_{21}$, $\scriptstyle \widehat{(\alpha\beta)}_{22}$, and $\scriptstyle \widehat{(\alpha\beta)}_{23}$.
+  \item Consider a different interaction table with two rows and three columns. Explain why it is not possible to have effects of $\scriptstyle \widehat{(\alpha\beta)}_{11} = 4$, $\scriptstyle \widehat{(\alpha\beta)}_{13} = -4$, and $\scriptstyle \widehat{(\alpha\beta)}_{22}$ = 6 and still follow the restrictions in Equation 4.8.
+  \item What are the degrees of freedom corresponding to any interaction term (in a balanced completely randomized design) with two levels of factor $\scriptstyle A$ and three levels of factor $\scriptstyle B$? In other words, under the restrictions in Equation \ref{4.8}, what is the number of free pieces of information (the number of cells in Table 4.6 that are not fixed)?
+\end{enumerate}
 
- (b) Equation \ref{4.8} also states that all the $\scriptstyle AB$ effects within 0 water amount add up to zero (the same for 5 and 15 drops of water). Use this rule to calculate $\scriptstyle \widehat{(\alpha\beta)}_{21}$, $\scriptstyle \widehat{(\alpha\beta)}_{22}$, and $\scriptstyle \widehat{(\alpha\beta)}_{23}$.
-
- (c) Consider a different interaction table with two rows and three columns. Explain why it is not possible to have effects of $\scriptstyle \widehat{(\alpha\beta)}_{11} = 4$, $\scriptstyle \widehat{(\alpha\beta)}_{13} = -4$, and $\scriptstyle \widehat{(\alpha\beta)}_{22}$ = 6 and still follow the restrictions in Equation 4.8.
-
- (d) What are the degrees of freedom corresponding to any interaction term (in a balanced completely randomized design) with two levels of factor $\scriptstyle A$ and three levels of factor $\scriptstyle B$? In other words, under the restrictions in Equation \ref{4.8}, what is the number of free pieces of information (the number of cells in Table 4.6 that are not fixed)?
-
-32. Table 4.7 is another table of interaction effects, with five rows and three columns (five levels of factor $\scriptstyle A$ and three levels of factor $\scriptstyle B$). Again, we will assume that only some of the effects are known.
+\item Table 4.7 is another table of interaction effects, with five rows and three columns (five levels of factor $\scriptstyle A$ and three levels of factor $\scriptstyle B$). Again, we will assume that only some of the effects are known.
 
 ```{r tab47, echo=FALSE, results='asis'}
 df4.7 <- data.frame(
-  c("3", "$-2$", "1", "3", ""),
+  c("3", "-2", "1", "3", ""),
   c("1", "6", "4", "5", ""),
   c("", "", "", "", ""),
   check.names = FALSE
@@ -947,18 +913,24 @@ cat(
 )
 ```
 
- (a) Use Equation \ref{4.8} to calculate the effect corresponding to each of the remaining cells.
+\begin{enumerate}
+   \item  Use Equation \ref{4.8} to calculate the effect corresponding to each of the remaining cells.
 
- (b) In Table 4.7, eight cells are filled. If only seven cells were filled, would it be possible to calculate the effects corresponding to all remaining cells?
+ \item  In Table 4.7, eight cells are filled. If only seven cells were filled, would it be possible to calculate the effects corresponding to all remaining cells?
 
- (c) What are the degrees of freedom corresponding to any interaction term (in a balanced completely randomized design) with five levels of factor $\scriptstyle A$ and three levels of factor $\scriptstyle B$? In other words, what is the minimum number of cells that must be filled in order to allow us to use Equation \ref{4.8} to estimate all other effects?
+ \item  What are the degrees of freedom corresponding to any interaction term (in a balanced completely randomized design) with five levels of factor $\scriptstyle A$ and three levels of factor $\scriptstyle B$? In other words, what is the minimum number of cells that must be filled in order to allow us to use Equation \ref{4.8} to estimate all other effects?
 
-33. Use the previous two questions to determine the degrees of freedom for an interaction term for a balanced completely randomized design using three levels of factor $\scriptstyle A$ and four levels of factor $\scriptstyle B$.
+\end{enumerate}
+
+\item Use the previous two questions to determine the degrees of freedom for an interaction term for a balanced completely randomized design using three levels of factor $\scriptstyle A$ and four levels of factor $\scriptstyle B$.
+\end{enumerate}
 
 For the $\scriptstyle AB$ interaction term, there are $\scriptstyle I \times J$ effects that are calculated. In the popcorn study, I $\times$ J = 2 $\times$ 3 = 6. Each effect represents one piece of information. In addition:
-
-- All the $\scriptstyle AB$ effects within Brand C add up to zero [$\scriptstyle (\alpha\beta)_{11} \ +\  (\alpha\beta)_{12} \ +\  (\alpha\beta)_{13} \ =\  0$]. Within Brand C, if two effects are known, the third will be fixed (the same holds for Brand D). Thus, these restrictions eliminate $\scriptstyle I$ = 2 free pieces of information (free cells in an interaction effects table).
-- Similarly, all the $\scriptstyle AB$ effects within 0 water amount add up to zero [$\scriptstyle (\alpha\beta)_{11} \ +\  (\alpha\beta)_{21}$ = 0]. The same restriction holds for all other levels of factor $\scriptstyle B$ (for 5 and 15 drops of water). Thus, an additional $\scriptstyle J$ = 3 pieces of information are no longer free. However, one piece of information is already fixed from the requirement that the sum of all brand effects is zero. Thus, only $\scriptstyle J$ -1 = 3 - 1 = 2 free pieces of information are taken for water amounts.
+\vspace{-1em}
+\begin{itemize}
+\item All the $\scriptstyle AB$ effects within Brand C add up to zero [$\scriptstyle (\alpha\beta)_{11} \ +\  (\alpha\beta)_{12} \ +\  (\alpha\beta)_{13} \ =\  0$]. Within Brand C, if two effects are known, the third will be fixed (the same holds for Brand D). Thus, these restrictions eliminate $\scriptstyle I$ = 2 free pieces of information (free cells in an interaction effects table).
+\item  Similarly, all the $\scriptstyle AB$ effects within 0 water amount add up to zero [$\scriptstyle (\alpha\beta)_{11} \ +\  (\alpha\beta)_{21}$ = 0]. The same restriction holds for all other levels of factor $\scriptstyle B$ (for 5 and 15 drops of water). Thus, an additional $\scriptstyle J$ = 3 pieces of information are no longer free. However, one piece of information is already fixed from the requirement that the sum of all brand effects is zero. Thus, only $\scriptstyle J$ -1 = 3 - 1 = 2 free pieces of information are taken for water amounts.
+\end {itemize}
 
 The degrees of freedom for the interaction effect are
 \begin{align}\label{4.14}
@@ -969,11 +941,6 @@ The degrees of freedom for the interaction effect are
 \tag{4.14}
 \end{align}
 
-
->**MATHEMATICAL NOTE:** Calculating interaction degrees of freedom as (I-1)(J-1) in Equation \ref{4.14} is quite easy. However, the reason Equation \ref{4.14} also shows interaction df = IJ - [(I-1) + (J-1) + 1] is that this follows the calculation of the interaction effect shown in Equation \ref{4.7}: $\scriptstyle \bar{y}_{ij.} \ -\  [(\bar{y}_{i.} \ -\  \bar{y}_{...}) \ +\  (\bar{y}_{.j.} \ -\  \bar{y}_{...}) \ +\  \bar{y}_{...}]$. The key point is to recognize that knowing how the effects are calculated drives formulas for both sum of squares and degrees of freedom. This is also true for more complex designs beyond the scope of this chapter.
-
-
-\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{For each term in a model, degrees of freedom represent the number of cells in a factor diagram that must be filled before all other cells can be filled with no added information. Thus, degrees of freedom are the number of “free” effects before the restrictions allow us to predict all other effects.}
 
 ```{r tab48, echo=FALSE, results='asis'}
 df4.8 <- data.frame(
@@ -1020,28 +987,38 @@ cat(
 )
 ```
 
+>**MATHEMATICAL NOTE:** Calculating interaction degrees of freedom as (I-1)(J-1) in Equation \ref{4.14} is quite easy. However, the reason Equation \ref{4.14} also shows interaction df = IJ - [(I-1) + (J-1) + 1] is that this follows the calculation of the interaction effect shown in Equation \ref{4.7}: $\scriptstyle \bar{y}_{ij.} \ -\  [(\bar{y}_{i.} \ -\  \bar{y}_{...}) \ +\  (\bar{y}_{.j.} \ -\  \bar{y}_{...}) \ +\  \bar{y}_{...}]$. The key point is to recognize that knowing how the effects are calculated drives formulas for both sum of squares and degrees of freedom. This is also true for more complex designs beyond the scope of this chapter.
+
+
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{For each term in a model, degrees of freedom represent the number of cells in a factor diagram that must be filled before all other cells can be filled with no added information. Thus, degrees of freedom are the number of “free” effects before the restrictions allow us to predict all other effects.}
+
+
+
 
 ### \textcolor{blue}{Practice:} Analyzing the Paper Towel Data {-}
+\vspace{-1em}
 Data set: `PaperTowels`
 
-34. **Checking Assumptions** In the statistical model in Equation \ref{4.4}, the following assumptions need to be validated about the random error terms, $\scriptstyle \varepsilon_{ijk}$, before any formal hypothesis test can be developed:
-- The error terms are independent and identically distributed.
-- The error terms follow a normal probability distribution, denoted as $\scriptstyle \epsilon \sim N(0, \sigma^2)$.
+\begin{enumerate}
+  \setcounter{enumi}{33}
 
-Note that the second assumption includes an equal variance assumption about the random errors from the different factor-level groups: $\scriptstyle \sigma_{11}^2 \ =\  \sigma_{12}^2 \ =\ \sigma_{13}^2 \ =\  \sigma_{21}^2 \ =\  \sigma_{22}^2 \ =\  \sigma_{23}^2$.
+  \item **Checking Assumptions** In the statistical model in Equation \ref{4.4}, the following assumptions need to be validated about the random error terms, $\scriptstyle \varepsilon_{ijk}$, before any formal hypothesis test can be developed verify that the error terms are independent and identically distributed and that the error terms follow a normal probability distribution, denoted as $\scriptstyle \epsilon \sim N(0, \sigma^2)$. Note that the second assumption includes an equal variance assumption about the random errors from the different factor-level groups: $\scriptstyle \sigma_{11}^2 \ =\  \sigma_{12}^2 \ =\ \sigma_{13}^2 \ =\  \sigma_{21}^2 \ =\  \sigma_{22}^2 \ =\  \sigma_{23}^2$.
 
- (a) The independence assumption implies that there is no relationship between one observation and the next. The identically distributed assumption means that each observation sampled within each brand/water combination is from a population with the same mean and variance. If all 26 paper towels were sampled from one roll to assess the Brand C/5 drops factor combination, would you be concerned about violating the independence and/or the identically distributed assumption? Why or why not?
+\begin{enumerate}
+  \item The independence assumption implies that there is no relationship between one observation and the next. The identically distributed assumption means that each observation sampled within each brand/water combination is from a population with the same mean and variance. If all 26 paper towels were sampled from one roll to assess the Brand C/5 drops factor combination, would you be concerned about violating the independence and/or the identically distributed assumption? Why or why not?
+  \item Calculate the sample means and standard deviations of all six factor-level combinations. Clearly, some groups have much larger variation than others. In addition, the variation within each group increases as the average breaking strength increases. To address this issue, a transformation of the data can often be used that will “stabilize” the variances so that the equal variance assumption is reasonable on this new scale. (Chapter 2 describes transformations in more detail.)
+  \item Transform the response variable using natural log ($\scriptstyle \log(\text{Strength})$) and $\scriptstyle \sqrt{\text{Strength}}$. Did both transformations improve the equal variance assumption?
+\end{enumerate}
 
- (b) Calculate the sample means and standard deviations of all six factor-level combinations. Clearly, some groups have much larger variation than others. In addition, the variation within each group increases as the average breaking strength increases. To address this issue, a transformation of the data can often be used that will “stabilize” the variances so that the equal variance assumption is reasonable on this new scale. (Chapter 2 describes transformations in more detail.)
+\item **Visualizing the Data** Draw individual value plots or side-by-side boxplots of the square-root transformed responses in the six factor-level groups.
 
- (c) Transform the response variable using natural log ($\scriptstyle \log(\text{Strength})$) and $\scriptstyle \sqrt{\text{Strength}}$. Did both transformations improve the equal variance assumption?
+\begin{enumerate}
+  \item Is there any extreme skewness or outliers that would cause us to question the normality assumption?
+  \item Without doing any statistical calculations, do you expect to reject the three null hypotheses for the paper towel study? Justify your answer by visually comparing the variation (i.e., the spread) in the strength between groups to the variation within groups.
+\end{enumerate}
 
-35. **Visualizing the Data** Draw individual value plots or side-by-side boxplots of the square-root transformed responses in the six factor-level groups.
-
- (a) Is there any extreme skewness or outliers that would cause us to question the normality assumption?
- (b) Without doing any statistical calculations, do you expect to reject the three null hypotheses for the paper towel study? Justify your answer by visually comparing the variation (i.e., the spread) in the strength between groups to the variation within groups.
-
-36. **Analyzing the Data** Use computer software to conduct an analysis on the square-root transformed `PaperTowels` data to test for differences between brands, water levels, and interactions. Use the ANOVA as well as appropriate graphs to state your conclusions about the paper towel study.
+\item **Analyzing the Data** Use computer software to conduct an analysis on the square-root transformed `PaperTowels` data to test for differences between brands, water levels, and interactions. Use the ANOVA as well as appropriate graphs to state your conclusions about the paper towel study.
+\end{enumerate}
 
 ## \textcolor{blue}{Contrasts and Multiple Comparisons}
 
@@ -1060,16 +1037,16 @@ Data set: `Games2`
 Since Question 37 leads us to reject $\scriptstyle H_0$: $\scriptstyle \mu_{SR} \ =\  \mu_{CR} \ =\  \mu_{SL} \ =\  \mu_{CL}$, it seems reasonable to conduct a multiple comparisons test (conduct multiple tests to identify differences between each group mean and every other group mean).
 
 
->**NOTE:** There are six possible comparisons when there are four group means. Chapter 1 discussed familywise type I error and comparisonwise type I error. The **least-significant differences method** is a technique using comparisonwise type I error: If the $p$-value is less than $\alpha$, reject $H_0$ in favor of $H_a$. Assuming that a particular null hypothesis is true, the least-significant differences method has an $\alpha\%$ chance of (incorrectly) rejecting that hypothesis. When multiple tests are conducted on the same data set, the least-significant differences method leads to type I errors: rejecting null hypotheses when they should not be rejected.
+>**NOTE:** There are six possible comparisons when there are four group means. Chapter 1 discussed family-wise type I error and comparison-wise type I error. The **least-significant differences method** is a technique using comparison-wise type I error: If the $\scriptstyle p$-value is less than $\scriptstyle \alpha$, reject $\scriptstyle H_0$ in favor of $\scriptstyle H_a$. Assuming that a particular null hypothesis is true, the least-significant differences method has an $\scriptstyle \alpha$% chance of (incorrectly) rejecting that hypothesis. When multiple tests are conducted on the same data set, the least-significant differences method leads to type I errors: rejecting null hypotheses when they should not be rejected.
 
->**Bonferroni’s method** is an example of a technique that maintains familywise type I error: If the $p$-value is less than $\alpha/K$ (where $K$ is the number of pairs), reject $H_0$ in favor of $H_a$. With the familywise type I error = $\alpha$, assuming that there really is no difference between any of the $K$ pairs, there is only an $\alpha\%$ chance that any test will reject $H_0$. This leads to type II errors: failing to reject null hypotheses when they should be rejected. Chapter 1 describes the need for multiple comparison procedures and describes both the least-significant difference and the Bonferroni method in more detail.
+>**Bonferroni’s method** is an example of a technique that maintains family-wise type I error: If the $\scriptstyle p$-value is less than $\scriptstyle \alpha/K$ (where $\scriptstyle K$ is the number of pairs), reject $\scriptstyle H_0$ in favor of $\scriptstyle H_a$. With the family-wise type I error = $\scriptstyle \alpha$, assuming that there really is no difference between any of the $K$ pairs, there is only an $\scriptstyle \alpha$% chance that any test will reject $\scriptstyle H_0$. This leads to type II errors: failing to reject null hypotheses when they should be rejected. Chapter 1 describes the need for multiple comparison procedures and describes both the least-significant difference and the Bonferroni method in more detail.
 
 
 Question 38 can be thought of as testing for orthogonal contrasts. An **orthogonal contrast** is a linear combination of treatment means where the coefficients add up to zero. For example, before they collected any data, the researchers in the game study were interested in several specific comparisons:
 
-- Comparing standard to color games: $H_{01}$: (1)$\mu_{SR}$ + (-1)$\mu_{CR}$ + (1)$\mu_{SL}$ + (-1)$\mu_{CL}$ = 0. This is mathematically equivalent to $H_{01}$: $(\frac{1}{2})\mu_{SR} + (\frac{1}{2})\mu_{SL} = (\frac{1}{2})\mu_{CR} + (\frac{1}{2})\mu_{CL}$ or $H_{01}$: $\mu_{S} = \mu_{C}$.
-- Comparing right to left hand: $H_{02}$: (1)$\mu_{SR}$ + (1)$\mu_{CR}$ + (-1)$\mu_{SL}$ + (-1)$\mu_{CL}$ = 0. This is mathematically equivalent to $H_{02}$: $\mu_{R} = \mu_{L}$.
-- Testing for an interaction: $H_{03}$: (1)$\mu_{SR}$ + (-1)$\mu_{CR}$ + (-1)$\mu_{SL}$ + (1)$\mu_{CL}$ = 0.
+- Comparing standard to color games: $\scriptstyle H_{01}$: (1)$\mu_{SR}$ + (-1)$\mu_{CR}$ + (1)$\mu_{SL}$ + (-1)$\mu_{CL}$ = 0. This is mathematically equivalent to $\scriptstyle H_{01}$: $(\frac{1}{2})\mu_{SR} + (\frac{1}{2})\mu_{SL} = (\frac{1}{2})\mu_{CR} + (\frac{1}{2})\mu_{CL}$ or $H_{01}$: $\mu_{S} = \mu_{C}$.
+- Comparing right to left hand: $\scriptstyle H_{02}$: (1)$\mu_{SR}$ + (1)$\mu_{CR}$ + (-1)$\mu_{SL}$ + (-1)$\mu_{CL}$ = 0. This is mathematically equivalent to $\scriptstyle H_{02}$: $\mu_{R} = \mu_{L}$.
+- Testing for an interaction: $\scriptstyle H_{03}$: (1)$\mu_{SR}$ + (-1)$\mu_{CR}$ + (-1)$\mu_{SL}$ + (1)$\mu_{CL}$ = 0.
 
 Each of these linear combinations of population means can be estimated by a contrast:
 
@@ -1090,20 +1067,19 @@ The coefficients of each of the linear combinations sum to zero:
 \end{align}
 
 
-\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{For any null hypothesis test comparing $G$ group means $H_0$: $\mu_1 = \mu_2 = \cdots = \mu_G$ versus the alternative $H_a$: at least one group mean is different from another, a contrast is an estimate of a linear combination of the group means: Contrast 1 ($C_1$) = ($C_{11}$)$\bar{y}_1$ + ($C_{21}$)$\bar{y}_2$ + $\cdots$ + ($C_{G1}$)$\bar{y}_G$, where the coefficients sum to zero: $C_{11} + C_{21} + \cdots + C_{G1} = 0$.}
+\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{For any null hypothesis test comparing $\scriptstyle G$ group means $\scriptstyle H_0$: $\mu_1 = \mu_2 = \cdots = \mu_G$ versus the alternative $\scriptstyle H_a$: at least one group mean is different from another, a contrast is an estimate of a linear combination of the group means: Contrast 1 ($\scriptstyle C_1$) = ($\scriptstyle C_{11}$)$\bar{y}_1$ + (C$\scriptstyle _{21}$)$\scriptstyle \bar{y}_2$ + $\cdots$ + ($\scriptstyle C_{G1}$)$\scriptstyle \bar{y}_G$, where the coefficients sum to zero: $\scriptstyle C_{11} \ +\  C_{21} \ +\  \cdots \ +\  C_{G1}$ = 0.}
 
 
->**MATHEMATICAL NOTE:** 
-Any set of $G$ group means (four group means in our case; $H_0$: $\mu_{SR} = \mu_{CR} = \mu_{SL} = \mu_{CL}$) being compared in a between group sum of squares can be used to create $G-1$ mutually orthogonal contrasts ($H_{01}, H_{02}, H_{03}$). Any two contrasts are said to be orthogonal if the dot product (sum of the cross products) of their coefficient vectors is zero. Contrasts must be orthogonal to ensure that they are independent. This independence allows us to partition the variation in ANOVA, so that the sum of squares corresponding to all $G-1$ contrasts will sum to the between group sum of squares.
+>**MATHEMATICAL NOTE:** Any set of $\scriptstyle G$ group means (four group means in our case; $\scriptstyle H_0$: $\mu_{SR} = \mu_{CR} = \mu_{SL} = \mu_{CL}$) being compared in a between group sum of squares can be used to create $\scriptstyle G$ - 1 mutually orthogonal contrasts ($\scriptstyle H_{01},\  H_{02},\  H_{03}$). Any two contrasts are said to be orthogonal if the dot product (sum of the cross products) of their coefficient vectors is zero. Contrasts must be orthogonal to ensure that they are independent. This independence allows us to partition the variation in ANOVA, so that the sum of squares corresponding to all $\scriptstyle G$ - 1 contrasts will sum to the between group sum of squares.
 
-Often contrasts are incorporated into the ANOVA analysis. The $F$-statistic for a contrast is simply the mean square for a particular between groups measure (for example, $MS_{C1}$ is the mean square for $C_1$) divided by the pooled within group variances (MSE). We can write the mean square for a contrast as
+Often contrasts are incorporated into the ANOVA analysis. The $\scriptstyle F$-statistic for a contrast is simply the mean square for a particular between groups measure (for example, $\scriptstyle MS_{C1}$ is the mean square for $\scriptstyle C_1$) divided by the pooled within group variances (MSE). We can write the mean square for a contrast as
 
 \begin{align}\label{4.15}
 MS_{C1} = \frac{(C1)^2}{\sum_{g=1}^{G} \frac{C_{g1}^2}{n_g}}
 \tag{4.15}
 \end{align}
 
-where $C_{g1}$ is the contrast coefficient and $n_g$ is the sample size for each group. In the game study,
+where $\scriptstyle C_{g1}$ is the contrast coefficient and $\scriptstyle n_g$ is the sample size for each group. In the game study,
 
 \begin{align}
 C1 &= (1)\bar{y}_{SR} + (-1)\bar{y}_{CR} + (1)\bar{y}_{SL} + (-1)\bar{y}_{CL} \notag \\
@@ -1111,7 +1087,7 @@ C1 &= (1)\bar{y}_{SR} + (-1)\bar{y}_{CR} + (1)\bar{y}_{SL} + (-1)\bar{y}_{CL} \n
    &= -5.1 \notag
 \end{align}
 
-Thus, the mean square for contrast 1 ($MS_{C1}$) based on Question 37 is identical to the mean square for game type ($MS_{\text{Type}}$) in Question 38:
+Thus, the mean square for contrast 1 ($\scriptstyle MS_{C1}$) based on Question 37 is identical to the mean square for game type ($\scriptstyle MS_{\text{Type}}$) in Question 38:
 
 \begin{align}
 MS_{C1} &= \frac{1^2}{10} + \frac{(-1)^2}{10} + \frac{1^2}{10} + \frac{(-1)^2}{10} \notag \\
@@ -1123,9 +1099,9 @@ MS_{C1} &= \frac{1^2}{10} + \frac{(-1)^2}{10} + \frac{1^2}{10} + \frac{(-1)^2}{1
 ### \textcolor{blue}{Practice:} Calculating Contrasts {-}
 Data set: `Games2`
 
-40. Use Equation \ref{4.15} to calculate $MS_{C2}$ and $MS_{C3}$. Show your work.
+40. Use Equation \ref{4.15} to calculate $\scriptstyle MS_{C2}$ and $\scriptstyle MS_{C3}$. Show your work.
 
-41. Compare $\scriptstyle MS_{C2}$ and $MS_{C3}$, the mean squares found in Question 38.
+41. Compare $\scriptstyle MS_{C2}$ and $\scriptstyle MS_{C3}$, the mean squares found in Question 38.
 
 
 \textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{Orthogonal contrasts allow multiple comparisons of linear combinations of group means. The key advantage of contrasts is that they do not have inflated type I or type II errors. However, contrasts should always be determined *before* any data are collected. Looking at the data in order to develop contrasts will bias your results.}
@@ -1138,11 +1114,12 @@ Data set: `Games2`
 
 This chapter emphasized the importance of a well-designed experiment. A statistician often needs to communicate with people in other fields in order to properly define the research question, choose appropriate factors and levels, and determine the number of samples needed for the study.
 
-A $p$-value never tells the whole story; $p$-values can be meaningless if assumptions are not met or if there are extraneous variables in the data. Before any conclusions are drawn from a statistical analysis using ANOVA, it is important to use graphs or formal tests to validate the the equal variance and normality assumptions.
+A $\scriptstyle p$-value never tells the whole story; $\scriptstyle p$-values can be meaningless if assumptions are not met or if there are extraneous variables in the data. Before any conclusions are drawn from a statistical analysis using ANOVA, it is important to use graphs or formal tests to validate the the equal variance and normality assumptions.
 
-When equal variance or normality assumptions are violated, the $F$-statistics do not follow an $F$-distribution and the $p$-values may not be accurate. Empirical studies have shown that ANOVA tends to be fairly “robust” to departures from the assumptions of equal variances and normality. If the model assumptions are not met, researchers should try transforming the data to better fit the model assumptions. If no transformation appears to help, researchers should clearly explain that the $p$-values may not be reliable.
+When equal variance or normality assumptions are violated, the $\scriptstyle F$-statistics do not follow an $\scriptstyle F$-distribution and the $\scriptstyle p$-values may not be accurate. Empirical studies have shown that ANOVA tends to be fairly “robust” to departures from the assumptions of equal variances and normality. If the model assumptions are not met, researchers should try transforming the data to better fit the model assumptions. If no transformation appears to help, researchers should clearly explain that the $\scriptstyle p$-values may not be reliable.
 
 The independence and identically distributed assumptions are also essential. A good experimental design has the following characteristics:
+\vspace{-1em}
 \begin{itemize}
     \item It avoids systematic error (bias is minimized by controlling for extraneous variables and using randomization).
     \item It has broad validity (results hold for more than just the units tested in the study).
@@ -1256,7 +1233,7 @@ cat(
   \begin{enumerate}
     \item Write a statistical model that predicts gross earnings based on \textit{Genre} and \textit{Rating}. Use $\alpha_i$ to represent the effect of \textit{Rating} and $\beta_j$ to represent the effect of \textit{Genre}. Notice that the sample size varies for every group.
     \item Use statistical software to test for the effects of \textit{Rating} and \textit{Genre}. Do not include an interaction term. Check the model assumptions, perform any necessary transformations, and state your conclusions.
-    \item Try to use statistical software to test for the effects of \textit{Rating, Genre,} and \textit{Rating*Genre}. Note that the analysis cannot be conducted because many of the interaction factor combinations have no observations. Group several of the \textit{Genre} variables so that there are at least two observations in each \textit{Rating*Genre} group. Now use your new groupings to test for the effects of \textit{Rating, Genre,} and \textit{Rating*Genre}.
+    \item Try to use statistical software to test for the effects of \textit{Rating, Genre,} and \textit{Rating$*$Genre}. Note that the analysis cannot be conducted because many of the interaction factor combinations have no observations. Group several of the \textit{Genre} variables so that there are at least two observations in each \textit{Rating$*$Genre} group. Now use your new groupings to test for the effects of \textit{Rating, Genre,} and \textit{Rating$*$Genre}.
   \end{enumerate}
 
   \item \textbf{Cholesterol}\\
@@ -1366,7 +1343,7 @@ The company agreed to conduct 32 tests, but wanted to test all six factors and a
 \end{enumerate}
 
 
-### Endnotes{-}
+### References {-}
 
 \begin{enumerate}
 

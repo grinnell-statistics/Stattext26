@@ -24,7 +24,7 @@ theme_set(
 
 \begin{flushright}
 \emph{In theory, there’s no difference between theory and practice. In practice, there is.} \\
--- Yogi Berra$^1$
+- Yogi Berra$^1$
 \end{flushright}
 
 

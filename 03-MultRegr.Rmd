@@ -24,7 +24,7 @@ theme_set(
 
 \begin{flushright}
 \emph{Essentially, all models are wrong; some are useful.} \\
--- -George E. P. Box$^1$
+- George E. P. Box$^1$
 \end{flushright}
 
 
