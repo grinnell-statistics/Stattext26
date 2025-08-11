@@ -27,7 +27,7 @@ theme_set(
 
 \begin{flushright}
 \emph{The best thing about being a statistician is that you get to play in everyone’s backyard.} \\
-—John Tukey\footnote{D. Leonhardt, “John Tukey, 85, Statistician, Coined the Word ‘Software’,” New York Times Archives on the Web, 7/28/2000, stat.bell-labs.com/who/tukey/nytimes.html. John Tukey (1915–2000) had a formal background in chemistry and mathematics. Conducting data analysis during World War II peaked his interest in statistics, and he became one of the most influential statisticians of the 20th century.}
+—John Tukey$^1$
 \end{flushright}
 
 
@@ -36,13 +36,17 @@ theme_set(
 There are many investigations where a researcher is interested in developing a regression model when the response variable is dichotomous (has only two categories). Dichotomous responses can be represented with binary data (data with values of only zero or one). Logistic regression is used to examine the relationship between one or more explanatory variables and a binary response variable.
 
 In this chapter, we will look at several studies, including O-ring failure data provided by the National Aeronautics and Space Administration (NASA) after the space shuttle Challenger disaster, in order to introduce the following logistic regression techniques:
+\vspace{-1em}
+\begin{itemize}
+\item Calculating and interpreting the logistic regression model  
+\item Using the Wald statistic and likelihood ratio tests to determine the significance of individual explanatory variables  
+\item Calculating the log-odds function and maximum likelihood estimates  
+\item Conducting goodness-of-fit tests to evaluate model appropriateness  
+\item Assessing regression model performance by looking at a classification table, showing correct and incorrect classification of the response variable  
+\item Extending logistic regression to cases with multiple explanatory variables 
+\end{itemize}
 
-* Calculating and interpreting the logistic regression model  
-* Using the Wald statistic and likelihood ratio tests to determine the significance of individual explanatory variables  
-* Calculating the log-odds function and maximum likelihood estimates  
-* Conducting goodness-of-fit tests to evaluate model appropriateness  
-* Assessing regression model performance by looking at a classification table, showing correct and incorrect classification of the response variable  
-* Extending logistic regression to cases with multiple explanatory variables  
+\newpage
 
 ## \textcolor{blue}{ Investigation: Did Temperature Influence the Likelihood of an O-Ring Failure?}
 
@@ -74,36 +78,9 @@ or more O-rings showing signs of thermal distress.”$^2$
 knitr::include_graphics("docs/Fig7_2Rocket2.png")
 ```
 
-A lamentable aspect of this disaster is that the problem with the O-rings was already understood by
-some engineers prior to the Challenger launch. In February 1984, the Marshall Configuration Control
-Board sent a memo about the O-ring erosion that occurred on STS 41-B (the 10th space shuttle flight and
-the 4th mission for the Challenger shuttle). Messages continued to increase in intensity, as evidenced by
-a 1985 internal memo from Thiokol Corporation, the company that designed the O-ring. Employees from
-Thiokol wrote the following to their Vice President of Engineering: “This letter is written to ensure that
-management is fully aware of the seriousness of the current O-Ring erosion problem in the SRM joints
-from an engineering standpoint.”$^3$
-
-With the temperature on January 28, 1986, expected to be 31°F, Thiokol Corporation recommended
-against the Challenger launch. However, this flight was getting significant publicity because a high school
-teacher, Christa McAuliffe, was on the flight. The flight had already been delayed several times, and there
-was no quick solution to the O-ring concern. The engineers were overruled, and the decision was made to go
-ahead with the launch. The eventual presidential investigation stated,
->“The decision to launch the Challenger was flawed. Those who made that decision were unaware of
-the recent history of problems concerning the O-rings and the joint and were unaware of the initial
-written recommendation of the contractor advising against the launch at temperatures below 53
-degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management
-reversed its position. They did not have a clear understanding of Rockwell’s concern that it was not
-safe to launch because of ice on the pad. If the decision makers had known all of the facts, it is highly
-unlikely that they would have decided to launch 51-L on January 28, 1986.”$^4$
-
-It seems that even though some engineers did comprehend the severity of the problem, they were unable
-to properly communicate the results. Prior to the ill-fated Challenger flight, the solid rocket boosters for 24
-shuttle launches were recovered and inspected for damage. Even though O-ring damage was present in some
-of the flights, the O-rings were not damaged enough to allow any gas to escape. Since damage was very
-minimal, all 24 prior flights were considered a success by NASA.
 
 ```{r tab61, echo=FALSE, results='asis'}
-# Table 6.1: O‑ring damage on 24 space shuttle launches
+# Table 6.1: O-ring damage on 24 space shuttle launches. 
 df6.1 <- data.frame(
   `Flight Number` = 1:24,
   Date = c(
@@ -129,24 +106,52 @@ cat(
     format = "latex",
     booktabs = TRUE,
     escape = FALSE,
-    caption  = "O‑ring damage on 24 space shuttle launches.",
+    caption  = "O-ring damage on 24 space shuttle launches. Flight 4 is a missing data point because the rockets were lost at sea. ",
     align = c("c","c","c","c")
   ) %>%
   column_spec(1, width = "2cm")  %>%
   column_spec(3, width = "3cm")  %>%
   column_spec(4, width = "2cm")  %>%
-  kable_styling(latex_options="hold_position"),
-  "\n\n* Flight 4 is a missing data point because the rockets were lost at sea.\n"
+  kable_styling(latex_options="hold_position")
 )
 ```
 
-Table 6.1 shows the temperature at the time of each launch and whether any damage was visible in any of the O‑rings. In this chapter, we will define a successful launch as one with no evidence of any O‑ring damage. In Table 6.1, **Successful Launch** is a categorical variable, with 0 representing a launch where O‑ring damage occurred and 1 indicating a successful launch with no O‑ring damage. Throughout the rest of this investigation, the relatively small data set in Table 6.1 will be used to demonstrate techniques that can be used to determine if the likelihood of O‑ring damage is related to temperature.
+A lamentable aspect of this disaster is that the problem with the O-rings was already understood by
+some engineers prior to the Challenger launch. In February 1984, the Marshall Configuration Control
+Board sent a memo about the O-ring erosion that occurred on STS 41-B (the 10th space shuttle flight and
+the 4th mission for the Challenger shuttle). Messages continued to increase in intensity, as evidenced by
+a 1985 internal memo from Thiokol Corporation, the company that designed the O-ring. Employees from
+Thiokol wrote the following to their Vice President of Engineering: “This letter is written to ensure that
+management is fully aware of the seriousness of the current O-Ring erosion problem in the SRM joints
+from an engineering standpoint.”$^3$
+
+With the temperature on January 28, 1986, expected to be 31°F, Thiokol Corporation recommended
+against the Challenger launch. However, this flight was getting significant publicity because a high school
+teacher, Christa McAuliffe, was on the flight. The flight had already been delayed several times, and there
+was no quick solution to the O-ring concern. The engineers were overruled, and the decision was made to go
+ahead with the launch. The eventual presidential investigation stated,
+
+>“The decision to launch the Challenger was flawed. Those who made that decision were unaware of
+the recent history of problems concerning the O-rings and the joint and were unaware of the initial
+written recommendation of the contractor advising against the launch at temperatures below 53
+degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management
+reversed its position. They did not have a clear understanding of Rockwell’s concern that it was not
+safe to launch because of ice on the pad. If the decision makers had known all of the facts, it is highly
+unlikely that they would have decided to launch 51-L on January 28, 1986.”$^4$
+
+It seems that even though some engineers did comprehend the severity of the problem, they were unable
+to properly communicate the results. Prior to the ill-fated Challenger flight, the solid rocket boosters for 24
+shuttle launches were recovered and inspected for damage. Even though O-ring damage was present in some
+of the flights, the O-rings were not damaged enough to allow any gas to escape. Since damage was very
+minimal, all 24 prior flights were considered a success by NASA.
+
+Table 6.1 shows the temperature at the time of each launch and whether any damage was visible in any of the O-rings. In this chapter, we will define a successful launch as one with no evidence of any O-ring damage. In Table 6.1, **Successful Launch** is a categorical variable, with 0 representing a launch where O-ring damage occurred and 1 indicating a successful launch with no O-ring damage. Throughout the rest of this investigation, the relatively small data set in Table 6.1 will be used to demonstrate techniques that can be used to determine if the likelihood of O-ring damage is related to temperature.
 
 ### \textcolor{blue}{Practice:} Describing the Data{-}
 
-1. Based on the description of the Challenger disaster O‑ring concerns, identify which variable in the space shuttle data set in Table 6.1 should be the explanatory variable and which should be the response variable.  
+1. Based on the description of the Challenger disaster O-ring concerns, identify which variable in the space shuttle data set in Table 6.1 should be the explanatory variable and which should be the response variable.  
 
-2. Imagine you were an engineer working for Thiokol Corporation prior to January 1986. Create a few graphs of the data in Table 6.1. Is it obvious that temperature is related to the success of the O‑rings? Submit any charts or graphs you have created that show a potential relationship between temperature and O‑ring damage.  
+2. Imagine you were an engineer working for Thiokol Corporation prior to January 1986. Create a few graphs of the data in Table 6.1. Is it obvious that temperature is related to the success of the O-rings? Submit any charts or graphs you have created that show a potential relationship between temperature and O-ring damage.  
 
 In this chapter, we will develop a regression model using a binary response variable, Successful Launch. For the space shuttle data set, y = 1 represents a successful flight with no O-ring damage and y = 0 represents a flight with some O-ring damage. Binary response data occur in many fields; for example, we may want to know
 
@@ -185,8 +190,7 @@ where $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$ are parameters that can 
 Equation (6.3) states that each independent and identically distributed error term follows a normal probability
 distribution that is centered at zero and has a constant variance.
 
->**NOTE**
-When there is only one explanatory variable, as in Equation (6.1), ordinary least squares regression is often called simple linear regression. As shown in Chapter 3, the model is called least squares regression because the line minimizes the sum of the squared residuals (the difference between an observed value and the expected response). Least squares estimates for $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$ (represented as $\scriptstyle b_0 \ =\  \hat\beta_0$ and $\scriptstyle b_1 \ =\  \hat\beta_1$) can be calculated even when the normality and equal variance assumptions are violated. However, these assumptions about the error terms are needed to conduct hypothesis tests and construct confidence intervals for $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$.
+>**NOTE:** When there is only one explanatory variable, as in Equation (6.1), ordinary least squares regression is often called simple linear regression. As shown in Chapter 3, the model is called least squares regression because the line minimizes the sum of the squared residuals (the difference between an observed value and the expected response). Least squares estimates for $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$ (represented as $\scriptstyle b_0 \ =\  \hat\beta_0$ and $\scriptstyle b_1 \ =\  \hat\beta_1$) can be calculated even when the normality and equal variance assumptions are violated. However, these assumptions about the error terms are needed to conduct hypothesis tests and construct confidence intervals for $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$.
 
 
 ### \textcolor{blue}{Practice:} Building a Least Squares Regression Model{-}
@@ -225,58 +229,10 @@ sion model for the space shuttle data.
 Similarly, the odds are 6 to 1 against Saturday being selected (any day but Saturday is a success).
 
 
-
-```{r fig63, warning=FALSE, echo=FALSE, fig.width=4, fig.height=2.68, message=FALSE, fig.cap="Space shuttle data with a simple linear regression model and a logistic regression model."}
-
-
-url<-'https://raw.githubusercontent.com/grinnell-statistics/STA310data/refs/heads/master/Shuttle.csv'
-shuttle<- read.csv(url)
-ggplot(shuttle, aes(x = Temperature, y = Success)) +
-  geom_jitter(width = 0, height = 0.02, size = 2, shape = 21, fill = "black", color = "black") +
-  # logistic fit
-  stat_smooth(
-    aes(color = "logistic model"),
-    method = "glm",
-    method.args = list(family = "binomial"),
-    se = FALSE,
-    size = 1
-  ) +
-  # simple linear fit
-  stat_smooth(
-    aes(color = "simple linear model"),
-    method = "lm",
-    se = FALSE,
-    size = 1
-  ) +
-  # legend colors
-  scale_color_manual(
-    "",
-    values = c(
-      "logistic model" = "#00BFC4",
-      "simple linear model" = "black"
-    )
-  ) +
-  # labels and y‐axis limits
-  labs(
-    x = "Ambient Temperature",
-    y = "Probability of a Successful Launch"
-  ) +
-  scale_y_continuous(limits = c(-0.05, 1.05), expand = c(0, 0)) +
-  theme_minimal(base_family = "serif") +
-  theme(
-    # graph
-    panel.background = element_rect(fill = "grey95", colour = "black", linewidth = 1),
-    panel.border = element_rect(fill = NA, colour = "black", linewidth = 1),
-    # background
-    plot.background = element_rect(fill = "grey90", colour = "black", linewidth = 1),
-    legend.position = c(0.2, 0.8),
-    # legend & text
-    legend.background = element_rect(fill = "white", colour = "black"),
-    plot.title = element_text(size = 16, hjust = 0.5),
-    plot.margin = margin(t = 20, r = 20, b = 20, l = 15, unit = "pt")
-  )
-
+```{r fig63, echo=FALSE, out.width="80%", fig.align="center", fig.cap="Space shuttle data with a simple linear regression model and a logistic regression model."}
+knitr::include_graphics("docs/Fig7_3.png")
 ```
+
 
 Throughout this chapter, we will use terms such as \textit{log-odds} or \textit{log-likelihood}, but we actually use natural logs (ln) in
 our calculations.
@@ -297,68 +253,18 @@ Residuals (observed values minus expected values) are used to estimate the error
 
 In logistic regression, the residuals are $\scriptstyle y_i \ -\  \hat\pi_i$. If the observed response $\scriptstyle y_i$ = 0, then the residual value is $\scriptstyle -\hat\pi_i$. If the observed response $\scriptstyle y_i = 1$, then the residual value is $\scriptstyle 1 \ -\  \hat\pi_i$. This leads to the two curves shown in Figure 6.4. When the temperature is low in the space shuttle data (around 55°F, as seen in Figure 6.3), the observed responses tend to be zero and the predicted responses ($\scriptstyle \hat\pi_i$’s) are small positive numbers. Thus, the residual values ($\scriptstyle -\hat\pi_i$’s) are negative and close to zero. When the temperature is high, the observed responses tend to be one, the predicted responses are close to one, and the residual values are positive and close to zero.
 
-```{r fig64, echo=FALSE, fig.width=4, fig.height=2.68, message=FALSE, fig.cap="A scatterplot of the residuals from the space shuttle logistic regression model and a sample of what a scatterplot of normally distributed residuals might look like."}
-# install.packages("pactchwork")
-library(patchwork)
-# fit logistic model and compute residuals
-# shuttle <- read.csv("Shuttle.csv", stringsAsFactors = FALSE)
-data("C7Shuttle")
-shuttle<-C7Shuttle
-log_mod <- glm(Success ~ Temperature, data = shuttle, family = binomial)
-shuttle$resid <- shuttle$Success - predict(log_mod, type = "response")
-set.seed(42)
-df_norm <- data.frame(
-  Temperature = shuttle$Temperature,
-  Resid       = rnorm(
-    nrow(shuttle),
-    mean = mean(shuttle$resid),
-    sd   = sd(shuttle$resid)
-  )
-)
-# theme
-base_theme <- theme_minimal(base_family = "serif") +
-  theme(
-    panel.background = element_rect(fill = "white", colour = "black", linewidth = 1),
-    panel.border = element_rect(fill = NA,      colour = "black", linewidth = 1),
-    plot.background  = element_rect(fill = "grey90", colour = "black", linewidth = 1),
-    plot.title = element_text(size = 16, hjust = 0.5),
-    plot.margin = margin(t = 20, r = 20, b = 20, l = 15, unit = "pt")
-  )
 
-# 1. Residual plot for the logistic model
-p1 <- ggplot(shuttle, aes(x = Temperature, y = resid)) +
-  geom_point(size = 2) +
-  geom_hline(yintercept = 0) +
-  labs(
-    title = "Residual Plot for the\nLogistic Model",
-    x = "Ambient Temperature",
-    y = "Residuals"
-  ) +
-  scale_y_continuous(limits = c(-1, 1), expand = c(0, 0)) +
-  base_theme
-
-# 2. Normally distributed residuals 
-p2 <- ggplot(df_norm, aes(x = Temperature, y = Resid)) +
-  geom_point(size = 2) +
-  geom_hline(yintercept = 0) +
-  labs(
-    title = "Normally Distributed\nResiduals",
-    x = "Ambient Temperature",
-    y = "Residuals"
-  ) +
-  scale_y_continuous(limits = c(-2, 2), expand = c(0, 0)) +
-  base_theme
-
-# combine side by side
-p1 + p2 + plot_layout(ncol = 2)
+```{r fig64, echo=FALSE, out.width="80%", fig.align="center", fig.cap="A scatterplot of the residuals from the space shuttle logistic regression model and a sample of what a scatterplot of normally distributed residuals might look like."}
+knitr::include_graphics("docs/Fig7_4.png")
 ```
+
+
 
 
 \textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{When the response in a regression model is binomial, $\scriptstyle \pi_i \ =\  P(Y_i \ =\  1)$ is the probability of a success (a launch has no O-ring damage at temperature $\scriptstyle x_i$). In simple linear regression models with a binomial response,}
 
 \begin{align}
-y_i &= \pi_i + \epsilon_i \\ \notag
-    &= \beta_0 + \beta_1 x_i + \epsilon_i \quad \text{for } i = 1, 2, 3, \dots, n 
+y_i = \pi_i + \epsilon_i = \beta_0 + \beta_1 x_i + \epsilon_i \quad \text{for } i = 1, 2, 3, \dots, n 
 \tag{6.7}
 \end{align}
 
@@ -366,8 +272,7 @@ y_i &= \pi_i + \epsilon_i \\ \notag
 \textcolor{blue}{With the logit transformation, logistic regression models with a binomial response have the following form:}
 
 \begin{align}
-y_i &= \pi_i + \epsilon_i \\ \notag
-    &= \frac{e^{\beta_0 + \beta_1 x_i}}{1 + e^{\beta_0 + \beta_1 x_i}} + \epsilon_i \quad \text{for } i = 1,2,3,\dots,n 
+y_i = \pi_i + \epsilon_i  = \frac{e^{\beta_0 + \beta_1 x_i}}{1 + e^{\beta_0 + \beta_1 x_i}} + \epsilon_i \quad \text{for } i = 1,2,3,\dots,n 
     \tag{6.8}
 \end{align}
 
@@ -393,7 +298,7 @@ Clearly the logistic regression model in Figure 6.3 is nonlinear. So it may seem
 
 Instead of using least squares estimates, generalized linear models use the method of maximum likelihood to estimate the coefficients $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$. Later sections provide more detail on calculating maximum likelihood estimates in logistic regression. In the space shuttle example, we will simply use a computer software package to find maximum likelihood estimates of $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$.
 
->**NOTE:**In least squares regression, we often transform the response variable ($\scriptstyle y$) so that the data fit model assumptions. In addition to linearizing data, transforming $\scriptstyle y$ impacts the variability and the distribution of the error terms. In generalized linear models, the link function transforms the expected response ($\scriptstyle \pi$) to fit a linear predictor. For those who have had calculus, link functions are also differentiable and invertible.
+>**NOTE:** In least squares regression, we often transform the response variable ($\scriptstyle y$) so that the data fit model assumptions. In addition to linearizing data, transforming $\scriptstyle y$ impacts the variability and the distribution of the error terms. In generalized linear models, the link function transforms the expected response ($\scriptstyle \pi$) to fit a linear predictor. For those who have had calculus, link functions are also differentiable and invertible.
 
 
 ### \textcolor{blue}{Practice:} Using Software to Calculate Maximum Likelihood Estimates {-}
@@ -409,9 +314,9 @@ Figure 6.3 shows a logistic regression model using maximum likelihood estimates 
 
 \begin{align}
 \hat\pi_i 
-&= \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i}} \\ \notag
-&= \frac{e^{-15.043 + 0.232 x_i}}{1 + e^{-15.043 + 0.232 x_i}} \\ \notag
-&\quad \text{for } i = 1,2,3,\dots,n \tag{6.9}
+= \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i}} = \frac{e^{-15.043 + 0.232 x_i}}{1 + e^{-15.043 + 0.232 x_i}}
+&\quad \text{for } i = 1,2,3,\dots,n 
+\tag{6.9}
 \end{align}
 
 Notice that $\scriptstyle \pi$ in Equation (6.6) has been replaced by $\scriptstyle \hat\pi$ in Equation (6.9) because the parameters in the linear regression model ($\scriptstyle \beta_0$ and $\scriptstyle \beta_1$) have been estimated with our sample data; $\scriptstyle b_0$ = $\scriptstyle \hat\beta_0$ = -15.043 and $\scriptstyle b_1 \ = \ \hat\beta_1$ = 0.232.
@@ -422,7 +327,7 @@ Notice that $\scriptstyle \pi$ in Equation (6.6) has been replaced by $\scriptst
 
 At this point, it seems reasonable to question why the O-rings were not considered a higher risk at the time of the 1986 Challenger launch. After all, the odds of a successful launch (no O-ring damage) at the expected temperature of 31°F are about 1 to 2555 and the predicted odds change dramatically based on temperature. It is important to recognize that the previous launches did not result in the same disaster as the Challenger launch because the O-rings showed only “minor” damage. This wasn’t enough for gas to escape—only an indicator that the O-rings might not be as resilient as expected.
 
->**CAUTION**Estimating a value for a temperature of 31°F is extrapolating beyond our data set. Just as in least squares regression, caution should be used when making predictions outside the range of explanatory variables that are available.
+>**CAUTION:** Estimating a value for a temperature of 31°F is extrapolating beyond our data set. Just as in least squares regression, caution should be used when making predictions outside the range of explanatory variables that are available.
 
 
 ## \textcolor{blue}{ Interpreting the Logistic Regression Model}
@@ -481,7 +386,7 @@ Inference for logistic regression uses statistical theory that is based on limit
 Wald’s test is often used to test the significance of logistic regression coefficients. Just as in least squares regression, we set up a hypothesis test to determine if there is a relationship between the explanatory and response variables:
 
 \begin{align*}
-H_0: b_1 = 0 \quad \text{vs.}\quad H_a: b_1 \neq 0
+H_0: \beta_1 = 0 \quad \text{vs.}\quad H_a: \beta_1 \neq 0
 \end{align*}
 
 Wald’s test is similar to the one-sample Z-test seen in introductory statistics courses. The Wald statistic is calculated as
@@ -498,17 +403,20 @@ where $\scriptstyle b_1$ is the maximum likelihood estimate of $\scriptstyle \be
 
 Wald confidence intervals can also be created. In logistic regression, the confidence interval is often discussed in terms of the odds ratio. For example, a 95% confidence interval for $\scriptstyle \beta_1$ is given as
 
-\begin{align}
-(e^{b_1 - Z^* \text{se}(b_1)}, e^{b_1 + Z^* \text{se}(b_1)}) &= (e^{0.232 - 1.96(0.108)}, e^{0.232 + 1.96(0.108)}) &= (e^{0.02}, e^{0.44}) = (1.02, 1.56) 
+\begin{equation}
+\begin{split}
+(e^{b_1 - Z^* \text{se}(b_1)}, e^{b_1 + Z^* \text{se}(b_1)}) &= (e^{0.232 - 1.96(0.108)}, e^{0.232 + 1.96(0.108)}) \\ &= (e^{0.02}, e^{0.44}) \\ &= (1.02, 1.56) 
+\end{split}
 \tag{6.14}
-\end{align}
+\end{equation}
 
-where 1.96 = Z^* represents a value corresponding to a 95% confidence interval for a normal distribution with mean of 0 and standard deviation of 1. When $\scriptstyle b_1 = 0$, and thus the odds ratio $\scriptstyle e^{b_1} = 1$, the odds of success for temperature $\scriptstyle x_i$ are the same as the odds of success for any other temperature. Thus, $\scriptstyle e^{b_1} = 1$ tells us that there is no association between the explanatory variable and the response.
+where 1.96 = Z* represents a value corresponding to a 95% confidence interval for a normal distribution with mean of 0 and standard deviation of 1. When $\scriptstyle b_1 = 0$, and thus the odds ratio $\scriptstyle e^{b_1} = 1$, the odds of success for temperature $\scriptstyle x_i$ are the same as the odds of success for any other temperature. Thus, $\scriptstyle e^{b_1} = 1$ tells us that there is no association between the explanatory variable and the response.
 
-\textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{When a 95% Wald confidence interval for the odds ratio does not contain 1, we reject the null hypothesis $\scriptstyle H_0: \ \beta_1 \ = \ 0$ (using an alpha-level of 0.05) and conclude that the odds of success do depend on the explanatory variable $\scriptstyle x_i$. If the interval does contain 1, we fail to reject $\scriptstyle H_0:\  \beta_1 \ =\  0$.}
+\textbf{\textcolor{blue}{Key Concept:}} 
+When a 95% Wald confidence interval for the odds ratio does not contain 1, we reject the null hypothesis $\scriptstyle H_0: \ \beta_1 \ = \ 0$ (using an alpha-level of 0.05) and conclude that the odds of success do depend on the explanatory variable $\scriptstyle x_i$. If the interval does contain 1, we fail to reject $\scriptstyle H_0:\  \beta_1 \ =\  0$.
 
 The software output in Figure 6.5 shows Wald’s test and the corresponding confidence interval for the
-odds ratio. In the space shuttle example, the 95% confidence interval does not include $\scriptstyle e^{\beta_1}$ = 1; thus, we can reject the null hypotheses and conclude that the odds of a successful launch do depend on the temperature. Even though computer software provided a small p-value and a confidence interval that does not include 1, it is important to note that there are only 23 observations in this study. While Wald’s test is reasonable with very large sample sizes, with smaller sample sizes it is known to have a tendency to result in a type II error—failing to reject the null hypothesis when it should be rejected.^[?Recall that Z in Equation (6.13) is a statistic calculated from the sample data and Z* in Equation (6.11) is called a critical value. Z* represents a value based on a desired level of confidence. Z* is known before the data are collected, while Z is based on the sample data]
+odds ratio. In the space shuttle example, the 95% confidence interval does not include $\scriptstyle e^{\beta_1}$ = 1; thus, we can reject the null hypotheses and conclude that the odds of a successful launch do depend on the temperature. Even though computer software provided a small p-value and a confidence interval that does not include 1, it is important to note that there are only 23 observations in this study. While Wald’s test is reasonable with very large sample sizes, with smaller sample sizes it is known to have a tendency to result in a type II error—failing to reject the null hypothesis when it should be rejected. Recall that Z in Equation (6.13) is a statistic calculated from the sample data and Z* in Equation (6.11) is called a critical value. Z* represents a value based on a desired level of confidence. Z* is known before the data are collected, while Z is based on the sample data]
 
 We can also calculate the odds ratio of a successful launch between 60°F and 70°F. When $\scriptstyle x_i$
 increases by 10°F, the odds are multiplied by $\scriptstyle (e^{b_1})10$ = $\scriptstyle 1.2613^{10}$ = 10.19. Thus, we have approximately 10 times higher odds of a successful launch when the temperature is 70°F than when it is 60°F. A 95% confidence interval for the odds ratio of a successful launch between 60°F and 70°F can be given by $\scriptstyle (1.02^10, \ 1.56^10)$ = (1.22, 85.40). This 95% confidence interval has a very wide range; the odds of success at 70°F could be just slightly larger than the odds at 60°F or 85 times as large as the odds at 60°F. This large range suggests that our estimate of the odds ratio, 10.19, is highly variable. More data are needed to better understand the true odds ratio.
@@ -523,9 +431,15 @@ increases by 10°F, the odds are multiplied by $\scriptstyle (e^{b_1})10$ = $\sc
  (c) How did the odds ratio change?
  (d) Create a 95% Wald confidence interval for the new odds ratio and interpret the results.
 
-```{r fig65, echo=FALSE, out.width="100%", fig.align="center", fig.cap="Software output for the space shuttle study."}
+```{r fig65, echo=FALSE, out.width="110%", fig.align="center", fig.cap="Software output showing the Wald statistic for the space shuttle study."}
 knitr::include_graphics("docs/Fig7_5Minitab.png")
 ```
+
+
+
+
+
+
 
 ### The Likelihood Ratio Test {-}
 
@@ -569,6 +483,13 @@ G &= 2 \times \text{log-likelihood(full model)} - 2 \times \text{log-likelihood(
 &= 7.952. \notag 
 \end{align}
 
+
+
+```{r fig66, echo=FALSE, out.width="110%", fig.align="center", fig.cap="Software output showing the null and residual deviance for the space shuttle study."}
+knitr::include_graphics("docs/Fig7_6.png")
+```
+
+
 ### \textcolor{blue}{Practice:} The Likelihood Ratio Test {-}
 14. Use statistical software to calculate the LRT for the space shuttle data. Submit the p-value and state your conclusions.
 
@@ -590,6 +511,7 @@ Wolberg and Mangasarian developed a technique to accurately diagnose breast mass
 In Chapter 6, we used contingency tables with only two variables, cell shape and type, to better understand how to analyze two categorical variables. This section will describe the process of variable selection in logistic regression, using the radius and the concavity of cell nuclei to estimate the probability that a tumor is malignant. In this data set, radius is actually the average radius (in micrometers, $\scriptstyle \mu$m) of all visible cell nuclei from a slide, but we will refer to this variable simply as the cell radius for the tumor. The concavity of the cell nuclei is an indicator of whether the visible cell nuclei from the sample have the nice round shape of typical healthy cells or whether cells appear to have grown in such a way that the perimeters of the cell nuclei tend to have concave points.
 
 ### \textcolor{blue}{Practice:} Estimating the Probability of Malignancy in Cancer Cells {-}
+\vspace{-1em}
 Data set: `Cancer2`
 
 15. Create a logistic regression model using Radius and Concave as explanatory variables to estimate the probability that a mass is malignant.  
@@ -614,9 +536,25 @@ The G-statistic for this hypothesis test is 527.42 with 3 - 1 = 2 degrees of fre
 
 The coefficients in multiple logistic regression models are discussed in terms of the odds of success. Any coefficient ($\scriptstyle b_j$) indicates how the response will change corresponding to the $\scriptstyle j$th explanatory variable, conditional on all other explanatory variables in the model. When the $\scriptstyle j$th explanatory variable is increased by one unit, the odds of success will be multiplied by $\scriptstyle e^{b_j}$. When an explanatory variable ($\scriptstyle x_j$) is binary, as Concave is, $\scriptstyle e^{b_j}$ represents the odds ratio between the two groups. However, just as in ordinary least squares regression with multiple explanatory variables, these coefficients are conditional on the other terms in the model.
 
+
+### \textcolor{blue}{Practice:} Interpreting Odds and Model Coefficients
+\vspace{-1em}
+Data set: `Cancer2`
+
+17. Using the logistic model from Question 15, use the odds ratio to interpret the coefficient for concavity.
+
+18. Create a logistic regression model using Radius and Concave as explanatory variables and considering
+benign cells a success (1 instead of 0). Use the odds ratio to interpret the coefficient for concavity. Compare this interpretation to the one in Question 17.
+
 ## \textcolor{blue}{ The Drop-in-Deviance Test}
 
 Figure 6.7 provides the expected probabilities for the model created in Question 15. The probability of a cell being malignant appears to depend on Radius. In addition, it appears that concavity is an important variable in the model, since concave cells tend to have a higher estimated probability of being malignant. In Chapter 3, variable selection is described as a process of determining which explanatory variables should be included in a regression model. Ideally, we would like the simplest model (i.e., the model with the fewest terms) that best explains the response (i.e., the model that has the smallest residuals). In this example, we want to determine if the model in Question 16 can estimate the probability of malignancy just as accurately as the slightly more complex model in Question 15. If the models have similar abilities to estimate the probability of malignancy, then we will prefer the simpler model.
+
+
+```{r fig67, echo=FALSE, out.width="110%", fig.align="center", fig.cap="A scatterplot of the observed data and the estimated probabilities for both round cells (Concave = 0) and concave cells (Concave = 1)."}
+knitr::include_graphics("docs/Fig7_7.png")
+```
+
 
 The logic for determining whether additional terms should be in a logistic regression model is essentially the same as for the LRT discussed in connection with the space shuttle study. The log-likelihood (or deviance) can be used to measure how well any model fits the data. If a full model with two explanatory variables, $\scriptstyle x_1$ and $\scriptstyle x_2$, has a much better fit than a restricted model with just one explanatory variable, $\scriptstyle x_1$, we can conclude that $\scriptstyle x_2$ is significant and should be included in the model.
 
@@ -632,77 +570,6 @@ G &= 2 \times \text{log-likelihood (full model)} - 2 * \text{log-likelihood (res
 \end{align}
 
 Just as in the LRT described in connection with the shuttle example, degrees of freedom are calculated as the number of parameters in the full model minus the number of parameters in the restricted model. Thus, we can test whether `Concave` ($\scriptstyle x_2$) should be included in the model by finding the $\scriptstyle p$-value, which is the percentage of the $\scriptstyle \chi^2$ distribution with 3 - 2 = 1 degree of freedom that exceeds $\scriptstyle G$. The $\scriptstyle p$-value corresponding to Equation (6.16) is less than 0.0001. We have strong evidence that the explanatory variable, `Concave`, is important in the model when `Radius` is already included. Thus, the logistic regression model in Question 15 is preferred over the model in Question 16.
-
-```{r fig66, echo=FALSE, fig.width=4, fig.height=2.68, message=FALSE, fig.cap=" A scatterplot of the observed data and estimated probabilities for both round cells (Concave= 0) and concave cells (Concave= 1)."}
-library(tidyr)
-# fut two logistic models
-# df <- read.csv("Cancer2.csv", stringsAsFactors = FALSE)
-data("C7Cancer2")
-df<-C7Cancer2
-mod_round  <- glm(Malignant ~ radius,
-                  data   = df,
-                  family = binomial,
-                  subset = (concavity == 0))
-mod_concav <- glm(Malignant ~ radius,
-                  data   = df,
-                  family = binomial,
-                  subset = (concavity == 1))
-grid <- data.frame(radius = seq(min(df$radius), max(df$radius), length.out = 200))
-grid$`Round Cells`  <- predict(mod_round, newdata = grid, type = "response")
-grid$`Concave Cells`<- predict(mod_concav, newdata = grid, type = "response")
-pred <- pivot_longer(
-  grid,
-  cols      = c("Round Cells", "Concave Cells"),
-  names_to  = "Type",
-  values_to = "Probability"
-)
-
-# plot
-ggplot() +
-  # two logistic curves
-  geom_line(
-    data = pred,
-    aes(x = radius, y = Probability, color = Type),
-    size = 1
-  ) +
-  # observed Malignant (0/1) points
-  geom_point(
-    data  = df,
-    aes(x = radius, y = Malignant, color = "Observations"),
-    shape = 23, size = 3, fill = "black"
-  ) +
-  # legend
-  scale_color_manual(
-    "",
-    breaks = c("Round Cells", "Concave Cells", "Observations"),
-    values = c(
-      "Round Cells"    = "lightblue",
-      "Concave Cells"  = "#00BFC4",
-      "Observations"   = "black"
-    ),
-    guide = guide_legend(
-      override.aes = list(
-        linetype = c(1, 1, 0),  # lines for the two curves, not for points
-        shape = c(NA, NA, 23) # the diamond for observations
-      )
-    )
-  ) +
-  # axis labels
-  labs(
-    x = "Radius",
-    y = "Estimated Probabilities"
-  ) +
-  # theme
-  theme_minimal(base_family = "serif") +
-  theme(
-    panel.background  = element_rect(fill = "white",  colour = "black", linewidth = 1),
-    panel.border = element_rect(fill = NA,       colour = "black", linewidth = 1),
-    plot.background  = element_rect(fill = "grey90", colour = "black", linewidth = 1),
-    legend.background = element_rect(fill = "white",  colour = "black"),
-    legend.position = c(0.75, 0.25), 
-    plot.margin = margin(t = 20, r = 20, b = 15, l = 15, unit = "pt")
-  )
-```
 
 When the LRT is used for variable selection, it is often called the **change-in-deviance test** or **drop-in-deviance test**. This test is valid only when the restricted model is nested within the full model. A restricted model is **nested** in a full model when every explanatory variable in the restricted model is also in the full model.
 
@@ -722,7 +589,7 @@ When the LRT is used for variable selection, it is often called the **change-in-
 >\textcolor{blue}{6. If the $\scriptstyle p$-value is small, reject $\scriptstyle H_0: \ \beta_i$ = 0 and conclude that $\scriptstyle x_i$ should be included in the model. If the $\scriptstyle p$-value is large, the explanatory variable, $\scriptstyle x_i$, can be eliminated from the model.}
 
 
->**MATHEMATICAL NOTE**
+>**MATHEMATICAL NOTE:**
 The drop-in-deviance can also be used to simultaneously test multiple variables. For example, let’s assume that there were four Shape measurements (round, slightly concave, moderately concave, and severely concave). These four levels would be used to create three indicator variables. If we are interested in testing whether `Shape` is important, we should test all three coefficients simultaneously. The steps in testing three coefficients simultaneously are identical to the steps listed above except that instead of just testing for $\scriptstyle x_j$, we are simultaneously testing for $\scriptstyle x_2$, $\scriptstyle x_3$, and $\scriptstyle x_4$. Then the null hypothesis would be $\scriptstyle H_0: \ \beta_2 \ =\  \beta_3 \ =\  \beta_4$ = 0, where each of these coefficients corresponds to one `Shape` indicator variable in the full model.
 
 
@@ -732,13 +599,13 @@ analogous to those used in multiple least squares regression will be used to fin
 
 Just as in least squares regression, there is often no “best” multivariate logistic regression model. Different stepwise procedures, sampling variability, the desired balance between the accuracy and the simplicity of the model, and choice of terms tested all can influence the final model that is selected. While there should be careful justification for selecting a final model, caution should be used before stating that any selected model is “the best.”
 
->**CAUTION**
+>**CAUTION:**
 Recall that stepwise techniques are useful for developing models if the goal is to estimate or predict a
 response. However, they are not appropriate if the goal of developing a regression model is theory test-
 ing. Stepwise procedures involve multiple testing on the same variables. This leads to unreliable p-values when testing the coefficients of individual explanatory variables. Thus, it is inappropriate to use stepwise procedures to find a good model and then test each coefficient on your final model to determine if the individual explanatory variables are significant.
 
 
->**NOTE**
+>**NOTE:**
 Some software packages have programs that will automatically suggest a model for logistic regression
 (just as is done for stepwise procedures in least squares regression). While this chapter focuses only on the drop-in-deviance test, there are other techniques that can be used in variable selection.
 \begin{align}
@@ -789,7 +656,7 @@ few tied pairs. There are no $\scriptstyle p$-values corresponding to these meas
 ing different models with different explanatory variables or comparing models based on different link
 functions.
 
-```{r fig67, echo=FALSE, out.width="110%", fig.align="center", fig.cap="Minitab output showing measures of association for the space shuttle data."}
+```{r fig68, echo=FALSE, out.width="110%", fig.align="center", fig.cap="Software output showing measures of association for the space shuttle data."}
 knitr::include_graphics("docs/Fig7_8MinitabPairs.png")
 ```
 
@@ -929,56 +796,12 @@ c. Use Wald’s test and the $\scriptstyle G$-statistic to determine if this mod
 
 Figure 6.9 plots the observed percentages of malignant cells and the corresponding logistic regression model. Notice that the observed and expected probabilities are fairly close. However, the observed percentage of malignant cells was higher than expected when the cell radius was 4.5.
 
-```{r fig68, echo=FALSE, fig.width=4, fig.height=2.68, message=FALSE, fig.cap="A logistic regression model, with $\\hat \\pi_i$ estimated from Equation (6.8) using maximum likelihood estimates, plotted with the observed probability of malignancy for the grouped data in Table 6.3."}
-# fit model
-#df <- read.csv("CancercellsTable.csv", stringsAsFactors = FALSE)
-data("C7CancercellsTable")
-df<-C7CancercellsTable
-names(df) <- make.names(names(df))
-#names(df)[names(df) == "Median Radius"] <- "Median.Radius"
-#names(df)[names(df) == "Porportion Malignant"] <- "Proportion.Malignant"
-mod <- glm(cbind(Malignant, Benign) ~ Median.Radius,
-           data = df,
-           family = binomial)
-radius_grid <- seq(min(df$Median.Radius), max(df$Median.Radius), length = 200)
-pred_df <- data.frame(Median.Radius = radius_grid)
-pred_df$predicted <- predict(mod, newdata = pred_df, type = "response")
 
-# plot
-ggplot() +
-  # logistic curve
-  geom_line(
-    data = pred_df,
-    aes(x = Median.Radius, y = predicted),
-    color = "#00BFC4",
-    linetype = "dashed",
-    size = 1
-  ) +
-  # observed group proportions
-  geom_point(
-    data = df,
-    aes(x = Median.Radius, y = Proportion.Malignant),
-    size = 3
-  ) +
-  # labels
-  labs(
-    title = "Observed Cancer Cell Probabilities\nwith a Logistic Regression Model",
-    x = "Radius",
-    y = "Probability of Malignancy"
-  ) +
-  scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
-  scale_x_continuous(expand = c(0, 0)) +
-  # theme
-  theme_minimal(base_family = "serif") +
-  theme(
-    plot.title       = element_text(size = 16, face = "bold", hjust = 0.5, lineheight = 1.1),
-    panel.background = element_rect(fill = "white", colour = "black", linewidth = 1),
-    panel.border     = element_rect(fill = NA,  colour = "black", linewidth = 1),
-    plot.background  = element_rect(fill = "grey90",  colour = "black", linewidth = 1),
-    axis.title       = element_text(face = "bold"),
-    legend.position  = "none"
-  )
+
+```{r fig69, echo=FALSE, out.width="110%", fig.align="center", fig.cap="A logistic regression model, with $\\hat \\pi_i$ estimated from Equation (6.8) using maximum likelihood estimates, plotted with the observed probability of malignancy for the grouped data in Table 6.3."}
+knitr::include_graphics("docs/Fig7_9.png")
 ```
+
 
 ## \textcolor{blue}{ Calculating Residuals for Logistic Models with Binomial }
 
@@ -995,7 +818,7 @@ Using our estimate $\hat{\pi}_i = \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i}
 
 Since the variance is not constant, each residual is weighted by its own estimated standard deviation.
 
->**NOTE** We can calculate the Pearson residual using count data because we know that for any individual radius, $\scriptstyle x_i$, the response variable, $\scriptstyle y_i$, follows a binomial distribution with an estimated mean $\scriptstyle n_i \times \hat\pi_i$ and variance $\scriptstyle n_i \  \times \  \hat\pi_i \  \times \  (1 \ -\  \hat\pi_i)$.  
+>**NOTE:** We can calculate the Pearson residual using count data because we know that for any individual radius, $\scriptstyle x_i$, the response variable, $\scriptstyle y_i$, follows a binomial distribution with an estimated mean $\scriptstyle n_i \times \hat\pi_i$ and variance $\scriptstyle n_i \  \times \  \hat\pi_i \  \times \  (1 \ -\  \hat\pi_i)$.  
 
 
 ### \textcolor{blue}{Practice:} Evaluating Residuals in Binomial Logistic Regression {-}
@@ -1036,7 +859,7 @@ Test 1: The **Pearson chi‐square goodness‐of‐fit test** is the traditional
 
 Test 2: The **deviance goodness‐of‐fit test** (also called the likelihood ratio chi‐square test) is based on the sum of squared deviance residuals. The test statistic follows a chi‐square probability distribution where the degrees of freedom are calculated as the number of groups minus the number of parameters being estimated. The Pearson test statistic and the deviance test statistic tend to be similar. For determining a model, the deviance goodness‐of‐fit test is preferred over the Pearson test.$^9$
 
->**NOTE**  
+>**NOTE:**  
 The sum of squared Pearson residuals is equal to the Pearson chi‐square test statistic. When there is one explanatory variable, the likelihood ratio test is equivalent to the deviance goodness‐of‐fit test. The residual deviance and the degrees of freedom given in R are identical to those given in the deviance goodness‐of‐fit test statistic in Minitab.  
 
 
@@ -1109,7 +932,7 @@ cat(
    
    Describe differences (if any) between your conclusions here and those from the Pearson test in Question 29.
 
-Figure 6.10 shows the Minitab output for the logistic regression model fit and the three goodness-of-fit tests. All three goodness-of-fit tests show small p-values, indicating that we can reject $\scriptstyle H_0$ and conclude that the model is *not a good fit*. In addition, the cell counts shown in Question 29 reveal that the sample size is large enough for us to believe the tests are reliable. Thus, other models should be tried. The logistic regression model shown in Figure 6.10 looks reasonable, but there are many possible explanations as to why
+Figure 6.10 shows software output for the logistic regression model fit and the three goodness-of-fit tests. All three goodness-of-fit tests show small p-values, indicating that we can reject $\scriptstyle H_0$ and conclude that the model is *not a good fit*. In addition, the cell counts shown in Question 29 reveal that the sample size is large enough for us to believe the tests are reliable. Thus, other models should be tried. The logistic regression model shown in Figure 6.10 looks reasonable, but there are many possible explanations as to why
 the data are not considered a good fit:
 
 * The groups based on median radius may not be appropriate. For example, radii of 1.51 and 2.49 were considered part of the same group. We could create more groups with smaller class sizes. Clearly we lose information whenever data are grouped into categories, so using the original data is likely the best option.
@@ -1121,7 +944,7 @@ or log) of the explanatory variable(s).
 * The binomial model may not appropriately model the response variable or a transformation other
 than the logit transformation may need to be tried. *Notice that the logit model assumes symmetry; the curves in the S are the same shape and symmetric around the midpoint of the data.*   
 
-```{r fig69, echo=FALSE, out.width="100%", fig.align="center", fig.cap="Software output for the Cancercells study"}
+```{r fig69b, echo=FALSE, out.width="100%", fig.align="center", fig.cap="Software output for the Cancercells study"}
 knitr::include_graphics("docs/Fig7_10MinitabLog.png")
 ```
 
@@ -1323,7 +1146,7 @@ Data set: `Cancer2`
 
 Maximum likelihood estimation is a fairly complex topic. The goal of this section is simply to provide an example of how to calculate maximum likelihood estimates with binomial data. After completing this section, you should have a better understanding of how the LRT and the deviance test are calculated. However, as stated earlier, maximum likelihood estimates are very computationally intensive and are best left to computer algorithms.
 
->**MATHEMATICAL NOTE** When the assumptions about the residuals in the least squares regression model described in Section 6.2 are satisfied, the maximum likelihood estimates of $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$ are identical to the least squares estimates.  
+>**MATHEMATICAL NOTE:** When the assumptions about the residuals in the least squares regression model described in Section 6.2 are satisfied, the maximum likelihood estimates of $\scriptstyle \beta_0$ and $\scriptstyle \beta_1$ are identical to the least squares estimates.  
 
 
 ### Maximum Likelihood Estimator for Binary Data {-}
@@ -1644,7 +1467,7 @@ Number of SAG wins
 
 
 
-### Endnotes{-}
+### References{-}
 
 \begin{enumerate}
 

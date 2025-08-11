@@ -5294,9 +5294,9 @@ The company agreed to conduct 32 tests, but wanted to test all six factors and a
 
 \end{enumerate}
 
-\hypertarget{endnotes}{%
-\subsection*{Endnotes}\label{endnotes}}
-\addcontentsline{toc}{subsection}{Endnotes}
+\hypertarget{references-3}{%
+\subsection*{References}\label{references-3}}
+\addcontentsline{toc}{subsection}{References}
 
 \begin{enumerate}
 
@@ -5336,36 +5336,27 @@ adapted from p. 2.
 { \emph{It is commonly believed that anyone who tabulates numbers is a statistician. This is like believing that anyone who owns a scalpel is a surgeon.}}\\
 { ---Robert Hooke1}
 
-This chapter introduces inference techniques for data in which both the explanatory and
-response variables are categorical. The term categorical data analysis often refers to
-analysis of data in which the response variable is categorical. However, in this chapter
-we will restrict our focus to cases where both the explanatory and the response variables are
-categorical and where there is no natural ordering to the categories.
+This chapter introduces inference techniques for data in which both the explanatory and response variables are categorical. The term categorical data analysis often refers to analysis of data in which the response variable is categorical. However, in this chapter we will restrict our focus to cases where both the explanatory and the response variables are categorical and where there is no natural ordering to the categories.
 
-Most of the hypothesis tests discussed in previous chapters use the normal distribution to
-model the mean response. In this chapter, proportions, odds ratios, and relative risk will be
-used to summarize categorical data. We will start by looking at cancer cell data to determine
-if there is a relationship between the shape of the cell nuclei and the proportion of malignant
-cells. In this chapter, we will discuss how to do the following:
+Most of the hypothesis tests discussed in previous chapters use the normal distribution to model the mean response. In this chapter, proportions, odds ratios, and relative risk will be used to summarize categorical data. We will start by looking at cancer cell data to determine if there is a relationship between the shape of the cell nuclei and the proportion of malignant cells. In this chapter, we will discuss how to do the following:
 
+\vspace{-1em}
 \begin{itemize}
-\tightlist
-\item
-  Conduct a simulation study, chi-square test, and Fisher's exact test
-\item
-  Calculate and properly interpret summary statistics such as relative risk and the odds ratio
-\item
-  Determine which test to use based on various sampling schemes and questions of interest
+\item Conduct a simulation study, chi-square test, and Fisher’s exact test
+\item Calculate and properly interpret summary statistics such as relative risk and the odds ratio
+\item Determine which test to use based on various sampling schemes and questions of interest
 \end{itemize}
+
+\newpage
 
 \hypertarget{section-48}{%
 \section{\texorpdfstring{\textcolor{blue}{Investigation: Is Cell Shape Associated with Malignancy?}}{}}\label{section-48}}
 
 Cancer is a disease that occurs when abnormal cells grow in the body. When DNA (a substance in every
 cell) is damaged, normal cells will often repair the damaged DNA. Cancer cells are cells in which the
-DNA is not repaired. DNA can be damaged by many things, including viruses, tobacco smoke, alcohol, and too much sunlight. Cells with damaged DNA can also be inherited. Cancer cells can continue to grow and divide and usually form tumors (a lump or mass) somewhere in the body. Cancer cells can also {[}{[}{[}outlive It{]}{]}
+DNA is not repaired. DNA can be damaged by many things, including viruses, tobacco smoke, alcohol, and too much sunlight. Cells with damaged DNA can also be inherited. Cancer cells can continue to grow and divide and usually form tumors (a lump or mass) somewhere in the body. Cancer cells can also outlive normal cells
 
-is important to note that not all tumors are cancerous. If a lump is detected, part of it can be removed surgically and a biopsy conducted to determine if the mass is benign or malignant. Benign tumors are scar tissue or abnormal growths that do not spread and are typically harmless. Malignant (or invasive) cancer cells are cells that can travel, typically through the bloodstream or lymph nodes, and begin to replace normal cells in other parts of the body. If a tumor is malignant, it is essential to remove or destroy all cancerous cells in order to keep them from spreading. If a tumor is benign, surgery is typically not needed and the harmless tumor can remain.
+It is important to note that not all tumors are cancerous. If a lump is detected, part of it can be removed surgically and a biopsy conducted to determine if the mass is benign or malignant. Benign tumors are scar tissue or abnormal growths that do not spread and are typically harmless. Malignant (or invasive) cancer cells are cells that can travel, typically through the bloodstream or lymph nodes, and begin to replace normal cells in other parts of the body. If a tumor is malignant, it is essential to remove or destroy all cancerous cells in order to keep them from spreading. If a tumor is benign, surgery is typically not needed and the harmless tumor can remain.
 
 A biopsy requires surgery to remove a section (or all) of the tumor and will leave a scar. Fine needle aspiration (FNA) is a technique in which a small sample of the tumor is taken using a needle and visually inspected through a microscope. Since many tumors are benign, it is often preferable to have an FNA, which is less invasive and less traumatic than a biopsy.
 
@@ -5381,10 +5372,8 @@ In this chapter, we will focus on just a few characteristics from a relatively s
 
 }
 
-\caption{Segmented bar graph of nucleus shape and malignancy.}\label{fig:fig51}
+\caption{An image of malignant cells where nuclei are outlined with a curve-fitting program.  Reprinted by permission. Mangasarian et.al, Breast Cancer Diagnosis and Prognosis via Linear Programming, INFORMS Journal Operations Research, 43.4, 1995. © 1995, Institute for Operations Research and the Management Sciences (INFORMS).}\label{fig:fig51}
 \end{figure}
-
-Figure 5.1 An image of malignant cells where nuclei are outlined with a curve-fitting program. Reprinted by permission. Mangasarian, Street \& Wolberg, ``Breast Cancer Diagnosis and Prognosis via Linear Programming,'' INFORMS Journal Operations Research, 43.4, 1995. © 1995, Institute for Operations Research and the Management Sciences (INFORMS).
 
 \hypertarget{section-49}{%
 \section{\texorpdfstring{\textcolor{blue}{Summarizing Categorical Data}}{}}\label{section-49}}
@@ -5416,7 +5405,7 @@ A table that counts the number of observations in each group, such as Table 5.1,
 Similarly, the Type of the cell is called the \textbf{column variable}.
 
 \begin{quote}
-\textbf{NOTE}Categorical data that have a natural ordering, such as level of agreement (strongly disagree, disagree indifferent, agree, strongly agree) or evaluation of a product (poor, fair, good, or excellent), are called \textbf{ordinal data}. Categorical data that do not have a natural ordering, such as gender or major, are called \textbf{nominal data}. Techniques for nominal data will give identical results for any ordering of the categories, whereas results based on techniques for ordinal data do depend on the ordering of the data. This chapter is restricted to examples of nominal data analysis techniques.
+\textbf{NOTE:} Categorical data that have a natural ordering, such as level of agreement (strongly disagree, disagree indifferent, agree, strongly agree) or evaluation of a product (poor, fair, good, or excellent), are called \textbf{ordinal data}. Categorical data that do not have a natural ordering, such as gender or major, are called \textbf{nominal data}. Techniques for nominal data will give identical results for any ordering of the categories, whereas results based on techniques for ordinal data do depend on the ordering of the data. This chapter is restricted to examples of nominal data analysis techniques.
 \end{quote}
 
 \textbf{\textcolor{blue}{Key Concept:}}
@@ -5439,9 +5428,12 @@ Similarly, the Type of the cell is called the \textbf{column variable}.
 Bar graphs are often useful in comparing two categorical variables. Figure 5.1 shows a \textbf{segmented bar graph} (also called a stacked bar graph) for the cancer cell data. This graph shows the conditional percentages for each nucleus shape. About 80\% of the concave nuclei are malignant, whereas about 45\% of the round nuclei are malignant.
 
 \begin{figure}
-\centering
-\includegraphics{_main_files/figure-latex/fig52-1.pdf}
-\caption{\label{fig:fig52}Segmented bar graph of nucleus shape and malignancy.}
+
+{\centering \includegraphics[width=0.9\linewidth]{docs/Fig6_2} 
+
+}
+
+\caption{Segmented bar graph of nucleus shape and malignancy.}\label{fig:fig52}
 \end{figure}
 
 \hypertarget{section-50}{%
@@ -5463,10 +5455,13 @@ If the null hypothesis, \(\scriptstyle H_0\), is true, the two populations (of c
 The \textbf{\(\scriptstyle p\)-value} for this test is the probability of obtaining a difference in sample proportions (\(\scriptstyle \hat p_C \ -\  \hat p_R\)) as large as or larger than the one observed in this sample when the null hypothesis is true. If the \(\scriptstyle p\)-value is small, it is unlikely that the null hypothesis is true and we conclude that the alternative hypothesis (\(\scriptstyle p_C \ >\  p_R\)) is true.
 
 One way to estimate this \(\scriptstyle p\)-value is to simulate taking samples many times under the following three conditions:
+\vspace{-1em}
 
-• Assume that malignancy is unrelated to cell nucleus shape (i.e., assume that both cell nucleus shapes have the same proportion of malignant cells).\\
-• A total of 13 benign and 24 malignant cells were observed.\\
-• A total of 16 round cell nuclei and 21 concave cell nuclei were observed.
+\begin{itemize}
+\item Assume that malignancy is unrelated to cell nucleus shape (i.e., assume that both cell nucleus shapes have the same proportion of malignant cells).  
+\item A total of 13 benign and 24 malignant cells were observed.  
+\item A total of 16 round cell nuclei and 21 concave cell nuclei were observed.
+\end{itemize}
 
 \hypertarget{conducting-a-simulation-study-with-cards}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Conducting a Simulation Study with Cards}{ Conducting a Simulation Study with Cards}}\label{conducting-a-simulation-study-with-cards}}
@@ -5479,8 +5474,10 @@ One way to estimate this \(\scriptstyle p\)-value is to simulate taking samples 
   Use 37 index cards to represent this sample of 37 cancer cells. On 24 of the cards write M for ``malignant,'' and on 13 of the cards write B for ``benign.'' Shuffle the cards and randomly select 21 cards. These
   21 cards can represent the concave nucleus group. How many of the 21 concave cards are also malignant?
 \item
-  Repeat the simulation process in Question 4 nine more times. Does it seem likely that 17 or more malignant cells would occur in the concave group by chance alone? While simulations can be done by hand with cards, this process is very time consuming, as a large number of simulations are needed to get a true feel for the likelihood of an outcome (many statisticians suggest 10,000 simulations). Instead of repeating the above process 10,000 times by hand, we will use a computer program to conduct a simulation.
+  Repeat the simulation process in Question 4 nine more times. Does it seem likely that 17 or more malignant cells would occur in the concave group by chance alone?
 \end{enumerate}
+
+While simulations can be done by hand with cards, this process is very time consuming, as a large number of simulations are needed to get a true feel for the likelihood of an outcome (many statisticians suggest 10,000 simulations). Instead of repeating the above process 10,000 times by hand, we will use a computer program to conduct a simulation.
 
 \hypertarget{computer-simulation}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Computer Simulation}{ Computer Simulation}}\label{computer-simulation}}
@@ -5520,7 +5517,7 @@ that the difference in our sample proportions is so large that it is unlikely to
 Using simulations to approximate \(\scriptstyle p\)-values has many advantages. Often simple programs or macros can be written to quickly simulate thousands of samples. Computer programs can be modified to fit a variety of situations, while parametric tests with theoretical assumptions can be somewhat rigid and require large sample sizes. Simulations only provide approximate \(\scriptstyle p\)-values. However, increasing the number of simulations improves the precision of the \(\scriptstyle p\)-value; 10,000 simulations usually provides precise \(\scriptstyle p\)-values.
 
 \begin{quote}
-\textbf{NOTE}This simulation study is an example of a permutation test. Chapter 1 describes that permutation hypothesis
+\textbf{NOTE:} This simulation study is an example of a permutation test. Chapter 1 describes that permutation hypothesis
 tests are significance tests that simulate the act of randomly rearranging units into groups.
 \end{quote}
 
@@ -5555,16 +5552,18 @@ Total & 13 & $24 = M$ & $37 = N$\\
 
 Table 5.3, \(\scriptstyle x\) represents the event of interest (observing 17 concave malignant cells), \(\scriptstyle N\) = 37 represents the total number of observations, \(\scriptstyle M\) = 24 is the total number of malignant cells (number of successes), and \(\scriptstyle n\) is the total number of observations in the concave group.
 
-\begin{quote}
-\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(\scriptstyle p\)-values. For any 2 × 2 contingency table when there are \(\scriptstyle N\) total observations with \(\scriptstyle M\) total successes, the probability of observing \(\scriptstyle x\) successes, \(\scriptstyle P(X \ = \ x)\), in a sample of size \(\scriptstyle n\){[}{[}{[} is{]}{]}{]}
-\end{quote}
+In this section, we simply discuss how to conduct Fisher's exact test with statistical software. Fisher's exact test uses the hypergeometric distribution to calculate exact \(\scriptstyle p\)-values. For any 2 × 2 contingency table when there are \(\scriptstyle N\) total observations with \(\scriptstyle M\) total successes, the probability of observing \(\scriptstyle x\) successes, \(\scriptstyle P(X \ = \ x)\), in a sample of size \(\scriptstyle n\) is:
 
-\begin{align}
+\begin{align*}
 \frac{\text{number of ways to select $x$ successes and $n - x$ failures}}{\text{number of ways to select $n$ subjects}}
- &= \frac{\binom{M}{x}\,\binom{N - M}{n - x}}{\binom{N}{n}} \notag
-\end{align}
+ = \frac{\binom{M}{x}\,\binom{N - M}{n - x}}{\binom{N}{n}} 
+\end{align*}
 
-where \(\binom{M}{x} \ =\  M \text{“choose”} x \ =\  \frac{M!}{x!(M - x)!}\).\footnote{For any positive integer, the notation n! is read ``n factorial'' and is defined as \(\scriptstyle n!= n(n- 1)(n- 2) \cdot\cdot\cdot (3)(2)(1)\). For example, ``3 factorial'' is 3 \(\times\) 2 \(\times\) 1 = 6 and ``four factorial'' is \(\scriptstyle 4!\) = 4 \(\times\) 3 \(\times\) 2 \(\times\) 1 = 24. In addition, \(\scriptstyle 0!= 1\).} Similar calculations hold for \(\scriptstyle \binom{N - M}{n - x}\) and \(\scriptstyle \binom{N}{n}\).''
+where \(\binom{M}{x} \ =\  M \text{“choose”} x \ =\  \frac{M!}{x!(M - x)!}\).
+
+Similar calculations hold for \(\scriptstyle \binom{N - M}{n - x}\) and \(\scriptstyle \binom{N}{n}\).
+
+For any positive integer, the notation n! is read ``n factorial'' and is defined as \(\scriptstyle n!= n(n- 1)(n- 2) \cdot\cdot\cdot (3)(2)(1)\). For example, ``3 factorial'' is 3 \(\times\) 2 \(\times\) 1 = 6 and ``four factorial'' is \(\scriptstyle 4!\) = 4 \(\times\) 3 \(\times\) 2 \(\times\) 1 = 24. In addition, \(\scriptstyle 0!= 1\).
 
 \hypertarget{calculating-fishers-exact-test}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Calculating Fisher's Exact Test}{ Calculating Fisher's Exact Test}}\label{calculating-fishers-exact-test}}
@@ -5589,11 +5588,10 @@ where \(\binom{M}{x} \ =\  M \text{“choose”} x \ =\  \frac{M!}{x!(M - x)!}\)
 Both the simulation in Section 5.3 and Fisher's exact test can be considered permutation tests. The simulation study provides an approximation to Fisher's exact test. Fisher's exact test provides a \(\scriptstyle p\)-value for this problem of P(X \(\scriptstyle \geq\) 17)= 0.0225. If there truly were no difference between the likelihood of malignancy for the two nucleus shapes (which would mean the null hypothesis \(\scriptstyle H_0\) was true), random sampling would produce this outcome (17 or more malignant cells in the concave group) 2.25\% of the time. This small probability provides evidence that \(\scriptstyle H_0\) should be rejected.
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(\scriptstyle p\)-values. For any 2 × 2 contingency table when there are \(\scriptstyle N\) total observations with \(\scriptstyle M\) total successes, the probability of observing \(\scriptstyle x\) successes, P(X = x), in a sample of size \(\scriptstyle n\) is Fisher's exact test and the corresponding simulation study were derived here using a rather strong assumption about the null hypothesis. Both tests were completed under the assumption that we had observed 13 benign and 24 malignant cells and that these totals would be the same in every randomization. Statisticians call this a \textbf{conditional test of independence}. In other words, both the row and the column totals are known (fixed) before the study is conducted. However, the extended activities will show that Fisher's exact test can be used for any 2 \(\scriptstyle \times\) 2 table, even when the margin totals are not fixed.\(^5\)
+\textbf{MATHEMATICAL NOTE:} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. Fisher's exact test uses the hypergeometric distribution to calculate exact \(\scriptstyle p\)-values. For any 2 × 2 contingency table when there are \(\scriptstyle N\) total observations with \(\scriptstyle M\) total successes, the probability of observing \(\scriptstyle x\) successes, P(X = x), in a sample of size \(\scriptstyle n\) is Fisher's exact test and the corresponding simulation study were derived here using a rather strong assumption about the null hypothesis. Both tests were completed under the assumption that we had observed 13 benign and 24 malignant cells and that these totals would be the same in every randomization. Statisticians call this a \textbf{conditional test of independence}. In other words, both the row and the column totals are known (fixed) before the study is conducted. However, Fisher's exact test can be used for any 2 \(\scriptstyle \times\) 2 table, even when the margin totals are not fixed.\(^5\)
 \end{quote}
 
-\textbf{\textcolor{blue}{Key Concept:}}
-\textbackslash textcolor\{blue\}\{Fisher's exact test uses the hypergeometric distribution to provide exact \(\scriptstyle p\)-values even for small sample sizes and succes/failure proportions near 0\% or 100\%\}
+Fisher's exact test uses the hypergeometric distribution to provide exact \(\scriptstyle p\)-values even when there are small sample sizes or when the success/failure proportions are near 0\% or 100\%.
 
 \hypertarget{section-52}{%
 \section{\texorpdfstring{\textcolor{blue}{Two-Sided Hypothesis Tests}}{}}\label{section-52}}
@@ -5626,36 +5624,23 @@ Based on this simulation, the two-sided hypothesis test should reject the null h
 \addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Calculating a Two-Sided Hypothesis Test}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{13}
-\tightlist
-\item
-  The three conditions in Section 5.3 stay the same for both the one-sided and the two-sided tests. The total number of malignant cells must be 24, the number of concave cells is 21, and the number of round cells is 16. Thus, when Y = the number of concave malignant cells, \(\scriptstyle \hat p_C \ -\  \hat p_R = Y/21 \ -\  (24 \ -\  Y)/16\).
-\end{enumerate}
+  \setcounter{enumi}{13}
+
+  \item The three conditions in Section 5.3 stay the same for both the one-sided and the two-sided tests. The total number of malignant cells must be 24, the number of concave cells is 21, and the number of round cells is 16. Thus, when Y = the number of concave malignant cells, $\scriptstyle \hat p_C \ -\  \hat p_R = Y/21 \ -\  (24 \ -\  Y)/16$. 
 
 \begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\item
-  Find \(\scriptstyle \hat p_C \ -\  \hat p_R\) when Y = 17.
-\item
-  Find \(\scriptstyle \hat p_C \ -\  \hat p_R\) when Y = 9, Y = 10, and Y = 11.
+  \item Find $\scriptstyle \hat p_C \ -\  \hat p_R$ when Y = 17.  
+ 
+  \item Find $\scriptstyle \hat p_C \ -\  \hat p_R$ when Y = 9, Y = 10, and Y = 11. Notice that the two-sided test is not completely balanced; there is no count, Y, that exactly corresponds to $\scriptstyle \hat p_C \ -\  \hat p_R = -0.372$. However, any $\scriptstyle Y\  \le \ 10$ will satisfy $\scriptstyle \hat p_C \ -\  \hat p_R \le$ -0.372.  
+\end{enumerate}
+
+\item Repeat Question 8 to estimate the $\scriptstyle p$-value for the two-sided hypothesis test.  
+
+\item Use the hypergeometric distribution to find the $\scriptstyle p$-value for the two-sided hypothesis test.
 \end{enumerate}
 
 \begin{quote}
-Notice that the two-sided test is not completely balanced; there is no count, Y, that exactly corresponds to \(\scriptstyle \hat p_C \ -\  \hat p_R = -0.372\). However, any \(\scriptstyle Y\  \le \ 10\) will satisfy \(\scriptstyle \hat p_C \ -\  \hat p_R \le\) -0.372.
-\end{quote}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{14}
-\item
-  Repeat Question 8 to estimate the \(\scriptstyle p\)-value for the two-sided hypothesis test.
-\item
-  Use the hypergeometric distribution to find the \(\scriptstyle p\)-value for the two-sided hypothesis test.
-\end{enumerate}
-
-\begin{quote}
-\textbf{NOTE}Two-sided tests can be somewhat cumbersome. Many statisticians suggest simply approximating a two-sided \(\scriptstyle p\)-value by doubling the one-sided \(\scriptstyle p\)-value. For example, the \(\scriptstyle p\)-value for \(\scriptstyle H_0:\  p_C \ =\  p_R\) vs.~\(\scriptstyle H_a:\  p_C \ \neq \ p_R\) is 2 \(\times\) P(X \(\ge\) 17) = 2(0.0225) = 0.045.
+\textbf{NOTE:} Two-sided tests can be somewhat cumbersome. We can approximate a two-sided \(\scriptstyle p\)-value by doubling the one-sided \(\scriptstyle p\)-value (e.g.~\(\scriptstyle p\)-value for \(\scriptstyle H_0:\  p_C \ =\  p_R\) vs.~\(\scriptstyle H_a:\  p_C \ \neq \ p_R\) is 2 \(\times\) P(X \(\ge\) 17) = 2(0.0225) = 0.045).
 \end{quote}
 
 \hypertarget{section-53}{%
@@ -5665,20 +5650,17 @@ Fisher's exact test has the advantage of providing exact \(\scriptstyle p\)-valu
 
 You may recall from previous statistics courses that the chi-square test requires that certain assumptions be met before any analysis is done. For example, large sample sizes are needed, especially if the proportion of successes in either group is close to 0\% or 100\%. If the sample size is large enough, the distribution of the chi-square test statistic will resemble the chi-square distribution.
 
-\textbf{\textcolor{blue}{Key Concept:}}
-The steps to conduct a chi-square test are similar to those for the hypothesis tests discussed in most introductory statistics classes.\footnote{For 2 × 2 tables, the chi-square test statistic is identical to the square of the Z-statistic when testing for equal population proportions. In addition, the \(\scriptstyle p\)-values for the two tests will be identical.} To conduct a chi-square test you will need to do the following:
+The steps to conduct a chi-square test are similar to those for the hypothesis tests discussed in most introductory statistics classes. For 2 × 2 tables, the chi-square test statistic is identical to the square of the Z-statistic when testing for equal population proportions. In addition, the \(\scriptstyle p\)-values for the two tests will be identical.
+
+To conduct a chi-square test you will need to do the following:
+\vspace{-1em}
 
 \begin{itemize}
-\item
-  State the null and alternative hypotheses.
-\item
-  Calculate the test statistic.
-\item
-  Calculate the \(\scriptstyle p\)-value.
-\item
-  Check model assumptions.
-\item
-  Draw conclusions within the context of the study.
+\item  State the null and alternative hypotheses.
+\item Calculate the test statistic.
+\item Calculate the $\scriptstyle p$-value.
+\item Check model assumptions.
+\item Draw conclusions within the context of the study.
 \end{itemize}
 
 \textbf{Step 1: State the null and alternative hypotheses:}
@@ -5693,7 +5675,9 @@ H_0: p_C &= p_R \quad\text{vs.}\quad H_a: p_C \neq p_R
 The null hypothesis is equivalent to stating that the distributions (of malignant cells) are the same across all groups of nucleus shapes. This test is often called a test of homogeneity.
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE} In this section, we simply discuss how to conduct Fisher's exact test with statistical software. The extended activities shows that Fisher's exact test uses the hypergeometric distribution to calculate exact \(p\)-values. For any 2 × 2 contingency table when there are N total observations with \(M\) total successes, the probability of observing \(\scriptstyle x\) successes, P(X = x), in a sample of size \(\scriptstyle n\) {[}{[}{[}is Some{]}{]}{]} texts suggest using the chi-square test for homogeneity if separate samples are selected from more than one population and using the chi-square test for independence when data are collected from a single sample. Even though this study is based on one sample of 37 slides, the extended activities will show that both the test of homogeneity and the test of independence are appropriate. The calculations for both tests are identical; however, the hypotheses and conclusions are different. We choose to present the test of homogeneity in this section so that the hypotheses and conclusions coincide with those for the
+\textbf{MATHEMATICAL NOTE:} Some texts suggest using the chi-square test for homogeneity if separate samples are selected from more than one population and using the chi-square test for independence when data are collected from
+a single sample. Even though this study is based on one sample of 37 slides, both the test of homogeneity and the test of independence are appropriate. The calculations
+for both tests are identical; however, the hypotheses and conclusions are different. We choose to present the test of homogeneity in this section so that the hypotheses and conclusions coincide with those for the
 two-sided permutation tests.
 \end{quote}
 
@@ -5754,7 +5738,7 @@ Total & 13.00 & 24.00 & 37\\
 \end{table}
 
 \begin{quote}
-\textbf{NOTE}In a chi-square test, the expected counts are calculated from the totals of the observed data. Totals in the table of observed counts (like Table 5.1) and the table of expected values (like Table 5.4) are identical, except for possible round-off error.\\
+\textbf{NOTE:} In a chi-square test, the expected counts are calculated from the totals of the observed data. Totals in the table of observed counts (like Table 5.1) and the table of expected values (like Table 5.4) are identical, except for possible round-off error.\\
 \normalsize
 \end{quote}
 
@@ -5778,7 +5762,7 @@ The chi-square statistic for the cancer cell study is
 The chi-square test statistic is always positive. If the observed and expected counts are identical, then the test statistic \(\scriptstyle \chi^2\) = 0. If the observed data are far from the expected data, the test statistic will be large and the null hypothesis will be rejected. The chi-square test is not used to show that one proportion is greater or less than another proportion, but to show that the proportions are not equal. Thus, the chi-square test is a two-sided test.
 
 \begin{quote}
-\textbf{NOTE} The chi-square test can be extended to categorical data with more than two rows and more than two columns. Notice that the table of expected values and the chi-square test statistic in Equation (5.3) can be calculated with additional rows and columns
+\textbf{NOTE:} The chi-square test can be extended to categorical data with more than two rows and more than two columns. Notice that the table of expected values and the chi-square test statistic in Equation (5.3) can be calculated with additional rows and columns
 \end{quote}
 
 \textbf{Step 3: Calculate the \emph{p}-value:}
@@ -5789,21 +5773,14 @@ The \(\scriptstyle p\)-value will help us determine if a test statistic of \(\sc
 \addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Conducting a Chi-Square Test}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{18}
-\tightlist
-\item
-  Use a statistical software package to conduct a chi-square test for the cancer cell data.
-\end{enumerate}
+  \setcounter{enumi}{18}
 
+  \item Use a statistical software package to conduct a chi-square test for the cancer cell data.
 \begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\item
-  Submit the computer output showing the observed and expected tables, the test statistic, and the \(\scriptstyle p\)-value.
-\item
-  Assuming the data were a simple random sample from a larger population, what conclusions can you draw about the population?
-\item
-  Can you conclude that the shape of the cell nucleus causes a change in the likelihood that a cancer cell is malignant? Why or why not?
+  \item Submit the computer output showing the observed and expected tables, the test statistic, and the $\scriptstyle p$-value.
+  \item Assuming the data were a simple random sample from a larger population, what conclusions can you draw about the population?
+  \item Can you conclude that the shape of the cell nucleus causes a change in the likelihood that a cancer cell is malignant? Why or why not?
+\end{enumerate}
 \end{enumerate}
 
 \textbf{Step 4: Check model assumptions:}
@@ -5820,7 +5797,7 @@ Just like most hypothesis tests, the chi-square test requires that each observat
 In the cancer cell study, all the expected counts are greater than 5, so it is appropriate to use the chi-square test.
 
 \begin{quote}
-\textbf{NOTE} In this example, some of the expected counts are just slightly greater than 5. In this case, some texts might suggest using a chi-square test with a continuity correction. However, simulation studies and Fisher's exact test can now be easily calculated with computers and provide more accurate \(\scriptstyle p\)-values. Thus, there really is no longer a need to use a chi-square continuity correction to estimate the \(\scriptstyle p\)-value.
+\textbf{NOTE:} In this example, some of the expected counts are just slightly greater than 5. In this case, some texts might suggest using a chi-square test with a continuity correction. However, simulation studies and Fisher's exact test can now be easily calculated with computers and provide more accurate \(\scriptstyle p\)-values. Thus, there really is no longer a need to use a chi-square continuity correction to estimate the \(\scriptstyle p\)-value.
 \end{quote}
 
 \textbf{Step 5: Draw conclusions within the context of the study:}
@@ -5895,7 +5872,7 @@ The odds of malignancy in the concave group are 17 to 4, meaning that we expect 
 The odds ratio in the cancer cell study is \(\frac{17/4}{7/9} = 5.5.\). Thus, the odds of malignancy are 5.5 times greater for the concave group than for the round group. When the odds ratio = 1, the odds for both groups are equal.
 
 \begin{quote}
-\textbf{NOTE} In relative risk and odds ratio calculations, the group that has the lower proportion (or lower odds) is typically considered group 2 (in the denominator). That way, the relative risk and odds ratio are always numbers larger than one and easier to interpret.
+\textbf{NOTE:} In relative risk and odds ratio calculations, the group that has the lower proportion (or lower odds) is typically considered group 2 (in the denominator). That way, the relative risk and odds ratio are always numbers larger than one and easier to interpret.
 \end{quote}
 
 \textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{In studies where the proportions are far away from 0.5, the hypothesis test for the difference in proportions may not best represent your question of interest. When both conditional proportions are small, the relative risk and odds ratio are preferable, since they take the base line rate (overall proportion of successes) into account.}
@@ -5903,6 +5880,8 @@ The odds ratio in the cancer cell study is \(\frac{17/4}{7/9} = 5.5.\). Thus, th
 \hypertarget{calculating-additional-summary-statistics}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Calculating Additional Summary Statistics}{ Calculating Additional Summary Statistics}}\label{calculating-additional-summary-statistics}}
 \addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Calculating Additional Summary Statistics}
+
+\vspace{-1em}
 
 Data set: \texttt{Table\ 5.1}
 
@@ -5922,10 +5901,12 @@ Data set: \texttt{Table\ 5.1}
 \notag
 \end{align}
 
+\begin{quote}
 Does this calculation match any statistic in Question 22? This product of diagonals can always be used as a shortcut to calculate the odds ratio.
+\end{quote}
 
 \begin{quote}
-\textbf{NOTE} The odds ratio does not depend on the choice of success or failure. In addition, the odds ratio provides identical results when the explanatory and response variables are switched.
+\textbf{NOTE:} The odds ratio does not depend on the choice of success or failure. In addition, the odds ratio provides identical results when the explanatory and response variables are switched.
 \end{quote}
 
 \hypertarget{cautions-about-relative-risk-reduction-in-medical-studies}{%
@@ -5941,46 +5922,25 @@ Zocor is a drug used to lower cholesterol in order to reduce the chances of a he
 Data set: \texttt{Table\ 5.1}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{24}
-\item
-  Does the advertisement claim that the study shows a 41\% reduction in heart attacks among all people that use Zocor? Explain.
-\item
-  What does 41\% fewer deaths mean in terms of the chances of having a heart attack? (Select one.)\\
-\end{enumerate}
+  \setcounter{enumi}{24}
+
+  \item Does the advertisement claim that the study shows a 41% reduction in heart attacks among all people that use Zocor? Explain.  
+
+\item What does 41% fewer deaths mean in terms of the chances of having a heart attack? (Select one.)  
 
 \begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\tightlist
-\item
-  2222 died from heart attacks in the placebo group, and 41\% fewer (1289 out of 2222) died from heart attacks in the treatment group.\\
-\item
-  1000 died from heart attacks in the placebo group, and 41\% fewer (580) died from heart attacks in the treatment group.\\
-\item
-  100 died from heart attacks in the placebo group, and 41\% fewer (58) died from heart attacks in the treatment group.\\
-\item
-  It is impossible to tell based on the quote from the advertisement.
-\end{enumerate}
+  \item 2222 died from heart attacks in the placebo group, and 41 percent fewer (1289 out of 2222) died from heart attacks in the treatment group.  
+  \item 1000 died from heart attacks in the placebo group, and 41 percent fewer (580) died from heart attacks in the treatment group.  
+  \item 100 died from heart attacks in the placebo group, and 41 percent fewer (58) died from heart attacks in the treatment group.  
+  \item It is impossible to tell based on the quote from the advertisement. \end{enumerate} 
 
+\item The actual study found that 189 out of 2223 in the placebo group died from heart attacks and 111 out of 2221 in the treatment (Zocor) group died from heart attacks.  
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{26}
-\tightlist
-\item
-  The actual study found that 189 out of 2223 in the placebo group died from heart attacks and 111 out of 2221 in the treatment (Zocor) group died from heart attacks.\\
+  \item Use the Zocor study data to create a two-way table. Use Placebo and Treatment (Zocor) as the row variables. Use Death and Survival as the column variables.  
+  \item Calculate the percentage of deaths in the placebo group and the percentage of deaths in the treatment group.  
+  \item Calculate the difference between the two percentages calculated in Part b.  
+  \item Calculate and interpret the relative risk of death from a heart attack.
 \end{enumerate}
-
-\begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\tightlist
-\item
-  Use the Zocor study data to create a two-way table. Use Placebo and Treatment (Zocor) as the row variables. Use Death and Survival as the column variables.\\
-\item
-  Calculate the percentage of deaths in the placebo group and the percentage of deaths in the treatment group.\\
-\item
-  Calculate the difference between the two percentages calculated in Part b.\\
-\item
-  Calculate and interpret the relative risk of death from a heart attack.
 \end{enumerate}
 
 The difference between the two percentages calculated in Question 27b, 8.5\% - 5\% = 3.5\%, is called the \textbf{absolute risk reduction}. The 41\% fewer deaths is actually calculated as
@@ -6134,14 +6094,13 @@ fits this situation. Tests of homogeneity are appropriate whenever one of the va
 
 The \textbf{test of independence} is used to determine if two random variables within a population are independent. It is not necessary to determine which variable is the explanatory variable and which is the response variable. If any of the marginal (i.e., row or column) totals are known (fixed) in advance, at least one of the variables is not random, and thus the test of independence is not appropriate. The null and alternative hypotheses can be written as
 
-\begin{flalign*}
-  &H_0:\;\text{the row and column variables are independent (more specifically, }H_0:\text{ nucleus shape and malign-} && \\
-  & \text{ancy are independent)} &&\\
-  &H_a:\;\text{the two variables are not independent} &&
-\end{flalign*}
+\begin{align*}
+  &H_0:\;\text{the row and column variables are independent (more specifically, }H_0:\text{ nucleus shape and malignancy are independent)} \\
+  &H_a:\;\text{the two variables are not independent} 
+\end{align*}
 
 \begin{quote}
-\textbf{NOTE}Tests of homogeneity and independence are not restricted to chi-square tests. For example, the two-proportion z-test is also a test of homogeneity.
+\textbf{NOTE:} Tests of homogeneity and independence are not restricted to chi-square tests. For example, the two-proportion z-test is also a test of homogeneity.
 \end{quote}
 
 In both tests, the null hypothesis is that there is no relationship between the row variable and the column variable. Tests of independence are essentially testing if the probability of a success for one variable depends on the value of a second variable. They are appropriate whenever both the row and the column variables are random (e.g., the column totals are not predetermined by the researcher), as in cross-classification studies.
@@ -6189,12 +6148,11 @@ Goodness-of-fit tests are used to determine how well our observed data ``fit'' t
 Before a goodness-of-fit test can be used, we need some prior knowledge (or benchmark values) about a theoretical model. The chi-square goodness-of-fit test is applied to data that are placed into groups. Sample data are placed into classes (observed groups), and a theoretical model is used to calculate the expected number of observations in each group. In this section, we will use goodness-of-fit tests to determine if the observed counts (or proportions) are consistent with hypothetical counts (or proportions).
 
 \textbf{\textcolor{blue}{Key Concept:}}
-\textbackslash textcolor\{blue\}\{\{In a chi-square goodness-of-fit test with \(\scriptstyle n\) observations:\}
-
+\textcolor{blue}{In a chi-square goodness-of-fit test with $\scriptstyle n$ observations:}
 \textcolor{blue}{$\bullet$ Each of the $\scriptstyle n$ observations fits into exactly one of $\scriptstyle G$ categories.}\\
 \textcolor{blue}{$\bullet$ The null hypothesis specifies the expected probability ($\scriptstyle p_i$) for each cell.}\\
 \textcolor{blue}{$\bullet$ Expected counts are calculated as $\scriptstyle n$ × $\scriptstyle p_i$.}\\
-\textcolor{blue}{$\bullet$ The test statistic is $\scriptstyle \chi^2 \ =\  \sum \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}$.}\\
+\textcolor{blue}{$\bullet$ The test statistic is $\scriptstyle \chi^2 \ =\  \sum \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}$.}
 \textcolor{blue}{$\bullet$ If each of the expected cell counts is at least 5, the $\scriptstyle p$-value is calculated from the chi-square distribution with $\scriptstyle G$ – 1 degrees of freedom.}
 
 \hypertarget{playing-a-dice-game}{%
@@ -6318,7 +6276,7 @@ This chapter was limited to studies involving only one categorical explanatory v
 
   \item \textbf{Cancer and Smoking: Fisher’s Exact Test and Simulation Studies}    
 
-  Data set: `Table 5.5`    
+  Data set: \texttt{Table 5.5}    
 
   Answer the following questions for the data displayed in Table 5.5.  
   \begin{enumerate}
@@ -6332,7 +6290,7 @@ This chapter was limited to studies involving only one categorical explanatory v
 
   \item \textbf{Statistics Enrollment for Humanities and Science Majors}    
 
-  Data set: `Table 5.9`    
+  Data set: \texttt{Table 5.9}  
 
   A study was conducted by introductory statistics students to see whether majors in the sciences are as likely to take a statistics course as majors in the humanities. They sampled 50 seniors from among humanities majors and another 50 seniors from among science majors and asked if they had taken a statistics course or were scheduled to take one before they graduated. Their data are provided in Table 5.9.  
   
@@ -6361,7 +6319,7 @@ Science Major & 32 & 18\\
 
   \item \textbf{Statistics Enrollment for Humanities and Science Majors 2}    
 
-  Data set: `Table 5.9`    
+  Data set: \texttt{Table 5.9}   
   \begin{enumerate}
     \item Use Exercise E2 to determine if a chi-square test of homogeneity or a test of independence is appropriate for the data in Table 5.9. Give an explanation for your answer.
     \item Use the data in Table 5.9 to determine if the same proportion of humanities and science majors take a statistics course. Assuming that students took care to collect a simple random sample of seniors from each division, what conclusions can be drawn?
@@ -6370,7 +6328,7 @@ Science Major & 32 & 18\\
 
   \item \textbf{A Lady Tasting Tea}    
 
-  Data set: `Table 5.10`    
+  Data set: \texttt{Table 5.10}   
 
   At a summer tea party in the late 1920s, a lady claimed that she could determine by taste if tea had been poured into the milk or if milk had been poured into the tea. Sir Ronald Fisher discussed how to test this lady’s claim. The lady was asked to taste several cups in random order and identify each as tea first or milk first. Although the actual results were not published, rumor has it that the lady correctly identified every single cup. 
   
@@ -6403,7 +6361,7 @@ exactly seven tea first guesses and seven milk first guesses. Thus, the column t
 
   \item \textbf{Donner Party}    
 
-  Data set: `Table 5.11`    
+  Data set: \texttt{Table 5.11}    
 
   Members of the Donner party attempted a new route between Fort Bridger, Wyoming, and the Humboldt River, Nevada. This new route took much longer than expected, and the entire party was trapped in the Sierra Nevada in the winter of 1846–1847. By the time they were rescued in the spring, many members had died. Table 5.11 lists the gender and survival status of all adults who were trapped during this trip.  
   \begin{enumerate}
@@ -6432,7 +6390,7 @@ Total & 48 & 39 & 87\\
 
   \item \textbf{Statistics Enrollment: Testing for Homogeneity of Odds}    
 
-  Data set: `Table 5.9`    
+  Data set: \texttt{Table 5.9}   
   
   \begin{enumerate}
     \item Calculate and interpret the odds ratio for the data in Table 5.9.
@@ -6443,7 +6401,7 @@ Total & 48 & 39 & 87\\
 
   \item \textbf{Cancer Cells: Testing for Homogeneity of Odds}    
 
-  Data set: `Table 5.1`    
+  Data set: \texttt{Table 5.1}    
   
   Use the data from Table 5.1 and define a benign cell as a success. Conduct a hypothesis test for the homogeneity of odds.  
   \begin{enumerate}
@@ -6458,7 +6416,7 @@ Total & 48 & 39 & 87\\
 
   \item \textbf{Comparing Treatments for Drug Addiction: A 3 × 2 Contingency Table}    
 
-  Data set: `Table 5.12`    
+  Data set: \texttt{Table 5.12}    
   
   Many people with cocaine addictions also suffer from mood disorders like depression or a manic-depressive disorder. To aid in the process of trying to break a patient’s addiction to cocaine, a common antidepressant known as lithium is often given to patients in drug treatment centers. A randomized, comparative experiment was performed to determine whether another commonly prescribed antidepressant, desipramine, could be used to reduce the likelihood of patients’ using cocaine again or whether antidepressant therapy helped at all. The 72 patients selected for study over a 3-year period were randomly assigned to one of three treatments: desipramine, lithium, or a placebo. After the end of the 6-week treatment period, these patients were interviewed to determine if they had been successful in stopping their cocaine habit. A success was defined as having stopped using cocaine for 3 weeks or more during the 6-week treatment period. The data from the study are shown in Table 5.12.  
   
@@ -6502,7 +6460,7 @@ from cocaine, we would expect the success rates of all three groups to be the sa
 
   \item \textbf{Friday Night Collisions: Drawing Conclusions from a Goodness-of-Fit Test}    
 
-  Data set: `Table 5.13`    
+  Data set: \texttt{Table 5.13}    
   
   A local organization conducted a traffic study to determine if traffic collisions were more likely on Friday and Saturday nights than on other nights. The city council was considering a proposal that bars in a specific district be closed earlier in an effort to reduce late-night accidents in the area. The assumption was that a larger number of traffic accidents would correspond to the heaviest bar traffic (which occurred on the weekends). Table 5.13 shows data collected on traffic accidents that had occurred in that district over the past two years.  
   
@@ -6527,7 +6485,7 @@ this value has some similarities to calculating standardized residuals.
 
   \item \textbf{Zocor Again}    
 
-  Data set: `Table 5.14`    
+  Data set: \texttt{Table 5.14}   
   
   The extended activities in Section 5.7 discussed a clinical study on Zocor, a drug used in lowering cholesterol, to determine if there was a difference between the treatment (Zocor) and the placebo in reducing the number of deaths from heart attacks. Table 5.14 shows the original data from this study.  
   
@@ -6553,7 +6511,7 @@ Total & 300 & 4144 & 4444\\
 
   \item \textbf{The Pill Scare: Understanding Relative Risk Reduction}    
 
-  Data set: `Table 5.15` 
+  Data set: \texttt{Table 5.15}
   
   In October 1995, the United Kingdom Committee on Safety of Medicines (CSM) issued a warning to 190,000 general practitioners, pharmacists, and directors of public health about oral contraceptive pills containing gestodene or desogestrel. The warning, based on three unpublished epidemiological research studies, stated, “It is well known that the pill may rarely produce thrombosis (blood clots) involving veins of the legs. New evidence has become available indicating that the chance of thrombosis occurring in a vein increases about two-fold for some types of pills compared to others.”$^{12}$ Table 5.15 provides data from one of the studies.  
 
@@ -6634,7 +6592,7 @@ in this question. The steps in conducting a goodness-of-fit tests are as follows
 
   \item \textbf{Simulating the Chi-Square Distribution}    
 
-  Data set: `Table 5.1`    
+  Data set: \texttt{Table 5.1}    
   
   \begin{enumerate}
     \item Calculate the chi-square test statistic for the simulated table in Question 20. Since the table cell counts (at least for the concave malignant group) were assumed to be randomly generated, this test statistic can be thought of as one random sample drawn from a chi-square distribution with 1 degree of freedom.
@@ -6653,9 +6611,9 @@ that the cell counts in Part (b) are sufficient to be modeled by the chi-square 
   
 \end{enumerate}
 
-\hypertarget{endnotes-1}{%
-\subsection*{Endnotes}\label{endnotes-1}}
-\addcontentsline{toc}{subsection}{Endnotes}
+\hypertarget{references-4}{%
+\subsection*{References}\label{references-4}}
+\addcontentsline{toc}{subsection}{References}
 
 \begin{enumerate}
 
@@ -6703,28 +6661,24 @@ with the null model, “this provides some positive evidence in favor of the mec
 
 \begin{flushright}
 \emph{The best thing about being a statistician is that you get to play in everyone’s backyard.} \\
-—John Tukey\footnote{D. Leonhardt, “John Tukey, 85, Statistician, Coined the Word ‘Software’,” New York Times Archives on the Web, 7/28/2000, stat.bell-labs.com/who/tukey/nytimes.html. John Tukey (1915–2000) had a formal background in chemistry and mathematics. Conducting data analysis during World War II peaked his interest in statistics, and he became one of the most influential statisticians of the 20th century.}
+—John Tukey$^1$
 \end{flushright}
 
 There are many investigations where a researcher is interested in developing a regression model when the response variable is dichotomous (has only two categories). Dichotomous responses can be represented with binary data (data with values of only zero or one). Logistic regression is used to examine the relationship between one or more explanatory variables and a binary response variable.
 
 In this chapter, we will look at several studies, including O-ring failure data provided by the National Aeronautics and Space Administration (NASA) after the space shuttle Challenger disaster, in order to introduce the following logistic regression techniques:
+\vspace{-1em}
 
 \begin{itemize}
-\tightlist
-\item
-  Calculating and interpreting the logistic regression model\\
-\item
-  Using the Wald statistic and likelihood ratio tests to determine the significance of individual explanatory variables\\
-\item
-  Calculating the log-odds function and maximum likelihood estimates\\
-\item
-  Conducting goodness-of-fit tests to evaluate model appropriateness\\
-\item
-  Assessing regression model performance by looking at a classification table, showing correct and incorrect classification of the response variable\\
-\item
-  Extending logistic regression to cases with multiple explanatory variables
+\item Calculating and interpreting the logistic regression model  
+\item Using the Wald statistic and likelihood ratio tests to determine the significance of individual explanatory variables  
+\item Calculating the log-odds function and maximum likelihood estimates  
+\item Conducting goodness-of-fit tests to evaluate model appropriateness  
+\item Assessing regression model performance by looking at a classification table, showing correct and incorrect classification of the response variable  
+\item Extending logistic regression to cases with multiple explanatory variables 
 \end{itemize}
+
+\newpage
 
 \hypertarget{section-60}{%
 \section{\texorpdfstring{\textcolor{blue}{ Investigation: Did Temperature Influence the Likelihood of an O-Ring Failure?}}{}}\label{section-60}}
@@ -6769,37 +6723,9 @@ or more O-rings showing signs of thermal distress.''\(^2\)
 \caption{Diargam of a solid rocket booster.}\label{fig:fig62}
 \end{figure}
 
-A lamentable aspect of this disaster is that the problem with the O-rings was already understood by
-some engineers prior to the Challenger launch. In February 1984, the Marshall Configuration Control
-Board sent a memo about the O-ring erosion that occurred on STS 41-B (the 10th space shuttle flight and
-the 4th mission for the Challenger shuttle). Messages continued to increase in intensity, as evidenced by
-a 1985 internal memo from Thiokol Corporation, the company that designed the O-ring. Employees from
-Thiokol wrote the following to their Vice President of Engineering: ``This letter is written to ensure that
-management is fully aware of the seriousness of the current O-Ring erosion problem in the SRM joints
-from an engineering standpoint.''\(^3\)
-
-With the temperature on January 28, 1986, expected to be 31°F, Thiokol Corporation recommended
-against the Challenger launch. However, this flight was getting significant publicity because a high school
-teacher, Christa McAuliffe, was on the flight. The flight had already been delayed several times, and there
-was no quick solution to the O-ring concern. The engineers were overruled, and the decision was made to go
-ahead with the launch. The eventual presidential investigation stated,
-\textgreater{}``The decision to launch the Challenger was flawed. Those who made that decision were unaware of
-the recent history of problems concerning the O-rings and the joint and were unaware of the initial
-written recommendation of the contractor advising against the launch at temperatures below 53
-degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management
-reversed its position. They did not have a clear understanding of Rockwell's concern that it was not
-safe to launch because of ice on the pad. If the decision makers had known all of the facts, it is highly
-unlikely that they would have decided to launch 51-L on January 28, 1986.''\(^4\)
-
-It seems that even though some engineers did comprehend the severity of the problem, they were unable
-to properly communicate the results. Prior to the ill-fated Challenger flight, the solid rocket boosters for 24
-shuttle launches were recovered and inspected for damage. Even though O-ring damage was present in some
-of the flights, the O-rings were not damaged enough to allow any gas to escape. Since damage was very
-minimal, all 24 prior flights were considered a success by NASA.
-
 \begin{table}[!h]
 \centering
-\caption{\label{tab:tab61}O‑ring damage on 24 space shuttle launches.}
+\caption{\label{tab:tab61}O-ring damage on 24 space shuttle launches. Flight 4 is a missing data point because the rockets were lost at sea. }
 \centering
 \begin{tabular}[t]{>{\centering\arraybackslash}p{2cm}c>{\centering\arraybackslash}p{3cm}>{\centering\arraybackslash}p{2cm}}
 \toprule
@@ -6837,13 +6763,38 @@ Flight Number & Date & Ambient Temperature (°F) & Successful Launch\\
 \end{tabular}
 \end{table}
 
-\begin{itemize}
-\tightlist
-\item
-  Flight 4 is a missing data point because the rockets were lost at sea.
-\end{itemize}
+A lamentable aspect of this disaster is that the problem with the O-rings was already understood by
+some engineers prior to the Challenger launch. In February 1984, the Marshall Configuration Control
+Board sent a memo about the O-ring erosion that occurred on STS 41-B (the 10th space shuttle flight and
+the 4th mission for the Challenger shuttle). Messages continued to increase in intensity, as evidenced by
+a 1985 internal memo from Thiokol Corporation, the company that designed the O-ring. Employees from
+Thiokol wrote the following to their Vice President of Engineering: ``This letter is written to ensure that
+management is fully aware of the seriousness of the current O-Ring erosion problem in the SRM joints
+from an engineering standpoint.''\(^3\)
 
-Table~6.1 shows the temperature at the time of each launch and whether any damage was visible in any of the O‑rings. In this chapter, we will define a successful launch as one with no evidence of any O‑ring damage. In Table~6.1, \textbf{Successful Launch} is a categorical variable, with 0 representing a launch where O‑ring damage occurred and 1 indicating a successful launch with no O‑ring damage. Throughout the rest of this investigation, the relatively small data set in Table~6.1 will be used to demonstrate techniques that can be used to determine if the likelihood of O‑ring damage is related to temperature.
+With the temperature on January 28, 1986, expected to be 31°F, Thiokol Corporation recommended
+against the Challenger launch. However, this flight was getting significant publicity because a high school
+teacher, Christa McAuliffe, was on the flight. The flight had already been delayed several times, and there
+was no quick solution to the O-ring concern. The engineers were overruled, and the decision was made to go
+ahead with the launch. The eventual presidential investigation stated,
+
+\begin{quote}
+``The decision to launch the Challenger was flawed. Those who made that decision were unaware of
+the recent history of problems concerning the O-rings and the joint and were unaware of the initial
+written recommendation of the contractor advising against the launch at temperatures below 53
+degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management
+reversed its position. They did not have a clear understanding of Rockwell's concern that it was not
+safe to launch because of ice on the pad. If the decision makers had known all of the facts, it is highly
+unlikely that they would have decided to launch 51-L on January 28, 1986.''\(^4\)
+\end{quote}
+
+It seems that even though some engineers did comprehend the severity of the problem, they were unable
+to properly communicate the results. Prior to the ill-fated Challenger flight, the solid rocket boosters for 24
+shuttle launches were recovered and inspected for damage. Even though O-ring damage was present in some
+of the flights, the O-rings were not damaged enough to allow any gas to escape. Since damage was very
+minimal, all 24 prior flights were considered a success by NASA.
+
+Table~6.1 shows the temperature at the time of each launch and whether any damage was visible in any of the O-rings. In this chapter, we will define a successful launch as one with no evidence of any O-ring damage. In Table~6.1, \textbf{Successful Launch} is a categorical variable, with 0 representing a launch where O-ring damage occurred and 1 indicating a successful launch with no O-ring damage. Throughout the rest of this investigation, the relatively small data set in Table~6.1 will be used to demonstrate techniques that can be used to determine if the likelihood of O-ring damage is related to temperature.
 
 \hypertarget{describing-the-data-1}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Describing the Data}{ Describing the Data}}\label{describing-the-data-1}}
@@ -6852,9 +6803,9 @@ Table~6.1 shows the temperature at the time of each launch and whether any damag
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Based on the description of the Challenger disaster O‑ring concerns, identify which variable in the space shuttle data set in Table~6.1 should be the explanatory variable and which should be the response variable.
+  Based on the description of the Challenger disaster O-ring concerns, identify which variable in the space shuttle data set in Table~6.1 should be the explanatory variable and which should be the response variable.
 \item
-  Imagine you were an engineer working for Thiokol Corporation prior to January~1986. Create a few graphs of the data in Table~6.1. Is it obvious that temperature is related to the success of the O‑rings? Submit any charts or graphs you have created that show a potential relationship between temperature and O‑ring damage.
+  Imagine you were an engineer working for Thiokol Corporation prior to January~1986. Create a few graphs of the data in Table~6.1. Is it obvious that temperature is related to the success of the O-rings? Submit any charts or graphs you have created that show a potential relationship between temperature and O-ring damage.
 \end{enumerate}
 
 In this chapter, we will develop a regression model using a binary response variable, Successful Launch. For the space shuttle data set, y = 1 represents a successful flight with no O-ring damage and y = 0 represents a flight with some O-ring damage. Binary response data occur in many fields; for example, we may want to know
@@ -6903,8 +6854,7 @@ Equation (6.3) states that each independent and identically distributed error te
 distribution that is centered at zero and has a constant variance.
 
 \begin{quote}
-\textbf{NOTE}
-When there is only one explanatory variable, as in Equation (6.1), ordinary least squares regression is often called simple linear regression. As shown in Chapter 3, the model is called least squares regression because the line minimizes the sum of the squared residuals (the difference between an observed value and the expected response). Least squares estimates for \(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\) (represented as \(\scriptstyle b_0 \ =\  \hat\beta_0\) and \(\scriptstyle b_1 \ =\  \hat\beta_1\)) can be calculated even when the normality and equal variance assumptions are violated. However, these assumptions about the error terms are needed to conduct hypothesis tests and construct confidence intervals for \(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\).
+\textbf{NOTE:} When there is only one explanatory variable, as in Equation (6.1), ordinary least squares regression is often called simple linear regression. As shown in Chapter 3, the model is called least squares regression because the line minimizes the sum of the squared residuals (the difference between an observed value and the expected response). Least squares estimates for \(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\) (represented as \(\scriptstyle b_0 \ =\  \hat\beta_0\) and \(\scriptstyle b_1 \ =\  \hat\beta_1\)) can be calculated even when the normality and equal variance assumptions are violated. However, these assumptions about the error terms are needed to conduct hypothesis tests and construct confidence intervals for \(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\).
 \end{quote}
 
 \hypertarget{building-a-least-squares-regression-model}{%
@@ -6954,9 +6904,12 @@ sion model for the space shuttle data.
 Similarly, the odds are 6 to 1 against Saturday being selected (any day but Saturday is a success).
 
 \begin{figure}
-\centering
-\includegraphics{_main_files/figure-latex/fig63-1.pdf}
-\caption{\label{fig:fig63}Space shuttle data with a simple linear regression model and a logistic regression model.}
+
+{\centering \includegraphics[width=0.8\linewidth]{docs/Fig7_3} 
+
+}
+
+\caption{Space shuttle data with a simple linear regression model and a logistic regression model.}\label{fig:fig63}
 \end{figure}
 
 Throughout this chapter, we will use terms such as \textit{log-odds} or \textit{log-likelihood}, but we actually use natural logs (ln) in
@@ -6979,29 +6932,26 @@ Residuals (observed values minus expected values) are used to estimate the error
 
 In logistic regression, the residuals are \(\scriptstyle y_i \ -\  \hat\pi_i\). If the observed response \(\scriptstyle y_i\) = 0, then the residual value is \(\scriptstyle -\hat\pi_i\). If the observed response \(\scriptstyle y_i = 1\), then the residual value is \(\scriptstyle 1 \ -\  \hat\pi_i\). This leads to the two curves shown in Figure 6.4. When the temperature is low in the space shuttle data (around 55°F, as seen in Figure 6.3), the observed responses tend to be zero and the predicted responses (\(\scriptstyle \hat\pi_i\)'s) are small positive numbers. Thus, the residual values (\(\scriptstyle -\hat\pi_i\)'s) are negative and close to zero. When the temperature is high, the observed responses tend to be one, the predicted responses are close to one, and the residual values are positive and close to zero.
 
-\begin{verbatim}
-## Warning: package 'patchwork' was built under R version 4.5.1
-\end{verbatim}
-
 \begin{figure}
-\centering
-\includegraphics{_main_files/figure-latex/fig64-1.pdf}
-\caption{\label{fig:fig64}A scatterplot of the residuals from the space shuttle logistic regression model and a sample of what a scatterplot of normally distributed residuals might look like.}
+
+{\centering \includegraphics[width=0.8\linewidth]{docs/Fig7_4} 
+
+}
+
+\caption{A scatterplot of the residuals from the space shuttle logistic regression model and a sample of what a scatterplot of normally distributed residuals might look like.}\label{fig:fig64}
 \end{figure}
 
 \textbf{\textcolor{blue}{Key Concept:}} \textcolor{blue}{When the response in a regression model is binomial, $\scriptstyle \pi_i \ =\  P(Y_i \ =\  1)$ is the probability of a success (a launch has no O-ring damage at temperature $\scriptstyle x_i$). In simple linear regression models with a binomial response,}
 
 \begin{align}
-y_i &= \pi_i + \epsilon_i \\ \notag
-    &= \beta_0 + \beta_1 x_i + \epsilon_i \quad \text{for } i = 1, 2, 3, \dots, n 
+y_i = \pi_i + \epsilon_i = \beta_0 + \beta_1 x_i + \epsilon_i \quad \text{for } i = 1, 2, 3, \dots, n 
 \tag{6.7}
 \end{align}
 
 \textcolor{blue}{With the logit transformation, logistic regression models with a binomial response have the following form:}
 
 \begin{align}
-y_i &= \pi_i + \epsilon_i \\ \notag
-    &= \frac{e^{\beta_0 + \beta_1 x_i}}{1 + e^{\beta_0 + \beta_1 x_i}} + \epsilon_i \quad \text{for } i = 1,2,3,\dots,n 
+y_i = \pi_i + \epsilon_i  = \frac{e^{\beta_0 + \beta_1 x_i}}{1 + e^{\beta_0 + \beta_1 x_i}} + \epsilon_i \quad \text{for } i = 1,2,3,\dots,n 
     \tag{6.8}
 \end{align}
 
@@ -7025,7 +6975,7 @@ Clearly the logistic regression model in Figure 6.3 is nonlinear. So it may seem
 Instead of using least squares estimates, generalized linear models use the method of maximum likelihood to estimate the coefficients \(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\). Later sections provide more detail on calculating maximum likelihood estimates in logistic regression. In the space shuttle example, we will simply use a computer software package to find maximum likelihood estimates of \(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\).
 
 \begin{quote}
-\textbf{NOTE:}In least squares regression, we often transform the response variable (\(\scriptstyle y\)) so that the data fit model assumptions. In addition to linearizing data, transforming \(\scriptstyle y\) impacts the variability and the distribution of the error terms. In generalized linear models, the link function transforms the expected response (\(\scriptstyle \pi\)) to fit a linear predictor. For those who have had calculus, link functions are also differentiable and invertible.
+\textbf{NOTE:} In least squares regression, we often transform the response variable (\(\scriptstyle y\)) so that the data fit model assumptions. In addition to linearizing data, transforming \(\scriptstyle y\) impacts the variability and the distribution of the error terms. In generalized linear models, the link function transforms the expected response (\(\scriptstyle \pi\)) to fit a linear predictor. For those who have had calculus, link functions are also differentiable and invertible.
 \end{quote}
 
 \hypertarget{using-software-to-calculate-maximum-likelihood-estimates}{%
@@ -7056,9 +7006,9 @@ Figure 6.3 shows a logistic regression model using maximum likelihood estimates 
 
 \begin{align}
 \hat\pi_i 
-&= \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i}} \\ \notag
-&= \frac{e^{-15.043 + 0.232 x_i}}{1 + e^{-15.043 + 0.232 x_i}} \\ \notag
-&\quad \text{for } i = 1,2,3,\dots,n \tag{6.9}
+= \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i}} = \frac{e^{-15.043 + 0.232 x_i}}{1 + e^{-15.043 + 0.232 x_i}}
+&\quad \text{for } i = 1,2,3,\dots,n 
+\tag{6.9}
 \end{align}
 
 Notice that \(\scriptstyle \pi\) in Equation (6.6) has been replaced by \(\scriptstyle \hat\pi\) in Equation (6.9) because the parameters in the linear regression model (\(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\)) have been estimated with our sample data; \(\scriptstyle b_0\) = \(\scriptstyle \hat\beta_0\) = -15.043 and \(\scriptstyle b_1 \ = \ \hat\beta_1\) = 0.232.
@@ -7078,7 +7028,7 @@ Notice that \(\scriptstyle \pi\) in Equation (6.6) has been replaced by \(\scrip
 At this point, it seems reasonable to question why the O-rings were not considered a higher risk at the time of the 1986 Challenger launch. After all, the odds of a successful launch (no O-ring damage) at the expected temperature of 31°F are about 1 to 2555 and the predicted odds change dramatically based on temperature. It is important to recognize that the previous launches did not result in the same disaster as the Challenger launch because the O-rings showed only ``minor'' damage. This wasn't enough for gas to escape---only an indicator that the O-rings might not be as resilient as expected.
 
 \begin{quote}
-\textbf{CAUTION}Estimating a value for a temperature of 31°F is extrapolating beyond our data set. Just as in least squares regression, caution should be used when making predictions outside the range of explanatory variables that are available.
+\textbf{CAUTION:} Estimating a value for a temperature of 31°F is extrapolating beyond our data set. Just as in least squares regression, caution should be used when making predictions outside the range of explanatory variables that are available.
 \end{quote}
 
 \hypertarget{section-64}{%
@@ -7151,7 +7101,7 @@ Inference for logistic regression uses statistical theory that is based on limit
 Wald's test is often used to test the significance of logistic regression coefficients. Just as in least squares regression, we set up a hypothesis test to determine if there is a relationship between the explanatory and response variables:
 
 \begin{align*}
-H_0: b_1 = 0 \quad \text{vs.}\quad H_a: b_1 \neq 0
+H_0: \beta_1 = 0 \quad \text{vs.}\quad H_a: \beta_1 \neq 0
 \end{align*}
 
 Wald's test is similar to the one-sample Z-test seen in introductory statistics courses. The Wald statistic is calculated as
@@ -7169,17 +7119,20 @@ where \(\scriptstyle b_1\) is the maximum likelihood estimate of \(\scriptstyle 
 
 Wald confidence intervals can also be created. In logistic regression, the confidence interval is often discussed in terms of the odds ratio. For example, a 95\% confidence interval for \(\scriptstyle \beta_1\) is given as
 
-\begin{align}
-(e^{b_1 - Z^* \text{se}(b_1)}, e^{b_1 + Z^* \text{se}(b_1)}) &= (e^{0.232 - 1.96(0.108)}, e^{0.232 + 1.96(0.108)}) &= (e^{0.02}, e^{0.44}) = (1.02, 1.56) 
+\begin{equation}
+\begin{split}
+(e^{b_1 - Z^* \text{se}(b_1)}, e^{b_1 + Z^* \text{se}(b_1)}) &= (e^{0.232 - 1.96(0.108)}, e^{0.232 + 1.96(0.108)}) \\ &= (e^{0.02}, e^{0.44}) \\ &= (1.02, 1.56) 
+\end{split}
 \tag{6.14}
-\end{align}
+\end{equation}
 
-where 1.96 = Z\^{}* represents a value corresponding to a 95\% confidence interval for a normal distribution with mean of 0 and standard deviation of 1. When \(\scriptstyle b_1 = 0\), and thus the odds ratio \(\scriptstyle e^{b_1} = 1\), the odds of success for temperature \(\scriptstyle x_i\) are the same as the odds of success for any other temperature. Thus, \(\scriptstyle e^{b_1} = 1\) tells us that there is no association between the explanatory variable and the response.
+where 1.96 = Z* represents a value corresponding to a 95\% confidence interval for a normal distribution with mean of 0 and standard deviation of 1. When \(\scriptstyle b_1 = 0\), and thus the odds ratio \(\scriptstyle e^{b_1} = 1\), the odds of success for temperature \(\scriptstyle x_i\) are the same as the odds of success for any other temperature. Thus, \(\scriptstyle e^{b_1} = 1\) tells us that there is no association between the explanatory variable and the response.
 
-\textbf{\textcolor{blue}{Key Concept:}} \textbackslash textcolor\{blue\}\{When a 95\% Wald confidence interval for the odds ratio does not contain 1, we reject the null hypothesis \(\scriptstyle H_0: \ \beta_1 \ = \ 0\) (using an alpha-level of 0.05) and conclude that the odds of success do depend on the explanatory variable \(\scriptstyle x_i\). If the interval does contain 1, we fail to reject \(\scriptstyle H_0:\  \beta_1 \ =\  0\).\}
+\textbf{\textcolor{blue}{Key Concept:}}
+When a 95\% Wald confidence interval for the odds ratio does not contain 1, we reject the null hypothesis \(\scriptstyle H_0: \ \beta_1 \ = \ 0\) (using an alpha-level of 0.05) and conclude that the odds of success do depend on the explanatory variable \(\scriptstyle x_i\). If the interval does contain 1, we fail to reject \(\scriptstyle H_0:\  \beta_1 \ =\  0\).
 
 The software output in Figure 6.5 shows Wald's test and the corresponding confidence interval for the
-odds ratio. In the space shuttle example, the 95\% confidence interval does not include \(\scriptstyle e^{\beta_1}\) = 1; thus, we can reject the null hypotheses and conclude that the odds of a successful launch do depend on the temperature. Even though computer software provided a small p-value and a confidence interval that does not include 1, it is important to note that there are only 23 observations in this study. While Wald's test is reasonable with very large sample sizes, with smaller sample sizes it is known to have a tendency to result in a type II error---failing to reject the null hypothesis when it should be rejected.\footnote{?Recall that Z in Equation (6.13) is a statistic calculated from the sample data and Z* in Equation (6.11) is called a critical value. Z* represents a value based on a desired level of confidence. Z* is known before the data are collected, while Z is based on the sample data}
+odds ratio. In the space shuttle example, the 95\% confidence interval does not include \(\scriptstyle e^{\beta_1}\) = 1; thus, we can reject the null hypotheses and conclude that the odds of a successful launch do depend on the temperature. Even though computer software provided a small p-value and a confidence interval that does not include 1, it is important to note that there are only 23 observations in this study. While Wald's test is reasonable with very large sample sizes, with smaller sample sizes it is known to have a tendency to result in a type II error---failing to reject the null hypothesis when it should be rejected. Recall that Z in Equation (6.13) is a statistic calculated from the sample data and Z* in Equation (6.11) is called a critical value. Z* represents a value based on a desired level of confidence. Z* is known before the data are collected, while Z is based on the sample data{]}
 
 We can also calculate the odds ratio of a successful launch between 60°F and 70°F. When \(\scriptstyle x_i\)
 increases by 10°F, the odds are multiplied by \(\scriptstyle (e^{b_1})10\) = \(\scriptstyle 1.2613^{10}\) = 10.19. Thus, we have approximately 10 times higher odds of a successful launch when the temperature is 70°F than when it is 60°F. A 95\% confidence interval for the odds ratio of a successful launch between 60°F and 70°F can be given by \(\scriptstyle (1.02^10, \ 1.56^10)\) = (1.22, 85.40). This 95\% confidence interval has a very wide range; the odds of success at 70°F could be just slightly larger than the odds at 60°F or 85 times as large as the odds at 60°F. This large range suggests that our estimate of the odds ratio, 10.19, is highly variable. More data are needed to better understand the true odds ratio.
@@ -7212,11 +7165,11 @@ increases by 10°F, the odds are multiplied by \(\scriptstyle (e^{b_1})10\) = \(
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{docs/Fig7_5Minitab} 
+{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_5Minitab} 
 
 }
 
-\caption{Software output for the space shuttle study.}\label{fig:fig65}
+\caption{Software output showing the Wald statistic for the space shuttle study.}\label{fig:fig65}
 \end{figure}
 
 \hypertarget{the-likelihood-ratio-test}{%
@@ -7263,6 +7216,15 @@ G &= 2 \times \text{log-likelihood(full model)} - 2 \times \text{log-likelihood(
 &= 7.952. \notag 
 \end{align}
 
+\begin{figure}
+
+{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_6} 
+
+}
+
+\caption{Software output showing the null and residual deviance for the space shuttle study.}\label{fig:fig66}
+\end{figure}
+
 \hypertarget{the-likelihood-ratio-test-1}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} The Likelihood Ratio Test}{ The Likelihood Ratio Test}}\label{the-likelihood-ratio-test-1}}
 \addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} The Likelihood Ratio Test}
@@ -7297,6 +7259,8 @@ In Chapter 6, we used contingency tables with only two variables, cell shape and
 \hypertarget{estimating-the-probability-of-malignancy-in-cancer-cells}{%
 \subsection*{\texorpdfstring{\textcolor{blue}{Practice:} Estimating the Probability of Malignancy in Cancer Cells}{ Estimating the Probability of Malignancy in Cancer Cells}}\label{estimating-the-probability-of-malignancy-in-cancer-cells}}
 \addcontentsline{toc}{subsection}{\textcolor{blue}{Practice:} Estimating the Probability of Malignancy in Cancer Cells}
+
+\vspace{-1em}
 
 Data set: \texttt{Cancer2}
 
@@ -7354,10 +7318,36 @@ The G-statistic for this hypothesis test is 527.42 with 3 - 1 = 2 degrees of fre
 
 The coefficients in multiple logistic regression models are discussed in terms of the odds of success. Any coefficient (\(\scriptstyle b_j\)) indicates how the response will change corresponding to the \(\scriptstyle j\)th explanatory variable, conditional on all other explanatory variables in the model. When the \(\scriptstyle j\)th explanatory variable is increased by one unit, the odds of success will be multiplied by \(\scriptstyle e^{b_j}\). When an explanatory variable (\(\scriptstyle x_j\)) is binary, as Concave is, \(\scriptstyle e^{b_j}\) represents the odds ratio between the two groups. However, just as in ordinary least squares regression with multiple explanatory variables, these coefficients are conditional on the other terms in the model.
 
+\hypertarget{interpreting-odds-and-model-coefficients}{%
+\subsection{\texorpdfstring{\textcolor{blue}{Practice:} Interpreting Odds and Model Coefficients}{ Interpreting Odds and Model Coefficients}}\label{interpreting-odds-and-model-coefficients}}
+
+\vspace{-1em}
+
+Data set: \texttt{Cancer2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{16}
+\item
+  Using the logistic model from Question 15, use the odds ratio to interpret the coefficient for concavity.
+\item
+  Create a logistic regression model using Radius and Concave as explanatory variables and considering
+  benign cells a success (1 instead of 0). Use the odds ratio to interpret the coefficient for concavity. Compare this interpretation to the one in Question 17.
+\end{enumerate}
+
 \hypertarget{section-68}{%
 \section{\texorpdfstring{\textcolor{blue}{ The Drop-in-Deviance Test}}{}}\label{section-68}}
 
 Figure 6.7 provides the expected probabilities for the model created in Question 15. The probability of a cell being malignant appears to depend on Radius. In addition, it appears that concavity is an important variable in the model, since concave cells tend to have a higher estimated probability of being malignant. In Chapter 3, variable selection is described as a process of determining which explanatory variables should be included in a regression model. Ideally, we would like the simplest model (i.e., the model with the fewest terms) that best explains the response (i.e., the model that has the smallest residuals). In this example, we want to determine if the model in Question 16 can estimate the probability of malignancy just as accurately as the slightly more complex model in Question 15. If the models have similar abilities to estimate the probability of malignancy, then we will prefer the simpler model.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_7} 
+
+}
+
+\caption{A scatterplot of the observed data and the estimated probabilities for both round cells (Concave = 0) and concave cells (Concave = 1).}\label{fig:fig67}
+\end{figure}
 
 The logic for determining whether additional terms should be in a logistic regression model is essentially the same as for the LRT discussed in connection with the space shuttle study. The log-likelihood (or deviance) can be used to measure how well any model fits the data. If a full model with two explanatory variables, \(\scriptstyle x_1\) and \(\scriptstyle x_2\), has a much better fit than a restricted model with just one explanatory variable, \(\scriptstyle x_1\), we can conclude that \(\scriptstyle x_2\) is significant and should be included in the model.
 
@@ -7373,12 +7363,6 @@ G &= 2 \times \text{log-likelihood (full model)} - 2 * \text{log-likelihood (res
 \end{align}
 
 Just as in the LRT described in connection with the shuttle example, degrees of freedom are calculated as the number of parameters in the full model minus the number of parameters in the restricted model. Thus, we can test whether \texttt{Concave} (\(\scriptstyle x_2\)) should be included in the model by finding the \(\scriptstyle p\)-value, which is the percentage of the \(\scriptstyle \chi^2\) distribution with 3 - 2 = 1 degree of freedom that exceeds \(\scriptstyle G\). The \(\scriptstyle p\)-value corresponding to Equation (6.16) is less than 0.0001. We have strong evidence that the explanatory variable, \texttt{Concave}, is important in the model when \texttt{Radius} is already included. Thus, the logistic regression model in Question 15 is preferred over the model in Question 16.
-
-\begin{figure}
-\centering
-\includegraphics{_main_files/figure-latex/fig66-1.pdf}
-\caption{\label{fig:fig66} A scatterplot of the observed data and estimated probabilities for both round cells (Concave= 0) and concave cells (Concave= 1).}
-\end{figure}
 
 When the LRT is used for variable selection, it is often called the \textbf{change-in-deviance test} or \textbf{drop-in-deviance test}. This test is valid only when the restricted model is nested within the full model. A restricted model is \textbf{nested} in a full model when every explanatory variable in the restricted model is also in the full model.
 
@@ -7410,7 +7394,7 @@ When the LRT is used for variable selection, it is often called the \textbf{chan
 \end{quote}
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE}
+\textbf{MATHEMATICAL NOTE:}
 The drop-in-deviance can also be used to simultaneously test multiple variables. For example, let's assume that there were four Shape measurements (round, slightly concave, moderately concave, and severely concave). These four levels would be used to create three indicator variables. If we are interested in testing whether \texttt{Shape} is important, we should test all three coefficients simultaneously. The steps in testing three coefficients simultaneously are identical to the steps listed above except that instead of just testing for \(\scriptstyle x_j\), we are simultaneously testing for \(\scriptstyle x_2\), \(\scriptstyle x_3\), and \(\scriptstyle x_4\). Then the null hypothesis would be \(\scriptstyle H_0: \ \beta_2 \ =\  \beta_3 \ =\  \beta_4\) = 0, where each of these coefficients corresponds to one \texttt{Shape} indicator variable in the full model.
 \end{quote}
 
@@ -7421,14 +7405,14 @@ analogous to those used in multiple least squares regression will be used to fin
 Just as in least squares regression, there is often no ``best'' multivariate logistic regression model. Different stepwise procedures, sampling variability, the desired balance between the accuracy and the simplicity of the model, and choice of terms tested all can influence the final model that is selected. While there should be careful justification for selecting a final model, caution should be used before stating that any selected model is ``the best.''
 
 \begin{quote}
-\textbf{CAUTION}
+\textbf{CAUTION:}
 Recall that stepwise techniques are useful for developing models if the goal is to estimate or predict a
 response. However, they are not appropriate if the goal of developing a regression model is theory test-
 ing. Stepwise procedures involve multiple testing on the same variables. This leads to unreliable p-values when testing the coefficients of individual explanatory variables. Thus, it is inappropriate to use stepwise procedures to find a good model and then test each coefficient on your final model to determine if the individual explanatory variables are significant.
 \end{quote}
 
 \begin{quote}
-\textbf{NOTE}
+\textbf{NOTE:}
 Some software packages have programs that will automatically suggest a model for logistic regression
 (just as is done for stepwise procedures in least squares regression). While this chapter focuses only on the drop-in-deviance test, there are other techniques that can be used in variable selection.
 \begin{align}
@@ -7494,7 +7478,7 @@ functions.
 
 }
 
-\caption{Minitab output showing measures of association for the space shuttle data.}\label{fig:fig67}
+\caption{Software output showing measures of association for the space shuttle data.}\label{fig:fig68}
 \end{figure}
 
 \hypertarget{section-70}{%
@@ -7653,9 +7637,12 @@ Data set: \texttt{Table\ 6.3}
 Figure 6.9 plots the observed percentages of malignant cells and the corresponding logistic regression model. Notice that the observed and expected probabilities are fairly close. However, the observed percentage of malignant cells was higher than expected when the cell radius was 4.5.
 
 \begin{figure}
-\centering
-\includegraphics{_main_files/figure-latex/fig68-1.pdf}
-\caption{\label{fig:fig68}A logistic regression model, with \(\hat \pi_i\) estimated from Equation (6.8) using maximum likelihood estimates, plotted with the observed probability of malignancy for the grouped data in Table 6.3.}
+
+{\centering \includegraphics[width=1.1\linewidth]{docs/Fig7_9} 
+
+}
+
+\caption{A logistic regression model, with $\hat \pi_i$ estimated from Equation (6.8) using maximum likelihood estimates, plotted with the observed probability of malignancy for the grouped data in Table 6.3.}\label{fig:fig69}
 \end{figure}
 
 \hypertarget{section-72}{%
@@ -7674,7 +7661,7 @@ Using our estimate \(\hat{\pi}_i = \frac{e^{b_0 + b_1 x_i}}{1 + e^{b_0 + b_1 x_i
 Since the variance is not constant, each residual is weighted by its own estimated standard deviation.
 
 \begin{quote}
-\textbf{NOTE} We can calculate the Pearson residual using count data because we know that for any individual radius, \(\scriptstyle x_i\), the response variable, \(\scriptstyle y_i\), follows a binomial distribution with an estimated mean \(\scriptstyle n_i \times \hat\pi_i\) and variance \(\scriptstyle n_i \  \times \  \hat\pi_i \  \times \  (1 \ -\  \hat\pi_i)\).
+\textbf{NOTE:} We can calculate the Pearson residual using count data because we know that for any individual radius, \(\scriptstyle x_i\), the response variable, \(\scriptstyle y_i\), follows a binomial distribution with an estimated mean \(\scriptstyle n_i \times \hat\pi_i\) and variance \(\scriptstyle n_i \  \times \  \hat\pi_i \  \times \  (1 \ -\  \hat\pi_i)\).
 \end{quote}
 
 \hypertarget{evaluating-residuals-in-binomial-logistic-regression}{%
@@ -7739,7 +7726,7 @@ Test 1: The \textbf{Pearson chi‐square goodness‐of‐fit test} is the tradit
 Test 2: The \textbf{deviance goodness‐of‐fit test} (also called the likelihood ratio chi‐square test) is based on the sum of squared deviance residuals. The test statistic follows a chi‐square probability distribution where the degrees of freedom are calculated as the number of groups minus the number of parameters being estimated. The Pearson test statistic and the deviance test statistic tend to be similar. For determining a model, the deviance goodness‐of‐fit test is preferred over the Pearson test.\(^9\)
 
 \begin{quote}
-\textbf{NOTE}\\
+\textbf{NOTE:}\\
 The sum of squared Pearson residuals is equal to the Pearson chi‐square test statistic. When there is one explanatory variable, the likelihood ratio test is equivalent to the deviance goodness‐of‐fit test. The residual deviance and the degrees of freedom given in R are identical to those given in the deviance goodness‐of‐fit test statistic in Minitab.
 \end{quote}
 
@@ -7813,7 +7800,7 @@ using the observed count and expected count from Table 6.4. Note that there are 
 
 Describe differences (if any) between your conclusions here and those from the Pearson test in Question 29.
 
-Figure 6.10 shows the Minitab output for the logistic regression model fit and the three goodness-of-fit tests. All three goodness-of-fit tests show small p-values, indicating that we can reject \(\scriptstyle H_0\) and conclude that the model is \emph{not a good fit}. In addition, the cell counts shown in Question 29 reveal that the sample size is large enough for us to believe the tests are reliable. Thus, other models should be tried. The logistic regression model shown in Figure 6.10 looks reasonable, but there are many possible explanations as to why
+Figure 6.10 shows software output for the logistic regression model fit and the three goodness-of-fit tests. All three goodness-of-fit tests show small p-values, indicating that we can reject \(\scriptstyle H_0\) and conclude that the model is \emph{not a good fit}. In addition, the cell counts shown in Question 29 reveal that the sample size is large enough for us to believe the tests are reliable. Thus, other models should be tried. The logistic regression model shown in Figure 6.10 looks reasonable, but there are many possible explanations as to why
 the data are not considered a good fit:
 
 \begin{itemize}
@@ -7834,7 +7821,7 @@ the data are not considered a good fit:
 
 }
 
-\caption{Software output for the Cancercells study}\label{fig:fig69}
+\caption{Software output for the Cancercells study}\label{fig:fig69b}
 \end{figure}
 
 \begin{itemize}
@@ -7912,6 +7899,10 @@ square is \(\scriptstyle \Delta D^2_i = D^2 \;-\; D^2_{(i)}\), where \(\scriptst
 
 Figure 6.11 shows the delta chi‐square, delta deviance, and delta beta values plotted against the expected probabilities (\(\scriptstyle \hat\pi_i\)). The determination as to whether or not an observation (covariate pattern) is an outlier or overly influential is somewhat subjective. Outliers typically appear as extreme values in the upper corners of the scatterplot. As a rough estimate, \(\scriptstyle \Delta\chi^2\) or \(\scriptstyle \Delta D^2\) greater than 4 and delta beta values greater than 1 may be considered unusual observations. With large sample sizes, \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) approximately follow the chi‐square distribution, and the 95th percentile of the chi‐square distribution with 1 degree of freedom equals 3.84. Figure 6.11 has one covariate pattern that has a fairly large \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) values. It corresponds to the two launches that occurred at 75°F. Notice in Figure 6.11 that a failure at 75°F appears to be somewhat unusual. In this example, the \(\scriptstyle \Delta\chi^2\) and \(\scriptstyle \Delta D^2\) values are not extreme enough to be of major concern (all values are close to or less than 4).
 
+\begin{verbatim}
+## Warning: package 'patchwork' was built under R version 4.5.1
+\end{verbatim}
+
 \begin{figure}
 \centering
 \includegraphics{_main_files/figure-latex/fig610-1.pdf}
@@ -7962,7 +7953,7 @@ Data set: \texttt{Cancer2}
 Maximum likelihood estimation is a fairly complex topic. The goal of this section is simply to provide an example of how to calculate maximum likelihood estimates with binomial data. After completing this section, you should have a better understanding of how the LRT and the deviance test are calculated. However, as stated earlier, maximum likelihood estimates are very computationally intensive and are best left to computer algorithms.
 
 \begin{quote}
-\textbf{MATHEMATICAL NOTE} When the assumptions about the residuals in the least squares regression model described in Section 6.2 are satisfied, the maximum likelihood estimates of \(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\) are identical to the least squares estimates.
+\textbf{MATHEMATICAL NOTE:} When the assumptions about the residuals in the least squares regression model described in Section 6.2 are satisfied, the maximum likelihood estimates of \(\scriptstyle \beta_0\) and \(\scriptstyle \beta_1\) are identical to the least squares estimates.
 \end{quote}
 
 \hypertarget{maximum-likelihood-estimator-for-binary-data}{%
@@ -8297,9 +8288,9 @@ Number of SAG wins
 
 \end{enumerate}
 
-\hypertarget{endnotes-2}{%
-\subsection*{Endnotes}\label{endnotes-2}}
-\addcontentsline{toc}{subsection}{Endnotes}
+\hypertarget{references-5}{%
+\subsection*{References}\label{references-5}}
+\addcontentsline{toc}{subsection}{References}
 
 \begin{enumerate}
 
@@ -10009,8 +10000,8 @@ Consider the time to rearrest data introduced in Section 9.8.
 
 \end{enumerate}
 
-\hypertarget{endnotes-3}{%
-\subsection*{Endnotes}\label{endnotes-3}}
+\hypertarget{endnotes}{%
+\subsection*{Endnotes}\label{endnotes}}
 \addcontentsline{toc}{subsection}{Endnotes}
 
 \begin{enumerate}

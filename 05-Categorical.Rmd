@@ -121,7 +121,7 @@ Similarly, the Type of the cell is called the **column variable**.
 
 Bar graphs are often useful in comparing two categorical variables. Figure 5.1 shows a **segmented bar graph** (also called a stacked bar graph) for the cancer cell data. This graph shows the conditional percentages for each nucleus shape. About 80% of the concave nuclei are malignant, whereas about 45% of the round nuclei are malignant.
 
-```{r fig52, echo=FALSE, out.width="80%", fig.align="center",  fig.cap="Segmented bar graph of nucleus shape and malignancy."}
+```{r fig52, echo=FALSE, out.width="90%", fig.align="center",  fig.cap="Segmented bar graph of nucleus shape and malignancy."}
 knitr::include_graphics("docs/Fig6_2.png")
 ```
 
