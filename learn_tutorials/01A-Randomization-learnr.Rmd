@@ -12,31 +12,40 @@ tutorial_options(exercise.timelimit = 60)
 
 set.seed(2024)
 
-# --- Schistosomiasis worm-count data ---------------------------------------
-# Female group means (12.0 control, 4.4 treatment) match the reported study
-# summary statistics; male values are illustrative data with the same design.
-mice_worms <- tibble(
-  sex   = rep(c("Female", "Male"), each = 10),
-  group = rep(rep(c("Control", "Treatment"), each = 5), times = 2),
-  worms = c(
-    8, 10, 12, 14, 16,   # Female control    (mean 12.0)
-    2, 3, 4, 5, 8,       # Female treatment  (mean 4.4)
-    9, 11, 13, 15, 17,   # Male control
-    4, 5, 6, 7, 9        # Male treatment
-  )
+# The three data sets below are the chapter's Mice, Age, and Music data sets,
+# entered here exactly as they appear in the STA310data files so that the
+# tutorial runs without downloading anything. Data set names and variable
+# names match those used in 01-Randomization.Rmd.
+
+# --- Mice: schistosomiasis worm-count data ----------------------------------
+Mice <- data.frame(
+  Female.Trt = c(1, 2, 2, 10, 7),     # mean  4.4
+  Female.Ctl = c(16, 10, 10, 7, 17),  # mean 12.0
+  Male.Trt   = c(3, 5, 9, 10, 6),
+  Male.Ctl   = c(31, 26, 28, 13, 47)
 )
 
-# --- Age-discrimination layoff data -----------------------------------------
-age_layoffs <- tibble(
-  age      = c(25, 33, 35, 38, 48, 55, 55, 55, 56, 64),
-  laid_off = c(FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE)
+# --- Age: Westvaco age-discrimination layoff data ---------------------------
+Age <- data.frame(
+  age    = c(25, 33, 35, 38, 48, 55, 55, 55, 56, 64),
+  layoff = c("no", "no", "no", "no", "no", "no", "yes", "yes", "no", "yes")
 )
 
-# --- Music / pulse-rate matched-pairs data ----------------------------------
-music_pulse <- tibble(
-  subject = 1:28,
-  diff    = round(rnorm(28, mean = 1.857, sd = 5), 1)  # Fastdiff - Slowdiff
+# --- Music: pulse-rate matched-pairs data -----------------------------------
+Music <- data.frame(
+  Prepulse                = c(72, 66, 70, 58, 65, 62, 72, 54, 69, 59, 63, 63, 60, 55, 56, 70, 75, 45, 72, 66, 62, 76, 56, 61, 79, 72, 70, 56),
+  Slowsong                = c(78, 66, 86, 63, 80, 61, 76, 59, 71, 59, 69, 59, 57, 58, 60, 75, 77, 52, 71, 67, 62, 75, 62, 59, 81, 72, 68, 52),
+  Fastsong                = c(80, 69, 78, 59, 74, 63, 77, 61, 72, 61, 78, 62, 63, 66, 63, 75, 79, 48, 73, 65, 63, 77, 65, 61, 94, 78, 69, 54),
+  Favmusic                = c(1, 3, 3, 2, 3, 2, 2, 3, 4, 3, 1, 3, 4, 3, 4, 3, 3, 4, 3, 3, 3, 3, 2, 1, 3, 2, 2, 3),
+  Slowdiff                = c(6, 0, 16, 5, 15, -1, 4, 5, 2, 0, 6, -4, -3, 3, 4, 5, 2, 7, -1, 1, 0, -1, 6, -2, 2, 0, -2, -4),
+  Fastdiff                = c(8, 3, 8, 1, 9, 1, 5, 7, 3, 2, 15, -1, 3, 11, 7, 5, 4, 3, 1, -1, 1, 1, 9, 0, 15, 6, -1, -2),
+  Fastdiff_Minus_Slowdiff = c(2, 3, -8, -4, -6, 2, 1, 2, 1, 2, 9, 3, 6, 8, 3, 0, 2, -4, 2, -2, 1, 2, 3, 2, 13, 6, 1, 2)
 )
+
+# Long form of the Mice data, used for the table and plot below.
+Mice_long <- Mice %>%
+  pivot_longer(cols = everything(), names_to = "group", values_to = "Number") %>%
+  separate(group, into = c("Gender", "Type"), sep = "\\.")
 ```
 
 ## Introduction
@@ -58,7 +67,7 @@ We begin this chapter by comparing two treatments for a potentially deadly disea
 
 After working through the schistosomiasis investigation, you will have the opportunity to analyze several other data sets using randomization tests, permutation tests, bootstrap methods, and rank-based nonparametric tests.
 
-> **TUTORIAL NOTE:** All data in this tutorial are simulated directly in R — there are no external files to download, so every exercise runs entirely inside this sandbox. The tutorial data frames stand in for the chapter's data sets as follows: `mice_worms` (Mice), `age_layoffs` (Age), and `music_pulse` (Music).
+> **TUTORIAL NOTE:** The chapter's `Mice`, `Age`, and `Music` data sets are already loaded for you — there are no external files to download, so every exercise runs entirely inside this sandbox. The data set names and the variable names are the same ones used in the chapter, and each practice question begins with a `head()` of the relevant data frame so you can see what you are working with.
 
 This is **Part 1A**, covering randomization and permutation tests. Bootstrap methods, rank-based tests, and multiple comparisons are in **Part 1B**.
 
@@ -73,25 +82,21 @@ In this chapter, we will analyze data from this study where the researchers want
 Table 1.1 gives the worm count for each mouse. An individual value plot of the data is shown in Figure 1.1. Notice that the treatment group has fewer worms than the control group for both females and males.
 
 ```{r table1, echo=FALSE}
-mice_worms %>%
-  group_by(sex, group) %>%
-  mutate(mouse = row_number()) %>%
-  ungroup() %>%
-  select(mouse, sex, group, worms) %>%
-  pivot_wider(names_from = c(sex, group), values_from = worms, names_sep = " ") %>%
-  select(-mouse) %>%
+Mice %>%
+  bind_rows(summarize(Mice, across(everything(), mean))) %>%
+  mutate(Mouse = c(as.character(1:nrow(Mice)), "Mean"), .before = 1) %>%
   knitr::kable(caption = "Table 1.1: Worm count data for the schistosomiasis study.")
 ```
 
 ```{r graph1, echo=FALSE, fig.height=3, fig.width=5, fig.cap="Figure 1.1: Individual value plot of the worm count data"}
-ggplot(mice_worms, aes(x = sex, y = worms, fill = group, shape = group)) +
+ggplot(Mice_long, aes(x = Gender, y = Number, fill = Type, shape = Type)) +
   geom_dotplot(
     binaxis = "y", stackdir = "center", stackgroups = TRUE,
     binpositions = "all", position = position_dodge(width = 0.6),
     dotsize = 2, binwidth = 1
   ) +
   labs(x = "Sex", y = "Worm Count", fill = "Type", shape = "Type") +
-  scale_fill_manual(values = c("Treatment" = "lightyellow", "Control" = "blue")) +
+  scale_fill_manual(values = c("Trt" = "lightyellow", "Ctl" = "blue")) +
   theme_minimal()
 ```
 
@@ -102,17 +107,33 @@ There is a difference between individual value plots and dotplots. In dotplots (
 
 **1.** Use Figure 1.1 to visually compare the number of worms for the treatment and control groups for both the male and the female mice. Does each of the four groups appear to have a similar center and a similar spread? Are there any outliers (extreme observations that don’t seem to fit with the rest of the data)?
 
-Recreate Figure 1.1 below, then answer Question 1 from the plot.
+The `Mice` data set stores one column per sex-by-group combination:
+
+```{r q1_head, echo=TRUE}
+head(Mice)
+```
+
+Recreate Figure 1.1 below, then answer Question 1 from the plot. Because the plot needs one row per mouse, the code first reshapes `Mice` into long form and splits the column names (for example, `Female.Trt`) into a `Gender` and a `Type` column.
 
 ```{r sec1_ex2, exercise = TRUE}
-ggplot(mice_worms, aes(x = ___, y = ___, color = ___)) +
+Mice %>%
+  pivot_longer(cols = everything(), names_to = "group", values_to = "Number") %>%
+  separate(group, into = c("Gender", "Type"), sep = "\\.") %>%
+  ggplot(aes(x = ___, y = ___, color = ___)) +
   geom_jitter(width = 0.1, height = 0, size = 3) +
   labs(x = "Sex", y = "Worm count", color = "Group") +
   theme_minimal()
 ```
 
+```{r sec1_ex2-hint}
+# After the reshape, the columns are Gender, Type, and Number.
+```
+
 ```{r sec1_ex2-solution}
-ggplot(mice_worms, aes(x = sex, y = worms, color = group)) +
+Mice %>%
+  pivot_longer(cols = everything(), names_to = "group", values_to = "Number") %>%
+  separate(group, into = c("Gender", "Type"), sep = "\\.") %>%
+  ggplot(aes(x = Gender, y = Number, color = Type)) +
   geom_jitter(width = 0.1, height = 0, size = 3) +
   labs(x = "Sex", y = "Worm count", color = "Group") +
   theme_minimal()
@@ -120,8 +141,14 @@ ggplot(mice_worms, aes(x = sex, y = worms, color = group)) +
 
 **2.** Calculate appropriate summary statistics (e.g., the median, mean, standard deviation, and range) for each of the four groups. For the female mice, calculate the difference between the treatment and control group means. Do the same for the male mice.
 
+```{r q2_head, echo=TRUE}
+head(Mice)
+```
+
 ```{r sec1_ex1, exercise = TRUE}
-mice_worms %>%
+Mice %>%
+  pivot_longer(cols = everything(), names_to = "group", values_to = "Number") %>%
+  separate(group, into = c("Gender", "Type"), sep = "\\.") %>%
   group_by(___, ___) %>%
   summarize(
     mean_worms   = ___,
@@ -134,19 +161,21 @@ mice_worms %>%
 ```
 
 ```{r sec1_ex1-hint}
-# group_by() takes the two grouping columns; summarize() takes one
-# expression per summary statistic, e.g. mean(worms), sd(worms), ...
+# group_by() takes the two grouping columns, Gender and Type; summarize()
+# takes one expression per summary statistic, e.g. mean(Number), sd(Number), ...
 ```
 
 ```{r sec1_ex1-solution}
-mice_worms %>%
-  group_by(sex, group) %>%
+Mice %>%
+  pivot_longer(cols = everything(), names_to = "group", values_to = "Number") %>%
+  separate(group, into = c("Gender", "Type"), sep = "\\.") %>%
+  group_by(Gender, Type) %>%
   summarize(
-    mean_worms   = mean(worms),
-    sd_worms     = sd(worms),
-    median_worms = median(worms),
-    min_worms    = min(worms),
-    max_worms    = max(worms),
+    mean_worms   = mean(Number),
+    sd_worms     = sd(Number),
+    median_worms = median(Number),
+    min_worms    = min(Number),
+    max_worms    = max(Number),
     .groups = "drop"
   )
 ```
@@ -229,10 +258,12 @@ Alternative hypotheses can be “one-sided, greater than” (as in this investig
 knitr::include_graphics("images/Fig1_CT.png")
 ```
 
+```{r q3_head, echo=TRUE}
+head(Mice)
+```
+
 ```{r sec2_ex1, exercise = TRUE}
-female_worms <- mice_worms %>%
-  filter(sex == "Female") %>%
-  pull(worms)
+female_worms <- c(Mice$Female.Trt, Mice$Female.Ctl)
 
 set.seed(1)
 shuffled <- ___(female_worms)      # randomly shuffle the 10 counts
@@ -249,9 +280,7 @@ sim_diff
 ```
 
 ```{r sec2_ex1-solution}
-female_worms <- mice_worms %>%
-  filter(sex == "Female") %>%
-  pull(worms)
+female_worms <- c(Mice$Female.Trt, Mice$Female.Ctl)
 
 set.seed(1)
 shuffled <- sample(female_worms)
@@ -265,9 +294,21 @@ sim_diff
 
 **4.** If you were to do another random allocation, would you get the same difference in means? Explain.
 
+```{r q4_head, echo=TRUE}
+head(Mice)
+```
+
 **5.** Now, perform nine more random allocations, each time computing and writing down the difference in mean worm count between the control group and the treatment group. Make a dotplot of the 10 differences. What proportion of these differences are 7.6 or larger?
 
+```{r q5_head, echo=TRUE}
+head(Mice)
+```
+
 **6.** If you performed the simulation many times, would you expect a large percentage of the simulations to result in a mean difference greater than 7.6? Explain.
+
+```{r q6_head, echo=TRUE}
+head(Mice)
+```
 
 ```{r sec2-quiz}
 quiz(
@@ -309,12 +350,24 @@ While physical simulations (such as the index cards activity) help us understand
 
 **7.** Use the technology instructions with this text to insert the schistosomiasis data into a statistical software package and randomly allocate each of the 10 female worm counts to either the treatment or the control group.
 
+```{r q7_head, echo=TRUE}
+head(Mice)
+```
+
 **8.** Take the control group average minus the K11777 treatment group average.
+
+```{r q8_head, echo=TRUE}
+head(Mice)
+```
 
 **9.** Use the instructions to write a program, function, or macro to repeat the process 10,000 times. Count the number of simulations where the difference between the group averages (control minus K11777) is greater than or equal to 7.6, divide that count by 10,000, and report the resulting empirical $p$-value.
 
+```{r q9_head, echo=TRUE}
+head(Mice)
+```
+
 ```{r sec3_ex1, exercise = TRUE}
-female_worms  <- mice_worms %>% filter(sex == "Female") %>% pull(worms)
+female_worms  <- c(Mice$Female.Trt, Mice$Female.Ctl)
 observed_diff <- 12.00 - 4.40   # control mean - treatment mean
 
 set.seed(42)
@@ -333,7 +386,7 @@ p_value
 ```
 
 ```{r sec3_ex1-solution}
-female_worms  <- mice_worms %>% filter(sex == "Female") %>% pull(worms)
+female_worms  <- c(Mice$Female.Trt, Mice$Female.Ctl)
 observed_diff <- 12.00 - 4.40
 
 set.seed(42)
@@ -348,9 +401,13 @@ p_value
 
 **10.** Create a histogram of the 10,000 simulated differences between group means and comment on the shape of the histogram. This histogram, created from simulations of a randomization test, is called an empirical randomization distribution. This distribution describes the frequency of each observed difference (between the control and treatment means) when the null hypothesis is true.
 
+```{r q10_head, echo=TRUE}
+head(Mice)
+```
+
 ```{r sec3_ex2, exercise = TRUE}
 set.seed(42)
-female_worms <- mice_worms %>% filter(sex == "Female") %>% pull(worms)
+female_worms <- c(Mice$Female.Trt, Mice$Female.Ctl)
 null_diffs <- replicate(10000, {
   shuffled <- sample(female_worms)
   mean(shuffled[6:10]) - mean(shuffled[1:5])
@@ -365,7 +422,7 @@ ggplot(tibble(diff = null_diffs), aes(x = ___)) +
 
 ```{r sec3_ex2-solution}
 set.seed(42)
-female_worms <- mice_worms %>% filter(sex == "Female") %>% pull(worms)
+female_worms <- c(Mice$Female.Trt, Mice$Female.Ctl)
 null_diffs <- replicate(10000, {
   shuffled <- sample(female_worms)
   mean(shuffled[6:10]) - mean(shuffled[1:5])
@@ -380,7 +437,15 @@ ggplot(tibble(diff = null_diffs), aes(x = diff)) +
 
 **11.** Based on your results in Questions 9 and 10 and assuming the null hypothesis is true, about how frequently do you think you would obtain a mean difference as large as or larger than 7.6 by random allocation alone?
 
+```{r q11_head, echo=TRUE}
+head(Mice)
+```
+
 **12.** Does your answer to Question 11 lead you to believe the “chance alone” position (i.e., the null hypothesis that the mean worm count is the same for both the treatment and the control), or does it lead you to believe that K11777 has a positive inhibitory effect on the schistosome worm in female mice? Explain.
+
+```{r q12_head, echo=TRUE}
+head(Mice)
+```
 
 ```{r sec3-quiz}
 quiz(
@@ -434,8 +499,12 @@ two-sided case, extreme encompasses both directions. In the K11777 example, we o
 
 **13.** Run the simulation study again to find the empirical $p$-value for a two-sided hypothesis test to determine if there is a difference between the treatment and control group means for female mice.
 
+```{r q13_head, echo=TRUE}
+head(Mice)
+```
+
 ```{r sec4_ex1, exercise = TRUE}
-female_worms  <- mice_worms %>% filter(sex == "Female") %>% pull(worms)
+female_worms  <- c(Mice$Female.Trt, Mice$Female.Ctl)
 observed_diff <- 12.00 - 4.40
 
 set.seed(42)
@@ -454,7 +523,7 @@ p_two_sided
 ```
 
 ```{r sec4_ex1-solution}
-female_worms  <- mice_worms %>% filter(sex == "Female") %>% pull(worms)
+female_worms  <- c(Mice$Female.Trt, Mice$Female.Ctl)
 observed_diff <- 12.00 - 4.40
 
 set.seed(42)
@@ -469,9 +538,21 @@ p_two_sided
 
 **14.** Is the number of simulations resulting in a difference greater than or equal to 7.6 identical to the number of simulations resulting in a difference less than or equal to -7.6? Explain why these two values are likely to be close but not identical.
 
+```{r q14_head, echo=TRUE}
+head(Mice)
+```
+
 **15.** Explain why you expect the $p$-value for the two-sided alternative to be about double that for the one-sided alternative. Hint: You may want to look at Figure 1.2.
 
+```{r q15_head, echo=TRUE}
+head(Mice)
+```
+
 **16.** Using the two-sided alternative hypothesis, the two-sample t-test provides a $p$-value of 0.022.^[When we do not assume equal variances Minitab uses 7 degrees of freedom providing a $p$-value of 0.022 while R uses 7.929 degrees of freedom resulting in a $p$-value of 0.0194.] This $p$-value would provide strong evidence for rejecting the assumption that there is no difference between the treatment and the control (null hypothesis). However, this $p$-value should not be used to draw conclusions about this study. Explain why.
+
+```{r q16_head, echo=TRUE}
+head(Mice)
+```
 
 ```{r sec4-quiz}
 question(
@@ -520,21 +601,22 @@ knitr::include_graphics("images/Fig1_3.png")
 
 Data set: `Age`
 
-**17.** Conduct a permutation test to determine whether the observed difference between means is likely to occur just by chance. Use `Age` as the response variable and `Layoff` as the explanatory variable. Here we are interested in only a one-sided hypothesis test to determine if the mean age of people who were laid off is higher than the mean age of people who were not laid off.
+**17.** Conduct a permutation test to determine whether the observed difference between means is likely to occur just by chance. Use `age` as the response variable and `layoff` as the explanatory variable. Here we are interested in only a one-sided hypothesis test to determine if the mean age of people who were laid off is higher than the mean age of people who were not laid off.
+
+```{r q17_head, echo=TRUE}
+head(Age)
+```
 
 ```{r sec5_ex1, exercise = TRUE}
-observed_diff <- age_layoffs %>%
-  group_by(laid_off) %>%
-  summarize(mean_age = mean(age)) %>%
-  pull(mean_age) %>%
-  diff()   # TRUE mean - FALSE mean
+observed_diff <- mean(Age$age[Age$layoff == "yes"]) -
+                 mean(Age$age[Age$layoff == "no"])
 
-ages <- age_layoffs %>% pull(age)
+ages <- Age$age
 
 set.seed(7)
 null_diffs <- replicate(10000, {
-  shuffled_labels <- ___(age_layoffs$laid_off)
-  mean(ages[shuffled_labels]) - mean(ages[!shuffled_labels])
+  shuffled_labels <- ___(Age$layoff)
+  mean(ages[shuffled_labels == "yes"]) - mean(ages[shuffled_labels == "no"])
 })
 
 p_value <- mean(null_diffs >= observed_diff)
@@ -542,23 +624,20 @@ p_value
 ```
 
 ```{r sec5_ex1-hint}
-# Shuffle the *labels*, not the ages: sample(age_layoffs$laid_off)
-# keeps the same three TRUEs and seven FALSEs, just reassigned at random.
+# Shuffle the *labels*, not the ages: sample(Age$layoff) keeps the same
+# three "yes" and seven "no" values, just reassigned at random.
 ```
 
 ```{r sec5_ex1-solution}
-observed_diff <- age_layoffs %>%
-  group_by(laid_off) %>%
-  summarize(mean_age = mean(age)) %>%
-  pull(mean_age) %>%
-  diff()
+observed_diff <- mean(Age$age[Age$layoff == "yes"]) -
+                 mean(Age$age[Age$layoff == "no"])
 
-ages <- age_layoffs %>% pull(age)
+ages <- Age$age
 
 set.seed(7)
 null_diffs <- replicate(10000, {
-  shuffled_labels <- sample(age_layoffs$laid_off)
-  mean(ages[shuffled_labels]) - mean(ages[!shuffled_labels])
+  shuffled_labels <- sample(Age$layoff)
+  mean(ages[shuffled_labels == "yes"]) - mean(ages[shuffled_labels == "no"])
 })
 
 p_value <- mean(null_diffs >= observed_diff)
@@ -566,6 +645,10 @@ p_value
 ```
 
 **18.** Modify the program/macro you created in Question 17 to conduct a one-sided hypothesis test to determine if the median age of people who were laid off is higher than the median age of people who were not laid off. Report the $p$-value and compare your results to those in Question 17.
+
+```{r q18_head, echo=TRUE}
+head(Age)
+```
 
 ```{r sec5-quiz}
 quiz(
@@ -629,19 +712,27 @@ Data set: `Music`
 
 **19.** Before they looked at the data, Anne and Anna decided to use a one-sided test to see whether fast music increased pulse rate more than slow music. Why is it important to determine the direction of the test before looking at the data?
 
+```{r q19_head, echo=TRUE}
+head(Music)
+```
+
 **20.** Create a simulation to test the Music data. Use the technology instructions provided to randomly multiply a 1 or a -1 by each observed difference. This randomly assigns an order (`Fastdiff - Slowdiff` or `Slowdiff - Fastdiff`). Then, for each iteration, calculate the mean difference. The $p$-value is the proportion of times your simulation found a mean difference greater than or equal to 1.857.
 
   a. Create a histogram of the mean differences. Mark the area on the histogram that represents your $p$-value.
 
   b. Use the $p$-value to state your conclusions in the context of the problem. Address random allocation and random sampling (or lack of either) when stating your conclusions.
 
+```{r q20_head, echo=TRUE}
+head(Music)
+```
+
 ```{r sec6_ex1, exercise = TRUE}
-observed_mean_diff <- mean(music_pulse$diff)
+observed_mean_diff <- mean(Music$Fastdiff_Minus_Slowdiff)
 
 set.seed(11)
 null_means <- replicate(10000, {
-  signs <- sample(c(-1, 1), size = nrow(music_pulse), replace = TRUE)
-  mean(music_pulse$diff * ___)
+  signs <- sample(c(-1, 1), size = nrow(Music), replace = TRUE)
+  mean(Music$Fastdiff_Minus_Slowdiff * ___)
 })
 
 p_value <- mean(null_means >= observed_mean_diff)
@@ -649,16 +740,17 @@ p_value
 ```
 
 ```{r sec6_ex1-hint}
-# Multiply each subject's diff by its randomly chosen sign: diff * signs
+# Multiply each subject's difference by its randomly chosen sign:
+# Music$Fastdiff_Minus_Slowdiff * signs
 ```
 
 ```{r sec6_ex1-solution}
-observed_mean_diff <- mean(music_pulse$diff)
+observed_mean_diff <- mean(Music$Fastdiff_Minus_Slowdiff)
 
 set.seed(11)
 null_means <- replicate(10000, {
-  signs <- sample(c(-1, 1), size = nrow(music_pulse), replace = TRUE)
-  mean(music_pulse$diff * signs)
+  signs <- sample(c(-1, 1), size = nrow(Music), replace = TRUE)
+  mean(Music$Fastdiff_Minus_Slowdiff * signs)
 })
 
 p_value <- mean(null_means >= observed_mean_diff)
